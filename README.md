@@ -7,3 +7,4 @@ Team Gold - Spring 2022
 - gfeli21 - Gil Feliciano - gfeli001@odu.edu
 - brett-odu - Brett Warren - bwarr011@odu.edu
 - csgame001 - Gabriela Gamez - ggame001@odu.edu
+- eothe001 - Ethan Othersen - eothe001@odu.edu
