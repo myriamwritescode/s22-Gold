@@ -9,7 +9,7 @@ File:       hello_gold_team.py
 
 
 def main():
-    gold_team = ["Brett"]
+    gold_team = ["Brett", "Gabi"]
 
     for name in gold_team:
         print(f'Hello, welcome back ' + name + '!')
