@@ -9,3 +9,4 @@ Team Gold - Spring 2022
 - csgame001 - Gabriela Gamez - ggame001@odu.edu
 - eothe001 - Ethan Othersen - eothe001@odu.edu
 - cameronbrader97 - Cameron Brader - cbrad007@odu.edu
+- qfraz001 - Quentin Frazier -qfraz001@odu.edu
