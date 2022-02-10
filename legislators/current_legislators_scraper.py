@@ -21,11 +21,12 @@ To execute, run
 
 import requests
 
+
 def main():
     # open files
-    current_csv = open("current_legislators.csv", "w")
-    current_yaml = open("current_legislators.yaml", "w")
-    current_json = open("current_legislators.json", "w")
+    current_csv = open("current_legislators.csv", "w", encoding="utf-8")
+    current_yaml = open("current_legislators.yaml", "w", encoding="utf-8")
+    current_json = open("current_legislators.json", "w", encoding="utf-8")
 
     files = [current_csv, current_yaml, current_json]
 
