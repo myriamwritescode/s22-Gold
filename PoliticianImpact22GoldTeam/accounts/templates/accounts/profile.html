@@ -1,0 +1,116 @@
+{%  extends 'accounts/main.html' %}
+{% block content %}
+
+<script src="https://cdn.zingchart.com/zingchart.min.js"></script> <!-- this just let our page know that we are going to use Zing chart command-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- we need this for the graph-->
+<br>
+
+<div class="row">
+		<div class="col-md-7">
+			<h1>Welcome Back!</h1>
+	</div>
+
+	<div class="col-md">
+	</div>
+	<div class="col-md">
+	
+		<div class="card card-body">
+			<h5>My Relevant Information</h5>
+			<hr>
+			<a class="btn btn-danger btn-sm btn-block" href="{% url 'account' %}">Update  </a>
+			<a class="btn btn-success  btn-sm btn-block" href="{% url 'user-compare' %}">Compare </a> 
+		</div>
+	</div>
+</div>
+
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+			
+
+		    <div id="myChart"></div><!-- this so that Zing know where to put the chart-->
+		  </form>
+		</div>
+	</div>
+	
+</div>
+<br>
+
+
+<!-- Javascript for the Zing chart-->
+<!-- Just before the closing body tag is best -->
+<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+<script>
+
+	// hard coding the table no data collected  or database set up
+	var state ={	
+		'items':[
+		"Agriculture & Food ",
+		"Armed Forces & National Security ",
+		"Crime & Law Enforcement ",
+		"Civil Rights & Liberties, Minority Issues",
+		"Economics & Public Finance ",
+		"Education",
+		"Emergency Management ",
+		"Environmental Protection ",
+		"Government Operations & Politics ",
+		"Health",
+		"Immigration ",
+		"Labor & Employment",
+		"Science, Technology, Communications",
+		"Social Welfare",
+		"Taxation",
+		"Transportation & Public Works",
+		],
+		
+		'values':[
+		25,
+		75,
+		15,
+		50,
+		5,
+		2,
+		25,
+		80,
+		10,
+		90,
+		45,
+		25,
+		63,
+		1,
+		75,
+		85],
+	}
+
+	
+	//-----------------------------only build it if a fuction get call
+	
+			//-----------------------------------------setting the data
+			var chartData = {
+			"type":"bar",//type of graph you want 
+			
+			"scale-x":{
+				"values":state.items// x value for the chat data
+			},
+			"series":[
+				{					
+					"values":state.values// this the actual data or y value
+				}
+			]
+		}
+
+     //-------------------------  render the the chart data onto line 14
+		zingchart.render({
+		  id: "myChart",
+		  data: chartData,
+		});
+	
+
+</script>
+
+
+{% endblock content %}

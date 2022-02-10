@@ -1,0 +1,157 @@
+{%  extends 'accounts/main.html' %}
+{% block content %}
+
+<script src="https://cdn.zingchart.com/zingchart.min.js"></script> <!-- this just let our page know that we are going to use Zing chart command-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- we need this for the graph-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<br>
+
+<div class="row">
+		<div class="col-md-7">
+			<h1>My Elected Official and I</h1>
+	</div>
+	<div class="col-md">
+	</div>
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Elected Official</h5>
+			<canvas id="myChartdonut" style="width:70%;max-width:300px"></canvas> <!--Edit with the correct percentage-->
+			<hr>
+			<a class="btn btn-danger btn-sm btn-block" href="{% url 'user-learn-more' %}">Learn More</a>
+			<a class="btn btn-success  btn-sm btn-block" href="">Compare </a> 
+		</div>
+	</div>
+
+</div>
+
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+			
+
+		    <div id="myChart"></div><!-- this so that Zing know where to put the chart-->
+		  </form>
+		</div>
+	</div>
+	
+</div>
+<br>
+
+
+<!-- Javascript for the Zing chart-->
+<!-- Just before the closing body tag is best -->
+<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+<script>
+
+	// hard coding the table no data collected  or database set up
+	var state ={	
+		'items':[
+		"Agriculture & Food ",
+		"Armed Forces & National Security ",
+		"Crime & Law Enforcement ",
+		"Civil Rights & Liberties, Minority Issues",
+		"Economics & Public Finance ",
+		"Education",
+		"Emergency Management ",
+		"Environmental Protection ",
+		"Government Operations & Politics ",
+		"Health",
+		"Immigration ",
+		"Labor & Employment",
+		"Science, Technology, Communications",
+		"Social Welfare",
+		"Taxation",
+		"Transportation & Public Works",
+		],
+		
+		'values':[
+		25,
+		75,
+		15,
+		50,
+		5,
+		2,
+		25,
+		80,
+		10,
+		90,
+		45,
+		25,
+		63,
+		1,
+		75,
+		85],
+		'values2':[
+		5,
+		75,
+		5,
+		5,
+		15,
+		2,
+		25,
+		80,
+		10,
+		90,
+		45,
+		25,
+		63,
+		1,
+		25,
+		25],
+	}
+
+	
+	//-----------------------------only build it if a fuction get call
+	
+			//-----------------------------------------setting the data
+			var chartData = {
+			"type":"bar",//type of graph you want 
+			
+			"scale-x":{
+				"values":state.items// x value for the chat data
+			},
+			"series":[
+				{					
+					"values":state.values// this the actual data or y value
+				},
+				{					
+					"values":state.values2// this the actual data or y value
+				}
+			]
+		}
+
+     //-------------------------  render the the chart data onto line 14
+		zingchart.render({
+		  id: "myChart",
+		  data: chartData,
+		});
+		
+		var xValues = ["match", "notmatch"];
+		var yValues = [85, 15];
+		var barColors = ["#00aba9", "#b91d47"];
+
+		new Chart("myChartdonut", {
+  						type: "doughnut",
+  						data: {
+										labels: xValues,
+										datasets: [{
+														backgroundColor: barColors,
+														data: yValues
+															}]
+  												},
+							options: {
+											title: {
+															display: true,
+															text: "Value score"
+													}
+												}
+								});
+</script>
+
+
+{% endblock content %}
