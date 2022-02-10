@@ -1,0 +1,105 @@
+{%  extends 'accounts/main.html' %}
+{% block content %}
+{% load static %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<style>
+	.container {
+		position: relative;
+		text-align: center;
+		color: black;
+		font-weight: 900;
+		font-size: 28px;
+	}
+	.centered {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	</style>
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<a href="{% url 'account' %}"> <!--this just an example need to be modify-->
+		<div class="container">
+			<img src="/static/images/folder.png"  style="width:80%;">
+			<div class="centered">Bio</div>
+		</div></a>
+
+	</div>
+
+	<div class="col-md">
+		<a href="">
+			<div class="container">
+				<img src="/static/images/folder.png"  style="width:80%;">
+				<div class="centered">Votes</div>
+			</div></a>
+	
+	</div>
+
+	<div class="col-md">
+		<br><br>
+		<div class="card card-body">
+			<h5>Name of Elected Offical</h5>
+			<hr>
+			<canvas id="myChartdonut" style="width:90%;max-width:500px"></canvas>
+		</div>	
+	</div>
+</div>
+<div class="row">
+	<div class="col-md">
+		<a href="">
+			<div class="container">
+				<img src="/static/images/folder.png"  style="width:80%">
+				<div class="centered">Position</div>
+			</div></a>	
+	</div>
+	<div class="col-md">
+		<a href="">
+		<div class="container">
+			<img src="/static/images/folder.png"  style="width:80%">
+			<div class="centered">Funding</div>
+		</div></a>
+	</div>
+
+	<div class="col-md">
+		<a href="">
+			<div class="container">
+				<img src="/static/images/folder.png"  style="width:80%">
+				<div class="centered">Service Score</div>
+			</div></a>
+	</div>
+
+
+</div>
+<a class="btn btn-warning" href="{% url 'user-value' %}"> &#8592; Back to Value</a>
+
+
+<script>	
+	var xValues = ["match", "notmatch"];
+		var yValues = [85, 15];
+		var barColors = ["#00aba9", "#b91d47"];
+
+		new Chart("myChartdonut", {
+  						type: "doughnut",
+  						data: {
+										labels: xValues,
+										datasets: [{
+														backgroundColor: barColors,
+														data: yValues
+															}]
+  												},
+							options: {
+											title: {
+															display: true,
+															text: "Value score"
+													}
+												}
+								});
+	</script>
+
+
+
+
+{% endblock content %}
