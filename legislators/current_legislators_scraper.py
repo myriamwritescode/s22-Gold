@@ -21,6 +21,7 @@ To execute, run
 
 import requests
 
+
 def main():
     # open files
     current_csv = open("current_legislators.csv", "w")
