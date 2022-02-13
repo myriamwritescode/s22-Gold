@@ -1,0 +1,41 @@
+{
+  "elections": [
+    {
+      "id": "2000",
+      "name": "VIP Test Election",
+      "electionDay": "2025-06-06",
+      "ocdDivisionId": "ocd-division/country:us"
+    },
+    {
+      "id": "7169",
+      "name": "California Special Election",
+      "electionDay": "2022-02-15",
+      "ocdDivisionId": "ocd-division/country:us/state:ca"
+    },
+    {
+      "id": "7170",
+      "name": "Wisconsin Spring Primary Election",
+      "electionDay": "2022-02-15",
+      "ocdDivisionId": "ocd-division/country:us/state:wi"
+    },
+    {
+      "id": "7172",
+      "name": "Michigan Special Election",
+      "electionDay": "2022-03-01",
+      "ocdDivisionId": "ocd-division/country:us/state:mi"
+    },
+    {
+      "id": "7174",
+      "name": "Texas Democratic Primary Election",
+      "electionDay": "2022-03-01",
+      "ocdDivisionId": "ocd-division/country:us/state:tx"
+    },
+    {
+      "id": "7175",
+      "name": "Texas Republican Primary Election",
+      "electionDay": "2022-03-01",
+      "ocdDivisionId": "ocd-division/country:us/state:tx"
+    }
+  ],
+  "kind": "civicinfo#electionsQueryResponse"
+}
