@@ -21,7 +21,8 @@ import json
 
 file = open("test_reps_by_address.json", "w", encoding="utf-8")
 
-url = "https://www.googleapis.com/civicinfo/v2/elections?key=AIzaSyA2yJqqdsAUV33ryKp50gq5Njs4UC6o3bc"
+url = "https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=5102%20BALLYCASTLE%20CIR&includeOffices=true&levels=country&roles=legislatorUpperBody&key=AIzaSyA2yJqqdsAUV33ryKp50gq5Njs4UC6o3bc "
+
 
 response = requests.get(url).text
 
