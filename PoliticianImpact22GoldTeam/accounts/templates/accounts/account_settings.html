@@ -9,6 +9,26 @@
 		margin: 0 auto;
 		border-radius: 50%;
 	}
+	.rangeslider{
+    	width: 50%;
+	}
+	.myslider {
+    	-webkit-appearance: none;
+    	background: #FCF3CF  ;
+    	width: 50%;
+    	height: 20px;
+    	opacity: 2;
+   }
+	.myslider::-webkit-slider-thumb {
+    	-webkit-appearance: none;
+    	cursor: pointer;
+    	background: #34495E  ;
+    	width: 5%;
+    	height: 20px;
+	}
+	.myslider:hover {
+    	opacity: 1;
+	}
 </style>
 
 <br>
@@ -37,6 +57,153 @@
 				<hr>
 			<input class="btn btn-success" type="submit" name="Update Information">
 			</form>
+		</div>
+		<div class="card card-body">
+			<h2>Value Scores</h2><hr>
+
+			<h5>Agriculture & Food</h5>
+			<div>
+  				<div class="rangeslider">
+    				<input type="range" min="0" max="100" value="10" class="myslider" id="sliderRange1">
+    				<p>Value: <span id="demo1"></span></p>
+  				</div>
+    
+  				<script>
+  					var rangeslider = document.getElementById("sliderRange1");
+  					var output = document.getElementById("demo1");
+  					output.innerHTML = rangeslider.value;
+    
+  					rangeslider.oninput = function() {
+    				output.innerHTML = this.value;
+  				}
+  				</script>
+			</div>
+
+			<h5>Crime & Law Enforcement</h5>
+			<div>
+  				<div class="rangeslider">
+    				<input type="range" min="0" max="100" value="10" class="myslider" id="sliderRange2">
+    				<p>Value: <span id="demo2"></span></p>
+  				</div>
+    
+  				<script>
+ 					var rangeslider = document.getElementById("sliderRange2");
+  					var output = document.getElementById("demo2");
+  					output.innerHTML = rangeslider.value;
+    
+  					rangeslider.oninput = function() {
+   					output.innerHTML = this.value;
+  					}
+  				</script>
+			</div>
+
+			<h5>Economics & Public Finance</h5>
+			<div>
+  				<div class="rangeslider">
+    				<input type="range" min="0" max="100" value="10" class="myslider" id="sliderRange3">
+    				<p>Value: <span id="demo3"></span></p>
+  				</div>
+    
+  				<script>
+ 					var rangeslider = document.getElementById("sliderRange3");
+  					var output = document.getElementById("demo3");
+  					output.innerHTML = rangeslider.value;
+    
+  					rangeslider.oninput = function() {
+   					output.innerHTML = this.value;
+  					}
+  				</script>
+			</div>
+
+			<h5>Emergency Management</h5>
+			<div>
+  				<div class="rangeslider">
+    				<input type="range" min="0" max="100" value="10" class="myslider" id="sliderRange4">
+    				<p>Value: <span id="demo4"></span></p>
+  				</div>
+    
+  				<script>
+ 					var rangeslider = document.getElementById("sliderRange4");
+  					var output = document.getElementById("demo4");
+  					output.innerHTML = rangeslider.value;
+    
+  					rangeslider.oninput = function() {
+   					output.innerHTML = this.value;
+  					}
+  				</script>
+			</div>
+
+			<h5>Government Operations & Politics</h5>
+			<div>
+  				<div class="rangeslider">
+    				<input type="range" min="0" max="100" value="10" class="myslider" id="sliderRange5">
+    				<p>Value: <span id="demo5"></span></p>
+  				</div>
+    
+  				<script>
+ 					var rangeslider = document.getElementById("sliderRange5");
+  					var output = document.getElementById("demo5");
+  					output.innerHTML = rangeslider.value;
+    
+  					rangeslider.oninput = function() {
+   					output.innerHTML = this.value;
+  					}
+  				</script>
+			</div>
+
+			<h5>Immigration</h5>
+			<div>
+  				<div class="rangeslider">
+    				<input type="range" min="0" max="100" value="10" class="myslider" id="sliderRange6">
+    				<p>Value: <span id="demo6"></span></p>
+  				</div>
+    
+  				<script>
+ 					var rangeslider = document.getElementById("sliderRange6");
+  					var output = document.getElementById("demo6");
+  					output.innerHTML = rangeslider.value;
+    
+  					rangeslider.oninput = function() {
+   					output.innerHTML = this.value;
+  					}
+  				</script>
+			</div>
+
+			<h5>Science, Technology, Communications</h5>
+			<div>
+  				<div class="rangeslider">
+    				<input type="range" min="0" max="100" value="10" class="myslider" id="sliderRange7">
+    				<p>Value: <span id="demo7"></span></p>
+  				</div>
+    
+  				<script>
+ 					var rangeslider = document.getElementById("sliderRange7");
+  					var output = document.getElementById("demo7");
+  					output.innerHTML = rangeslider.value;
+    
+  					rangeslider.oninput = function() {
+   					output.innerHTML = this.value;
+  					}
+  				</script>
+			</div>
+
+			<h5>Transporation & Public Works</h5>
+			<div>
+  				<div class="rangeslider">
+    				<input type="range" min="0" max="100" value="10" class="myslider" id="sliderRange8">
+    				<p>Value: <span id="demo8"></span></p>
+  				</div>
+    
+  				<script>
+ 					var rangeslider = document.getElementById("sliderRange8");
+  					var output = document.getElementById("demo8");
+  					output.innerHTML = rangeslider.value;
+    
+  					rangeslider.oninput = function() {
+   					output.innerHTML = this.value;
+  					}
+  				</script>
+			</div>
 		</div>
 	</div>
 </div>
