@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 # First connect to MySQL and create Database
 import mysql.connector as mysql
 from mysql.connector import Error

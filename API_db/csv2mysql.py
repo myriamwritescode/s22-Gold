@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 from typing import Any
 import mysql.connector as mysql
 from mysql.connector import Error
