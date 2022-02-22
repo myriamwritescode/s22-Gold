@@ -1,0 +1,81 @@
+
+version: '3'
+
+networks:
+  frontend:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+
+services:
+    #web:
+      #  image: nginx:latest
+     #  networks:
+      #   frontend:
+      #   ipv4_address: 172.20.0.6
+       # container_name: APIwebserver
+       # ports:
+       #     - "80:80"
+       # volumes:
+       #    - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
+        #   - ./app:/app
+       # links:
+       #     - APIphpserver
+    #APIphpserver:
+        #build:
+       #     context: .
+        #    dockerfile: PHP.Dockerfile
+       # networks:
+       #   frontend:
+        #  ipv4_address: 172.20.0.4
+        # container_name: APIphpserver
+       #  volumes:
+        #    - ./app:/app
+       #  links:
+         #   - rep_db_server
+    rep_db_server:
+        build:
+            context: .
+            dockerfile: MYSQL.Dockerfile
+        networks:
+          frontend:
+           ipv4_address: 172.20.0.7
+        container_name:  rep_db_server   
+        environment:
+            MYSQL_ROOT_PASSWORD: 'secret'
+            MYSQL_USER: 'user'
+            MYSQL_PASSWORD: 'secret'
+            MYSQL_DATABASE: 'repdatabase'
+        volumes:
+            - ./repDB:/var/lib/RepDB
+        ports:
+            - 3306:3306
+volumes:
+    repDB:
+    app:
+
+
+#version: "3.9"
+   
+#services:
+ # Rep_db:
+  #  volumes:
+   #   - ./data/APIdb:/data
+    #image: mysql:8.0
+    #ports:
+     # - '3306:3306'
+    #environment:
+     #  MYSQL_DATABASE: 'APIdb'
+      # MYSQL_USER: 'root'
+       #MYSQL_PASSWORD: 'password'
+       #MYSQL_ROOT_PASSWORD: 'password'
+  
+  #web:
+   # build: .
+    #command: python manage.py runserver 0.0.0.0:8000
+    #volumes:
+     # - .:/C:\Users\Cameron\OneDrive\Desktop\s22-Gold\Docker
+    #ports:
+     # - "8000:8000"
+    #depends_on:
+     # - Rep_db
