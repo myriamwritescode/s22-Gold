@@ -67,8 +67,8 @@ volumes:
     #environment:
      #  MYSQL_DATABASE: 'APIdb'
       # MYSQL_USER: 'root'
-       #MYSQL_PASSWORD: 'password'
-       #MYSQL_ROOT_PASSWORD: 'password'
+       #MYSQL_PASSWORD: 'va#22LQS'
+       #MYSQL_ROOT_PASSWORD: 'va#22LQS'
   
   #web:
    # build: .
