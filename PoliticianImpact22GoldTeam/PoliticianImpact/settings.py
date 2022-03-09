@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-import os # <- add this for the directory
+import os  # <- add this for the directory
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #-------------------add the new application
+    # -------------------add the new application
     'accounts.apps.AccountsConfig',
     'django_filters',
 ]
@@ -80,8 +80,14 @@ WSGI_APPLICATION = 'PoliticianImpact.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', #<----database running by default
+        'ENGINE': 'django.db.backends.sqlite3',  # <----database running by default
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'Rep_APIdb': {
+        'NAME': 'APIdb',
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': 'root',
+        'PASSWORD': 'va#22LQS'
     }
 }
 
@@ -128,24 +134,23 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
-#configure images style 
+# configure images style
 MEDIA_URL = '/images/'
-#configure custom style 
+# configure custom style
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 # configure where to upload the image
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
-#SMTP Configuration for reset password
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
-EMAIL_HOST = 'smtp.gmail.com' #google authentication
+# SMTP Configuration for reset password
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # google authentication
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'politicianimpact22goldteam@gmail.com'
 EMAIL_HOST_PASSWORD = 'ILLUMIG0V!'
 
 
-#https://myaccount.google.com/lesssecureapps 
-     # Allow less secure apps: ON
+# https://myaccount.google.com/lesssecureapps
+# Allow less secure apps: ON
