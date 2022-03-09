@@ -79,9 +79,14 @@ WSGI_APPLICATION = 'PoliticianImpact.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3', #<----database running by default
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'default': {},
+    'RepsDb' : {
+        'NAME': os.environ.get('mySql_name'),
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': os.environ.get('mySql_user'),
+        'PASSWORD': os.environ.get('mySql_password'),
+        'Host': 'rep_db_server',
+        'Port': '3306'
     }
 }
 
