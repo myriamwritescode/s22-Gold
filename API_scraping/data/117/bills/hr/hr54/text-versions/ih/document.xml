@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="billres.xsl"?>
+<!DOCTYPE bill PUBLIC "-//US Congress//DTDs/bill.dtd//EN" "bill.dtd">
+<bill bill-stage="Introduced-in-House" dms-id="HA780FF88BB634B0AAE2A9592A8270107" public-private="public" key="H" bill-type="olc"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+<dublinCore>
+<dc:title>117 HR 54 IH: Farewell to Unnecessary Energy Lifelines Reform Act of 2021</dc:title>
+<dc:publisher>U.S. House of Representatives</dc:publisher>
+<dc:date>2021-01-04</dc:date>
+<dc:format>text/xml</dc:format>
+<dc:language>EN</dc:language>
+<dc:rights>Pursuant to Title 17 Section 105 of the United States Code, this file is not subject to copyright protection and is in the public domain.</dc:rights>
+</dublinCore>
+</metadata>
+<form>
+<distribution-code display="yes">I</distribution-code><congress display="yes">117th CONGRESS</congress><session display="yes">1st Session</session><legis-num display="yes">H. R. 54</legis-num><current-chamber>IN THE HOUSE OF REPRESENTATIVES</current-chamber><action display="yes"><action-date date="20210104">January 4, 2021</action-date><action-desc><sponsor name-id="B001302">Mr. Biggs</sponsor> introduced the following bill; which was referred to the <committee-name committee-id="HAG00">Committee on Agriculture</committee-name>, and in addition to the Committees on <committee-name committee-id="HGO00">Oversight and Reform</committee-name>, and <committee-name committee-id="HSY00">Science, Space, and Technology</committee-name>, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned</action-desc></action><legis-type>A BILL</legis-type><official-title display="yes">To repeal the Department of Agriculture bioenergy subsidy programs and other related subsidy programs.</official-title></form><legis-body id="HB98EC1F635D841FDA24C2CF594DF32C2" style="OLC"><section id="H8F47A9CBA01146AE8C65716C348832BA" section-type="section-one"><enum>1.</enum><header>Short title</header><text display-inline="no-display-inline">This Act may be cited as the <quote><short-title>Farewell to Unnecessary Energy Lifelines Reform Act of 2021</short-title></quote> or the <quote><short-title>FUEL Reform Act</short-title></quote>.</text></section><section id="H50F71FFE60A54C2EAB41AAB9551983C0"><enum>2.</enum><header>Repeal of Department of Agriculture bioenergy subsidy programs and other related subsidy programs</header><text display-inline="no-display-inline">Title IX of the Farm Security and Rural Investment Act of 2002 (<external-xref legal-doc="usc" parsable-cite="usc/7/8101">7 U.S.C. 8101</external-xref> et seq.) is repealed.</text></section></legis-body></bill> 
+

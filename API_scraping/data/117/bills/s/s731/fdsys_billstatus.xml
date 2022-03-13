@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<billStatus>
+  <bill>
+    <billNumber>731</billNumber>
+    <createDate>2021-03-12T05:42:15Z</createDate>
+    <updateDate>2022-03-04T01:26:41Z</updateDate>
+    <originChamber>Senate</originChamber>
+    <billType>S</billType>
+    <introducedDate>2021-03-11</introducedDate>
+    <congress>117</congress>
+    <recordedVotes/>
+    <committees>
+      <billCommittees>
+        <item>
+          <systemCode>ssva00</systemCode>
+          <name>Veterans' Affairs Committee</name>
+          <chamber>Senate</chamber>
+          <type>Standing</type>
+          <subcommittees/>
+          <activities>
+            <item>
+              <name>Markup by</name>
+              <date>2021-12-15T21:17:51Z</date>
+            </item>
+            <item>
+              <name>Hearings by</name>
+              <date>2021-04-28T19:00:30Z</date>
+            </item>
+            <item>
+              <name>Referred to</name>
+              <date>2021-03-11T20:34:18Z</date>
+            </item>
+          </activities>
+        </item>
+      </billCommittees>
+    </committees>
+    <committeeReports/>
+    <relatedBills>
+      <item>
+        <latestTitle>Department of Veterans Affairs Information Technology Reform Act of 2021</latestTitle>
+        <congress>117</congress>
+        <number>2250</number>
+        <type>HR</type>
+        <latestAction>
+          <actionDate>2021-11-04</actionDate>
+          <text>Ordered to be Reported (Amended) by Voice Vote.</text>
+        </latestAction>
+        <relationshipDetails>
+          <item>
+            <type>Related bill</type>
+            <identifiedBy>CRS</identifiedBy>
+          </item>
+        </relationshipDetails>
+      </item>
+    </relatedBills>
+    <actions>
+      <item>
+        <actionDate>2021-12-15</actionDate>
+        <committees>
+          <item>
+            <systemCode>ssva00</systemCode>
+            <name>Veterans' Affairs Committee</name>
+          </item>
+        </committees>
+        <links/>
+        <sourceSystem>
+          <code>0</code>
+          <name>Senate</name>
+        </sourceSystem>
+        <text>Committee on Veterans' Affairs. Ordered to be reported without amendment favorably.</text>
+        <type>Committee</type>
+      </item>
+      <item>
+        <actionDate>2021-04-28</actionDate>
+        <committees>
+          <item>
+            <systemCode>ssva00</systemCode>
+            <name>Veterans' Affairs Committee</name>
+          </item>
+        </committees>
+        <links/>
+        <sourceSystem>
+          <code>0</code>
+          <name>Senate</name>
+        </sourceSystem>
+        <text>Committee on Veterans' Affairs. Hearings held.</text>
+        <type>Committee</type>
+      </item>
+      <item>
+        <actionDate>2021-03-11</actionDate>
+        <committees>
+          <item>
+            <systemCode>ssva00</systemCode>
+            <name>Veterans' Affairs Committee</name>
+          </item>
+        </committees>
+        <links/>
+        <sourceSystem>
+          <code>0</code>
+          <name>Senate</name>
+        </sourceSystem>
+        <text>Read twice and referred to the Committee on Veterans' Affairs.</text>
+        <type>IntroReferral</type>
+      </item>
+      <item>
+        <actionDate>2021-03-11</actionDate>
+        <links/>
+        <text>Introduced in Senate</text>
+        <type>IntroReferral</type>
+        <actionCode>10000</actionCode>
+        <sourceSystem>
+          <code>9</code>
+          <name>Library of Congress</name>
+        </sourceSystem>
+        <committees/>
+      </item>
+      <actionTypeCounts>
+        <orderedReported>1</orderedReported>
+        <hearingsHeld>1</hearingsHeld>
+        <referredToCommittee>1</referredToCommittee>
+        <introducedInSenate>1</introducedInSenate>
+      </actionTypeCounts>
+      <actionByCounts>
+        <senate>4</senate>
+      </actionByCounts>
+    </actions>
+    <sponsors>
+      <item>
+        <bioguideId>T000464</bioguideId>
+        <fullName>Sen. Tester, Jon [D-MT]</fullName>
+        <firstName>Jon</firstName>
+        <middleName/>
+        <lastName>Tester</lastName>
+        <party>D</party>
+        <state>MT</state>
+        <identifiers>
+          <lisID>1829</lisID>
+          <bioguideId>T000464</bioguideId>
+          <gpoId>8258</gpoId>
+        </identifiers>
+        <byRequestType/>
+      </item>
+    </sponsors>
+    <cosponsors>
+      <item>
+        <bioguideId>M000934</bioguideId>
+        <fullName>Sen. Moran, Jerry [R-KS]</fullName>
+        <firstName>Jerry</firstName>
+        <middleName/>
+        <lastName>Moran</lastName>
+        <party>R</party>
+        <state>KS</state>
+        <identifiers>
+          <lisID>1507</lisID>
+          <bioguideId>M000934</bioguideId>
+          <gpoId>8307</gpoId>
+        </identifiers>
+        <sponsorshipDate>2021-03-11</sponsorshipDate>
+        <isOriginalCosponsor>True</isOriginalCosponsor>
+        <sponsorshipWithdrawnDate/>
+      </item>
+      <item>
+        <bioguideId>S001191</bioguideId>
+        <fullName>Sen. Sinema, Kyrsten [D-AZ]</fullName>
+        <firstName>Kyrsten</firstName>
+        <middleName/>
+        <lastName>Sinema</lastName>
+        <party>D</party>
+        <state>AZ</state>
+        <identifiers>
+          <lisID>2099</lisID>
+          <bioguideId>S001191</bioguideId>
+          <gpoId/>
+        </identifiers>
+        <sponsorshipDate>2021-03-11</sponsorshipDate>
+        <isOriginalCosponsor>True</isOriginalCosponsor>
+        <sponsorshipWithdrawnDate/>
+      </item>
+      <item>
+        <bioguideId>B001243</bioguideId>
+        <fullName>Sen. Blackburn, Marsha [R-TN]</fullName>
+        <firstName>Marsha</firstName>
+        <middleName/>
+        <lastName>Blackburn</lastName>
+        <party>R</party>
+        <state>TN</state>
+        <identifiers>
+          <lisID>1748</lisID>
+          <bioguideId>B001243</bioguideId>
+          <gpoId>8154</gpoId>
+        </identifiers>
+        <sponsorshipDate>2021-03-11</sponsorshipDate>
+        <isOriginalCosponsor>True</isOriginalCosponsor>
+        <sponsorshipWithdrawnDate/>
+      </item>
+      <item>
+        <bioguideId>O000174</bioguideId>
+        <fullName>Sen. Ossoff, Jon [D-GA]</fullName>
+        <firstName>Jon</firstName>
+        <middleName/>
+        <lastName>Ossoff</lastName>
+        <party>D</party>
+        <state>GA</state>
+        <identifiers>
+          <lisID>2546</lisID>
+          <bioguideId>O000174</bioguideId>
+          <gpoId/>
+        </identifiers>
+        <sponsorshipDate>2021-11-04</sponsorshipDate>
+        <isOriginalCosponsor>False</isOriginalCosponsor>
+        <sponsorshipWithdrawnDate/>
+      </item>
+    </cosponsors>
+    <cboCostEstimates/>
+    <laws/>
+    <notes/>
+    <policyArea>
+      <name>Armed Forces and National Security</name>
+    </policyArea>
+    <subjects>
+      <billSubjects>
+        <legislativeSubjects>
+          <item>
+            <name>Computer security and identity theft</name>
+          </item>
+          <item>
+            <name>Computers and information technology</name>
+          </item>
+          <item>
+            <name>Congressional oversight</name>
+          </item>
+          <item>
+            <name>Department of Veterans Affairs</name>
+          </item>
+          <item>
+            <name>Executive agency funding and structure</name>
+          </item>
+          <item>
+            <name>Government studies and investigations</name>
+          </item>
+          <item>
+            <name>Performance measurement</name>
+          </item>
+          <item>
+            <name>Public contracts and procurement</name>
+          </item>
+          <item>
+            <name>Technology assessment</name>
+          </item>
+        </legislativeSubjects>
+        <policyArea>
+          <name>Armed Forces and National Security</name>
+        </policyArea>
+      </billSubjects>
+    </subjects>
+    <summaries>
+      <billSummaries>
+        <item>
+          <versionCode>00</versionCode>
+          <actionDate>2021-03-11</actionDate>
+          <actionDesc>Introduced in Senate</actionDesc>
+          <lastSummaryUpdateDate>2021-05-05T17:05:04Z</lastSummaryUpdateDate>
+          <text>
+            <![CDATA[ <p><strong>Department of Veterans Affairs Information Technology Reform Act of 2021</strong></p> <p>This bill addresses the management and implementation of information technology projects and investments of the Department of Veterans Affairs (VA).</p> <p>Specifically, the bill prohibits the VA from obligating or expending funds for any major information technology project that begins after the date of enactment of this bill unless a report is submitted that includes information on the cost, schedule, and performance of the project. The information in the report must be used as a baseline against which changes or variances are measured and reported on during the life cycle of the project. Projects must be managed by an interdisciplinary team that includes a certified project manager, a functional lead, a technical lead, a contracting officer, and other appropriate personnel.</p> <p>The VA's Chief Information Officer must (1) exercise authority over the management, governance, and oversight processes relating to information technology of the VA's Financial Services Center; and (2) supervise the information technology employees and contractors of the center.</p> <p>The VA must ensure its annual budget justification materials include</p> <ul> <li>a list of its active information technology projects and specified information about such projects, <br> </li> <li>projected funding needs for projects,<br> </li> <li>a prioritized list of every proposed project that is unfunded, and<br> </li> <li>information about the decommissioning of information technology systems and applications.</li> </ul> <p>Finally, the VA must assess all of its information technology investments to determine the suitability for migration to a cloud computing service. </p>]]>
+          </text>
+          <updateDate>2021-03-11T05:00:00Z</updateDate>
+          <name>Introduced in Senate</name>
+        </item>
+      </billSummaries>
+    </summaries>
+    <title>Department of Veterans Affairs Information Technology Reform Act of 2021</title>
+    <titles>
+      <item>
+        <titleType>Display Title</titleType>
+        <parentTitleType/>
+        <title>Department of Veterans Affairs Information Technology Reform Act of 2021</title>
+        <chamberCode/>
+        <chamberName/>
+      </item>
+      <item>
+        <titleType>Short Title(s) as Introduced</titleType>
+        <parentTitleType>Short Title</parentTitleType>
+        <title>Department of Veterans Affairs Information Technology Reform Act of 2021</title>
+        <chamberCode/>
+        <chamberName/>
+      </item>
+      <item>
+        <titleType>Official Title as Introduced</titleType>
+        <parentTitleType/>
+        <title>A bill to amend title 38, United States Code, to improve the management of information technology projects and investments of the Department of Veterans Affairs, and for other purposes.</title>
+        <chamberCode/>
+        <chamberName/>
+      </item>
+    </titles>
+    <amendments/>
+    <textVersions>
+      <item>
+        <type>Introduced in Senate</type>
+        <date>2021-03-11T05:00:00Z</date>
+        <formats>
+          <item>
+            <url>https://www.govinfo.gov/content/pkg/BILLS-117s731is/xml/BILLS-117s731is.xml</url>
+          </item>
+        </formats>
+      </item>
+    </textVersions>
+    <latestAction>
+      <actionDate>2021-12-15</actionDate>
+      <text>Committee on Veterans' Affairs. Ordered to be reported without amendment favorably.</text>
+      <links/>
+    </latestAction>
+    <calendarNumbers/>
+    <version>1.0.0</version>
+  </bill>
+  <dublinCore xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:format>text/xml</dc:format>
+    <dc:language>EN</dc:language>
+    <dc:rights>Pursuant to Title 17 Section 105 of the United States Code, this file is not subject to copyright protection and is in the public domain.</dc:rights>
+    <dc:contributor>Congressional Research Service, Library of Congress</dc:contributor>
+    <dc:description>This file contains bill summaries and statuses for federal legislation. A bill summary describes the most significant provisions of a piece of legislation and details the effects the legislative text may have on current law and federal programs. Bill summaries are authored by the Congressional Research Service (CRS) of the Library of Congress. As stated in Public Law 91-510 (2 USC 166 (d)(6)), one of the duties of CRS is "to prepare summaries and digests of bills and resolutions of a public general nature introduced in the Senate or House of Representatives". For more information, refer to the User Guide that accompanies this file.</dc:description>
+  </dublinCore>
+</billStatus>

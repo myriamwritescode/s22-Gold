@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<billStatus>
+  <bill>
+    <billNumber>489</billNumber>
+    <createDate>2022-01-13T05:12:15Z</createDate>
+    <updateDate>2022-03-04T01:12:11Z</updateDate>
+    <originChamber>Senate</originChamber>
+    <billType>SRES</billType>
+    <introducedDate>2022-01-12</introducedDate>
+    <congress>117</congress>
+    <recordedVotes/>
+    <committees>
+      <billCommittees/>
+    </committees>
+    <committeeReports/>
+    <relatedBills>
+      <item>
+        <latestTitle>Commending the actions of Cuban human rights and democracy activist José Daniel Ferrer Garcia, and all pro-democracy and human rights activists, in demanding fundamental civil liberties in Cuba and speaking out against Cuba's brutal, totalitarian Communist regime.</latestTitle>
+        <congress>117</congress>
+        <number>867</number>
+        <type>HRES</type>
+        <latestAction>
+          <actionDate>2022-02-22</actionDate>
+          <text>Referred to the Subcommittee on Western Hemisphere, Civilian Security, Migration and International Economic Policy.</text>
+        </latestAction>
+        <relationshipDetails>
+          <item>
+            <type>Identical bill</type>
+            <identifiedBy>CRS</identifiedBy>
+          </item>
+        </relationshipDetails>
+      </item>
+    </relatedBills>
+    <actions>
+      <item>
+        <actionDate>2022-01-12</actionDate>
+        <committees/>
+        <links/>
+        <sourceSystem>
+          <code>0</code>
+          <name>Senate</name>
+        </sourceSystem>
+        <text>Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S183-184; text: CR S193)</text>
+        <type>Floor</type>
+      </item>
+      <item>
+        <actionDate>2022-01-12</actionDate>
+        <links/>
+        <text>Passed/agreed to in Senate: Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.(consideration: CR S183-184; text: CR S193)</text>
+        <type>Floor</type>
+        <actionCode>17000</actionCode>
+        <sourceSystem>
+          <code>9</code>
+          <name>Library of Congress</name>
+        </sourceSystem>
+        <committees/>
+      </item>
+      <item>
+        <actionDate>2022-01-12</actionDate>
+        <links/>
+        <text>Introduced in Senate</text>
+        <type>IntroReferral</type>
+        <actionCode>10000</actionCode>
+        <sourceSystem>
+          <code>9</code>
+          <name>Library of Congress</name>
+        </sourceSystem>
+        <committees/>
+      </item>
+      <actionTypeCounts>
+        <passedOrAgreedToInSenateDayOf>1</passedOrAgreedToInSenateDayOf>
+        <passedAgreedToInSenate>1</passedAgreedToInSenate>
+        <introducedInSenate>1</introducedInSenate>
+      </actionTypeCounts>
+      <actionByCounts>
+        <senate>3</senate>
+      </actionByCounts>
+    </actions>
+    <sponsors>
+      <item>
+        <bioguideId>S001217</bioguideId>
+        <fullName>Sen. Scott, Rick [R-FL]</fullName>
+        <firstName>Rick</firstName>
+        <middleName/>
+        <lastName>Scott</lastName>
+        <party>R</party>
+        <state>FL</state>
+        <identifiers>
+          <lisID>2470</lisID>
+          <bioguideId>S001217</bioguideId>
+          <gpoId/>
+        </identifiers>
+        <byRequestType/>
+      </item>
+    </sponsors>
+    <cosponsors>
+      <item>
+        <bioguideId>B001310</bioguideId>
+        <fullName>Sen. Braun, Mike [R-IN]</fullName>
+        <firstName>Mike</firstName>
+        <middleName/>
+        <lastName>Braun</lastName>
+        <party>R</party>
+        <state>IN</state>
+        <identifiers>
+          <lisID>2462</lisID>
+          <bioguideId>B001310</bioguideId>
+          <gpoId/>
+        </identifiers>
+        <sponsorshipDate>2022-01-12</sponsorshipDate>
+        <isOriginalCosponsor>True</isOriginalCosponsor>
+        <sponsorshipWithdrawnDate/>
+      </item>
+      <item>
+        <bioguideId>R000595</bioguideId>
+        <fullName>Sen. Rubio, Marco [R-FL]</fullName>
+        <firstName>Marco</firstName>
+        <middleName/>
+        <lastName>Rubio</lastName>
+        <party>R</party>
+        <state>FL</state>
+        <identifiers>
+          <lisID>2084</lisID>
+          <bioguideId>R000595</bioguideId>
+          <gpoId>8242</gpoId>
+        </identifiers>
+        <sponsorshipDate>2022-01-12</sponsorshipDate>
+        <isOriginalCosponsor>True</isOriginalCosponsor>
+        <sponsorshipWithdrawnDate/>
+      </item>
+      <item>
+        <bioguideId>S001184</bioguideId>
+        <fullName>Sen. Scott, Tim [R-SC]</fullName>
+        <firstName>Tim</firstName>
+        <middleName/>
+        <lastName>Scott</lastName>
+        <party>R</party>
+        <state>SC</state>
+        <identifiers>
+          <lisID>2056</lisID>
+          <bioguideId>S001184</bioguideId>
+          <gpoId>8141</gpoId>
+        </identifiers>
+        <sponsorshipDate>2022-01-18</sponsorshipDate>
+        <isOriginalCosponsor>False</isOriginalCosponsor>
+        <sponsorshipWithdrawnDate/>
+      </item>
+    </cosponsors>
+    <cboCostEstimates/>
+    <laws/>
+    <notes/>
+    <policyArea>
+      <name>International Affairs</name>
+    </policyArea>
+    <subjects>
+      <billSubjects>
+        <legislativeSubjects/>
+        <policyArea>
+          <name>International Affairs</name>
+        </policyArea>
+      </billSubjects>
+    </subjects>
+    <summaries>
+      <billSummaries/>
+    </summaries>
+    <title>A resolution commending the actions of Cuban human rights and democracy activist Jose Daniel Ferrer Garcia, and all pro-democracy and human rights activists, in demanding fundamental civil liberties in Cuba and speaking out against Cuba's brutal, totalitarian Communist regime.</title>
+    <titles>
+      <item>
+        <titleType>Official Title as Introduced</titleType>
+        <parentTitleType/>
+        <title>A resolution commending the actions of Cuban human rights and democracy activist Jose Daniel Ferrer Garcia, and all pro-democracy and human rights activists, in demanding fundamental civil liberties in Cuba and speaking out against Cuba's brutal, totalitarian Communist regime.</title>
+        <chamberCode/>
+        <chamberName/>
+      </item>
+      <item>
+        <titleType>Display Title</titleType>
+        <parentTitleType/>
+        <title>A resolution commending the actions of Cuban human rights and democracy activist Jose Daniel Ferrer Garcia, and all pro-democracy and human rights activists, in demanding fundamental civil liberties in Cuba and speaking out against Cuba's brutal, totalitarian Communist regime.</title>
+        <chamberCode/>
+        <chamberName/>
+      </item>
+    </titles>
+    <amendments/>
+    <textVersions>
+      <item>
+        <type>Agreed to Senate</type>
+        <date>2022-01-12T05:00:00Z</date>
+        <formats>
+          <item>
+            <url>https://www.govinfo.gov/content/pkg/BILLS-117sres489ats/xml/BILLS-117sres489ats.xml</url>
+          </item>
+        </formats>
+      </item>
+    </textVersions>
+    <latestAction>
+      <actionDate>2022-01-12</actionDate>
+      <text>Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S183-184; text: CR S193)</text>
+      <links/>
+    </latestAction>
+    <calendarNumbers/>
+    <version>1.0.0</version>
+  </bill>
+  <dublinCore xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:format>text/xml</dc:format>
+    <dc:language>EN</dc:language>
+    <dc:rights>Pursuant to Title 17 Section 105 of the United States Code, this file is not subject to copyright protection and is in the public domain.</dc:rights>
+    <dc:contributor>Congressional Research Service, Library of Congress</dc:contributor>
+    <dc:description>This file contains bill summaries and statuses for federal legislation. A bill summary describes the most significant provisions of a piece of legislation and details the effects the legislative text may have on current law and federal programs. Bill summaries are authored by the Congressional Research Service (CRS) of the Library of Congress. As stated in Public Law 91-510 (2 USC 166 (d)(6)), one of the duties of CRS is "to prepare summaries and digests of bills and resolutions of a public general nature introduced in the Senate or House of Representatives". For more information, refer to the User Guide that accompanies this file.</dc:description>
+  </dublinCore>
+</billStatus>

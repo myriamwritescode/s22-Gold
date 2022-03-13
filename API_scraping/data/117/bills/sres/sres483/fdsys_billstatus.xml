@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<billStatus>
+  <bill>
+    <billNumber>483</billNumber>
+    <createDate>2021-12-18T11:12:13Z</createDate>
+    <updateDate>2022-02-19T05:18:56Z</updateDate>
+    <originChamber>Senate</originChamber>
+    <billType>SRES</billType>
+    <introducedDate>2021-12-18</introducedDate>
+    <congress>117</congress>
+    <recordedVotes/>
+    <committees>
+      <billCommittees/>
+    </committees>
+    <committeeReports/>
+    <relatedBills/>
+    <actions>
+      <item>
+        <actionDate>2021-12-18</actionDate>
+        <committees/>
+        <links/>
+        <sourceSystem>
+          <code>0</code>
+          <name>Senate</name>
+        </sourceSystem>
+        <text>Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S9309; text: CR S9305-9306)</text>
+        <type>Floor</type>
+      </item>
+      <item>
+        <actionDate>2021-12-18</actionDate>
+        <links/>
+        <text>Passed/agreed to in Senate: Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.(consideration: CR S9309; text: CR S9305-9306)</text>
+        <type>Floor</type>
+        <actionCode>17000</actionCode>
+        <sourceSystem>
+          <code>9</code>
+          <name>Library of Congress</name>
+        </sourceSystem>
+        <committees/>
+      </item>
+      <item>
+        <actionDate>2021-12-18</actionDate>
+        <links/>
+        <text>Introduced in Senate</text>
+        <type>IntroReferral</type>
+        <actionCode>10000</actionCode>
+        <sourceSystem>
+          <code>9</code>
+          <name>Library of Congress</name>
+        </sourceSystem>
+        <committees/>
+      </item>
+      <actionTypeCounts>
+        <passedOrAgreedToInSenateDayOf>1</passedOrAgreedToInSenateDayOf>
+        <passedAgreedToInSenate>1</passedAgreedToInSenate>
+        <introducedInSenate>1</introducedInSenate>
+      </actionTypeCounts>
+      <actionByCounts>
+        <senate>3</senate>
+      </actionByCounts>
+    </actions>
+    <sponsors>
+      <item>
+        <bioguideId>R000595</bioguideId>
+        <fullName>Sen. Rubio, Marco [R-FL]</fullName>
+        <firstName>Marco</firstName>
+        <middleName/>
+        <lastName>Rubio</lastName>
+        <party>R</party>
+        <state>FL</state>
+        <identifiers>
+          <lisID>2084</lisID>
+          <bioguideId>R000595</bioguideId>
+          <gpoId>8242</gpoId>
+        </identifiers>
+        <byRequestType/>
+      </item>
+    </sponsors>
+    <cosponsors>
+      <item>
+        <bioguideId>S001217</bioguideId>
+        <fullName>Sen. Scott, Rick [R-FL]</fullName>
+        <firstName>Rick</firstName>
+        <middleName/>
+        <lastName>Scott</lastName>
+        <party>R</party>
+        <state>FL</state>
+        <identifiers>
+          <lisID>2470</lisID>
+          <bioguideId>S001217</bioguideId>
+          <gpoId/>
+        </identifiers>
+        <sponsorshipDate>2021-12-18</sponsorshipDate>
+        <isOriginalCosponsor>True</isOriginalCosponsor>
+        <sponsorshipWithdrawnDate/>
+      </item>
+      <item>
+        <bioguideId>S000320</bioguideId>
+        <fullName>Sen. Shelby, Richard C. [R-AL]</fullName>
+        <firstName>Richard</firstName>
+        <middleName>C.</middleName>
+        <lastName>Shelby</lastName>
+        <party>R</party>
+        <state>AL</state>
+        <identifiers>
+          <lisID>1049</lisID>
+          <bioguideId>S000320</bioguideId>
+          <gpoId>8277</gpoId>
+        </identifiers>
+        <sponsorshipDate>2021-12-18</sponsorshipDate>
+        <isOriginalCosponsor>True</isOriginalCosponsor>
+        <sponsorshipWithdrawnDate/>
+      </item>
+      <item>
+        <bioguideId>T000278</bioguideId>
+        <fullName>Sen. Tuberville, Tommy [R-AL]</fullName>
+        <firstName>Tommy</firstName>
+        <middleName/>
+        <lastName>Tuberville</lastName>
+        <party>R</party>
+        <state>AL</state>
+        <identifiers>
+          <lisID>2487</lisID>
+          <bioguideId>T000278</bioguideId>
+          <gpoId/>
+        </identifiers>
+        <sponsorshipDate>2021-12-18</sponsorshipDate>
+        <isOriginalCosponsor>True</isOriginalCosponsor>
+        <sponsorshipWithdrawnDate/>
+      </item>
+      <item>
+        <bioguideId>W000790</bioguideId>
+        <fullName>Sen. Warnock, Raphael G. [D-GA]</fullName>
+        <firstName>Raphael</firstName>
+        <middleName>G.</middleName>
+        <lastName>Warnock</lastName>
+        <party>D</party>
+        <state>GA</state>
+        <identifiers>
+          <lisID>2545</lisID>
+          <bioguideId>W000790</bioguideId>
+          <gpoId/>
+        </identifiers>
+        <sponsorshipDate>2021-12-18</sponsorshipDate>
+        <isOriginalCosponsor>True</isOriginalCosponsor>
+        <sponsorshipWithdrawnDate/>
+      </item>
+      <item>
+        <bioguideId>O000174</bioguideId>
+        <fullName>Sen. Ossoff, Jon [D-GA]</fullName>
+        <firstName>Jon</firstName>
+        <middleName/>
+        <lastName>Ossoff</lastName>
+        <party>D</party>
+        <state>GA</state>
+        <identifiers>
+          <lisID>2546</lisID>
+          <bioguideId>O000174</bioguideId>
+          <gpoId/>
+        </identifiers>
+        <sponsorshipDate>2021-12-18</sponsorshipDate>
+        <isOriginalCosponsor>True</isOriginalCosponsor>
+        <sponsorshipWithdrawnDate/>
+      </item>
+    </cosponsors>
+    <cboCostEstimates/>
+    <laws/>
+    <notes/>
+    <policyArea>
+      <name>Armed Forces and National Security</name>
+    </policyArea>
+    <subjects>
+      <billSubjects>
+        <legislativeSubjects>
+          <item>
+            <name>Commemorative events and holidays</name>
+          </item>
+          <item>
+            <name>Congressional tributes</name>
+          </item>
+          <item>
+            <name>Crime victims</name>
+          </item>
+          <item>
+            <name>Florida</name>
+          </item>
+          <item>
+            <name>Law enforcement officers</name>
+          </item>
+          <item>
+            <name>Military facilities and property</name>
+          </item>
+          <item>
+            <name>Military personnel and dependents</name>
+          </item>
+          <item>
+            <name>Terrorism</name>
+          </item>
+          <item>
+            <name>Violent crime</name>
+          </item>
+        </legislativeSubjects>
+        <policyArea>
+          <name>Armed Forces and National Security</name>
+        </policyArea>
+      </billSubjects>
+    </subjects>
+    <summaries>
+      <billSummaries>
+        <item>
+          <versionCode>00</versionCode>
+          <actionDate>2021-12-18</actionDate>
+          <actionDesc>Introduced in Senate</actionDesc>
+          <lastSummaryUpdateDate>2022-02-14T21:16:08Z</lastSummaryUpdateDate>
+          <text>
+            <![CDATA[ <p>This resolution condemns the December 6, 2019, terrorist attack at Naval Air Station Pensacola and commemorates the service members and civilians who lost their lives or were injured in the attack. Additionally, the resolution remembers Ensign Joshua Kaleb Watson, Petty Officer Third Class Mohammed Sameh Haitham, and Petty Officer Third Class Cameron Scott Walters, who were killed in the attack.</p> <p>Finally, the resolution commends (1) the decision to give medals and awards to the law enforcement officers, uniformed service members, and civilians who responded to the attack; and (2) the efforts undertaken by the Department of Defense to enhance security at military installations.</p>]]>
+          </text>
+          <updateDate>2021-12-18T05:00:00Z</updateDate>
+          <name>Introduced in Senate</name>
+        </item>
+        <item>
+          <versionCode>55</versionCode>
+          <actionDate>2021-12-18</actionDate>
+          <actionDesc>Passed Senate</actionDesc>
+          <lastSummaryUpdateDate>2022-02-16T16:44:32Z</lastSummaryUpdateDate>
+          <text>
+            <![CDATA[ <p>This resolution condemns the December 6, 2019, terrorist attack at Naval Air Station Pensacola and commemorates the service members and civilians who lost their lives or were injured in the attack. Additionally, the resolution remembers Ensign Joshua Kaleb Watson, Petty Officer Third Class Mohammed Sameh Haitham, and Petty Officer Third Class Cameron Scott Walters, who were killed in the attack.</p> <p>Finally, the resolution commends (1) the decision to give medals and awards to the law enforcement officers, uniformed service members, and civilians who responded to the attack; and (2) the efforts undertaken by the Department of Defense to enhance security at military installations.</p>]]>
+          </text>
+          <updateDate>2021-12-18T13:38:31Z</updateDate>
+          <name>Passed Senate</name>
+        </item>
+      </billSummaries>
+    </summaries>
+    <title>A resolution remembering the December 6, 2019, terrorist attack at Naval Air Station Pensacola and commemorating those who lost their lives, and those who were injured, in the line of duty.</title>
+    <titles>
+      <item>
+        <titleType>Official Title as Introduced</titleType>
+        <parentTitleType/>
+        <title>A resolution remembering the December 6, 2019, terrorist attack at Naval Air Station Pensacola and commemorating those who lost their lives, and those who were injured, in the line of duty.</title>
+        <chamberCode/>
+        <chamberName/>
+      </item>
+      <item>
+        <titleType>Display Title</titleType>
+        <parentTitleType/>
+        <title>A resolution remembering the December 6, 2019, terrorist attack at Naval Air Station Pensacola and commemorating those who lost their lives, and those who were injured, in the line of duty.</title>
+        <chamberCode/>
+        <chamberName/>
+      </item>
+    </titles>
+    <amendments/>
+    <textVersions>
+      <item>
+        <type>Agreed to Senate</type>
+        <date>2021-12-18T05:00:00Z</date>
+        <formats>
+          <item>
+            <url>https://www.govinfo.gov/content/pkg/BILLS-117sres483ats/xml/BILLS-117sres483ats.xml</url>
+          </item>
+        </formats>
+      </item>
+    </textVersions>
+    <latestAction>
+      <actionDate>2021-12-18</actionDate>
+      <text>Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S9309; text: CR S9305-9306)</text>
+      <links/>
+    </latestAction>
+    <calendarNumbers/>
+    <version>1.0.0</version>
+  </bill>
+  <dublinCore xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:format>text/xml</dc:format>
+    <dc:language>EN</dc:language>
+    <dc:rights>Pursuant to Title 17 Section 105 of the United States Code, this file is not subject to copyright protection and is in the public domain.</dc:rights>
+    <dc:contributor>Congressional Research Service, Library of Congress</dc:contributor>
+    <dc:description>This file contains bill summaries and statuses for federal legislation. A bill summary describes the most significant provisions of a piece of legislation and details the effects the legislative text may have on current law and federal programs. Bill summaries are authored by the Congressional Research Service (CRS) of the Library of Congress. As stated in Public Law 91-510 (2 USC 166 (d)(6)), one of the duties of CRS is "to prepare summaries and digests of bills and resolutions of a public general nature introduced in the Senate or House of Representatives". For more information, refer to the User Guide that accompanies this file.</dc:description>
+  </dublinCore>
+</billStatus>
