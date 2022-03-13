@@ -1,0 +1,6 @@
+[submodule "API_scraping/congress-legislators"]
+	path = API_scraping/congress-legislators
+	url = git@github.com:unitedstates/congress-legislators.git
+[submodule "API_scraping/congress"]
+	path = API_scraping/congress
+	url = git@github.com:unitedstates/congress.git
