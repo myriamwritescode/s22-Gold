@@ -22,7 +22,7 @@ This should display: <br>
 Submodule 'API_scraping/congress' (git@github.com:unitedstates/congress.git) registered for path 'API_scraping/congress' <br>
 Submodule 'API_scraping/congress-legislators' (git@github.com:unitedstates/congress-legislators.git) registered for path 'API_scraping/congress-legislators' <br>
 Then run: <br>
-$ git submodule update
+$ git submodule update <br>
 This should display something similar to: <br>
 Cloning into '/home/brett/PycharmProjects/s22-Gold/API_scraping/congress'... <br>
 Cloning into '/home/brett/PycharmProjects/s22-Gold/API_scraping/congress-legislators'... <br>
