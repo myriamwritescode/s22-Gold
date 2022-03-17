@@ -15,12 +15,7 @@
 	</div>
 	<div class="col-md">
 	
-		<div class="card card-body">
-			<h5>My Relevant Information</h5>
-			<hr>
-			<a class="btn btn-danger btn-sm btn-block" href="{% url 'account' %}">Update  </a>
-			<a class="btn btn-success  btn-sm btn-block" href="">Compare </a> 
-		</div>
+		{%  include 'accounts/profile_navigation_settings.html'%} <!-- include the naviation settings for relevant informantion-->
 	</div>
 </div>
 

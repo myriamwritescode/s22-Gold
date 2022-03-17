@@ -7,7 +7,10 @@ from django.contrib.auth.models import User
 
 class Customer(models.Model):
 	user = models.OneToOneField(User, null=True, on_delete=models.CASCADE) # <-- add this for the User profile create a one to one relationship (customer - User)
-	name = models.CharField(max_length=200, null=True)  
+	name = models.CharField(max_length=200, null=True) 
+	Age = models.CharField("Age", max_length=3, null=True,)
+	zip_code = models.CharField("ZIP", max_length=12, null=True,)
+	city = models.CharField("City", max_length=1024, null=True,) 
 	#profile_pic = models.ImageField(default="profile1.png", null=True, blank=True) #pillow is not istalling 
 	date_created = models.DateTimeField(auto_now_add=True, null=True)
 

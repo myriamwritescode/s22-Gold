@@ -17,11 +17,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      {% if request.user.is_staff %}<!--set the permission for only staff to see if user is admin load navigation bar-->
-      <li class="nav-item active">
-        <a class="nav-link" style="text-align: center;padding: 10px; font-size: 20px; color:black" href="{% url 'home' %}">Dashboard</a><!--dynamic-->
-      </li>
-      {% else %}
+
       <li class="nav-item">
        <a class="nav-link" style="text-align: center;padding: 10px; font-size: 20px;color:black" href="{% url 'home' %}">Profile</a> <!-- only customer can update their settings-->
      </li>
@@ -31,7 +27,7 @@
     <li class="nav-item active">
       <!--<a class="nav-link" style="text-align: center;padding: 10px; font-size: 20px;color:black" href="{% url 'account' %}">Settings</a> --><!-- only customer can update their settings-->
     </li>
-     {% endif %}
+   
     </ul>
   </div>
 

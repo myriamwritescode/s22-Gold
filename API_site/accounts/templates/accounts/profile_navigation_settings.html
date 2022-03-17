@@ -1,0 +1,12 @@
+
+
+  <div class="card card-body">
+    <h5>My Relevant Information</h5>
+    <hr>
+    {% if request.user.is_staff %}<!--set the permission for only staff to see if user is admin load navigation bar-->
+      <a class="btn btn-success  btn-sm btn-block" href="{% url 'user-compare' %}">Compare </a> 
+    {% else %}
+      <a class="btn btn-danger btn-sm btn-block" href="{% url 'account' %}">Update  </a>
+      <a class="btn btn-success  btn-sm btn-block" href="{% url 'user-compare' %}">Compare </a> 
+    {% endif %}
+  </div>

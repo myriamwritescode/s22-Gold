@@ -16,12 +16,9 @@ class CustomerForm(ModelForm):
 		exclude = ['user']
 
 class CreateUserForm(UserCreationForm): # here were you can modify the default User table
-   #email = forms.EmailField() # add a new field email
+   email = forms.EmailField(required=True) # add a new field email
    #age = forms.IntegerField() # add a new field age
    class Meta:
-     model = User
-     fields = ['username', 'email', 'password1', 'password2'] # fields = ["username", "email","age", "password1", "password2"]
-
-
-
+     model = User # refering to the user model
+     fields = ['username','first_name', 'last_name', 'email','password1', 'password2'] # fields = ["username", "email","age", "password1", "password2"]
 

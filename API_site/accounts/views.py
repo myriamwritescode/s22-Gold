@@ -74,12 +74,12 @@ def home(request):
 	customers = Customer.objects.all()#<----querying the database
 	total_customers = customers.count()
 	context = { 'customers':customers}
-	return render(request, 'accounts/dashboard.html', context)
+	return render(request, 'accounts/profile.html', context)
 
 
 #--------------------------------------------------------------------------User home page
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['customer'])
+@allowed_users(allowed_roles=['customer','admin'])
 def userPage(request):
 	return render(request, 'accounts/profile.html')
 
@@ -87,18 +87,18 @@ def userPage(request):
 
 #--------------------------------------------------------------------------User comaper home page
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['customer'])
+@allowed_users(allowed_roles=['customer','admin'])
 def comparePage(request):
 	return render(request, 'accounts/compare.html')
 
 #--------------------------------------------------------------------------User value page
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['customer'])
+@allowed_users(allowed_roles=['customer','admin'])
 def valuePage(request):
 	return render(request, 'accounts/value.html')
 #--------------------------------------------------------------------------User value learn more page
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['customer'])
+@allowed_users(allowed_roles=['customer','admin'])
 def valuePagelearnmore(request):
 	return render(request, 'accounts/learn_more.html')
 
@@ -125,6 +125,6 @@ def accountSettings(request):
 def customer(request, pk_test): #<----show information of a paticular user
 	customer = Customer.objects.get(id=pk_test)#<----querying the database for a paticular user----
 	context = {'customer':customer}
-	return render(request, 'accounts/customer.html',context) #dynamic 
+	return render(request, 'accounts/profile.html',context) #dynamic 
 
 #-------------------------------------------------------------------------------GRAPHS
