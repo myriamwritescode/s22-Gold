@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-t6s-1ot348qx82wklpv90@05&_d_u*mz_t#t9uybgf13j+8vi4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bwarren.pythonanywhere.com']
 
 
 # Application definition
@@ -134,9 +134,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-#configure images style 
+#configure images style
 MEDIA_URL = '/images/'
-#configure custom style 
+#configure custom style
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
@@ -144,7 +144,7 @@ STATICFILES_DIRS = [
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 #SMTP Configuration for reset password
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com' #google authentication
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
@@ -152,5 +152,5 @@ EMAIL_HOST_USER = 'politicianimpact22goldteam@gmail.com'
 EMAIL_HOST_PASSWORD = 'ILLUMIG0V!'
 
 
-#https://myaccount.google.com/lesssecureapps 
+#https://myaccount.google.com/lesssecureapps
      # Allow less secure apps: ON
