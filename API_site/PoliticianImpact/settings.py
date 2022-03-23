@@ -42,7 +42,12 @@ INSTALLED_APPS = [
     #-------------------add the new application
     'accounts.apps.AccountsConfig',
     'django_filters',
+    'address', # -- add address
 ]
+# SITE_ID = 1 # -- add address
+
+GOOGLE_API_KEY = 'AIzaSyD--your-google-maps-key-SjQBE'   # -- add address
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

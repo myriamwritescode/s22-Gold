@@ -48,9 +48,15 @@
 			
 			<form method="POST" action="" enctype="multipart/form-data">
 				{% csrf_token %}
-				{{form.as_p}}
+				{{form.as_p}}	
+				{{form.errors}}<!--send a notification of why account was not created -->
+				<hr>
 			
+				<input class="btn btn-success" type="submit" name="Update Information" >
+			
+				</form>
 		</div>
+		
 		<div class="card card-body">
 			<h2>Value Scores</h2><hr>
 
@@ -197,15 +203,7 @@
   					}
   				</script>
 			</div>
-			<div class="row">
-				<!---	<div class="col-md">
-						<a class="btn btn-danger" href=""> Edit My Relevant Information </a>
-					</div>
-				</div>-->
-				<hr>
-			<input class="btn btn-success" type="submit" name="Update Information">
-			</form>
-		</div>
+
 		</div>
 	
 
