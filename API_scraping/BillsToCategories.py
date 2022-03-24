@@ -54,27 +54,27 @@ tags = soup.find_all('div', class_='sol-step-info')
 for i in range(len(tags)):
     matchstr_h = re.search(r'no\.\s\d+\)\.', tags[i].contents[0])     # House
     matchstr_s = re.search(r'Number:\s\d+\.', tags[i].contents[0])    # Senate
-    matchvoice = re.search(r'voice\svote', tags[i].contents[0])
+    matchvoice = re.search(r'voice\svote', tags[i].contents[0])       # Voice
     if matchstr_h:
         if len(matchstr_h.group(0)) == 9:     # 9 char in regex = 3 digit roll
             snippet = matchstr_h.group(0)
             print("House Roll: " + snippet[4:7])
-        elif len(matchstr_h.group(0)) == 8:     # 8 char in regex = 2 digit roll
+        elif len(matchstr_h.group(0)) == 8:   # 8 char in regex = 2 digit roll
             snippet = matchstr_h.group(0)
             print("House Roll: " + snippet[4:6])
+    if matchstr_s:
+        if len(matchstr_s.group(0)) == 12:
+            snippet = matchstr_s.group(0)
+            print("Senate Vote Number: " + snippet[8:11])
+        if len(matchstr_s.group(0)) == 11:
+            snippet = matchstr_s.group(0)
+            print("Senate Vote Number: " + snippet[8:10])
     if matchvoice:
         print("Voice Vote")
 
 
-#tag = str(tags[1].contents[0])
-#matchstr = re.search(r'no\.\s\d+\)\.', tag).group(0)
+#------------------------------------------------------------------------------
 
-#print(type(tag))
-
-#if len(matchstr) == 9:
-#    print(matchstr[4:7])
-#if len(matchstr) == 8:
-#   print(matchstr[4:6])
-
+# EXTRACT SPONSORS
 
 
