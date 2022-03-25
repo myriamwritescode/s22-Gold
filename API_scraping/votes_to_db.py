@@ -41,7 +41,7 @@ def main():
         Be careful with these names, if you choose variable names that are 
         keywords in mysql you will get errors in the INPUT statements.
         Format: python_variable_name = root.get('xml_identifier')
-        Example where = root.get('where')
+        Example: where = root.get('where')
         This will throw an error in mysql because 'where' is a keyword.
         You can either choose a different name or use escape characters'''
         body = root.get('where')

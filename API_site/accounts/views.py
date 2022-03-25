@@ -95,7 +95,8 @@ def comparePage(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer','admin'])
 def valuePage(request):
-	return render(request, 'accounts/value.html')
+	senators = Representative.objects.all()  # create a variable for senators, think of this as a list()
+	return render(request, 'accounts/value.html', {'senators': senators})  # this is a dictionary {key: value}
 #--------------------------------------------------------------------------User value learn more page
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer','admin'])
