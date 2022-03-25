@@ -93,7 +93,7 @@ class Representative(models.Model):
 	transportation_and_public_works = models.IntegerField("Transportation and Public Works", default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
 
 	def __str__(self):
-		return self.name # <----to see the name in not the id 
+		return self.firstname + ' ' + self.lastname # <----to see the name in not the id
 
 # Table: REPRESENT
 class Represent(models.Model):
