@@ -26,19 +26,19 @@ soup = BeautifulSoup(html, "html.parser")                   # soup object
 
 # EXTRACT H.R.
 
-span_tags_keys = soup.find_all('span', class_='result-heading')
-#for key_tag in range(len(span_tags_keys)):
+span_tags_hr = soup.find_all('span', class_='result-heading')
+#for key_tag in range(len(span_tags_hr)):
 #    if key_tag % 2 == 0:
-        #print(span_tags_keys[key_tag].contents[0].string)
+        #print(span_tags_hr[key_tag].contents[0].string)
 
 
 #------------------------------------------------------------------------------
 
 # EXTRACT COMMITTEE
 
-span_tags_values = soup.find_all('span', class_='result-item')
+span_tags_committee = soup.find_all('span', class_='result-item')
 
-#for value_tag in span_tags_values:
+#for value_tag in span_tags_committee:
 #    if value_tag.contents[2].string is not None:
 #        if value_tag.contents[2].string.strip() != '':
             #print(value_tag.contents[2].string.strip())
@@ -77,4 +77,10 @@ for i in range(len(tags)):
 
 # EXTRACT SPONSORS
 
+tags = soup.find_all('a', target="_blank")
 
+for i in range(len(tags)):
+    matchvoice = re.search(r'Rep\.\s[a-zA-Z]+,.+\[', str(tags[i].contents[0]))
+    if matchvoice:
+        snippet = matchvoice.group(0)
+        print(snippet[5:len(snippet)-2])
