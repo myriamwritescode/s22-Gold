@@ -1,5 +1,3 @@
-
-
 from django.db import models
 from django.contrib.auth.models import User
 #from address.models import AddressField
@@ -7,7 +5,70 @@ from django.utils.translation import ugettext_lazy as _
 # from djmoney.models.fields import MoneyField
 from django.core.validators import MinValueValidator, MaxValueValidator
 # from .models.address import BaseBillingAddress
-# Create your models here.
+from yamlfield.fields import YAMLField
+
+
+# Test model for ElectedOfficial --Brett
+class TestElectedOfficial(models.Model):
+	last_name = models.CharField(max_length=100, null=True)
+	first_name = models.CharField(max_length=100, null=True)
+	middle_name = models.CharField(max_length=100, null=True)
+	suffix = models.CharField(max_length=100, null=True)
+	nickname = models.CharField(max_length=100, null=True)
+	full_name = models.CharField(max_length=100, null=True)
+	birthday = models.DateField(max_length=100, null=True)
+	gender = models.CharField(max_length=100, null=True)
+	type = models.CharField(max_length=100, null=True) # rep or sen
+	state = models.CharField(max_length=100, null=True)
+	district = models.IntegerField(null=True)
+	senate_class = models.IntegerField(null=True)
+	party = models.CharField(max_length=100, null=True)
+	url = models.CharField(max_length=250, null=True)
+	address = models.CharField(max_length=250, null=True)
+	phone = models.CharField(max_length=100, null=True)
+	contact_form = models.CharField(max_length=250, null=True)
+	rss_url = models.CharField(max_length=250, null=True)
+	twitter = models.CharField(max_length=250, null=True)
+	facebook = models.CharField(max_length=250, null=True)
+	youtube = models.CharField(max_length=250, null=True)
+	youtube_id = models.CharField(max_length=250, null=True)
+	bioguide_id = models.CharField(max_length=250, primary_key=True, default=999)
+	thomas_id = models.CharField(max_length=250, null=True)
+	opensecrets_id = models.CharField(max_length=250, null=True)
+	lis_id = models.CharField(max_length=250, null=True)
+	fec_ids = models.CharField(max_length=250, null=True)
+	cspan_id = models.CharField(max_length=250, null=True)
+	govtrack_id = models.CharField(max_length=250, null=True)
+	votesmart_id = models.CharField(max_length=250, null=True)
+	ballotpedia_id = models.CharField(max_length=250, null=True)
+	washington_post_id = models.CharField(max_length=250, null=True)
+	icpsr_id = models.CharField(max_length=250, null=True)
+	wikipedia_id = models.CharField(max_length=250, null=True)
+
+	def __str__(self):
+		return self.first_name + ' ' + self.last_name
+
+
+#  Test model for Votes --Brett
+class TestVote(models.Model):
+	voter_id = models.CharField(max_length=100, null=True)
+	state = models.CharField(max_length=100, null=True)
+	bill_type = models.CharField(max_length=100, null=True)
+	number = models.IntegerField(null=True)
+	roll = models.IntegerField(null=True)
+	value = models.CharField(max_length=100, null=True)
+	result = models.CharField(max_length=100, null=True)
+	chamber = models.CharField(max_length=100, null=True)
+	sess = models.IntegerField(null=True)
+	yr = models.IntegerField(null=True)
+	category = models.CharField(max_length=100, null=True)
+	type_vote = models.CharField(max_length=100, null=True)
+	# datetime = models.DateTimeField(null=True)
+	# updated = models.DateTimeField(null=True)
+
+	def __str__(self):
+		return self.voter_id
+
 
 class Customer(models.Model):
 	user = models.OneToOneField(User, null=True, on_delete=models.CASCADE) # <-- add this for the User profile create a one to one relationship (customer - User)
