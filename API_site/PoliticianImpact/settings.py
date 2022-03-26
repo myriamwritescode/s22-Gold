@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'django_filters',
     'address', # -- add address
+    'import_export',
 ]
 # SITE_ID = 1 # -- add address
 
@@ -154,3 +155,5 @@ EMAIL_HOST_PASSWORD = 'ILLUMIG0V!'
 
 #https://myaccount.google.com/lesssecureapps
      # Allow less secure apps: ON
+
+IMPORT_EXPORT_USE_TRANSACTIONS = True
