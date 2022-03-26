@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 #from address.models import AddressField
-from django.utils.translation import ugettext_lazy as _
+# from django.utils.translation import ugettext_lazy as _
 # from djmoney.models.fields import MoneyField
 from django.core.validators import MinValueValidator, MaxValueValidator
 # from .models.address import BaseBillingAddress
@@ -75,12 +75,12 @@ class Customer(models.Model):
 	name = models.CharField(max_length=200, null=True) 
 	Age = models.CharField("Age", max_length=3, null=True,)
 	#address = AddressField(related_name='+', blank=True, null=True)
-	number = models.CharField(_('Number'), max_length = 30, null=True, blank = True)
-	street_line1 = models.CharField(_('Address 1'), max_length = 100, null=True, blank = True)
-	street_line2 = models.CharField(_('Address 2'), max_length = 100, null=True, blank = True)
-	zipcode = models.CharField(_('ZIP code'), max_length = 5, null=True, blank = True)
-	city = models.CharField(_('City'), max_length = 100, null=True, blank = True)
-	state = models.CharField(_('State'), max_length = 100, null=True, blank = True)
+	number = models.CharField('Number', max_length = 30, null=True, blank = True)
+	street_line1 = models.CharField('Address 1', max_length = 100, null=True, blank = True)
+	street_line2 = models.CharField('Address 2', max_length = 100, null=True, blank = True)
+	zipcode = models.CharField('ZIP code', max_length = 5, null=True, blank = True)
+	city = models.CharField('City', max_length = 100, null=True, blank = True)
+	state = models.CharField('State', max_length = 100, null=True, blank = True)
 	# -----------------------------------value score below
 	military = models.IntegerField("Military", default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
 	government = models.IntegerField("Government", default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
@@ -109,7 +109,7 @@ class Representative(models.Model):
 	#street_line2 = models.CharField(_('Address 2'), max_length = 100, null=True, blank = True)
 	#zipcode = models.CharField(_('ZIP code'), max_length = 5, null=True, blank = True)
 	#city = models.CharField(_('City'), max_length = 100, null=True, blank = True)
-	state = models.CharField(_('State'), max_length = 100, null=True, blank = True)
+	state = models.CharField('State', max_length = 100, null=True, blank = True)
 	district =models.IntegerField("District", null=True, blank=True)
 	phone = models.CharField("Phone", max_length=1024, null=True, blank=True)
 	type = models.CharField("Type", max_length=1024, null=True, blank=True)
