@@ -54,21 +54,23 @@ def main():
                 if result == 'Agreed to' or result == 'Passed':
 
                     bill_type = root.find('bill').get('type')
-                    number = root.find('bill').get('number')
+                    if bill_type == 'hr' or bill_type == 's':
 
-                    # every variable before this point will be the same for each voter
-                    # (i.e.: all the general information about the vote)
-                    # the following variables will be specific to the voter
-                    for voter in root.iter('voter'):
-                        voter_id = voter.get('id')
-                        value = voter.get('value')
-                        state = voter.get('state')
+                        number = root.find('bill').get('number')
 
-                        #  Organize for row-entry to all_votes.csv
-                        data = [voter_id, state, bill_type, number, roll, value, result,
-                                chamber, sess, yr, category, type_vote]
-                        #  write to all_votes.csv
-                        writer.writerow(data)
+                        # every variable before this point will be the same for each voter
+                        # (i.e.: all the general information about the vote)
+                        # the following variables will be specific to the voter
+                        for voter in root.iter('voter'):
+                            voter_id = voter.get('id')
+                            value = voter.get('value')
+                            state = voter.get('state')
+
+                            #  Organize for row-entry to all_votes.csv
+                            data = [voter_id, state, bill_type, number, roll, value, result,
+                                    chamber, sess, yr, category, type_vote]
+                            #  write to all_votes.csv
+                            writer.writerow(data)
 
 
 if __name__ == '__main__':

@@ -23,11 +23,12 @@ admin.site.register(Votes)
 @admin.register(TestElectedOfficial)
 class ElectedOfficialAdmin(ImportExportModelAdmin):
     resource_class = ElectedOfficialResource
-    list_display = ['bioguide_id', 'first_name', 'last_name', 'state', 'type']
+    list_display = ['bioguide_id', 'first_name', 'last_name', 'party', 'state',
+                    'type', 'district']
 
 
 # Test model for TestVotes --Brett
 @admin.register(TestVote)
 class VotesAdmin(ImportExportModelAdmin):
     resource_class = VotesResource
-    list_display = ['voter_id', 'number', 'roll']
+    list_display = ['voter_id', 'yr', 'bill_type', 'number', 'value', 'result']

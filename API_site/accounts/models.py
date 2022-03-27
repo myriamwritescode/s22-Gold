@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 # from djmoney.models.fields import MoneyField
 from django.core.validators import MinValueValidator, MaxValueValidator
 # from .models.address import BaseBillingAddress
-from yamlfield.fields import YAMLField
+#from yamlfield.fields import YAMLField
 
 
 # Test model for ElectedOfficial --Brett
