@@ -113,8 +113,26 @@ def accountSettings(request):
 
 	if request.method == 'POST':  #healding the submition
 		form = CustomerForm(request.POST, instance=customer)#<---no pillow (request.POST, request.FILES,instance=customer)
+		military = request.POST.get('military')
+		government = request.POST.get('government')
+		education = request.POST.get('education')
+		healthcare_and_medicare = request.POST.get('healthcare_and_medicare')
+		veteran_affairs = request.POST.get('veteran_affairs')
+		housing_and_labor = request.POST.get('housing_and_labor')
+		international_affairs = request.POST.get('international_affairs')
+		energy_and_environment = request.POST.get('energy_and_environment')
+		Science = request.POST.get('Science')
+		transportation_and_infrastructure = request.POST.get('transportation_and_infrastructure')
+		food_and_agriculture = request.POST.get('food_and_agriculture')
+		socialsecurity_or_unemployment = request.POST.get('socialsecurity_or_unemployment')
+
 		if form.is_valid():
-			form.save()
+			if(military + government + education + healthcare_and_medicare + veteran_affairs + housing_and_labor +
+			   international_affairs + energy_and_environment + Science + transportation_and_infrastructure + 
+			   food_and_agriculture + socialsecurity_or_unemployment == 100):
+				form.save()
+			else:
+				messages.info(request, 'Value scores do not total 100')
 
 	context = {'form':form}
 	return render(request, 'accounts/account_settings.html', context)

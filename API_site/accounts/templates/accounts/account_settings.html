@@ -9,25 +9,9 @@
 		margin: 0 auto;
 		border-radius: 50%;
 	}
-	.rangeslider{
-    	width: 50%;
-	}
-	.myslider {
-    	-webkit-appearance: none;
-    	background: #FCF3CF  ;
-    	width: 50%;
-    	height: 20px;
-    	opacity: 2;
-   }
-	.myslider::-webkit-slider-thumb {
-    	-webkit-appearance: none;
-    	cursor: pointer;
-    	background: #34495E  ;
-    	width: 5%;
-    	height: 20px;
-	}
-	.myslider:hover {
-    	opacity: 1;
+	.box{
+		height:25px;
+		width: 60px;
 	}
 </style>
 
@@ -48,163 +32,35 @@
 			
 			<form method="POST" action="" enctype="multipart/form-data">
 				{% csrf_token %}
-				{{form.as_p}}	
-				{{form.errors}}<!--send a notification of why account was not created -->
+				Name: <br>
+				<input type="text" name="{{form.name.value}}"><br><br>
+				Age: <br>
+				<input type="text" name="Age" value="{{form.Age.value}}"><br>
+
+				<br><h2>Value Scores</h2>
+				<input type="number" class="box" name="military" min="0" max="100" value="{{form.military.value}}"> --Military<br>
+				<input type="number" class="box" name="government" min="0" max="100" value="{{form.government.value}}"> --Government<br>
+				<input type="number" class="box" name="education" min="0" max="100" value="{{form.education.value}}"> --Education<br>
+				<input type="number" class="box" name="healthcare_and_medicare" min="0" max="100" value="{{form.healthcare_and_medicare.value}}"> --Healthcare & Medicare<br>
+				<input type="number" class="box" name="veteran_affairs" min="0" max="100" value="{{form.veteran_affairs.value}}"> --Veteran Affairs<br>
+				<input type="number" class="box" name="housing_and_labor" min="0" max="100" value="{{form.housing_and_labor.value}}"> --Housing & Labor<br>
+				<input type="number" class="box" name="international_affairs" min="0" max="100" value="{{form.international_affairs.value}}"> --International Affairs<br>
+				<input type="number" class="box" name="energy_and_environment" min="0" max="100" value="{{form.energy_and_environment.value}}"> --Energy & Environment<br>
+				<input type="number" class="box" name="Science" min="0" max="100" value="{{form.Science.value}}"> --Science<br>
+				<input type="number" class="box" name="transportation_and_infrastructure" min="0" max="100" value="{{form.transportation_and_infrastructure.value}}"> --Transporation & Infrastructure<br>
+				<input type="number" class="box" name="food_and_agriculture" min="0" max="100" value="{{form.food_and_agriculture.value}}"> --Food & Agriculture<br>
+				<input type="number" class="box" name="socialsecurity_or_unemployment" min="0" max="100" value="{{form.socialsecurity_or_unemployment.value}}"> --Social Security & Unemployment<br>
+
 				<hr>
-			
+				
+
 				<input class="btn btn-success" type="submit" name="Update Information" >
-			
-				</form>
+			</form>
+			{% for message in messages %}
+				<p id="messages">{{message}}</p>
+			{% endfor %}
 		</div>
-		
-		<div class="card card-body">
-			<h2>Value Scores</h2><hr>
-
-			<h5>Agriculture & Food</h5>
-			<div>
-  				<div class="rangeslider">
-    				<input type="range" min="0" max="100" value="10" class="myslider" id="sliderRange1">
-    				<p>Value: <span id="demo1"></span></p>
-  				</div>
-    
-  				<script>
-  					var rangeslider = document.getElementById("sliderRange1");
-  					var output = document.getElementById("demo1");
-  					output.innerHTML = rangeslider.value;
-    
-  					rangeslider.oninput = function() {
-    				output.innerHTML = this.value;
-  				}
-  				</script>
-			</div>
-
-			<h5>Crime & Law Enforcement</h5>
-			<div>
-  				<div class="rangeslider">
-    				<input type="range" min="0" max="100" value="10" class="myslider" id="sliderRange2">
-    				<p>Value: <span id="demo2"></span></p>
-  				</div>
-    
-  				<script>
- 					var rangeslider = document.getElementById("sliderRange2");
-  					var output = document.getElementById("demo2");
-  					output.innerHTML = rangeslider.value;
-    
-  					rangeslider.oninput = function() {
-   					output.innerHTML = this.value;
-  					}
-  				</script>
-			</div>
-
-			<h5>Economics & Public Finance</h5>
-			<div>
-  				<div class="rangeslider">
-    				<input type="range" min="0" max="100" value="10" class="myslider" id="sliderRange3">
-    				<p>Value: <span id="demo3"></span></p>
-  				</div>
-    
-  				<script>
- 					var rangeslider = document.getElementById("sliderRange3");
-  					var output = document.getElementById("demo3");
-  					output.innerHTML = rangeslider.value;
-    
-  					rangeslider.oninput = function() {
-   					output.innerHTML = this.value;
-  					}
-  				</script>
-			</div>
-
-			<h5>Emergency Management</h5>
-			<div>
-  				<div class="rangeslider">
-    				<input type="range" min="0" max="100" value="10" class="myslider" id="sliderRange4">
-    				<p>Value: <span id="demo4"></span></p>
-  				</div>
-    
-  				<script>
- 					var rangeslider = document.getElementById("sliderRange4");
-  					var output = document.getElementById("demo4");
-  					output.innerHTML = rangeslider.value;
-    
-  					rangeslider.oninput = function() {
-   					output.innerHTML = this.value;
-  					}
-  				</script>
-			</div>
-
-			<h5>Government Operations & Politics</h5>
-			<div>
-  				<div class="rangeslider">
-    				<input type="range" min="0" max="100" value="10" class="myslider" id="sliderRange5">
-    				<p>Value: <span id="demo5"></span></p>
-  				</div>
-    
-  				<script>
- 					var rangeslider = document.getElementById("sliderRange5");
-  					var output = document.getElementById("demo5");
-  					output.innerHTML = rangeslider.value;
-    
-  					rangeslider.oninput = function() {
-   					output.innerHTML = this.value;
-  					}
-  				</script>
-			</div>
-
-			<h5>Immigration</h5>
-			<div>
-  				<div class="rangeslider">
-    				<input type="range" min="0" max="100" value="10" class="myslider" id="sliderRange6">
-    				<p>Value: <span id="demo6"></span></p>
-  				</div>
-    
-  				<script>
- 					var rangeslider = document.getElementById("sliderRange6");
-  					var output = document.getElementById("demo6");
-  					output.innerHTML = rangeslider.value;
-    
-  					rangeslider.oninput = function() {
-   					output.innerHTML = this.value;
-  					}
-  				</script>
-			</div>
-
-			<h5>Science, Technology, Communications</h5>
-			<div>
-  				<div class="rangeslider">
-    				<input type="range" min="0" max="100" value="10" class="myslider" id="sliderRange7">
-    				<p>Value: <span id="demo7"></span></p>
-  				</div>
-    
-  				<script>
- 					var rangeslider = document.getElementById("sliderRange7");
-  					var output = document.getElementById("demo7");
-  					output.innerHTML = rangeslider.value;
-    
-  					rangeslider.oninput = function() {
-   					output.innerHTML = this.value;
-  					}
-  				</script>
-			</div>
-
-			<h5>Transporation & Public Works</h5>
-			<div>
-  				<div class="rangeslider">
-    				<input type="range" min="0" max="100" value="10" class="myslider" id="sliderRange8">
-    				<p>Value: <span id="demo8"></span></p>
-  				</div>
-    
-  				<script>
- 					var rangeslider = document.getElementById("sliderRange8");
-  					var output = document.getElementById("demo8");
-  					output.innerHTML = rangeslider.value;
-    
-  					rangeslider.oninput = function() {
-   					output.innerHTML = this.value;
-  					}
-  				</script>
-			</div>
-
-		</div>
+	</div>
 	
 
 </div>
