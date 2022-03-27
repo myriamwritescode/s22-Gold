@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 # Created: 3/11/22
 # Author : Myriam Souaya
 # Project: s22-Gold
