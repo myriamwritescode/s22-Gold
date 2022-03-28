@@ -20,6 +20,8 @@ import csv
 
 
 def main():
+    necessary_bills = []
+
     #  all_votes.csv header
     header = ['voter_id', 'state', 'bill_type', 'number', 'roll', 'value',
               'result', 'chamber', 'sess', 'yr', 'category', 'type_vote']
@@ -48,15 +50,18 @@ def main():
             # continue parsing xml file if the vote is on passage of a bill or
             # an amendment
             if category == 'passage' or category == 'amendment':
-                # more variables
                 type_vote = root.find('type').text
-                result = root.find('result').text
-                if result == 'Agreed to' or result == 'Passed':
-
-                    bill_type = root.find('bill').get('type')
-                    if bill_type == 'hr' or bill_type == 's':
-
+                if type_vote == 'On Passage of the Bill' or type_vote == 'On the Resolution':
+                    result = root.find('result').text
+                    if result == 'Agreed to' or result == 'Passed':
+                        bill_type = root.find('bill').get('type')
                         number = root.find('bill').get('number')
+
+                        #  sidebar... need a list of necessary bills for other programs
+                        uppercase = bill_type.upper()
+                        with_period = '.'.join(uppercase[i:i+1] for i in range(0, len(uppercase), 1))
+                        bill_id = f'{with_period}.{number}'
+                        necessary_bills.append(bill_id)  # ...end sidebar
 
                         # every variable before this point will be the same for each voter
                         # (i.e.: all the general information about the vote)
@@ -71,6 +76,11 @@ def main():
                                     chamber, sess, yr, category, type_vote]
                             #  write to all_votes.csv
                             writer.writerow(data)
+
+    with open('necessary_bills.csv', 'w', encoding="utf-8") as f2:
+        writer2 = csv.writer(f2)
+        for bill in necessary_bills:
+            writer2.writerow([bill])
 
 
 if __name__ == '__main__':
