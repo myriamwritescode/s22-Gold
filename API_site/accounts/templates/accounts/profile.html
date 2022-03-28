@@ -39,54 +39,41 @@
 <!-- Just before the closing body tag is best -->
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 <script>
-
-	// hard coding the table no data collected  or database set up
-	var state ={	
-		'items':[
-		"Agriculture & Food ",
-		"Armed Forces & National Security ",
-		"Crime & Law Enforcement ",
-		"Civil Rights & Liberties, Minority Issues",
-		"Economics & Public Finance ",
-		"Education",
-		"Emergency Management ",
-		"Environmental Protection ",
-		"Government Operations & Politics ",
-		"Health",
-		"Immigration ",
-		"Labor & Employment",
-		"Science, Technology, Communications",
-		"Social Welfare",
-		"Taxation",
-		"Transportation & Public Works",
-		],
-		
-		'values':[
-		25,
-		75,
-		15,
-		50,
-		5,
-		2,
-		25,
-		80,
-		10,
-		90,
-		45,
-		25,
-		63,
-		1,
-		75,
-		85],
+	var state ={	// hold our choice
+		'items':[],
+		'values':[],
 	}
 
-	
+	//var objId = "{{question}}" /// store the question id into a variable
+
+	var dataURL = `/profile/resultsdata/`   //the question path ID
+
+//-----------------------------calling the data Chart
+$.ajax({
+		method:'GET', // the method we are using... telling it that we are using a GET Request data.. that we just want to retrive some data
+		url:dataURL, // where we what to retrive the data from
+		success:function(response){
+			console.log('RESPONSE:', response)
+			for (var i in response){ //
+
+				var key = Object.keys(response[i])[0]   // grabing the keys example choice
+				var value = Object.values(response[i])[0] // grabing the value example choice
+
+				state.items.push(key)// grabing the keys example choice
+				state.values.push(value)
+			}
+
+			console.log('STATE:', state) // console out the new state
+			buildChart() // the function to graph it 
+
+		}
+	})
+
 	//-----------------------------only build it if a fuction get call
-	
+		function buildChart(){
 			//-----------------------------------------setting the data
 			var chartData = {
 			"type":"bar",//type of graph you want 
-			
 			"scale-x":{
 				"values":state.items// x value for the chat data
 			},
@@ -97,14 +84,12 @@
 			]
 		}
 
-     //-------------------------  render the the chart data onto line 14
+     //-------------------------  render the the chart data onto line 18
 		zingchart.render({
 		  id: "myChart",
 		  data: chartData,
 		});
-	
+	}
 
 </script>
-
-
 {% endblock content %}

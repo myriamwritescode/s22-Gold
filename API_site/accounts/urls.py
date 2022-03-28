@@ -21,6 +21,7 @@ urlpatterns = [
     path('value/', views.valuePage, name="user-value"),
     path('value/learnMore', views.valuePagelearnmore, name="user-learn-more"),
     path('account/', views.accountSettings, name="account"),
+    path('profile/resultsdata/', views.resultsData, name="resultsdata"), # add this for the graph
     
     #path('customer/', views.customer), # <----static path name
     path('customer/<str:pk_test>/', views.customer,name="customer"),#dynamic display a paticualar customer

@@ -143,14 +143,65 @@ def accountSettings(request):
 			
 			if(sum == 100):
 				form.save()
-				messages.success(request, 'Profile succesfully updated!')
+				# messages.success(request, 'Profile succesfully updated!')
+				return redirect('home')
 			else:
 				messages.error(request, 'Value scores do not total 100')
 
 	context = {'form':form}
 	return render(request, 'accounts/account_settings.html', context)
 
+
+
+#-------------------------------------------------------Graphing the result Data
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer'])	
+def resultsData(request):
+	votedata = [] # built and empty array
+	question = request.user.customer # grab the by the ID of the model
+	military_value = question.military #grab the all the choices
+	votedata.append({'military':military_value})
+
+	government_value = question.government
+	votedata.append({'government':government_value})
+
+	education_value = question.education 
+	votedata.append({'education':education_value})
+
+	healthcare_and_medicare_value = question.healthcare_and_medicare
+	votedata.append({'healthcare_and_medicare':healthcare_and_medicare_value})
+
+	veteran_affairs_value = question.veteran_affairs
+	votedata.append({'veteran_affairs':veteran_affairs_value})
+
+	housing_and_labor_value = question.housing_and_labor
+	votedata.append({'veteran_affairs':housing_and_labor_value})
+
+	international_affairs_value = question.international_affairs
+	votedata.append({'international_affairs':international_affairs_value})
+
+	energy_and_environment_value = question.energy_and_environment
+	votedata.append({'energy_and_environment':energy_and_environment_value})
+
+	Science_value = question.Science
+	votedata.append({'Science':Science_value})
+
+	transportation_and_infrastructure_value = question.transportation_and_infrastructure
+	votedata.append({'transportation_and_infrastructure':transportation_and_infrastructure_value})
+
+	food_and_agricultur_value = question.food_and_agriculture
+	votedata.append({'food_and_agricultur_value':food_and_agricultur_value})
+
+	socialsecurity_or_unemployment_value = question.socialsecurity_or_unemployment 
+	votedata.append({'socialsecurity_or_unemployment':socialsecurity_or_unemployment_value})
+
+	print(votedata)
+
+	return JsonResponse(votedata, safe=False)  
+	
+
 #----------------------------------------------------
+
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['admin'])	
