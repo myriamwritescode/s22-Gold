@@ -5,6 +5,8 @@
 # Project: s22-Gold
 # File   : scraping_urls.py
 
+from BillsToCategories import billsToCategories
+
 url_arguments = ['house-committee%22%3A%22Veterans%27+Affairs',
                  'house-committee%22%3A%22Energy+and+Commerce',
                  'house-committee%22%3A%22Oversight+and+Reform',
@@ -32,16 +34,26 @@ url_arguments = ['house-committee%22%3A%22Veterans%27+Affairs',
                  'senate-committee%22%3A%22Agriculture%2C+Nutrition%2C+and+Forestry'
                  ]
 
-base_url = "https://www.congress.gov/search?pageSize=250&q=%7B%22congress%22%" \
-           "3A%22117%22%2C%22bill-status%22%3A%22law%22%2C%22"
 
-url_closing = "%22%7D"
+def main():
 
-for i in range(len(url_arguments)):
-    url_to_scrape = base_url + url_arguments[i] + url_closing
-    print(url_to_scrape)
+    base_url = "https://www.congress.gov/search?pageSize=250&q=%7B%22congress" \
+               "%22%" \
+               "3A%22117%22%2C%22bill-status%22%3A%22law%22%2C%22"
+
+    url_closing = "%22%7D"
+
+    for url in url_arguments:
+        #url_to_scrape = base_url + url_arguments[i] + url_closing
+        url_to_scrape = f'{base_url}url[i]{url_closing}'
+        #print(url_to_scrape)
+        billsToCategories(url_to_scrape)
 
 
+
+
+if __name__ == '__main__':
+    main()
 
 
 
