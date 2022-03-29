@@ -14,7 +14,7 @@ import re
 
 # CONVERT HTML INTO BEAUTIFULSOUP OBJECT
 
-base_site = "https://www.congress.gov/search?pageSize=250&q=%7B%22congress%22%3A%22117%22%2C%22bill-status%22%3A%22law%22%2C%22senate-committee%22%3A%22Foreign+Relations%22%7D"
+base_site = "https://www.congress.gov/search?q=%7B%22congress%22%3A%22117%22%2C%22bill-status%22%3A%22law%22%2C%22house-committee%22%3A%22Financial+Services%22%7D"
 response = requests.get(base_site)
 html = response.content                                         # document
 soup = BeautifulSoup(html, "html.parser")                       # soup object
@@ -31,8 +31,8 @@ for bill_tag in range(len(billID_tags)):
     if bill_tag % 2 == 0:
         billID_list.append(billID_tags[bill_tag].contents[0].string)
 
-for bill in range(len(billID_list)):
-    print(billID_list[bill])
+# for bill in range(len(billID_list)):
+#     print(billID_list[bill])
 
 
 #print(billID_tags[bill_tag].contents[0].string)
@@ -49,10 +49,14 @@ for committee_tag in committee_tags:
         if committee_tag.contents[2].string.strip() != '':
             committee_list.append(committee_tag.contents[2].string.strip())
 
+for element in committee_list:
+    if element == 'The House Rules Committee Print':
+        committee_list.remove(element)
 
 
-for k in range(len(committee_list)):
-    print(committee_list[k])
+
+# for k in range(len(committee_list)):
+#     print(committee_list[k])
 
 
 #print(committee_tag.sourceline, committee_tag.contents[2].string.strip())
@@ -114,8 +118,8 @@ for j in range(len(sponsor_list)):
     if j % 2 == 0:
         sponsors_list.append(sponsor_list[j])
 
-for l in range(len(sponsors_list)):
-    print(sponsors_list[l])
+# for l in range(len(sponsors_list)):
+#     print(sponsors_list[l])
 
 
 
@@ -123,15 +127,15 @@ for l in range(len(sponsors_list)):
 
 # FORMAT OUTPUT BY BILL: BILLID, COMMITTEE, SPONSORS
 
-# rows, cols = (13, 3)
-# arr = [[0]*cols]*rows
-#
-#
-# for row in range(len(arr)):
-#     arr[row][0] = billID_list[row]
-#     arr[row][1] = committee_list[row]
-#     arr[row][2] = sponsors_list[row]
-#     print(arr[row])
+rows, cols = (3, 3)
+arr = [[0]*cols]*rows
+
+
+for row in range(len(arr)):
+    arr[row][0] = billID_list[row]
+    arr[row][1] = committee_list[row]
+    arr[row][2] = sponsors_list[row]
+    print(arr[row])
 
 
 
