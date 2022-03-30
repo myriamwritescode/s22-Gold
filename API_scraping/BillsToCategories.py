@@ -81,24 +81,43 @@ def bills_to_categories(url):
     # -------------------------------------------------------------------------------
 
     # FORMAT OUTPUT BY BILL: BILLID, COMMITTEE, SPONSORS
-    # LOAD BY ROW
+    # CREATES A LIST OF TUPLES
 
+    new_list = list(zip(bill_id_list, committee_list, sponsors_list))
 
-
-    rows, cols = (len(bill_id_list), 3)
-    arr = [[0] * cols] * rows
-
-    for row in range(len(arr)):
-        arr[row][0] = bill_id_list[row]
-        arr[row][1] = committee_list[row]
-        arr[row][2] = sponsors_list[row]
+    return new_list
 
 
 
 
-    with open('bills.csv', 'a', encoding='utf8') as file:
-        writer = csv.writer(file)
-        writer.writerows(arr)
+
+
+
+
+
+
+
+
+    # rows, cols = (len(bill_id_list), 3)
+    # arr = [[0] * cols] * rows
+    #
+    # for row in range(len(bill_id_list)):
+    #     arr[row][0] = bill_id_list[row]
+    #     arr[row][1] = committee_list[row]
+    #     arr[row][2] = sponsors_list[row]
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
