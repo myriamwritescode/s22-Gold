@@ -35,17 +35,16 @@ url_arguments = ['house-committee%22%3A%22Veterans%27+Affairs',
                  ]
 
 
+
+
 def main():
-    base_url = "https://www.congress.gov/search?pageSize=250&q=%7B%22congress" \
-               "%22%" \
-               "3A%22117%22%2C%22bill-status%22%3A%22law%22%2C%22"
+    base_url = "https://www.congress.gov/search?pageSize=250&q=%7B%22" \
+               "congress%22%3A%22117%22%2C%22bill-status%22%3A%22law%22%2C%22"
 
     url_closing = "%22%7D"
 
-    for url in url_arguments:
-        # url_to_scrape = base_url + url_arguments[i] + url_closing
-        url_to_scrape = f'{base_url}url[i]{url_closing}'
-        # print(url_to_scrape)
+    for i in range(len(url_arguments)):
+        url_to_scrape = base_url + url_arguments[i] + url_closing
         bills_to_categories(url_to_scrape)
 
 

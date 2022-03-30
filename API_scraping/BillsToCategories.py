@@ -12,21 +12,17 @@ import re
 
 
 def bills_to_categories(url):
-    # ------------------------------------------------------------------------------
 
     # CONVERT HTML INTO BEAUTIFULSOUP OBJECT
 
-    # base_site = "https://www.congress.gov/search?q=%7B%22congress%22%3A" \
-    #              "%22117%22%2C%22bill-status%22%3A%22law%22%2C%22house-committee%22%3A%22Financial+Services%22%7D"
-    response = requests.get(url)
-    html = response.content  # document
-    soup = BeautifulSoup(html, "html.parser")  # soup object
+    response = requests.get(url)                # GET request
+    html = response.content                     # document
+    soup = BeautifulSoup(html, "html.parser")   # soup object
 
     # ------------------------------------------------------------------------------
 
     # EXTRACT BILL ID
 
-    bills = []
     bill_id_list = []
     bill_id_tags = soup.find_all('span', class_='result-heading')
 
@@ -34,10 +30,6 @@ def bills_to_categories(url):
         if bill_tag % 2 == 0:
             bill_id_list.append(bill_id_tags[bill_tag].contents[0].string)
 
-    # for bill in range(len(bill_id_list)):
-    #     print(bill_id_list[bill])
-
-    # print(bill_id_tags[bill_tag].contents[0].string)
 
     # ------------------------------------------------------------------------------
 
@@ -55,10 +47,60 @@ def bills_to_categories(url):
         if element == 'The House Rules Committee Print':
             committee_list.remove(element)
 
-    # for k in range(len(committee_list)):
-    #     print(committee_list[k])
 
-    # print(committee_tag.sourceline, committee_tag.contents[2].string.strip())
+
+    # ------------------------------------------------------------------------------
+
+    # EXTRACT SPONSORS
+
+    sponsors_list = []
+    sponsor_list = []
+    sponsor_tags = soup.find_all('a', target="_blank")
+
+    # parsing rep and sen names from a longer string
+
+    for i in range(len(sponsor_tags)):
+        sponsor_rep = re.search(r'Rep\.\s[a-zA-Z\s]+,.+\[',
+                                str(sponsor_tags[i].contents[0]))
+        sponsor_sen = re.search(r'Sen\.\s[a-zA-Z\s]+,.+\[',
+                                str(sponsor_tags[i].contents[0]))
+        if sponsor_rep:
+            snippet_rep = sponsor_rep.group(0)
+            sponsor_list.append(snippet_rep[5:len(snippet_rep) - 2])
+        if sponsor_sen:
+            snippet_sen = sponsor_sen.group(0)
+            sponsor_list.append(snippet_sen[5:len(snippet_sen) - 2])
+
+    for j in range(len(sponsor_list)):
+        if j % 2 == 0:
+            sponsors_list.append(sponsor_list[j])
+
+
+    # -------------------------------------------------------------------------------
+
+    # FORMAT OUTPUT BY BILL: BILLID, COMMITTEE, SPONSORS
+
+    rows, cols = (len(bill_id_list), 3)
+    arr = [[0] * cols] * rows
+
+    for row in range(len(arr)):
+        arr[row][0] = bill_id_list[row]
+        arr[row][1] = committee_list[row]
+        arr[row][2] = sponsors_list[row]
+        print(arr[row])
+
+
+def main():
+    print('didn\'t work')
+
+
+if __name__ == '__main__':
+    main()
+
+
+
+
+
 
     # ------------------------------------------------------------------------------
 
@@ -88,53 +130,3 @@ def bills_to_categories(url):
     #             print(tags[i].sourceline, "Senate Vote Number: " + snippet[8:10])
     #     if matchvoice:
     #         print(tags[i].sourceline, "Voice Vote")
-
-    # ------------------------------------------------------------------------------
-
-    # EXTRACT SPONSORS
-
-    sponsors_list = []
-    sponsor_list = []
-    sponsor_tags = soup.find_all('a', target="_blank")
-
-    for i in range(len(sponsor_tags)):
-        sponsor_rep = re.search(r'Rep\.\s[a-zA-Z]+,.+\[', str(sponsor_tags[
-                                                                  i].contents[
-                                                                  0]))
-        sponsor_sen = re.search(r'Sen\.\s[a-zA-Z\s]+,.+\[', str(sponsor_tags[
-                                                                    i].contents[
-                                                                    0]))
-        if sponsor_rep:
-            snippet_rep = sponsor_rep.group(0)
-            sponsor_list.append(snippet_rep[5:len(snippet_rep) - 2])
-        if sponsor_sen:
-            snippet_sen = sponsor_sen.group(0)
-            sponsor_list.append(snippet_sen[5:len(snippet_sen) - 2])
-
-    for j in range(len(sponsor_list)):
-        if j % 2 == 0:
-            sponsors_list.append(sponsor_list[j])
-
-    # for l in range(len(sponsors_list)):
-    #     print(sponsors_list[l])
-
-    # -------------------------------------------------------------------------------
-
-    # FORMAT OUTPUT BY BILL: BILLID, COMMITTEE, SPONSORS
-
-    rows, cols = (len(bill_id_list), 3)
-    arr = [[0] * cols] * rows
-
-    for row in range(len(arr)):
-        arr[row][0] = bill_id_list[row]
-        arr[row][1] = committee_list[row]
-        arr[row][2] = sponsors_list[row]
-        print(arr[row])
-
-
-def main():
-    print('didn\'t work')
-
-
-if __name__ == '__main__':
-    main()
