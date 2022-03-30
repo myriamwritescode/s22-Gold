@@ -82,9 +82,12 @@ for row in range(len(bill_id_list)):
     arr[row][0] = bill_id_list[row]
     arr[row][1] = committee_list[row]
     arr[row][2] = sponsors_list[row]
+    print(arr[row])                 # trying to get each line of output from
+                                    # this print statement into each row of
+                                    # a csv file
 
 
-with open('bills.csv', 'a', encoding='utf8') as file:
+with open('bills.csv', 'w', encoding='utf8') as file:
     writer = csv.writer(file)
     writer.writerow(fields)
     writer.writerow(arr)
