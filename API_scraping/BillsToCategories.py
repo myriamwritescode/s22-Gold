@@ -9,6 +9,9 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+import csv
+
+
 
 
 def bills_to_categories(url):
@@ -78,6 +81,9 @@ def bills_to_categories(url):
     # -------------------------------------------------------------------------------
 
     # FORMAT OUTPUT BY BILL: BILLID, COMMITTEE, SPONSORS
+    # LOAD BY ROW
+
+
 
     rows, cols = (len(bill_id_list), 3)
     arr = [[0] * cols] * rows
@@ -86,7 +92,14 @@ def bills_to_categories(url):
         arr[row][0] = bill_id_list[row]
         arr[row][1] = committee_list[row]
         arr[row][2] = sponsors_list[row]
-        print(arr[row])
+
+
+
+
+    with open('bills.csv', 'a', encoding='utf8') as file:
+        writer = csv.writer(file)
+        writer.writerows(arr)
+
 
 
 def main():

@@ -5,7 +5,11 @@
 # Project: s22-Gold
 # File   : scraping_urls.py
 
+
+import csv
 from BillsToCategories import bills_to_categories
+
+fields = ['bill id ', 'committee ', 'sponsor ']
 
 url_arguments = ['house-committee%22%3A%22Veterans%27+Affairs',
                  'house-committee%22%3A%22Energy+and+Commerce',
@@ -42,6 +46,10 @@ def main():
                "congress%22%3A%22117%22%2C%22bill-status%22%3A%22law%22%2C%22"
 
     url_closing = "%22%7D"
+
+    with open('bills.csv', 'w', encoding='utf8') as file:
+        writer = csv.writer(file)
+        writer.writerow(fields)
 
     for i in range(len(url_arguments)):
         url_to_scrape = base_url + url_arguments[i] + url_closing
