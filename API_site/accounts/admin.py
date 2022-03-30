@@ -32,3 +32,11 @@ class ElectedOfficialAdmin(ImportExportModelAdmin):
 class VotesAdmin(ImportExportModelAdmin):
     resource_class = VotesResource
     list_display = ['voter_id', 'yr', 'bill_type', 'number', 'value', 'result']
+
+
+# Test model for TestBills --Brett
+@admin.register(TestBill)
+class BillsAdmin(ImportExportModelAdmin):
+    resource_class = BillsResource
+    list_display = ['bill_id', 'sponsor_1', 'sponsor_2', 'sponsor_3',
+                    'committee_1', 'committee_2', 'committee_3']

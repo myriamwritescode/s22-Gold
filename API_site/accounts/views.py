@@ -95,8 +95,29 @@ def comparePage(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer','admin'])
 def valuePage(request):
-	senators = Representative.objects.all()  # create a variable for senators, think of this as a list()
-	return render(request, 'accounts/value.html', {'senators': senators})  # this is a dictionary {key: value}
+	legislators = TestElectedOfficial.objects.all()
+	users_reps = []
+	for legislator in legislators:
+		if legislator.state == 'VA' and (legislator.type == 'sen' or legislator.district == 2):
+			# users_reps.append(f'{legislator.first_name} {legislator.last_name} {legislator.bioguide_id}')
+			users_reps.append(legislator.bioguide_id)
+
+	# votes = TestVote.objects.all()
+	#
+	# bills = TestBill.objects.all()
+	# bill_ids = []
+	# for bill in bills:
+	# 	bill_ids.append(bill.bill_id)
+
+	x = [1, 2, 3]
+	y = [4, 5, 6]
+	z = [7, 8, 9]
+
+	rep_values = [x, y, z]
+
+	data = {'users_reps': users_reps, 'rep_values': rep_values}
+	return render(request, 'accounts/value.html', data)
+
 #--------------------------------------------------------------------------User value learn more page
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer','admin'])

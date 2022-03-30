@@ -25,3 +25,10 @@ class VotesResource(resources.ModelResource):
     class Meta:
         model = TestVote
         import_id_fields = ('voter_id', 'number', 'roll',)
+
+
+class BillsResource(resources.ModelResource):
+
+    class Meta:
+        model = TestBill
+        import_id_fields = ('bill_id',)

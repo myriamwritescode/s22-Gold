@@ -11,13 +11,18 @@
 <div class="row">
 		<div class="col-md-7">
 			<h1>My Elected Official and I</h1>
-			<!-- Standard loops here, change as necessary -->
-			{% for senator in senators %}
-				{% if senator.lastname == 'Kong' %}
-					<h2>{{ senator.firstname }} {{ senator.lastname }}</h2>
-					<p>{{ senator.homecity }}</p>
-				{% endif %}
-			{% endfor %}
+			<table>
+				<tr>
+				{% for users_rep in users_reps %}
+					<td>{{ users_rep }}-----</td>
+				{% endfor %}
+				</tr>
+				<tr>
+				{% for rep_value in rep_values %}
+					<td>{{ rep_value }}</td>
+				{% endfor %}
+				</tr>
+			</table>
 	</div>
 	<div class="col-md">
 	</div>
