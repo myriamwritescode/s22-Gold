@@ -48,7 +48,6 @@ def bills_to_categories(url):
             committee_list.remove(element)
 
 
-
     # ------------------------------------------------------------------------------
 
     # EXTRACT SPONSORS
