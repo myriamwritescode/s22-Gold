@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 import re
 
 
-def billsToCategories(url):
+def bills_to_categories(url):
     # ------------------------------------------------------------------------------
 
     # CONVERT HTML INTO BEAUTIFULSOUP OBJECT
@@ -19,26 +19,25 @@ def billsToCategories(url):
     # base_site = "https://www.congress.gov/search?q=%7B%22congress%22%3A" \
     #              "%22117%22%2C%22bill-status%22%3A%22law%22%2C%22house-committee%22%3A%22Financial+Services%22%7D"
     response = requests.get(url)
-    html = response.content                                         # document
-    soup = BeautifulSoup(html, "html.parser")                       # soup object
+    html = response.content  # document
+    soup = BeautifulSoup(html, "html.parser")  # soup object
 
     # ------------------------------------------------------------------------------
 
     # EXTRACT BILL ID
 
     bills = []
-    billID_list = []
-    billID_tags = soup.find_all('span', class_='result-heading')
+    bill_id_list = []
+    bill_id_tags = soup.find_all('span', class_='result-heading')
 
-    for bill_tag in range(len(billID_tags)):
+    for bill_tag in range(len(bill_id_tags)):
         if bill_tag % 2 == 0:
-            billID_list.append(billID_tags[bill_tag].contents[0].string)
+            bill_id_list.append(bill_id_tags[bill_tag].contents[0].string)
 
-    # for bill in range(len(billID_list)):
-    #     print(billID_list[bill])
+    # for bill in range(len(bill_id_list)):
+    #     print(bill_id_list[bill])
 
-
-    #print(billID_tags[bill_tag].contents[0].string)
+    # print(bill_id_tags[bill_tag].contents[0].string)
 
     # ------------------------------------------------------------------------------
 
@@ -56,14 +55,10 @@ def billsToCategories(url):
         if element == 'The House Rules Committee Print':
             committee_list.remove(element)
 
-
-
     # for k in range(len(committee_list)):
     #     print(committee_list[k])
 
-
-    #print(committee_tag.sourceline, committee_tag.contents[2].string.strip())
-
+    # print(committee_tag.sourceline, committee_tag.contents[2].string.strip())
 
     # ------------------------------------------------------------------------------
 
@@ -94,7 +89,6 @@ def billsToCategories(url):
     #     if matchvoice:
     #         print(tags[i].sourceline, "Voice Vote")
 
-
     # ------------------------------------------------------------------------------
 
     # EXTRACT SPONSORS
@@ -105,11 +99,11 @@ def billsToCategories(url):
 
     for i in range(len(sponsor_tags)):
         sponsor_rep = re.search(r'Rep\.\s[a-zA-Z]+,.+\[', str(sponsor_tags[
-                                                                i].contents[
-                                                            0]))
+                                                                  i].contents[
+                                                                  0]))
         sponsor_sen = re.search(r'Sen\.\s[a-zA-Z\s]+,.+\[', str(sponsor_tags[
-                                                                i].contents[
-                                                              0]))
+                                                                    i].contents[
+                                                                    0]))
         if sponsor_rep:
             snippet_rep = sponsor_rep.group(0)
             sponsor_list.append(snippet_rep[5:len(snippet_rep) - 2])
@@ -124,25 +118,21 @@ def billsToCategories(url):
     # for l in range(len(sponsors_list)):
     #     print(sponsors_list[l])
 
-
-
-    #-------------------------------------------------------------------------------
+    # -------------------------------------------------------------------------------
 
     # FORMAT OUTPUT BY BILL: BILLID, COMMITTEE, SPONSORS
 
-    rows, cols = (len(billID_list), 3)
-    arr = [[0]*cols]*rows
-
+    rows, cols = (len(bill_id_list), 3)
+    arr = [[0] * cols] * rows
 
     for row in range(len(arr)):
-        arr[row][0] = billID_list[row]
+        arr[row][0] = bill_id_list[row]
         arr[row][1] = committee_list[row]
         arr[row][2] = sponsors_list[row]
         print(arr[row])
 
 
 def main():
-
     print('didn\'t work')
 
 

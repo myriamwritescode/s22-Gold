@@ -1,12 +1,9 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 from .resources import *
-
-# Register your models here.
 from .models import *
 
 admin.site.register(Customer)
-#  Representative
 admin.site.register(Representative)
 admin.site.register(Represent)
 admin.site.register(Bill)
@@ -15,8 +12,6 @@ admin.site.register(Committees)
 admin.site.register(Sponsor)
 admin.site.register(Sponsors)
 admin.site.register(Votes)
-
-
 
 
 # Test model for TestElectedOfficial --Brett

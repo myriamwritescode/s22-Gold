@@ -5,7 +5,7 @@
 # Project: s22-Gold
 # File   : scraping_urls.py
 
-from BillsToCategories import billsToCategories
+from BillsToCategories import bills_to_categories
 
 url_arguments = ['house-committee%22%3A%22Veterans%27+Affairs',
                  'house-committee%22%3A%22Energy+and+Commerce',
@@ -36,7 +36,6 @@ url_arguments = ['house-committee%22%3A%22Veterans%27+Affairs',
 
 
 def main():
-
     base_url = "https://www.congress.gov/search?pageSize=250&q=%7B%22congress" \
                "%22%" \
                "3A%22117%22%2C%22bill-status%22%3A%22law%22%2C%22"
@@ -44,25 +43,11 @@ def main():
     url_closing = "%22%7D"
 
     for url in url_arguments:
-        #url_to_scrape = base_url + url_arguments[i] + url_closing
+        # url_to_scrape = base_url + url_arguments[i] + url_closing
         url_to_scrape = f'{base_url}url[i]{url_closing}'
-        #print(url_to_scrape)
-        billsToCategories(url_to_scrape)
-
-
+        # print(url_to_scrape)
+        bills_to_categories(url_to_scrape)
 
 
 if __name__ == '__main__':
     main()
-
-
-
-
-
-
-
-
-
-
-
-

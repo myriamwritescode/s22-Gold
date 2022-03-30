@@ -9,13 +9,13 @@
 Description:
 
 """
-from models import Legislator
+from models import TestElectedOfficial
 import pandas as pd
 import csvImporter
 
 
 def main():
-    legislators_list = Legislator.import_data(data=open("../../legislators/current_legislators.csv"))
+    legislators_list = TestElectedOfficial.import_data(data=open("../../legislators/current_legislators.csv"))
     print(legislators_list[0])
 
 
