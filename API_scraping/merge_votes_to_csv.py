@@ -1,4 +1,3 @@
-
 #! /usr/bin/env python3
 
 # Created: 3/11/22
@@ -59,9 +58,14 @@ def main():
                         number = root.find('bill').get('number')
 
                         #  sidebar... need a list of necessary bills for other programs
-                        uppercase = bill_type.upper()
-                        with_period = '.'.join(uppercase[i:i+1] for i in range(0, len(uppercase), 1))
-                        bill_id = f'{with_period}.{number}'
+                        # uppercase = bill_type.upper()
+                        # with_period = '.'.join(uppercase[i:i + 1] for i in range(0, len(uppercase), 1))
+                        # if bill_type.startswith('h'):
+                        #     letter = 'H.'
+                        #     bill_id = f'{letter}{number}'
+                        # if bill_type.startswith('s'):
+                        #     letter = 'S.'
+                        bill_id = [bill_type, number]
                         necessary_bills.append(bill_id)  # ...end sidebar
 
                         # every variable before this point will be the same for each voter
@@ -81,7 +85,7 @@ def main():
     with open('necessary_bills.csv', 'w', encoding="utf-8") as f2:
         writer2 = csv.writer(f2)
         for bill in necessary_bills:
-            writer2.writerow([bill])
+            writer2.writerow(bill)
 
 
 if __name__ == '__main__':
