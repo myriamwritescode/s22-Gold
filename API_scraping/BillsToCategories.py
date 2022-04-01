@@ -22,7 +22,7 @@ def bills_to_categories(url):
     html = response.content                     # document
     soup = BeautifulSoup(html, "html.parser")   # soup object
 
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
 
     # EXTRACT BILL ID
 
@@ -34,7 +34,7 @@ def bills_to_categories(url):
             bill_id_list.append(bill_id_tags[bill_tag].contents[0].string)
 
 
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
 
     # EXTRACT COMMITTEE
 
@@ -51,7 +51,7 @@ def bills_to_categories(url):
             committee_list.remove(element)
 
 
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
 
     # EXTRACT SPONSORS
 
@@ -78,45 +78,38 @@ def bills_to_categories(url):
             sponsors_list.append(sponsor_list[j])
 
 
-    # -------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
 
-    # FORMAT OUTPUT BY BILL: BILLID, COMMITTEE, SPONSORS
-    # CREATES A LIST OF TUPLES
+    # PARSE FIRST COMMITTEE FROM COMMITTEE LIST
 
-    new_list = list(zip(bill_id_list, committee_list, sponsors_list))
+    chamber_list = []
+    full_list = []
 
-    return new_list
+    for i in range(len(committee_list)):
+        line = committee_list[i].split(' - ')
+        chamber_list.append(line[0])
+        delimiter_1 = ' | '
+        delimiter_2 = '; '
+        if delimiter_1 in line[1]:
+            partitioned = line[1].partition(delimiter_1)
+            line[1] = partitioned[0]
+        if delimiter_2 in line[1]:
+            partitioned = line[1].partition(delimiter_2)
+            line[1] = partitioned[0]
+        committee_list[i] = line[1]
 
+    for bill, chamber, committee, sponsor in zip(bill_id_list, chamber_list,
+                                                 committee_list, sponsors_list):
+        full_list.append([bill, chamber, committee, sponsor])
 
+    # --------------------------------------------------------------------------
 
+    # WRITE OUTPUT TO 'bills.csv'
 
-
-
-
-
-
-
-
-
-    # rows, cols = (len(bill_id_list), 3)
-    # arr = [[0] * cols] * rows
-    #
-    # for row in range(len(bill_id_list)):
-    #     arr[row][0] = bill_id_list[row]
-    #     arr[row][1] = committee_list[row]
-    #     arr[row][2] = sponsors_list[row]
-
-
-
-
-
-
-
-
-
-
-
-
+    with open('bills.csv', 'a', encoding='utf8') as file:
+        writer = csv.writer(file)
+        for item in full_list:
+            writer.writerow(item)
 
 
 
@@ -133,7 +126,7 @@ if __name__ == '__main__':
 
 
 
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
 
     # EXTRACT ROLL, HOUSE AND SENATE
 

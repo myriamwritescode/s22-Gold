@@ -53,7 +53,7 @@ def main():
 
     for i in range(len(url_arguments)):
         url_to_scrape = base_url + url_arguments[i] + url_closing
-        print(bills_to_categories(url_to_scrape))
+        bills_to_categories(url_to_scrape)
 
 
 if __name__ == '__main__':
