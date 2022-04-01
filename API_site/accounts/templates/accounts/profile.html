@@ -17,7 +17,9 @@
 		{%  include 'accounts/profile_navigation_settings.html'%} <!-- include the naviation settings for relevant informantion-->
 	</div>
 </div>
-
+{% if request.user.is_staff %}<!--set the permission for only staff to see if user is admin load navigation bar-->
+<p style="color:red; font-size:20px;">This is simulated legislative user King Kong</p>
+{% endif %}
 
 <br>
 <div class="row">

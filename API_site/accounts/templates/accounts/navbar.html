@@ -32,7 +32,12 @@
   </div>
 
   <!---- Authentication---->
-  <span class="hello-msg">Hello, {{request.user}} </span><!----display current user name Authentication---->
+  {% if request.user.is_staff %}<!--set the permission for only staff to see if user is admin load navigation bar-->
+  <span class="hello-msg">Hello, King Kong </span>
+  {% else %}
+  <span class="hello-msg">Hello, {{request.user}} </span> 
+  {% endif %}
+  <!----display current user name Authentication---->
   <span ><a  class="hello-msg" href="{% url 'logout' %}"> |  Logout</a></span>
   <!--X-- Authentication --X-->
 </nav>

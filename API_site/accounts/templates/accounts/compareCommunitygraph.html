@@ -1,0 +1,96 @@
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+			
+
+		    <div id="myChart2"></div><!-- this so that Zing know where to put the chart-->
+		  </form>
+		</div>
+	</div>
+	
+</div>
+<br>
+
+
+<!-- Javascript for the Zing chart-->
+<!-- Just before the closing body tag is best -->
+
+<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+<script>
+	var state ={	// hold our choice
+		'items':[],
+		'values':[],
+	}
+
+	var dataURL = `/compare/resultsdata_demographics/`   //the question path ID
+
+//-----------------------------calling the data Chart
+$.ajax({
+		method:'GET', // the method we are using... telling it that we are using a GET Request data.. that we just want to retrive some data
+		url:dataURL, // where we what to retrive the data from
+		success:function(response){
+			console.log('RESPONSE:', response)
+			// create the list of list
+			for (var i in response){
+				emptyList =[]
+				state.values.push(emptyList)
+			}
+		
+			//obtain the all the keys
+			for (var i in response[0]){
+				var key = Object.keys(response[0][i])[0]
+				state.items.push(key)// grabing the keys 
+			}
+			//obtain all the values from the responds
+			for (var i in response){
+				for (var j in response[0]){ 
+					var value = Object.values(response[i][j])[0]
+					state.values[i].push(value)
+				}
+			}
+
+			console.log('STATE:', state) // console out the new state
+			buildChart() // the function to graph it 
+
+		}
+	})
+
+	//-----------------------------only build it if a fuction get call
+		function buildChart(){
+			//-----------------------------------------setting the data
+			//for (var  i = 0; i < state.values.length; i++){
+			var chartData = {
+			"type":"bar",//type of graph you want 
+			"scale-x":{
+				"values":state.items// x value for the chat data
+			},
+			"legend": {
+    			"toggle-action": "hide",
+    	"header": {
+      		"text": "Legend Header"
+   				 },
+					},
+			"series":[
+				{					
+					"values":state.values[0], 
+					"text": "Me"
+				},
+				{					
+					"values":state.values[1],
+					"text": "Demographics"
+				},
+			]
+	}
+
+
+     //-------------------------  render the the chart data onto line 18
+		zingchart.render({
+		  id: "myChart2",
+		  data: chartData,
+		});
+	}
+
+</script>

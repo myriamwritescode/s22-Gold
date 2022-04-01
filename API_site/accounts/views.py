@@ -1,8 +1,8 @@
-"""
+'''
 
 this handels the responds and render for all request for this application
 
-"""
+'''
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
@@ -25,7 +25,33 @@ from .decorators import unauthenticated_user, allowed_users, admin_only  # permi
 
 # def home(request):
 # return HttpResponse('home page') #static HttpResponse
-# User Registration
+#@login_required(login_url='login')
+# @allowed_users(allowed_roles=['customer', 'admin'])
+# def valuePage(request):
+#     legislators = TestElectedOfficial.objects.all()
+#     users_reps = []
+#     for legislator in legislators:
+#         if legislator.state == 'VA' and (legislator.type == 'sen' or legislator.district == 2):
+#             # users_reps.append(f'{legislator.first_name} {legislator.last_name} {legislator.bioguide_id}')
+#             users_reps.append(legislator.bioguide_id)
+
+#     # votes = TestVote.objects.all()
+#     #
+#     # bills = TestBill.objects.all()
+#     # bill_ids = []
+#     # for bill in bills:
+#     # 	bill_ids.append(bill.bill_id)
+
+#     x = [1, 2, 3]
+#     y = [4, 5, 6]
+#     z = [7, 8, 9]
+
+#     rep_values = [x, y, z]
+
+#     data = {'users_reps': users_reps, 'rep_values': rep_values}
+#     return render(request, 'accounts/value.html', data)
+#
+# -------------------------------------------------------------------------------User Registration
 @unauthenticated_user
 def registerPage(request):
     form = CreateUserForm()
@@ -43,7 +69,7 @@ def registerPage(request):
     return render(request, 'accounts/register.html', context)
 
 
-# login User
+# -----------------------------------------------------------------------------login User
 @unauthenticated_user
 def loginPage(request):
     if request.method == 'POST':
@@ -54,7 +80,7 @@ def loginPage(request):
 
         if user is not None:
             login(request, user)
-            return redirect('home')  # <--- send user to the home page if they are authenticated
+            return redirect('home')  # <--- send user to the home page if they are authenticate
         else:
             messages.info(request, 'Username OR password is incorrect')  # <---flash messages
 
@@ -62,14 +88,14 @@ def loginPage(request):
     return render(request, 'accounts/login.html', context)
 
 
-# logout
+# -----------------------------------------------------------------------------logout
 def logoutUser(request):
     logout(request)  # <--process this logout method
     return redirect('login')
 
 
-# admin home page
-@login_required(login_url='login')  # <-----page restriction
+# -----------------------------------------------------------------------admin home page
+@login_required(login_url='login')  # <-----page restiction
 @admin_only  # <------only admin permission
 def home(request):
     customers = Customer.objects.all()  # <----querying the database
@@ -78,56 +104,47 @@ def home(request):
     return render(request, 'accounts/profile.html', context)
 
 
-# User home page
+# --------------------------------------------------------------------------User home page
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer', 'admin'])
 def userPage(request):
     return render(request, 'accounts/profile.html')
 
 
-# User compare home page
+# --------------------------------------------------------------------------User comaper home page
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer', 'admin'])
 def comparePage(request):
-    return render(request, 'accounts/compare.html')
+    return render(request, 'accounts/compareCommunity.html')
 
 
-# User value page
+# --------------------------------------------------------------------------User value page
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer', 'admin'])
 def valuePage(request):
-    legislators = TestElectedOfficial.objects.all()
-    users_reps = []
-    for legislator in legislators:
-        if legislator.state == 'VA' and (legislator.type == 'sen' or legislator.district == 2):
-            # users_reps.append(f'{legislator.first_name} {legislator.last_name} {legislator.bioguide_id}')
-            users_reps.append(legislator.bioguide_id)
-
-    # votes = TestVote.objects.all()
-    #
-    # bills = TestBill.objects.all()
-    # bill_ids = []
-    # for bill in bills:
-    # 	bill_ids.append(bill.bill_id)
-
-    x = [1, 2, 3]
-    y = [4, 5, 6]
-    z = [7, 8, 9]
-
-    rep_values = [x, y, z]
-
-    data = {'users_reps': users_reps, 'rep_values': rep_values}
-    return render(request, 'accounts/value.html', data)
+    if hasattr(request.user, 'customer'):
+        constituent = request.user.customer
+        mysenators = Represent.objects.filter(anonymous__name=constituent.name)
+    else:  
+        mysenators = Representative.objects.all()
+    
+    print(mysenators)
+    return render(request, 'accounts/value.html', {'senators': mysenators})  # this is a dictionary {key: value}
 
 
-# User value learn more page
+
+
+# --------------------------------------------------------------------------User value learn more page
+
+
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer', 'admin'])
 def valuePagelearnmore(request):
+    
     return render(request, 'accounts/learn_more.html')
 
 
-# update profile user only
+# --------------------------------------------------------------------------update profile user only
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
@@ -135,7 +152,7 @@ def accountSettings(request):
     customer = request.user.customer
     form = CustomerForm(instance=customer)
 
-    if request.method == 'POST':  # heading the submission
+    if request.method == 'POST':  # healding the submition
         form = CustomerForm(request.POST,
                             instance=customer)  # <---no pillow (request.POST, request.FILES,instance=customer)
         if (form.is_valid):
@@ -168,8 +185,8 @@ def accountSettings(request):
 
             if (sum == 100):
                 form.save()
-                # messages.success(request, 'Profile successfully updated!')
-                return redirect('home')
+                # messages.success(request, 'Profile succesfully updated!')
+                return redirect('home')  # <--- send user to the home page if they are authenticate
             else:
                 messages.error(request, 'Value scores do not total 100')
 
@@ -179,49 +196,134 @@ def accountSettings(request):
 
 # -------------------------------------------------------Graphing the result Data
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['customer'])
+@allowed_users(allowed_roles=['customer', 'admin'])
 def resultsData(request):
     votedata = []  # built and empty array
-    question = request.user.customer  # grab the by the ID of the model
-    military_value = question.military  # grab the all the choices
-    votedata.append({'military': military_value})
+    if hasattr(request.user, 'customer'):
+        constituent = request.user.customer  # grab the by the ID of the model
+    else:
+        constituent = Representative.objects.get(id=1)
 
-    government_value = question.government
-    votedata.append({'government': government_value})
+    votedata.append({'military': constituent.military})
+    votedata.append({'government': constituent.government})
+    votedata.append({'education': constituent.education})
+    votedata.append({'healthcare_and_medicare': constituent.healthcare_and_medicare})
+    votedata.append({'veteran_affairs': constituent.veteran_affairs})
+    votedata.append({'housing_and_labor': constituent.housing_and_labor})
+    votedata.append({'international_affairs': constituent.international_affairs})
+    votedata.append({'energy_and_environment': constituent.energy_and_environment})
+    votedata.append({'Science': constituent.Science})
+    votedata.append({'transportation_and_infrastructure': constituent.transportation_and_infrastructure})
+    votedata.append({'food_and_agricultur_value': constituent.food_and_agriculture})
+    votedata.append({'socialsecurity_or_unemployment': constituent.socialsecurity_or_unemployment})
 
-    education_value = question.education
-    votedata.append({'education': education_value})
-
-    healthcare_and_medicare_value = question.healthcare_and_medicare
-    votedata.append({'healthcare_and_medicare': healthcare_and_medicare_value})
-
-    veteran_affairs_value = question.veteran_affairs
-    votedata.append({'veteran_affairs': veteran_affairs_value})
-
-    housing_and_labor_value = question.housing_and_labor
-    votedata.append({'veteran_affairs': housing_and_labor_value})
-
-    international_affairs_value = question.international_affairs
-    votedata.append({'international_affairs': international_affairs_value})
-
-    energy_and_environment_value = question.energy_and_environment
-    votedata.append({'energy_and_environment': energy_and_environment_value})
-
-    Science_value = question.Science
-    votedata.append({'Science': Science_value})
-
-    transportation_and_infrastructure_value = question.transportation_and_infrastructure
-    votedata.append({'transportation_and_infrastructure': transportation_and_infrastructure_value})
-
-    food_and_agricultur_value = question.food_and_agriculture
-    votedata.append({'food_and_agricultur_value': food_and_agricultur_value})
-
-    socialsecurity_or_unemployment_value = question.socialsecurity_or_unemployment
-    votedata.append({'socialsecurity_or_unemployment': socialsecurity_or_unemployment_value})
-
-    print(votedata)
+    # print(votedata)
 
     return JsonResponse(votedata, safe=False)
+
+
+# -------------------------------------------------------Graphing the result Data
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer', 'admin'])
+def resultsDataDemographics(request):
+    votedata = []  # built and empty array
+    votedata_demographics = []
+    alldata = []
+    demographics_military_value = 0
+    demographics_government_value = 0
+    demographics_education_value = 0
+    demographics_healthcare_and_medicare_value = 0
+    demographics_veteran_affairs_value = 0
+    demographics_housing_and_labor_value = 0
+    demographics_international_affairs_value = 0
+    demographics_energy_and_environment_value = 0
+    demographics_Science_value = 0
+    demographics_transportation_and_infrastructure_value = 0
+    demographics_food_and_agricultur_value = 0
+    demographics_socialsecurity_or_unemployment_value = 0
+    if hasattr(request.user, 'customer'):
+        constituent = request.user.customer  # grab the by the ID of the model
+        total_demographics = Customer.objects.all().filter(Age=constituent.Age).count()
+        myfilter = Customer.objects.all().filter(Age=constituent.Age)
+    else:
+        constituent = Representative.objects.get(id=1)
+        total_demographics = Customer.objects.all().count()
+        myfilter = Customer.objects.all()
+    # constituent = request.user.customer # grab the by the ID of the model
+    votedata.append({'military': constituent.military})
+    votedata.append({'government': constituent.government})
+    votedata.append({'education': constituent.education})
+    votedata.append({'healthcare_and_medicare': constituent.healthcare_and_medicare})
+    votedata.append({'veteran_affairs': constituent.veteran_affairs})
+    votedata.append({'housing_and_labor': constituent.housing_and_labor})
+    votedata.append({'international_affairs': constituent.international_affairs})
+    votedata.append({'energy_and_environment': constituent.energy_and_environment})
+    votedata.append({'Science': constituent.Science})
+    votedata.append({'transportation_and_infrastructure': constituent.transportation_and_infrastructure})
+    votedata.append({'food_and_agricultur_value': constituent.food_and_agriculture})
+    votedata.append({'socialsecurity_or_unemployment': constituent.socialsecurity_or_unemployment})
+
+    for i in myfilter:
+        demographics_military_value += i.military
+        demographics_government_value += i.government
+        demographics_education_value += i.education
+        demographics_healthcare_and_medicare_value += i.healthcare_and_medicare
+        demographics_veteran_affairs_value += i.veteran_affairs
+        demographics_housing_and_labor_value += i.housing_and_labor
+        demographics_international_affairs_value += i.international_affairs
+        demographics_energy_and_environment_value += i.energy_and_environment
+        demographics_Science_value += i.Science
+        demographics_transportation_and_infrastructure_value += i.transportation_and_infrastructure
+        demographics_food_and_agricultur_value += i.food_and_agriculture
+        demographics_socialsecurity_or_unemployment_value += i.socialsecurity_or_unemployment
+
+    # obtain average of result of filter demographics
+    demographics_military_value /= total_demographics
+    votedata_demographics.append({'military': demographics_military_value})
+
+    demographics_government_value /= total_demographics
+    votedata_demographics.append({'government': demographics_government_value})
+
+    demographics_education_value /= total_demographics
+    votedata_demographics.append({'education': demographics_education_value})
+
+    demographics_healthcare_and_medicare_value /= total_demographics
+    votedata_demographics.append({'healthcare_and_medicare': demographics_healthcare_and_medicare_value})
+
+    demographics_veteran_affairs_value /= total_demographics
+    votedata_demographics.append({'veteran_affairs': demographics_veteran_affairs_value})
+
+    demographics_housing_and_labor_value /= total_demographics
+    votedata_demographics.append({'housing_and_labor': demographics_housing_and_labor_value})
+
+    demographics_international_affairs_value /= total_demographics
+    votedata_demographics.append({'international_affairs': demographics_international_affairs_value})
+
+    demographics_energy_and_environment_value /= total_demographics
+    votedata_demographics.append({'energy_and_environment': demographics_energy_and_environment_value})
+
+    demographics_Science_value /= total_demographics
+    votedata_demographics.append({'Science': demographics_Science_value})
+
+    demographics_transportation_and_infrastructure_value /= total_demographics
+    votedata_demographics.append(
+        {'transportation_and_infrastructure': demographics_transportation_and_infrastructure_value})
+
+    demographics_food_and_agricultur_value /= total_demographics
+    votedata_demographics.append({'food_and_agricultur_value': demographics_food_and_agricultur_value})
+
+    demographics_socialsecurity_or_unemployment_value /= total_demographics
+    votedata_demographics.append({'socialsecurity_or_unemployment': demographics_socialsecurity_or_unemployment_value})
+
+    # print(votedata_demographics)
+
+    # the construct the list that need to be graph
+    alldata.append(votedata)
+    alldata.append(votedata_demographics)
+
+    # print(alldata)
+
+    return JsonResponse(alldata, safe=False)  # send it to the javascript
 
 
 # ----------------------------------------------------
@@ -229,9 +331,9 @@ def resultsData(request):
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['admin'])
-def customer(request, pk_test):  # <----show information of a particular user
-    customer = Customer.objects.get(id=pk_test)  # <----querying the database for a particular user----
+def customer(request, pk_test):  # <----show information of a paticular user
+    customer = Customer.objects.get(id=pk_test)  # <----querying the database for a paticular user----
     context = {'customer': customer}
     return render(request, 'accounts/profile.html', context)  # dynamic
 
-# GRAPHS
+# -------------------------------------------------------------------------------GRAPHS

@@ -1,0 +1,23 @@
+{%  extends 'accounts/main.html' %}
+{% block content %}
+
+<script src="https://cdn.zingchart.com/zingchart.min.js"></script> <!-- this just let our page know that we are going to use Zing chart command-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- we need this for the graph-->
+<br>
+
+<div class="row">
+		<div class="col-md-7">
+			<h1>My Community and I</h1>
+	</div>
+
+	<div class="col-md">
+	</div>
+	<div class="col-md">
+	
+		{%  include 'accounts/profile_navigation_settings.html'%} <!-- include the naviation settings for relevant informantion-->
+	</div>
+</div>
+
+{%  include 'accounts/compareCommunitygraph.html'%}
+{% endblock content %}

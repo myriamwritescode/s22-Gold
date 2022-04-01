@@ -2,6 +2,10 @@
 {% block content %}
 {% load static %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="https://cdn.zingchart.com/zingchart.min.js"></script> <!-- this just let our page know that we are going to use Zing chart command-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- we need this for the graph-->
+<br>
 <style>
 	.container {
 		position: relative;
@@ -21,10 +25,10 @@
 
 <div class="row">
 	<div class="col-md">
-		<a href="{% url 'account' %}"> <!--this just an example need to be modify-->
+		<a href="">
 		<div class="container">
 			<img src="/static/images/folder.png"  style="width:80%;">
-			<div class="centered">Bio</div>
+			<div class="centered">Bio</div> <!-- this Bio information -->
 		</div></a>
 
 	</div>
@@ -33,33 +37,15 @@
 		<a href="">
 			<div class="container">
 				<img src="/static/images/folder.png"  style="width:80%;">
-				<div class="centered">Votes</div>
+				<div class="centered">Votes</div><!-- this voting Record information -->
 			</div></a>
 	
-	</div>
-
-	<div class="col-md">
-		<br><br>
-		<div class="card card-body">
-			<h5>Name of Elected Offical</h5>
-			<hr>
-			<canvas id="myChartdonut" style="width:90%;max-width:500px"></canvas>
-		</div>	
-	</div>
-</div>
-<div class="row">
-	<div class="col-md">
-		<a href="">
-			<div class="container">
-				<img src="/static/images/folder.png"  style="width:80%">
-				<div class="centered">Position</div>
-			</div></a>	
 	</div>
 	<div class="col-md">
 		<a href="">
 		<div class="container">
 			<img src="/static/images/folder.png"  style="width:80%">
-			<div class="centered">Funding</div>
+			<div class="centered">Funding</div> <!-- this bill funding information -->
 		</div></a>
 	</div>
 
@@ -67,9 +53,27 @@
 		<a href="">
 			<div class="container">
 				<img src="/static/images/folder.png"  style="width:80%">
-				<div class="centered">Service Score</div>
+				<div class="centered">Service Score</div> <!-- this service score information -->
 			</div></a>
 	</div>
+	<div class="col-md">
+		<br><br>
+		<div class="card card-body">
+			<h5>Elected Official</h5>
+			<hr>
+			<canvas id="myChartdonut" style="width:90%;max-width:500px"></canvas>
+		</div>	
+	</div>
+</div>
+<div class="row">
+	<!-- <div class="col-md">
+		<a href="">
+			<div class="container">
+				<img src="/static/images/folder.png"  style="width:80%">
+				<div class="centered">Position</div>
+			</div></a>	
+	</div> -->
+	
 
 
 </div>
@@ -93,7 +97,7 @@
 							options: {
 											title: {
 															display: true,
-															text: "Value score"
+															text: "Service score"
 													}
 												}
 								});

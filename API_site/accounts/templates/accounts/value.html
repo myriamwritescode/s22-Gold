@@ -3,42 +3,52 @@
 
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script> <!-- this just let our page know that we are going to use Zing chart command-->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- we need this for the graph-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--><!-- we need this for the graph-->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>  -->
 
 <br>
 
-<div class="row">
+
+	{% if request.user.is_staff %}
+	<!-- <h5>page still under development </h5> -->
+	<div class="row">
 		<div class="col-md-7">
-			<h1>My Elected Official and I</h1>
-			<table>
-				<tr>
-				{% for users_rep in users_reps %}
-					<td>{{ users_rep }}-----</td>
-				{% endfor %}
-				</tr>
-				<tr>
-				{% for rep_value in rep_values %}
-					<td>{{ rep_value }}</td>
-				{% endfor %}
-				</tr>
-			</table>
+			<h1>Other Elected Officials and me</h1>
+			<!-- Standard loops here, change as necessary -->
+
+		
 	</div>
-	<div class="col-md">
-	</div>
+	{% for senator in senators %}
 	<div class="col-md">
 		<div class="card card-body">
-			<h5>Elected Official</h5>
+			<h5>{{ senator.firstname }} {{ senator.lastname }}</h5>
 			<canvas id="myChartdonut" style="width:70%;max-width:300px"></canvas> <!--Edit with the correct percentage-->
 			<hr>
 			<a class="btn btn-danger btn-sm btn-block" href="{% url 'user-learn-more' %}">Learn More</a>
-			<a class="btn btn-success  btn-sm btn-block" href="">Compare </a> 
+			<!-- <a class="btn btn-success  btn-sm btn-block" href="">Compare </a>  -->
 		</div>
 	</div>
+	{% endfor %}
+	{% else %}
+	<div class="row">
+		<div class="col-md-7">
+			<h1>My Elected Officials and I</h1>
+			<!-- Standard loops here, change as necessary -->
+	</div>
+	{% for senator in senators %}
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>{{ senator.representative }}</h5>
+			<canvas id="myChartdonut" style="width:70%;max-width:300px"></canvas> <!--Edit with the correct percentage-->
+			<hr>
+			<a class="btn btn-danger btn-sm btn-block" href="{% url 'user-learn-more'  %}">Learn More</a>
+			<!-- <a class="btn btn-success  btn-sm btn-block" href="">Compare </a>  -->
+		</div>
+	</div>
+	{% endfor %}
+	{% endif %}
 
 </div>
-
-
 <br>
 <div class="row">
 	<div class="col">
@@ -54,7 +64,7 @@
 </div>
 <br>
 
-
+<br>
 <!-- Javascript for the Zing chart-->
 <!-- Just before the closing body tag is best -->
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
@@ -143,27 +153,6 @@
 		  data: chartData,
 		});
 		
-		var xValues = ["match", "notmatch"];
-		var yValues = [85, 15];
-		var barColors = ["#00aba9", "#b91d47"];
-
-		new Chart("myChartdonut", {
-  						type: "doughnut",
-  						data: {
-										labels: xValues,
-										datasets: [{
-														backgroundColor: barColors,
-														data: yValues
-															}]
-  												},
-							options: {
-											title: {
-															display: true,
-															text: "Value score"
-													}
-												}
-								});
 </script>
-
 
 {% endblock content %}
