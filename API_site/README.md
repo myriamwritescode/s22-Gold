@@ -1,7 +1,7 @@
 Team Gold - Spring 2022
 
 # References
--Adib, Gazi. “Django + Chart + Database Integration || Add Data Using Forms And Get Dynamic Chart Easily!” YouTube, YouTube, 7AD, https://www.youtube.com/watch?v=a1j8g01ics4. 
+- Adib, Gazi. “Django + Chart + Database Integration || Add Data Using Forms And Get Dynamic Chart Easily!” YouTube, YouTube, 7AD, https://www.youtube.com/watch?v=a1j8g01ics4. 
 
 - Hamedani, Mosh. “Python Django Tutorial for Beginners.” YouTube, YouTube, 28 June 2021, https://www.youtube.com/watch?v=rHux0gMZ3Eg. 
 
