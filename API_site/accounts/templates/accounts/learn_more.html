@@ -5,6 +5,7 @@
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script> <!-- this just let our page know that we are going to use Zing chart command-->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- we need this for the graph-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 <br>
 <style>
 	.container {
@@ -59,9 +60,9 @@
 	<div class="col-md">
 		<br><br>
 		<div class="card card-body">
-			<h5>Elected Official</h5>
+			<h5>{{ legislative }}</h5>
 			<hr>
-			<canvas id="myChartdonut" style="width:90%;max-width:500px"></canvas>
+		<canvas id="myChartdonut"></canvas>
 		</div>	
 	</div>
 </div>
@@ -77,33 +78,36 @@
 
 
 </div>
+{%  include 'accounts/comparelegislative.html'%}
 <a class="btn btn-warning" href="{% url 'user-value' %}"> &#8592; Back to Value</a>
 
+<!-- Javascript for the Zing chart-->
+<!-- Just before the closing body tag is best -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script><script>
+    var config = {
+      type: 'doughnut',
+      data: {
+        datasets: [{
+          data: ['{{ service }}', '{{ incompatible }}'],
+          backgroundColor: ["#00aba9", "#b91d47"],
+          label: 'Population'
+        }],
+        labels: [' Compatible ','Incompatible']//labels 
+      },
+      options: {
+				title: {
+            display: true,
+            text: 'Service Score'
+        },
+        responsive: true,
+			}
+    };
 
-<script>	
-	var xValues = ["match", "notmatch"];
-		var yValues = [85, 15];
-		var barColors = ["#00aba9", "#b91d47"];
-
-		new Chart("myChartdonut", {
-  						type: "doughnut",
-  						data: {
-										labels: xValues,
-										datasets: [{
-														backgroundColor: barColors,
-														data: yValues
-															}]
-  												},
-							options: {
-											title: {
-															display: true,
-															text: "Service score"
-													}
-												}
-								});
-	</script>
-
-
-
+ 
+    window.onload = function() {
+      var ctx = document.getElementById('myChartdonut').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+    };
+  </script>
 
 {% endblock content %}

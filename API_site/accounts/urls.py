@@ -19,12 +19,13 @@ urlpatterns = [
     path('profile/', views.userPage, name="user-page"),
     path('compare/', views.comparePage, name="user-compare"),
     path('value/', views.valuePage, name="user-value"),
-    # path('dashboard/', views.valuePage, name="user-value"),
-    path('value/learnMore/', views.valuePagelearnmore, name="user-learn-more"),
+   
+    path('value/learnMore/<str:pk_test>/', views.valuePagelearnmore, name="user-learn-more"),
     path('account/', views.accountSettings, name="account"),
     path('profile/resultsdata/', views.resultsData, name="resultsdata"),  # add this for the graph
     path('compare/resultsdata_demographics/', views.resultsDataDemographics, name="resultsdata_demographics"),
     # add this for the graph demographics
+    path('value/resultsdata_legislative/<str:pk_test>/', views.resultsDatalegislative, name="resultsdata_legislative"),
     # path('customer/', views.customer), # <----static path name
     path('customer/<str:pk_test>/', views.customer, name="customer"),  # dynamic display a paticualar customer
 

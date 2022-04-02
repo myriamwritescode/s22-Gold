@@ -14,7 +14,9 @@ from django.contrib.auth.decorators import login_required  # <---for every view 
 from django.contrib.auth.models import Group
 from django.urls import reverse
 from django.http import JsonResponse
-
+#from ..scratch_1 import servicecalculator
+import numpy as NP
+import math
 # Create your views here for the path response
 
 from .models import *
@@ -127,21 +129,123 @@ def valuePage(request):
         mysenators = Represent.objects.filter(anonymous__name=constituent.name)
     else:  
         mysenators = Representative.objects.all()
-    
+ 
+
     print(mysenators)
     return render(request, 'accounts/value.html', {'senators': mysenators})  # this is a dictionary {key: value}
 
 
+# -------------------------------------------------------Graphing the result Data
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer', 'admin'])
+def resultsDatalegislative(request, pk_test):
+    votedata = []  # built and empty array
+    votedata_legislative = []
+    alldata = []
+    if hasattr(request.user, 'customer'):
+        constituent = request.user.customer  # grab the by the ID of the model
+    else:
+        constituent = Representative.objects.get(id=1)
+        
+     # grab the by the ID of the model
+    legislative = Representative.objects.get(id=pk_test)
 
 
+    # grab the all the choices
+    votedata.append({'military': constituent.military})
+    votedata.append({'government': constituent.government})
+    votedata.append({'education': constituent.education})
+    votedata.append({'healthcare_and_medicare': constituent.healthcare_and_medicare})
+    votedata.append({'veteran_affairs': constituent.veteran_affairs})
+    votedata.append({'housing_and_labor': constituent.housing_and_labor})
+    votedata.append({'international_affairs': constituent.international_affairs})
+    votedata.append({'energy_and_environment': constituent.energy_and_environment})
+    votedata.append({'Science': constituent.Science})
+    votedata.append({'transportation_and_infrastructure': constituent.transportation_and_infrastructure})
+    votedata.append({'food_and_agricultur_value': constituent.food_and_agriculture})
+    votedata.append({'socialsecurity_or_unemployment': constituent.socialsecurity_or_unemployment})
+
+    
+    alldata.append(votedata)
+    # add legislative
+    votedata_legislative.append({'military': legislative.military})
+    votedata_legislative.append({'government': legislative.government})
+    votedata_legislative.append({'education': legislative.education})
+    votedata_legislative.append({'healthcare_and_medicare': legislative.healthcare_and_medicare})
+    votedata_legislative.append({'veteran_affairs': legislative.veteran_affairs})
+    votedata_legislative.append({'housing_and_labor': legislative.housing_and_labor})
+    votedata_legislative.append({'housing_and_labor': legislative.international_affairs})
+    votedata_legislative.append({'international_affairs': legislative.energy_and_environment})
+    votedata_legislative.append({'Science': legislative.Science})
+    votedata_legislative.append({'transportation_and_infrastructure': legislative.transportation_and_infrastructure})
+    votedata_legislative.append({'food_and_agricultur_value': legislative.food_and_agriculture})
+    votedata_legislative.append({'socialsecurity_or_unemployment': legislative.socialsecurity_or_unemployment})
+    alldata.append(votedata_legislative)
+
+    print(alldata)
+
+    return JsonResponse(alldata, safe=False)  # send it to the javascript
 # --------------------------------------------------------------------------User value learn more page
 
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer', 'admin'])
-def valuePagelearnmore(request):
+def valuePagelearnmore(request, pk_test):
+    if hasattr(request.user, 'customer'):
+        constituent = request.user.customer  # grab the by the ID of the model
+    else:
+        constituent = Representative.objects.get(id=1)
+    legislative = Representative.objects.get(id=pk_test)
+   
+    user_score =[]
+    legislative_score =[]
+
     
-    return render(request, 'accounts/learn_more.html')
+    user_score.append(constituent.military)
+    legislative_score.append(legislative.military)
+   
+    user_score.append(constituent.government)
+    legislative_score.append(legislative.government)
+    
+    user_score.append(constituent.education)
+    legislative_score.append(legislative.education)
+    
+    user_score.append(constituent.healthcare_and_medicare)
+    legislative_score.append(legislative.healthcare_and_medicare)
+    
+    user_score.append(constituent.veteran_affairs)
+    legislative_score.append(legislative.veteran_affairs)
+    
+    user_score.append(constituent.housing_and_labor)
+    legislative_score.append(legislative.housing_and_labor)
+    
+    user_score.append(constituent.international_affairs)
+    legislative_score.append(legislative.international_affairs)
+    
+    user_score.append(constituent.energy_and_environment)
+    legislative_score.append(legislative.energy_and_environment)
+    
+    user_score.append(constituent.Science)
+    legislative_score.append(legislative.Science)
+    
+    user_score.append(constituent.transportation_and_infrastructure)
+    legislative_score.append(legislative.transportation_and_infrastructure)
+    
+    user_score.append(constituent.food_and_agriculture)
+    legislative_score.append(legislative.food_and_agriculture)
+    
+    user_score.append(constituent.socialsecurity_or_unemployment)
+    legislative_score.append(legislative.socialsecurity_or_unemployment)
+    
+    service_vector = NP.subtract(user_score, legislative_score)
+    
+    #find magnitude of the resulting vector
+    servicescore = math.sqrt(sum(pow(element, 2) for element in
+                                 service_vector))
+
+    print ("service score:", round (servicescore,2)) 
+    
+    return render(request, 'accounts/learn_more.html', {'legislative': legislative,'service':round(abs(servicescore-100),2),'incompatible':round(servicescore,2)})
 
 
 # --------------------------------------------------------------------------update profile user only
@@ -217,7 +321,7 @@ def resultsData(request):
     votedata.append({'food_and_agricultur_value': constituent.food_and_agriculture})
     votedata.append({'socialsecurity_or_unemployment': constituent.socialsecurity_or_unemployment})
 
-    # print(votedata)
+    print(votedata)
 
     return JsonResponse(votedata, safe=False)
 
@@ -249,7 +353,7 @@ def resultsDataDemographics(request):
         constituent = Representative.objects.get(id=1)
         total_demographics = Customer.objects.all().count()
         myfilter = Customer.objects.all()
-    # constituent = request.user.customer # grab the by the ID of the model
+
     votedata.append({'military': constituent.military})
     votedata.append({'government': constituent.government})
     votedata.append({'education': constituent.education})
@@ -315,13 +419,11 @@ def resultsDataDemographics(request):
     demographics_socialsecurity_or_unemployment_value /= total_demographics
     votedata_demographics.append({'socialsecurity_or_unemployment': demographics_socialsecurity_or_unemployment_value})
 
-    # print(votedata_demographics)
-
     # the construct the list that need to be graph
     alldata.append(votedata)
     alldata.append(votedata_demographics)
 
-    # print(alldata)
+    print(alldata)
 
     return JsonResponse(alldata, safe=False)  # send it to the javascript
 
