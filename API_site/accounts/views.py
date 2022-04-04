@@ -126,13 +126,21 @@ def comparePage(request):
 def valuePage(request):
     if hasattr(request.user, 'customer'):
         constituent = request.user.customer
-        mysenators = Represent.objects.filter(anonymous__name=constituent.name)
+
+        if Represent.objects.filter(anonymous__name=constituent.name).count() > 0:
+            mysenators = Represent.objects.filter(anonymous__name=constituent.name)
+            
+        else:
+            mysenators = Representative.objects.all()
+            noelective = True      
     else:  
         mysenators = Representative.objects.all()
  
 
     print(mysenators)
-    return render(request, 'accounts/value.html', {'senators': mysenators})  # this is a dictionary {key: value}
+    return render(request, 'accounts/value.html', {'senators': mysenators, 'noelective' : noelective})  # this is a dictionary {key: value}
+
+
 
 
 # -------------------------------------------------------Graphing the result Data
