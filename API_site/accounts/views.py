@@ -129,12 +129,14 @@ def valuePage(request):
 
         if Represent.objects.filter(anonymous__name=constituent.name).count() > 0:
             mysenators = Represent.objects.filter(anonymous__name=constituent.name)
+            noelective = False  
             
         else:
             mysenators = Representative.objects.all()
             noelective = True      
     else:  
         mysenators = Representative.objects.all()
+        noelective = True  
  
 
     print(mysenators)
