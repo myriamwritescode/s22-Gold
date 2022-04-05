@@ -102,6 +102,8 @@ def bills_to_categories(url):
                                                  committee_list, sponsors_list):
         full_list.append([bill, chamber, committee, sponsor])
 
+    # return full_list
+
     # --------------------------------------------------------------------------
 
     # WRITE OUTPUT TO 'bills.csv'

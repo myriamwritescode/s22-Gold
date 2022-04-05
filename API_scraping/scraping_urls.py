@@ -9,7 +9,7 @@
 import csv
 from BillsToCategories import bills_to_categories
 
-fields = ['bill id ', 'committee ', 'sponsor ']
+fields = ['bill id ', 'chamber', 'committee ', 'sponsor ']
 
 url_arguments = ['house-committee%22%3A%22Veterans%27+Affairs',
                  'house-committee%22%3A%22Energy+and+Commerce',

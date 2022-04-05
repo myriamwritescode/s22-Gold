@@ -26,7 +26,7 @@ def main():
     header = ['voter_id', 'state', 'bill_type', 'number', 'roll', 'value',
               'result', 'chamber', 'sess', 'yr', 'category', 'type_vote']
 
-    with open('../legislators/all_votes.csv', 'w', encoding="utf-8") as f:
+    with open('all_votes.csv', 'w', encoding="utf-8") as f:
         writer = csv.writer(f)
 
         writer.writerow(header)
@@ -55,32 +55,33 @@ def main():
                     result = root.find('result').text
                     if result == 'Agreed to' or result == 'Passed':
                         bill_type = root.find('bill').get('type')
-                        number = root.find('bill').get('number')
+                        if bill_type == 'h' or bill_type == 's':
+                            number = root.find('bill').get('number')
 
-                        #  sidebar... need a list of necessary bills for other programs
-                        # uppercase = bill_type.upper()
-                        # with_period = '.'.join(uppercase[i:i + 1] for i in range(0, len(uppercase), 1))
-                        # if bill_type.startswith('h'):
-                        #     letter = 'H.'
-                        #     bill_id = f'{letter}{number}'
-                        # if bill_type.startswith('s'):
-                        #     letter = 'S.'
-                        bill_id = [bill_type, number]
-                        necessary_bills.append(bill_id)  # ...end sidebar
+                            #  sidebar... need a list of necessary bills for other programs
+                            # uppercase = bill_type.upper()
+                            # with_period = '.'.join(uppercase[i:i + 1] for i in range(0, len(uppercase), 1))
+                            # if bill_type.startswith('h'):
+                            #     letter = 'H.'
+                            #     bill_id = f'{letter}{number}'
+                            # if bill_type.startswith('s'):
+                            #     letter = 'S.'
+                            bill_id = [bill_type, number]
+                            necessary_bills.append(bill_id)  # ...end sidebar
 
-                        # every variable before this point will be the same for each voter
-                        # (i.e.: all the general information about the vote)
-                        # the following variables will be specific to the voter
-                        for voter in root.iter('voter'):
-                            voter_id = voter.get('id')
-                            value = voter.get('value')
-                            state = voter.get('state')
+                            # every variable before this point will be the same for each voter
+                            # (i.e.: all the general information about the vote)
+                            # the following variables will be specific to the voter
+                            for voter in root.iter('voter'):
+                                voter_id = voter.get('id')
+                                value = voter.get('value')
+                                state = voter.get('state')
 
-                            #  Organize for row-entry to all_votes.csv
-                            data = [voter_id, state, bill_type, number, roll, value, result,
-                                    chamber, sess, yr, category, type_vote]
-                            #  write to all_votes.csv
-                            writer.writerow(data)
+                                #  Organize for row-entry to all_votes.csv
+                                data = [voter_id, state, bill_type, number, roll, value, result,
+                                        chamber, sess, yr, category, type_vote]
+                                #  write to all_votes.csv
+                                writer.writerow(data)
 
     with open('necessary_bills.csv', 'w', encoding="utf-8") as f2:
         writer2 = csv.writer(f2)
