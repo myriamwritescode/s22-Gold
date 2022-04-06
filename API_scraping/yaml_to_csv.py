@@ -43,7 +43,7 @@ def main():
         for committee in committee_list:
             writer.writerow(committee)
 
-    """Committee Membership Information"""
+    """Committee Membership Informations"""
     with open('congress-legislators/committee-membership-current.yaml') as membership:
         membership_dict = yaml.load(membership, Loader=yaml.FullLoader)
 
