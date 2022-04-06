@@ -129,15 +129,15 @@ def valuePage(request):
 
         if Represent.objects.filter(anonymous__name=constituent.name).count() > 0:
             mysenators = Represent.objects.filter(anonymous__name=constituent.name)
-            noelective = False  
-            
+            noelective = False
+
         else:
             mysenators = Representative.objects.all()
-            noelective = True      
-    else:  
+            noelective = True
+    else:
         mysenators = Representative.objects.all()
-        noelective = True  
- 
+        noelective = True
+
 
     print(mysenators)
     return render(request, 'accounts/value.html', {'senators': mysenators, 'noelective' : noelective})  # this is a dictionary {key: value}

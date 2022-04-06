@@ -31,4 +31,18 @@ class BillsResource(resources.ModelResource):
 
     class Meta:
         model = TestBill
-        import_id_fields = ('bill_id',)
+        import_id_fields = ('bill_tag', 'number', 'chamber', 'committee', 'sponsor',)
+
+
+class CommitteesResource(resources.ModelResource):
+
+    class Meta:
+        model = Committee
+        import_id_fields = ('name',)
+
+
+class MembershipResource(resources.ModelResource):
+
+    class Meta:
+        model = Membership
+        import_id_fields = ('thomas_id', 'name', 'rank',)

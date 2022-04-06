@@ -74,16 +74,14 @@ class TestVote(models.Model):
 
 #  Test model for Bills --Brett
 class TestBill(models.Model):
-    bill_id = models.CharField(max_length=250, primary_key=True, default=999)
-    sponsor_1 = models.CharField(max_length=100, blank=True)
-    sponsor_2 = models.CharField(max_length=100, blank=True)
-    sponsor_3 = models.CharField(max_length=100, blank=True)
-    committee_1 = models.CharField(max_length=100, blank=True)
-    committee_2 = models.CharField(max_length=100, blank=True)
-    committee_3 = models.CharField(max_length=100, blank=True)
+    bill_tag = models.CharField(max_length=250, null=True)
+    number = models.IntegerField(null=True)
+    chamber = models.CharField(max_length=100, null=True)
+    committee = models.CharField(max_length=100, null=True)
+    sponsor = models.CharField(max_length=100, null=True)
 
     def __str__(self):
-        return self.bill_id
+        return self.bill_tag + str(self.number)
 
 
 class Customer(models.Model):
@@ -196,24 +194,35 @@ class Bill(models.Model):
         return self.number  # <----to see the name in not the id
 
 
-# Table: Committee
+# Table: Committee --Brett
 class Committee(models.Model):
-    number = models.IntegerField("Committee Number", null=True)
-    category = models.CharField("Category ", max_length=200, null=True)
-    hrname = models.CharField("House Committee Name", max_length=250, null=True, blank=True)
-    sname = models.CharField("Senate Committee Name", max_length=250, null=True, blank=True)
+    chamber = models.CharField(max_length=100, null=True)
+    name = models.CharField(max_length=200, null=True)
+    thomas_id = models.CharField(max_length=100, null=True)
+    committee_id = models.CharField(max_length=100, null=True)
 
     def __str__(self):
-        return self.category  # <----to see the name in not the id
+        return self.name
 
 
-# Table: Committees
-class Committees(models.Model):
-    committee = models.ForeignKey(Committee, null=True, on_delete=models.SET_NULL)  # one to many relationship
-    bill = models.ForeignKey(Bill, null=True, on_delete=models.SET_NULL)  # one to many relationship
+# Table: Membership --Brett
+class Membership(models.Model):
+    thomas_id = models.CharField(max_length=100, null=True)
+    name = models.CharField(max_length=200, null=True)
+    rank = models.IntegerField(null=True)
+    bioguide_id = models.CharField(max_length=100, null=True)
 
     def __str__(self):
-        return self.bill.number + ' ' + self.committee.category  # <----to see the name in not the id
+        return self.name
+
+
+# # Table: Committees
+# class Committees(models.Model):
+#     committee = models.ForeignKey(Committee, null=True, on_delete=models.SET_NULL)  # one to many relationship
+#     bill = models.ForeignKey(Bill, null=True, on_delete=models.SET_NULL)  # one to many relationship
+#
+#     def __str__(self):
+#         return self.bill.number + ' ' + self.committee.category  # <----to see the name in not the id
 
 
 # Table: Sponsor

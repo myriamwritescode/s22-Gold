@@ -7,8 +7,8 @@ admin.site.register(Customer)
 admin.site.register(Representative)
 admin.site.register(Represent)
 admin.site.register(Bill)
-admin.site.register(Committee)
-admin.site.register(Committees)
+# admin.site.register(Committee)
+# admin.site.register(Committees)
 admin.site.register(Sponsor)
 admin.site.register(Sponsors)
 admin.site.register(Votes)
@@ -33,5 +33,18 @@ class VotesAdmin(ImportExportModelAdmin):
 @admin.register(TestBill)
 class BillsAdmin(ImportExportModelAdmin):
     resource_class = BillsResource
-    list_display = ['bill_id', 'sponsor_1', 'sponsor_2', 'sponsor_3',
-                    'committee_1', 'committee_2', 'committee_3']
+    list_display = ['bill_tag', 'number', 'chamber', 'committee', 'sponsor']
+
+
+# Test model for Committees --Brett
+@admin.register(Committee)
+class CommitteeAdmin(ImportExportModelAdmin):
+    resource_class = CommitteesResource
+    list_display = ['thomas_id', 'committee_id', 'chamber', 'name']
+
+
+# Test model for Memberships --Brett
+@admin.register(Membership)
+class MembershipAdmin(ImportExportModelAdmin):
+    resource_class = MembershipResource
+    list_display = ['thomas_id', 'name', 'rank', 'bioguide_id']

@@ -33,6 +33,14 @@ def bills_to_categories(url):
         if bill_tag % 2 == 0:
             bill_id_list.append(bill_id_tags[bill_tag].contents[0].string)
 
+    bill_list = []
+    for bill in bill_id_list:
+        bill_split = re.split('(\d+)', bill)
+        bill_split.remove(bill_split[2])
+        bill_list.append(bill_split)
+
+    # for bill in bill_list:
+    #     print(bill)
 
     # --------------------------------------------------------------------------
 
@@ -85,22 +93,53 @@ def bills_to_categories(url):
     chamber_list = []
     full_list = []
 
-    for i in range(len(committee_list)):
-        line = committee_list[i].split(' - ')
-        chamber_list.append(line[0])
-        delimiter_1 = ' | '
-        delimiter_2 = '; '
-        if delimiter_1 in line[1]:
-            partitioned = line[1].partition(delimiter_1)
-            line[1] = partitioned[0]
-        if delimiter_2 in line[1]:
-            partitioned = line[1].partition(delimiter_2)
-            line[1] = partitioned[0]
-        committee_list[i] = line[1]
+    # for x in committee_list:
+    #     print(x)
 
-    for bill, chamber, committee, sponsor in zip(bill_id_list, chamber_list,
-                                                 committee_list, sponsors_list):
-        full_list.append([bill, chamber, committee, sponsor])
+    # for i in range(len(committee_list)):
+    #     line = committee_list[i].split(' - ')
+    #     chamber_list.append(line[0])
+    #     delimiter_1 = ' | '
+    #     delimiter_2 = '; '
+    #     if delimiter_1 in line[1]:
+    #         partitioned = line[1].partition(delimiter_1)
+    #         line[1] = partitioned[0]
+    #     if delimiter_2 in line[1]:
+    #         partitioned = line[1].partition(delimiter_2)
+    #         line[1] = partitioned[0]
+    #     committee_list[i] = line[1]
+
+    delimiter_1 = ' | '
+    delimiter_2 = ' - '
+    delimiter_3 = '; '
+
+    for bill_count, item in enumerate(committee_list):
+        if delimiter_1 in item:
+            two_chambers = item.split(delimiter_1)
+            for chamber_count, text in enumerate(two_chambers):
+                chamber_and_committees = two_chambers[chamber_count].split(delimiter_2)
+                chamber = chamber_and_committees[0]
+                split_committee_list = chamber_and_committees[1]
+                if delimiter_3 in split_committee_list:
+                    split_committee_list = split_committee_list.split(delimiter_3)
+                    for committee in split_committee_list:
+                        full_list.append([bill_list[bill_count][0], bill_list[bill_count][1], chamber, committee, sponsors_list[bill_count]])
+                else:
+                    full_list.append([bill_list[bill_count][0], bill_list[bill_count][1], chamber, split_committee_list, sponsors_list[bill_count]])
+        else:
+            chamber_and_committees = item.split(delimiter_2)
+            chamber = chamber_and_committees[0]
+            split_committee_list = chamber_and_committees[1]
+            if delimiter_3 in split_committee_list:
+                split_committee_list = split_committee_list.split(delimiter_3)
+                for committee in split_committee_list:
+                    full_list.append([bill_list[bill_count][0], bill_list[bill_count][1], chamber, committee, sponsors_list[bill_count]])
+            else:
+                full_list.append([bill_list[bill_count][0], bill_list[bill_count][1], chamber, split_committee_list, sponsors_list[bill_count]])
+
+    # for bill, chamber, committee, sponsor in zip(bill_id_list, chamber_list,
+    #                                              committee_list, sponsors_list):
+    #     full_list.append([bill, chamber, committee, sponsor])
 
     # return full_list
 

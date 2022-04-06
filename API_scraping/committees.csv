@@ -1,0 +1,53 @@
+chamber,name,thomas_id,committee_id
+house,House Committee on Agriculture,HSAG,AG
+house,House Committee on Appropriations,HSAP,AP
+house,House Committee on Armed Services,HSAS,AS
+house,House Committee on Financial Services,HSBA,BA
+house,House Committee on the Budget,HSBU,BU
+house,House Committee on Education and Labor,HSED,ED
+house,House Committee on Foreign Affairs,HSFA,FA
+house,House Committee on Oversight and Reform,HSGO,GO
+house,House Committee on House Administration,HSHA,HA
+house,House Committee on Homeland Security,HSHM,HM
+house,House Committee on Energy and Commerce,HSIF,IF
+house,House Committee on Natural Resources,HSII,II
+house,House Permanent Select Committee on Intelligence,HLIG,IG
+house,House Committee on the Judiciary,HSJU,JU
+house,House Committee on Transportation and Infrastructure,HSPW,PW
+house,House Committee on Rules,HSRU,RU
+house,House Committee on Small Business,HSSM,SM
+house,House Committee on Ethics,HSSO,SO
+house,"House Committee on Science, Space, and Technology",HSSY,SY
+house,House Committee on Veterans' Affairs,HSVR,VR
+house,House Committee on Ways and Means,HSWM,WM
+house,House Select Committee on the Climate Crisis,HSCN,CN
+house,House Select Committee on the Modernization of Congress,HSMH,MH
+joint,Commission on Security and Cooperation in Europe,JCSE,JCSE
+joint,Joint Economic Committee,JSEC,EC
+joint,Joint Committee on the Library,JSLC,JL
+joint,Joint Committee on Printing,JSPR,JP
+joint,Joint Committee on Taxation,JSTX,IT
+senate,United States Senate Caucus on International Narcotics Control,SCNC,SCNC
+senate,Senate Select Committee on Ethics,SLET,SLET
+senate,Senate Committee on Indian Affairs,SLIA,SLIA
+senate,Senate Select Committee on Intelligence,SLIN,SLIN
+senate,Senate Special Committee on Aging,SPAG,SPAG
+senate,"Senate Committee on Agriculture, Nutrition, and Forestry",SSAF,SSAF
+senate,Senate Committee on Appropriations,SSAP,SSAP
+senate,Senate Committee on Armed Services,SSAS,SSAS
+senate,"Senate Committee on Banking, Housing, and Urban Affairs",SSBK,SSBK
+senate,Senate Committee on the Budget,SSBU,SSBU
+senate,"Senate Committee on Commerce, Science, and Transportation",SSCM,SSCM
+senate,Senate Committee on Energy and Natural Resources,SSEG,SSEG
+senate,Senate Committee on Environment and Public Works,SSEV,SSEV
+senate,Senate Committee on Finance,SSFI,SSFI
+senate,Senate Committee on Foreign Relations,SSFR,SSFR
+senate,Senate Committee on Homeland Security and Governmental Affairs,SSGA,SSGA
+senate,"Senate Committee on Health, Education, Labor, and Pensions",SSHR,SSHR
+senate,Senate Committee on the Judiciary,SSJU,SSJU
+senate,Senate Committee on Rules and Administration,SSRA,SSRA
+senate,Senate Committee on Small Business and Entrepreneurship,SSSB,SSSB
+senate,Senate Committee on Veterans' Affairs,SSVA,SSVA
+house,House Select Subcommittee on the Coronavirus Crisis,HSVC,VC
+house,House Select Committee on Economic Disparity and Fairness in Growth,HSEF,EF
+house,House Select Committee to Investigate the January 6th Attack on the United States Capitol,HSIJ,IJ

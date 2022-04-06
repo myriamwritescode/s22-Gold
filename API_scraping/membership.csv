@@ -1,0 +1,1384 @@
+thomas_id,name,rank,bioguide_id
+HSAG,David Scott,1,S001157
+HSAG,Glenn Thompson,1,T000467
+HSAG,Jim Costa,2,C001059
+HSAG,Austin Scott,2,S001189
+HSAG,James P. McGovern,3,M000312
+HSAG,"Eric A. ""Rick"" Crawford",3,C001087
+HSAG,Scott DesJarlais,4,D000616
+HSAG,Alma S. Adams,5,A000370
+HSAG,Vicky Hartzler,5,H001053
+HSAG,Abigail Davis Spanberger,6,S001209
+HSAG,Doug LaMalfa,6,L000578
+HSAG,Jahana Hayes,7,H001081
+HSAG,Rodney Davis,7,D000619
+HSAG,Antonio Delgado,8,D000630
+HSAG,Rick W. Allen,8,A000372
+HSAG,Bobby L. Rush,9,R000515
+HSAG,David Rouzer,9,R000603
+HSAG,Chellie Pingree,10,P000597
+HSAG,Trent Kelly,10,K000388
+HSAG,Gregorio Kilili Camacho Sablan,11,S001177
+HSAG,Don Bacon,11,B001298
+HSAG,Ann Kuster,12,K000382
+HSAG,Dusty Johnson,12,J000301
+HSAG,Cheri Bustos,13,B001286
+HSAG,James R. Baird,13,B001307
+HSAG,Sean Patrick Maloney,14,M001185
+HSAG,Stacey E. Plaskett,15,P000610
+HSAG,Chris Jacobs,15,J000020
+HSAG,Tom O’Halleran,16,O000171
+HSAG,Troy Balderson,16,B001306
+HSAG,Salud O. Carbajal,17,C001112
+HSAG,Michael Cloud,17,C001115
+HSAG,Ro Khanna,18,K000389
+HSAG,Tracey Mann,18,M000871
+HSAG,"Al Lawson, Jr.",19,L000586
+HSAG,Randy Feenstra,19,F000446
+HSAG,J. Luis Correa,20,C001110
+HSAG,Mary E. Miller,20,M001211
+HSAG,Angie Craig,21,C001119
+HSAG,Barry Moore,21,M001212
+HSAG,Josh Harder,22,H001090
+HSAG,Kat Cammack,22,C001039
+HSAG,Cynthia Axne,23,A000378
+HSAG,Michelle Fischbach,23,F000470
+HSAG,Kim Schrier,24,S001216
+HSAG,Julia Letlow,24,L000595
+HSAG,Jimmy Panetta,25,P000613
+HSAG,Ann Kirkpatrick,26,K000368
+HSAG,"Sanford D. Bishop, Jr.",27,B000490
+HSAP,Rosa L. DeLauro,1,D000216
+HSAP,Kay Granger,1,G000377
+HSAP,Marcy Kaptur,2,K000009
+HSAP,Harold Rogers,2,R000395
+HSAP,David E. Price,3,P000523
+HSAP,Robert B. Aderholt,3,A000055
+HSAP,Lucille Roybal-Allard,4,R000486
+HSAP,Michael K. Simpson,4,S001148
+HSAP,"Sanford D. Bishop, Jr.",5,B000490
+HSAP,John R. Carter,5,C001051
+HSAP,Barbara Lee,6,L000551
+HSAP,Ken Calvert,6,C000059
+HSAP,Betty McCollum,7,M001143
+HSAP,Tom Cole,7,C001053
+HSAP,Tim Ryan,8,R000577
+HSAP,Mario Diaz-Balart,8,D000600
+HSAP,C. A. Dutch Ruppersberger,9,R000576
+HSAP,Steve Womack,9,W000809
+HSAP,Debbie Wasserman Schultz,10,W000797
+HSAP,Henry Cuellar,11,C001063
+HSAP,"Charles J. ""Chuck"" Fleischmann",11,F000459
+HSAP,Chellie Pingree,12,P000597
+HSAP,Jaime Herrera Beutler,12,H001056
+HSAP,Mike Quigley,13,Q000023
+HSAP,David P. Joyce,13,J000295
+HSAP,Derek Kilmer,14,K000381
+HSAP,Andy Harris,14,H001052
+HSAP,Matt Cartwright,15,C001090
+HSAP,Mark E. Amodei,15,A000369
+HSAP,Grace Meng,16,M001188
+HSAP,Chris Stewart,16,S001192
+HSAP,Mark Pocan,17,P000607
+HSAP,Steven M. Palazzo,17,P000601
+HSAP,Katherine M. Clark,18,C001101
+HSAP,David G. Valadao,18,V000129
+HSAP,Pete Aguilar,19,A000371
+HSAP,Dan Newhouse,19,N000189
+HSAP,Lois Frankel,20,F000462
+HSAP,John R. Moolenaar,20,M001194
+HSAP,Cheri Bustos,21,B001286
+HSAP,John H. Rutherford,21,R000609
+HSAP,Bonnie Watson Coleman,22,W000822
+HSAP,Ben Cline,22,C001118
+HSAP,Brenda L. Lawrence,23,L000581
+HSAP,Guy Reschenthaler,23,R000610
+HSAP,Norma J. Torres,24,T000474
+HSAP,Mike Garcia,24,G000061
+HSAP,Charlie Crist,25,C001111
+HSAP,Ashley Hinson,25,H001091
+HSAP,Ann Kirkpatrick,26,K000368
+HSAP,Tony Gonzales,26,G000594
+HSAP,Ed Case,27,C001055
+HSAP,Adriano Espaillat,28,E000297
+HSAP,Josh Harder,29,H001090
+HSAP,Jennifer Wexton,30,W000825
+HSAP,David J. Trone,31,T000483
+HSAP,Lauren Underwood,32,U000040
+HSAP,Susie Lee,33,L000590
+HSAS,Adam Smith,1,S000510
+HSAS,Mike Rogers,1,R000575
+HSAS,James R. Langevin,2,L000559
+HSAS,Joe Wilson,2,W000795
+HSAS,Rick Larsen,3,L000560
+HSAS,Michael R. Turner,3,T000463
+HSAS,Jim Cooper,4,C000754
+HSAS,Doug Lamborn,4,L000564
+HSAS,Joe Courtney,5,C001069
+HSAS,Robert J. Wittman,5,W000804
+HSAS,John Garamendi,6,G000559
+HSAS,Vicky Hartzler,6,H001053
+HSAS,Jackie Speier,7,S001175
+HSAS,Austin Scott,7,S001189
+HSAS,Donald Norcross,8,N000188
+HSAS,Mo Brooks,8,B001274
+HSAS,Ruben Gallego,9,G000574
+HSAS,Sam Graves,9,G000546
+HSAS,Seth Moulton,10,M001196
+HSAS,Elise M. Stefanik,10,S001196
+HSAS,Salud O. Carbajal,11,C001112
+HSAS,Scott DesJarlais,11,D000616
+HSAS,Anthony G. Brown,12,B001304
+HSAS,Trent Kelly,12,K000388
+HSAS,Ro Khanna,13,K000389
+HSAS,Mike Gallagher,13,G000579
+HSAS,William R. Keating,14,K000375
+HSAS,Matt Gaetz,14,G000578
+HSAS,Don Bacon,15,B001298
+HSAS,Andy Kim,16,K000394
+HSAS,Jim Banks,16,B001299
+HSAS,Chrissy Houlahan,17,H001085
+HSAS,Liz Cheney,17,C001109
+HSAS,Jason Crow,18,C001121
+HSAS,Jack Bergman,18,B001301
+HSAS,Elissa Slotkin,19,S001208
+HSAS,Michael Waltz,19,W000823
+HSAS,Mikie Sherrill,20,S001207
+HSAS,Mike Johnson,20,J000299
+HSAS,Veronica Escobar,21,E000299
+HSAS,Mark E. Green,21,G000590
+HSAS,Jared F. Golden,22,G000592
+HSAS,Stephanie I. Bice,22,B000740
+HSAS,Elaine G. Luria,23,L000591
+HSAS,C. Scott Franklin,23,F000472
+HSAS,Joseph D. Morelle,24,M001206
+HSAS,Lisa C. McClain,24,M001136
+HSAS,Sara Jacobs,25,J000305
+HSAS,Ronny Jackson,25,J000304
+HSAS,Kaiali’i Kahele,26,K000396
+HSAS,Jerry L. Carl,26,C001054
+HSAS,Marilyn Strickland,27,S001159
+HSAS,Blake D. Moore,27,M001213
+HSAS,Marc A. Veasey,28,V000131
+HSAS,Pat Fallon,28,F000246
+HSAS,Jimmy Panetta,29,P000613
+HSAS,Stephanie N. Murphy,30,M001202
+HSAS,Steven Horsford,31,H001066
+HSBA,Maxine Waters,1,W000187
+HSBA,Patrick T. McHenry,1,M001156
+HSBA,Carolyn B. Maloney,2,M000087
+HSBA,Frank D. Lucas,2,L000491
+HSBA,Nydia M. Velázquez,3,V000081
+HSBA,Bill Posey,3,P000599
+HSBA,Brad Sherman,4,S000344
+HSBA,Blaine Luetkemeyer,4,L000569
+HSBA,Gregory W. Meeks,5,M001137
+HSBA,Bill Huizenga,5,H001058
+HSBA,Al Green,6,G000553
+HSBA,Ann Wagner,6,W000812
+HSBA,Emanuel Cleaver,7,C001061
+HSBA,Andy Barr,7,B001282
+HSBA,Ed Perlmutter,8,P000593
+HSBA,Roger Williams,8,W000816
+HSBA,James A. Himes,9,H001047
+HSBA,J. Hill,9,H001072
+HSBA,Bill Foster,10,F000454
+HSBA,Tom Emmer,10,E000294
+HSBA,Joyce Beatty,11,B001281
+HSBA,Lee M. Zeldin,11,Z000017
+HSBA,Juan Vargas,12,V000130
+HSBA,Barry Loudermilk,12,L000583
+HSBA,Josh Gottheimer,13,G000583
+HSBA,Alexander Mooney,13,M001195
+HSBA,Vicente Gonzalez,14,G000581
+HSBA,Warren Davidson,14,D000626
+HSBA,"Al Lawson, Jr.",15,L000586
+HSBA,Ted Budd,15,B001305
+HSBA,Michael F. Q. San Nicolas,16,S001204
+HSBA,David Kustoff,16,K000392
+HSBA,Cynthia Axne,17,A000378
+HSBA,Trey Hollingsworth,17,H001074
+HSBA,Sean Casten,18,C001117
+HSBA,Anthony Gonzalez,18,G000588
+HSBA,Ayanna Pressley,19,P000617
+HSBA,John Rose,19,R000612
+HSBA,Ritchie Torres,20,T000486
+HSBA,Bryan Steil,20,S001213
+HSBA,David Scott,21,S001157
+HSBA,Lance Gooden,21,G000589
+HSBA,Stephen F. Lynch,22,L000562
+HSBA,William R. Timmons IV,22,T000480
+HSBA,Alma S. Adams,23,A000370
+HSBA,Van Taylor,23,T000479
+HSBA,Rashida Tlaib,24,T000481
+HSBA,Madeleine Dean,25,D000631
+HSBA,Alexandria Ocasio-Cortez,26,O000172
+HSBA,"Jesús G. ""Chuy"" García",27,G000586
+HSBA,Sylvia R. Garcia,28,G000587
+HSBA,Nikema Williams,29,W000788
+HSBA,Jake Auchincloss,30,A000148
+HSBU,John A. Yarmuth,1,Y000062
+HSBU,Jason Smith,1,S001195
+HSBU,Hakeem S. Jeffries,2,J000294
+HSBU,Trent Kelly,2,K000388
+HSBU,Brian Higgins,3,H001038
+HSBU,Tom McClintock,3,M001177
+HSBU,Brendan F. Boyle,4,B001296
+HSBU,Glenn Grothman,4,G000576
+HSBU,Lloyd Doggett,5,D000399
+HSBU,Lloyd Smucker,5,S001199
+HSBU,David E. Price,6,P000523
+HSBU,Chris Jacobs,6,J000020
+HSBU,Janice D. Schakowsky,7,S001145
+HSBU,Michael C. Burgess,7,B001248
+HSBU,Daniel T. Kildee,8,K000380
+HSBU,"Earl L. ""Buddy"" Carter",8,C001103
+HSBU,Joseph D. Morelle,9,M001206
+HSBU,Ben Cline,9,C001118
+HSBU,Steven Horsford,10,H001066
+HSBU,Ashley Hinson,10,H001091
+HSBU,Barbara Lee,11,L000551
+HSBU,Bob Good,11,G000595
+HSBU,Judy Chu,12,C001080
+HSBU,Byron Donalds,12,D000032
+HSBU,Stacey E. Plaskett,13,P000610
+HSBU,Jay Obernolte,13,O000019
+HSBU,Jennifer Wexton,14,W000825
+HSBU,Randy Feenstra,14,F000446
+HSBU,"Robert C. ""Bobby"" Scott",15,S000185
+HSBU,Lauren Boebert,15,B000825
+HSBU,Sheila Jackson Lee,16,J000032
+HSBU,Jim Cooper,17,C000754
+HSBU,Albio Sires,18,S001165
+HSBU,Scott H. Peters,19,P000608
+HSBU,Seth Moulton,20,M001196
+HSBU,Pramila Jayapal,21,J000298
+HSED,"Robert C. ""Bobby"" Scott",1,S000185
+HSED,Virginia Foxx,1,F000450
+HSED,Raúl M. Grijalva,2,G000551
+HSED,Joe Wilson,2,W000795
+HSED,Joe Courtney,3,C001069
+HSED,Glenn Thompson,3,T000467
+HSED,Gregorio Kilili Camacho Sablan,4,S001177
+HSED,Tim Walberg,4,W000798
+HSED,Frederica S. Wilson,5,W000808
+HSED,Glenn Grothman,5,G000576
+HSED,Suzanne Bonamici,6,B001278
+HSED,Elise M. Stefanik,6,S001196
+HSED,Mark Takano,7,T000472
+HSED,Rick W. Allen,7,A000372
+HSED,Alma S. Adams,8,A000370
+HSED,Jim Banks,8,B001299
+HSED,Mark DeSaulnier,9,D000623
+HSED,James Comer,9,C001108
+HSED,Donald Norcross,10,N000188
+HSED,Russ Fulcher,10,F000469
+HSED,Pramila Jayapal,11,J000298
+HSED,Fred Keller,11,K000395
+HSED,Joseph D. Morelle,12,M001206
+HSED,Gregory F. Murphy,12,M001210
+HSED,Susan Wild,13,W000826
+HSED,Mariannette Miller-Meeks,13,M001215
+HSED,Lucy McBath,14,M001208
+HSED,Burgess Owens,14,O000086
+HSED,Jahana Hayes,15,H001081
+HSED,Bob Good,15,G000595
+HSED,Andy Levin,16,L000592
+HSED,Lisa C. McClain,16,M001136
+HSED,Ilhan Omar,17,O000173
+HSED,Diana Harshbarger,17,H001086
+HSED,Haley M. Stevens,18,S001215
+HSED,Mary E. Miller,18,M001211
+HSED,Teresa Leger Fernandez,19,L000273
+HSED,Victoria Spartz,19,S000929
+HSED,Mondaire Jones,20,J000306
+HSED,Scott Fitzgerald,20,F000471
+HSED,Kathy E. Manning,21,M001135
+HSED,Madison Cawthorn,21,C001104
+HSED,Frank J. Mrvan,22,M001214
+HSED,Michelle Steel,22,S001135
+HSED,Jamaal Bowman,23,B001223
+HSED,Julia Letlow,23,L000595
+HSED,Mark Pocan,24,P000607
+HSED,Joaquin Castro,25,C001091
+HSED,Mikie Sherrill,26,S001207
+HSED,John A. Yarmuth,27,Y000062
+HSED,Adriano Espaillat,28,E000297
+HSED,Kweisi Mfume,29,M000687
+HSFA,Gregory W. Meeks,1,M001137
+HSFA,Michael T. McCaul,1,M001157
+HSFA,Brad Sherman,2,S000344
+HSFA,Christopher H. Smith,2,S000522
+HSFA,Albio Sires,3,S001165
+HSFA,Steve Chabot,3,C000266
+HSFA,Gerald E. Connolly,4,C001078
+HSFA,Joe Wilson,4,W000795
+HSFA,Theodore E. Deutch,5,D000610
+HSFA,Scott Perry,5,P000605
+HSFA,Karen Bass,6,B001270
+HSFA,Darrell Issa,6,I000056
+HSFA,William R. Keating,7,K000375
+HSFA,Adam Kinzinger,7,K000378
+HSFA,David N. Cicilline,8,C001084
+HSFA,Lee M. Zeldin,8,Z000017
+HSFA,Ami Bera,9,B001287
+HSFA,Ann Wagner,9,W000812
+HSFA,Joaquin Castro,10,C001091
+HSFA,Brian J. Mast,10,M001199
+HSFA,Dina Titus,11,T000468
+HSFA,Brian K. Fitzpatrick,11,F000466
+HSFA,Ted Lieu,12,L000582
+HSFA,Ken Buck,12,B001297
+HSFA,Susan Wild,13,W000826
+HSFA,Tim Burchett,13,B001309
+HSFA,Dean Phillips,14,P000616
+HSFA,Mark E. Green,14,G000590
+HSFA,Ilhan Omar,15,O000173
+HSFA,Andy Barr,15,B001282
+HSFA,Colin Z. Allred,16,A000376
+HSFA,W. Gregory Steube,16,S001214
+HSFA,Andy Levin,17,L000592
+HSFA,Daniel Meuser,17,M001204
+HSFA,Abigail Davis Spanberger,18,S001209
+HSFA,Claudia Tenney,18,T000478
+HSFA,Chrissy Houlahan,19,H001085
+HSFA,August Pfluger,19,P000048
+HSFA,Tom Malinowski,20,M001203
+HSFA,Nicole Malliotakis,20,M000317
+HSFA,Andy Kim,21,K000394
+HSFA,Peter Meijer,21,M001186
+HSFA,Sara Jacobs,22,J000305
+HSFA,Ronny Jackson,22,J000304
+HSFA,Kathy E. Manning,23,M001135
+HSFA,Young Kim,23,K000397
+HSFA,Jim Costa,24,C001059
+HSFA,Maria Elvira Salazar,24,S000168
+HSFA,Juan Vargas,25,V000130
+HSFA,Vicente Gonzalez,26,G000581
+HSFA,Bradley Scott Schneider,27,S001190
+HSGO,Carolyn B. Maloney,1,M000087
+HSGO,James Comer,1,C001108
+HSGO,Eleanor Holmes Norton,2,N000147
+HSGO,Jim Jordan,2,J000289
+HSGO,Stephen F. Lynch,3,L000562
+HSGO,Paul A. Gosar,3,G000565
+HSGO,Jim Cooper,4,C000754
+HSGO,Virginia Foxx,4,F000450
+HSGO,Gerald E. Connolly,5,C001078
+HSGO,Jody B. Hice,5,H001071
+HSGO,Raja Krishnamoorthi,6,K000391
+HSGO,Glenn Grothman,6,G000576
+HSGO,Jamie Raskin,7,R000606
+HSGO,Michael Cloud,7,C001115
+HSGO,Ro Khanna,8,K000389
+HSGO,Bob Gibbs,8,G000563
+HSGO,Kweisi Mfume,9,M000687
+HSGO,Clay Higgins,9,H001077
+HSGO,Alexandria Ocasio-Cortez,10,O000172
+HSGO,Ralph Norman,10,N000190
+HSGO,Rashida Tlaib,11,T000481
+HSGO,Pete Sessions,11,S000250
+HSGO,Katie Porter,12,P000618
+HSGO,Fred Keller,12,K000395
+HSGO,Cori Bush,13,B001224
+HSGO,Andy Biggs,13,B001302
+HSGO,Danny K. Davis,14,D000096
+HSGO,Andrew S. Clyde,14,C001116
+HSGO,Debbie Wasserman Schultz,15,W000797
+HSGO,Nancy Mace,15,M000194
+HSGO,Peter Welch,16,W000800
+HSGO,C. Scott Franklin,16,F000472
+HSGO,"Henry C. ""Hank"" Johnson, Jr.",17,J000288
+HSGO,Jake LaTurner,17,L000266
+HSGO,John P. Sarbanes,18,S001168
+HSGO,Pat Fallon,18,F000246
+HSGO,Jackie Speier,19,S001175
+HSGO,Yvette Herrell,19,H001084
+HSGO,Robin L. Kelly,20,K000385
+HSGO,Byron Donalds,20,D000032
+HSGO,Brenda L. Lawrence,21,L000581
+HSGO,Mark DeSaulnier,22,D000623
+HSGO,Jimmy Gomez,23,G000585
+HSGO,Ayanna Pressley,24,P000617
+HSGO,Mike Quigley,25,Q000023
+HSHA,Zoe Lofgren,1,L000397
+HSHA,Rodney Davis,1,D000619
+HSHA,Jamie Raskin,2,R000606
+HSHA,Barry Loudermilk,2,L000583
+HSHA,G. K. Butterfield,3,B001251
+HSHA,Bryan Steil,3,S001213
+HSHA,Pete Aguilar,4,A000371
+HSHA,Mary Gay Scanlon,5,S001205
+HSHA,Teresa Leger Fernandez,6,L000273
+HSHM,Bennie G. Thompson,1,T000193
+HSHM,John Katko,1,K000386
+HSHM,Sheila Jackson Lee,2,J000032
+HSHM,Michael T. McCaul,2,M001157
+HSHM,James R. Langevin,3,L000559
+HSHM,Clay Higgins,3,H001077
+HSHM,"Donald M. Payne, Jr.",4,P000604
+HSHM,Michael Guest,4,G000591
+HSHM,J. Luis Correa,5,C001110
+HSHM,Dan Bishop,5,B001311
+HSHM,Elissa Slotkin,6,S001208
+HSHM,Jefferson Van Drew,6,V000133
+HSHM,Emanuel Cleaver,7,C001061
+HSHM,Ralph Norman,7,N000190
+HSHM,Al Green,8,G000553
+HSHM,Mariannette Miller-Meeks,8,M001215
+HSHM,Yvette D. Clarke,9,C001067
+HSHM,Diana Harshbarger,9,H001086
+HSHM,Eric Swalwell,10,S001193
+HSHM,Andrew S. Clyde,10,C001116
+HSHM,Dina Titus,11,T000468
+HSHM,Carlos A. Gimenez,11,G000593
+HSHM,Bonnie Watson Coleman,12,W000822
+HSHM,Jake LaTurner,12,L000266
+HSHM,Kathleen M. Rice,13,R000602
+HSHM,Peter Meijer,13,M001186
+HSHM,Val Butler Demings,14,D000627
+HSHM,Kat Cammack,14,C001039
+HSHM,Nanette Diaz Barragán,15,B001300
+HSHM,August Pfluger,15,P000048
+HSHM,Josh Gottheimer,16,G000583
+HSHM,Andrew R. Garbarino,16,G000597
+HSHM,Elaine G. Luria,17,L000591
+HSHM,Tom Malinowski,18,M001203
+HSHM,Ritchie Torres,19,T000486
+HSIF,"Frank Pallone, Jr.",1,P000034
+HSIF,Cathy McMorris Rodgers,1,M001159
+HSIF,Bobby L. Rush,2,R000515
+HSIF,Fred Upton,2,U000031
+HSIF,Anna G. Eshoo,3,E000215
+HSIF,Michael C. Burgess,3,B001248
+HSIF,Diana DeGette,4,D000197
+HSIF,Steve Scalise,4,S001176
+HSIF,Michael F. Doyle,5,D000482
+HSIF,Robert E. Latta,5,L000566
+HSIF,Janice D. Schakowsky,6,S001145
+HSIF,Brett Guthrie,6,G000558
+HSIF,G. K. Butterfield,7,B001251
+HSIF,David B. McKinley,7,M001180
+HSIF,Doris O. Matsui,8,M001163
+HSIF,Adam Kinzinger,8,K000378
+HSIF,Kathy Castor,9,C001066
+HSIF,H. Morgan Griffith,9,G000568
+HSIF,John P. Sarbanes,10,S001168
+HSIF,Gus M. Bilirakis,10,B001257
+HSIF,Jerry McNerney,11,M001166
+HSIF,Bill Johnson,11,J000292
+HSIF,Peter Welch,12,W000800
+HSIF,Billy Long,12,L000576
+HSIF,Paul Tonko,13,T000469
+HSIF,Larry Bucshon,13,B001275
+HSIF,Yvette D. Clarke,14,C001067
+HSIF,Markwayne Mullin,14,M001190
+HSIF,Kurt Schrader,15,S001180
+HSIF,Richard Hudson,15,H001067
+HSIF,Tony Cárdenas,16,C001097
+HSIF,Tim Walberg,16,W000798
+HSIF,Raul Ruiz,17,R000599
+HSIF,"Earl L. ""Buddy"" Carter",17,C001103
+HSIF,Scott H. Peters,18,P000608
+HSIF,Jeff Duncan,18,D000615
+HSIF,Debbie Dingell,19,D000624
+HSIF,Gary J. Palmer,19,P000609
+HSIF,Marc A. Veasey,20,V000131
+HSIF,Neal P. Dunn,20,D000628
+HSIF,Ann Kuster,21,K000382
+HSIF,John R. Curtis,21,C001114
+HSIF,Robin L. Kelly,22,K000385
+HSIF,Debbie Lesko,22,L000589
+HSIF,Nanette Diaz Barragán,23,B001300
+HSIF,Greg Pence,23,P000615
+HSIF,A. Donald McEachin,24,M001200
+HSIF,Dan Crenshaw,24,C001120
+HSIF,Lisa Blunt Rochester,25,B001303
+HSIF,John Joyce,25,J000302
+HSIF,Darren Soto,26,S001200
+HSIF,Kelly Armstrong,26,A000377
+HSIF,Tom O’Halleran,27,O000171
+HSIF,Kathleen M. Rice,28,R000602
+HSIF,Angie Craig,29,C001119
+HSIF,Kim Schrier,30,S001216
+HSIF,Lori Trahan,31,T000482
+HSIF,Lizzie Fletcher,32,F000468
+HSII,Raúl M. Grijalva,1,G000551
+HSII,Bruce Westerman,1,W000821
+HSII,Grace F. Napolitano,2,N000179
+HSII,Jim Costa,3,C001059
+HSII,Louie Gohmert,3,G000552
+HSII,Gregorio Kilili Camacho Sablan,4,S001177
+HSII,Doug Lamborn,4,L000564
+HSII,Jared Huffman,5,H001068
+HSII,Robert J. Wittman,5,W000804
+HSII,Alan S. Lowenthal,6,L000579
+HSII,Tom McClintock,6,M001177
+HSII,Ruben Gallego,7,G000574
+HSII,Paul A. Gosar,7,G000565
+HSII,Joe Neguse,8,N000191
+HSII,Garret Graves,8,G000577
+HSII,Mike Levin,9,L000593
+HSII,Jody B. Hice,9,H001071
+HSII,Katie Porter,10,P000618
+HSII,Aumua Amata Coleman Radewagen,10,R000600
+HSII,Teresa Leger Fernandez,11,L000273
+HSII,Daniel Webster,11,W000806
+HSII,Melanie A. Stansbury,12,S001218
+HSII,Jenniffer González-Colón,12,G000582
+HSII,Nydia M. Velázquez,13,V000081
+HSII,Russ Fulcher,13,F000469
+HSII,Diana DeGette,14,D000197
+HSII,Pete Stauber,14,S001212
+HSII,Julia Brownley,15,B001285
+HSII,Thomas P. Tiffany,15,T000165
+HSII,Debbie Dingell,16,D000624
+HSII,Jerry L. Carl,16,C001054
+HSII,A. Donald McEachin,17,M001200
+HSII,"Matthew M. Rosendale, Sr.",17,R000103
+HSII,Darren Soto,18,S001200
+HSII,Blake D. Moore,18,M001213
+HSII,Michael F. Q. San Nicolas,19,S001204
+HSII,Yvette Herrell,19,H001084
+HSII,"Jesús G. ""Chuy"" García",20,G000586
+HSII,Lauren Boebert,20,B000825
+HSII,Ed Case,21,C001055
+HSII,Jay Obernolte,21,O000019
+HSII,Betty McCollum,22,M001143
+HSII,Cliff Bentz,22,B000668
+HSII,Steve Cohen,23,C001068
+HSII,Paul Tonko,24,T000469
+HSII,Rashida Tlaib,25,T000481
+HSII,Lori Trahan,26,T000482
+HLIG,Adam B. Schiff,1,S001150
+HLIG,James A. Himes,2,H001047
+HLIG,Michael R. Turner,2,T000463
+HLIG,André Carson,3,C001072
+HLIG,Brad R. Wenstrup,3,W000815
+HLIG,Jackie Speier,4,S001175
+HLIG,Chris Stewart,4,S001192
+HLIG,Mike Quigley,5,Q000023
+HLIG,"Eric A. ""Rick"" Crawford",5,C001087
+HLIG,Eric Swalwell,6,S001193
+HLIG,Elise M. Stefanik,6,S001196
+HLIG,Joaquin Castro,7,C001091
+HLIG,Markwayne Mullin,7,M001190
+HLIG,Peter Welch,8,W000800
+HLIG,Trent Kelly,8,K000388
+HLIG,Sean Patrick Maloney,9,M001185
+HLIG,Darin LaHood,9,L000585
+HLIG,Val Butler Demings,10,D000627
+HLIG,Brian K. Fitzpatrick,10,F000466
+HLIG,Raja Krishnamoorthi,11,K000391
+HLIG,Jim Cooper,12,C000754
+HLIG,Jason Crow,13,C001121
+HSJU,Jerrold Nadler,1,N000002
+HSJU,Jim Jordan,1,J000289
+HSJU,Zoe Lofgren,2,L000397
+HSJU,Steve Chabot,2,C000266
+HSJU,Sheila Jackson Lee,3,J000032
+HSJU,Louie Gohmert,3,G000552
+HSJU,Steve Cohen,4,C001068
+HSJU,Darrell Issa,4,I000056
+HSJU,"Henry C. ""Hank"" Johnson, Jr.",5,J000288
+HSJU,Ken Buck,5,B001297
+HSJU,Theodore E. Deutch,6,D000610
+HSJU,Matt Gaetz,6,G000578
+HSJU,Karen Bass,7,B001270
+HSJU,Mike Johnson,7,J000299
+HSJU,Hakeem S. Jeffries,8,J000294
+HSJU,Andy Biggs,8,B001302
+HSJU,David N. Cicilline,9,C001084
+HSJU,Tom McClintock,9,M001177
+HSJU,Eric Swalwell,10,S001193
+HSJU,W. Gregory Steube,10,S001214
+HSJU,Ted Lieu,11,L000582
+HSJU,Thomas P. Tiffany,11,T000165
+HSJU,Jamie Raskin,12,R000606
+HSJU,Thomas Massie,12,M001184
+HSJU,Pramila Jayapal,13,J000298
+HSJU,Chip Roy,13,R000614
+HSJU,Val Butler Demings,14,D000627
+HSJU,Dan Bishop,14,B001311
+HSJU,J. Luis Correa,15,C001110
+HSJU,Michelle Fischbach,15,F000470
+HSJU,Mary Gay Scanlon,16,S001205
+HSJU,Victoria Spartz,16,S000929
+HSJU,Sylvia R. Garcia,17,G000587
+HSJU,Scott Fitzgerald,17,F000471
+HSJU,Joe Neguse,18,N000191
+HSJU,Cliff Bentz,18,B000668
+HSJU,Lucy McBath,19,M001208
+HSJU,Burgess Owens,19,O000086
+HSJU,Greg Stanton,20,S001211
+HSJU,Madeleine Dean,21,D000631
+HSJU,Veronica Escobar,22,E000299
+HSJU,Mondaire Jones,23,J000306
+HSJU,Deborah K. Ross,24,R000305
+HSJU,Cori Bush,25,B001224
+HSPW,Peter A. DeFazio,1,D000191
+HSPW,Sam Graves,1,G000546
+HSPW,Eleanor Holmes Norton,2,N000147
+HSPW,Eddie Bernice Johnson,3,J000126
+HSPW,"Eric A. ""Rick"" Crawford",3,C001087
+HSPW,Rick Larsen,4,L000560
+HSPW,Bob Gibbs,4,G000563
+HSPW,Grace F. Napolitano,5,N000179
+HSPW,Daniel Webster,5,W000806
+HSPW,Steve Cohen,6,C001068
+HSPW,Thomas Massie,6,M001184
+HSPW,Albio Sires,7,S001165
+HSPW,Scott Perry,7,P000605
+HSPW,John Garamendi,8,G000559
+HSPW,Rodney Davis,8,D000619
+HSPW,"Henry C. ""Hank"" Johnson, Jr.",9,J000288
+HSPW,John Katko,9,K000386
+HSPW,André Carson,10,C001072
+HSPW,Brian Babin,10,B001291
+HSPW,Dina Titus,11,T000468
+HSPW,Garret Graves,11,G000577
+HSPW,Sean Patrick Maloney,12,M001185
+HSPW,David Rouzer,12,R000603
+HSPW,Jared Huffman,13,H001068
+HSPW,Mike Bost,13,B001295
+HSPW,Julia Brownley,14,B001285
+HSPW,"Randy K. Weber, Sr.",14,W000814
+HSPW,Frederica S. Wilson,15,W000808
+HSPW,Doug LaMalfa,15,L000578
+HSPW,"Donald M. Payne, Jr.",16,P000604
+HSPW,Bruce Westerman,16,W000821
+HSPW,Alan S. Lowenthal,17,L000579
+HSPW,Brian J. Mast,17,M001199
+HSPW,Mark DeSaulnier,18,D000623
+HSPW,Mike Gallagher,18,G000579
+HSPW,Stephen F. Lynch,19,L000562
+HSPW,Brian K. Fitzpatrick,19,F000466
+HSPW,Salud O. Carbajal,20,C001112
+HSPW,Jenniffer González-Colón,20,G000582
+HSPW,Anthony G. Brown,21,B001304
+HSPW,Troy Balderson,21,B001306
+HSPW,Tom Malinowski,22,M001203
+HSPW,Pete Stauber,22,S001212
+HSPW,Greg Stanton,23,S001211
+HSPW,Tim Burchett,23,B001309
+HSPW,Colin Z. Allred,24,A000376
+HSPW,Dusty Johnson,24,J000301
+HSPW,Sharice Davids,25,D000629
+HSPW,Jefferson Van Drew,25,V000133
+HSPW,"Jesús G. ""Chuy"" García",26,G000586
+HSPW,Michael Guest,26,G000591
+HSPW,Antonio Delgado,27,D000630
+HSPW,Troy E. Nehls,27,N000026
+HSPW,Chris Pappas,28,P000614
+HSPW,Nancy Mace,28,M000194
+HSPW,Conor Lamb,29,L000588
+HSPW,Nicole Malliotakis,29,M000317
+HSPW,Seth Moulton,30,M001196
+HSPW,Beth Van Duyne,30,V000134
+HSPW,Jake Auchincloss,31,A000148
+HSPW,Carlos A. Gimenez,31,G000593
+HSPW,Carolyn Bourdeaux,32,B001312
+HSPW,Michelle Steel,32,S001135
+HSPW,Kaiali’i Kahele,33,K000396
+HSPW,Marilyn Strickland,34,S001159
+HSPW,Nikema Williams,35,W000788
+HSPW,Marie Newman,36,N000192
+HSPW,Troy A. Carter,37,C001125
+HSRU,James P. McGovern,1,M000312
+HSRU,Tom Cole,1,C001053
+HSRU,Norma J. Torres,2,T000474
+HSRU,Michael C. Burgess,2,B001248
+HSRU,Ed Perlmutter,3,P000593
+HSRU,Guy Reschenthaler,3,R000610
+HSRU,Jamie Raskin,4,R000606
+HSRU,Michelle Fischbach,4,F000470
+HSRU,Mary Gay Scanlon,5,S001205
+HSRU,Joseph D. Morelle,6,M001206
+HSRU,Mark DeSaulnier,7,D000623
+HSRU,Deborah K. Ross,8,R000305
+HSRU,Joe Neguse,9,N000191
+HSSM,Nydia M. Velázquez,1,V000081
+HSSM,Blaine Luetkemeyer,1,L000569
+HSSM,Jared F. Golden,2,G000592
+HSSM,Jason Crow,3,C001121
+HSSM,Pete Stauber,3,S001212
+HSSM,Sharice Davids,4,D000629
+HSSM,Roger Williams,4,W000816
+HSSM,Kweisi Mfume,5,M000687
+HSSM,Daniel Meuser,5,M001204
+HSSM,Dean Phillips,6,P000616
+HSSM,Claudia Tenney,6,T000478
+HSSM,Marie Newman,7,N000192
+HSSM,Andrew R. Garbarino,7,G000597
+HSSM,Carolyn Bourdeaux,8,B001312
+HSSM,Young Kim,8,K000397
+HSSM,Troy A. Carter,9,C001125
+HSSM,Beth Van Duyne,9,V000134
+HSSM,Judy Chu,10,C001080
+HSSM,Byron Donalds,10,D000032
+HSSM,Dwight Evans,11,E000296
+HSSM,Maria Elvira Salazar,11,S000168
+HSSM,Antonio Delgado,12,D000630
+HSSM,Scott Fitzgerald,12,F000471
+HSSM,Chrissy Houlahan,13,H001085
+HSSM,Andy Kim,14,K000394
+HSSM,Angie Craig,15,C001119
+HSSO,Theodore E. Deutch,1,D000610
+HSSO,Jackie Walorski,1,W000813
+HSSO,Susan Wild,2,W000826
+HSSO,Michael Guest,2,G000591
+HSSO,Dean Phillips,3,P000616
+HSSO,David P. Joyce,3,J000295
+HSSO,Veronica Escobar,4,E000299
+HSSO,John H. Rutherford,4,R000609
+HSSO,Mondaire Jones,5,J000306
+HSSO,Kelly Armstrong,5,A000377
+HSSY,Eddie Bernice Johnson,1,J000126
+HSSY,Frank D. Lucas,1,L000491
+HSSY,Zoe Lofgren,2,L000397
+HSSY,Mo Brooks,2,B001274
+HSSY,Suzanne Bonamici,3,B001278
+HSSY,Bill Posey,3,P000599
+HSSY,Ami Bera,4,B001287
+HSSY,"Randy K. Weber, Sr.",4,W000814
+HSSY,Haley M. Stevens,5,S001215
+HSSY,Brian Babin,5,B001291
+HSSY,Mikie Sherrill,6,S001207
+HSSY,Anthony Gonzalez,6,G000588
+HSSY,Jamaal Bowman,7,B001223
+HSSY,Michael Waltz,7,W000823
+HSSY,Melanie A. Stansbury,8,S001218
+HSSY,James R. Baird,8,B001307
+HSSY,Brad Sherman,9,S000344
+HSSY,Pete Sessions,9,S000250
+HSSY,Ed Perlmutter,10,P000593
+HSSY,Daniel Webster,10,W000806
+HSSY,Jerry McNerney,11,M001166
+HSSY,Mike Garcia,11,G000061
+HSSY,Paul Tonko,12,T000469
+HSSY,Stephanie I. Bice,12,B000740
+HSSY,Bill Foster,13,F000454
+HSSY,Young Kim,13,K000397
+HSSY,Donald Norcross,14,N000188
+HSSY,Randy Feenstra,14,F000446
+HSSY,"Donald S. Beyer, Jr.",15,B001292
+HSSY,Jake LaTurner,15,L000266
+HSSY,Charlie Crist,16,C001111
+HSSY,Carlos A. Gimenez,16,G000593
+HSSY,Sean Casten,17,C001117
+HSSY,Jay Obernolte,17,O000019
+HSSY,Conor Lamb,18,L000588
+HSSY,Peter Meijer,18,M001186
+HSSY,Deborah K. Ross,19,R000305
+HSSY,Gwen Moore,20,M001160
+HSSY,Daniel T. Kildee,21,K000380
+HSSY,Susan Wild,22,W000826
+HSSY,Lizzie Fletcher,23,F000468
+HSVR,Mark Takano,1,T000472
+HSVR,Mike Bost,1,B001295
+HSVR,Julia Brownley,2,B001285
+HSVR,Aumua Amata Coleman Radewagen,2,R000600
+HSVR,Conor Lamb,3,L000588
+HSVR,Jack Bergman,3,B001301
+HSVR,Mike Levin,4,L000593
+HSVR,Jim Banks,4,B001299
+HSVR,Chris Pappas,5,P000614
+HSVR,Chip Roy,5,R000614
+HSVR,Elaine G. Luria,6,L000591
+HSVR,Gregory F. Murphy,6,M001210
+HSVR,Frank J. Mrvan,7,M001214
+HSVR,Tracey Mann,7,M000871
+HSVR,Gregorio Kilili Camacho Sablan,8,S001177
+HSVR,Barry Moore,8,M001212
+HSVR,Lauren Underwood,9,U000040
+HSVR,Nancy Mace,9,M000194
+HSVR,Colin Z. Allred,10,A000376
+HSVR,Madison Cawthorn,10,C001104
+HSVR,Lois Frankel,11,F000462
+HSVR,Troy E. Nehls,11,N000026
+HSVR,Anthony G. Brown,12,B001304
+HSVR,"Matthew M. Rosendale, Sr.",12,R000103
+HSVR,Elissa Slotkin,13,S001208
+HSVR,Mariannette Miller-Meeks,13,M001215
+HSVR,David J. Trone,14,T000483
+HSVR,Marcy Kaptur,15,K000009
+HSVR,Raul Ruiz,16,R000599
+HSVR,Ruben Gallego,17,G000574
+HSWM,Richard E. Neal,1,N000015
+HSWM,Kevin Brady,1,B000755
+HSWM,Lloyd Doggett,2,D000399
+HSWM,Mike Thompson,3,T000460
+HSWM,Vern Buchanan,3,B001260
+HSWM,John B. Larson,4,L000557
+HSWM,Adrian Smith,4,S001172
+HSWM,Earl Blumenauer,5,B000574
+HSWM,Tom Reed,5,R000585
+HSWM,Ron Kind,6,K000188
+HSWM,Mike Kelly,6,K000376
+HSWM,"Bill Pascrell, Jr.",7,P000096
+HSWM,Jason Smith,7,S001195
+HSWM,Danny K. Davis,8,D000096
+HSWM,Tom Rice,8,R000597
+HSWM,Linda T. Sánchez,9,S001156
+HSWM,David Schweikert,9,S001183
+HSWM,Brian Higgins,10,H001038
+HSWM,Jackie Walorski,10,W000813
+HSWM,Terri Sewell,11,S001185
+HSWM,Darin LaHood,11,L000585
+HSWM,Suzan K. DelBene,12,D000617
+HSWM,Brad R. Wenstrup,12,W000815
+HSWM,Judy Chu,13,C001080
+HSWM,Jodey C. Arrington,13,A000375
+HSWM,Gwen Moore,14,M001160
+HSWM,A. Drew Ferguson IV,14,F000465
+HSWM,Daniel T. Kildee,15,K000380
+HSWM,Ron Estes,15,E000298
+HSWM,Brendan F. Boyle,16,B001296
+HSWM,Lloyd Smucker,16,S001199
+HSWM,"Donald S. Beyer, Jr.",17,B001292
+HSWM,Kevin Hern,17,H001082
+HSWM,Dwight Evans,18,E000296
+HSWM,Carol D. Miller,18,M001205
+HSWM,Bradley Scott Schneider,19,S001190
+HSWM,Thomas R. Suozzi,20,S001201
+HSWM,Jimmy Panetta,21,P000613
+HSWM,Stephanie N. Murphy,22,M001202
+HSWM,Jimmy Gomez,23,G000585
+HSWM,Steven Horsford,24,H001066
+HSWM,Stacey E. Plaskett,25,P000610
+HSCN,Kathy Castor,1,C001066
+HSCN,Garret Graves,1,G000577
+HSCN,Suzanne Bonamici,2,B001278
+HSCN,Gary J. Palmer,2,P000609
+HSCN,Julia Brownley,3,B001285
+HSCN,"Earl L. ""Buddy"" Carter",3,C001103
+HSCN,Jared Huffman,4,H001068
+HSCN,Carol D. Miller,4,M001205
+HSCN,A. Donald McEachin,5,M001200
+HSCN,Kelly Armstrong,5,A000377
+HSCN,Mike Levin,6,L000593
+HSCN,Dan Crenshaw,6,C001120
+HSCN,Sean Casten,7,C001117
+HSCN,Anthony Gonzalez,7,G000588
+HSCN,Joe Neguse,8,N000191
+HSCN,Veronica Escobar,9,E000299
+HSMH,Derek Kilmer,1,K000381
+HSMH,William R. Timmons IV,1,T000480
+HSMH,Zoe Lofgren,2,L000397
+HSMH,Rodney Davis,2,D000619
+HSMH,Emanuel Cleaver,3,C001061
+HSMH,Robert E. Latta,3,L000566
+HSMH,Ed Perlmutter,4,P000593
+HSMH,David P. Joyce,4,J000295
+HSMH,Dean Phillips,5,P000616
+HSMH,Guy Reschenthaler,5,R000610
+HSMH,Nikema Williams,6,W000788
+HSMH,Beth Van Duyne,6,V000134
+JCSE,Benjamin L. Cardin,1,C000141
+JCSE,Sheldon Whitehouse,2,W000802
+JCSE,Jeanne Shaheen,3,S001181
+JCSE,Richard Blumenthal,4,B001277
+JCSE,Tina Smith,5,S001203
+JCSE,Roger F. Wicker,1,W000437
+JCSE,John Boozman,2,B001236
+JCSE,Thom Tillis,3,T000476
+JCSE,Tim Scott,4,S001184
+JSEC,Martin Heinrich,1,H001046
+JSEC,"Donald S. Beyer, Jr.",1,B001292
+JSEC,Amy Klobuchar,2,K000367
+JSEC,David J. Trone,2,T000483
+JSEC,Margaret Wood Hassan,3,H001076
+JSEC,Joyce Beatty,3,B001281
+JSEC,Mark Kelly,4,K000377
+JSEC,Mark Pocan,4,P000607
+JSEC,Raphael G. Warnock,5,W000790
+JSEC,Scott H. Peters,5,P000608
+JSEC,Sharice Davids,6,D000629
+JSEC,Mike Lee,1,L000577
+JSEC,Tom Cotton,2,C001095
+JSEC,Rob Portman,3,P000449
+JSEC,Bill Cassidy,4,C001075
+JSEC,Ted Cruz,5,C001098
+JSEC,David Schweikert,7,S001183
+JSEC,Jaime Herrera Beutler,8,H001056
+JSEC,Jodey C. Arrington,9,A000375
+JSEC,Ron Estes,10,E000298
+JSLC,Amy Klobuchar,1,K000367
+JSLC,Zoe Lofgren,1,L000397
+JSLC,Patrick J. Leahy,2,L000174
+JSLC,Tim Ryan,2,R000577
+JSLC,Mark R. Warner,3,W000805
+JSLC,G. K. Butterfield,3,B001251
+JSLC,Roy Blunt,1,B000575
+JSLC,Richard C. Shelby,2,S000320
+JSLC,Rodney Davis,4,D000619
+JSLC,Barry Loudermilk,5,L000583
+JSPR,Amy Klobuchar,1,K000367
+JSPR,Zoe Lofgren,1,L000397
+JSPR,"Angus S. King, Jr.",2,K000383
+JSPR,Jamie Raskin,2,R000606
+JSPR,Alex Padilla,3,P000145
+JSPR,Teresa Leger Fernandez,3,L000273
+JSPR,Roy Blunt,1,B000575
+JSPR,Roger F. Wicker,2,W000437
+JSPR,Rodney Davis,4,D000619
+JSPR,Barry Loudermilk,5,L000583
+JSTX,Ron Wyden,1,W000779
+JSTX,Richard E. Neal,1,N000015
+JSTX,Debbie Stabenow,2,S000770
+JSTX,Lloyd Doggett,2,D000399
+JSTX,Maria Cantwell,3,C000127
+JSTX,Mike Thompson,3,T000460
+JSTX,Mike Crapo,1,C000880
+JSTX,Chuck Grassley,2,G000386
+JSTX,Kevin Brady,4,B000755
+SCNC,Sheldon Whitehouse,1,W000802
+SCNC,Richard Blumenthal,2,B001277
+SCNC,Margaret Wood Hassan,3,H001076
+SCNC,Ben Ray Luján,4,L000570
+SCNC,Chuck Grassley,1,G000386
+SCNC,John Cornyn,2,C001056
+SCNC,James E. Risch,3,R000584
+SLET,Christopher A. Coons,1,C001088
+SLET,Brian Schatz,2,S001194
+SLET,Jeanne Shaheen,3,S001181
+SLET,James Lankford,1,L000575
+SLET,James E. Risch,2,R000584
+SLET,Deb Fischer,3,F000463
+SLIA,Brian Schatz,1,S001194
+SLIA,Maria Cantwell,2,C000127
+SLIA,Jon Tester,3,T000464
+SLIA,Catherine Cortez Masto,4,C001113
+SLIA,Tina Smith,5,S001203
+SLIA,Ben Ray Luján,6,L000570
+SLIA,Lisa Murkowski,1,M001153
+SLIA,John Hoeven,2,H001061
+SLIA,James Lankford,3,L000575
+SLIA,Steve Daines,4,D000618
+SLIA,Mike Rounds,5,R000605
+SLIA,Jerry Moran,6,M000934
+SLIN,Mark R. Warner,1,W000805
+SLIN,Dianne Feinstein,2,F000062
+SLIN,Ron Wyden,3,W000779
+SLIN,Martin Heinrich,4,H001046
+SLIN,"Angus S. King, Jr.",5,K000383
+SLIN,Michael F. Bennet,6,B001267
+SLIN,"Robert P. Casey, Jr.",7,C001070
+SLIN,Kirsten E. Gillibrand,8,G000555
+SLIN,Jack Reed,9,R000122
+SLIN,Charles E. Schumer,10,S000148
+SLIN,Marco Rubio,1,R000595
+SLIN,Richard Burr,2,B001135
+SLIN,James E. Risch,3,R000584
+SLIN,Susan M. Collins,4,C001035
+SLIN,Roy Blunt,5,B000575
+SLIN,Tom Cotton,6,C001095
+SLIN,John Cornyn,7,C001056
+SLIN,Ben Sasse,8,S001197
+SLIN,Mitch McConnell,9,M000355
+SLIN,James M. Inhofe,10,I000024
+SPAG,"Robert P. Casey, Jr.",1,C001070
+SPAG,Kirsten E. Gillibrand,2,G000555
+SPAG,Richard Blumenthal,3,B001277
+SPAG,Elizabeth Warren,4,W000817
+SPAG,Jacky Rosen,5,R000608
+SPAG,Mark Kelly,6,K000377
+SPAG,Raphael G. Warnock,7,W000790
+SPAG,Tim Scott,1,S001184
+SPAG,Susan M. Collins,2,C001035
+SPAG,Richard Burr,3,B001135
+SPAG,Marco Rubio,4,R000595
+SPAG,Mike Braun,5,B001310
+SPAG,Rick Scott,6,S001217
+SPAG,Mike Lee,7,L000577
+SSAF,Debbie Stabenow,1,S000770
+SSAF,Patrick J. Leahy,2,L000174
+SSAF,Sherrod Brown,3,B000944
+SSAF,Amy Klobuchar,4,K000367
+SSAF,Michael F. Bennet,5,B001267
+SSAF,Kirsten E. Gillibrand,6,G000555
+SSAF,Tina Smith,7,S001203
+SSAF,Richard J. Durbin,8,D000563
+SSAF,Cory A. Booker,9,B001288
+SSAF,Ben Ray Luján,10,L000570
+SSAF,Raphael G. Warnock,11,W000790
+SSAF,John Boozman,1,B001236
+SSAF,Mitch McConnell,2,M000355
+SSAF,John Hoeven,3,H001061
+SSAF,Joni Ernst,4,E000295
+SSAF,Cindy Hyde-Smith,5,H001079
+SSAF,Roger Marshall,6,M001198
+SSAF,Tommy Tuberville,7,T000278
+SSAF,Chuck Grassley,8,G000386
+SSAF,John Thune,9,T000250
+SSAF,Deb Fischer,10,F000463
+SSAF,Mike Braun,11,B001310
+SSAP,Patrick J. Leahy,1,L000174
+SSAP,Patty Murray,2,M001111
+SSAP,Dianne Feinstein,3,F000062
+SSAP,Richard J. Durbin,4,D000563
+SSAP,Jack Reed,5,R000122
+SSAP,Jon Tester,6,T000464
+SSAP,Jeanne Shaheen,7,S001181
+SSAP,Jeff Merkley,8,M001176
+SSAP,Christopher A. Coons,9,C001088
+SSAP,Brian Schatz,10,S001194
+SSAP,Tammy Baldwin,11,B001230
+SSAP,Christopher Murphy,12,M001169
+SSAP,"Joe Manchin, III",13,M001183
+SSAP,Chris Van Hollen,14,V000128
+SSAP,Martin Heinrich,15,H001046
+SSAP,Richard C. Shelby,1,S000320
+SSAP,Mitch McConnell,2,M000355
+SSAP,Susan M. Collins,3,C001035
+SSAP,Lisa Murkowski,4,M001153
+SSAP,Lindsey Graham,5,G000359
+SSAP,Roy Blunt,6,B000575
+SSAP,Jerry Moran,7,M000934
+SSAP,John Hoeven,8,H001061
+SSAP,John Boozman,9,B001236
+SSAP,Shelley Moore Capito,10,C001047
+SSAP,John Kennedy,11,K000393
+SSAP,Cindy Hyde-Smith,12,H001079
+SSAP,Mike Braun,13,B001310
+SSAP,Bill Hagerty,14,H000601
+SSAP,Marco Rubio,15,R000595
+SSAS,Jack Reed,1,R000122
+SSAS,Jeanne Shaheen,2,S001181
+SSAS,Kirsten E. Gillibrand,3,G000555
+SSAS,Richard Blumenthal,4,B001277
+SSAS,Mazie K. Hirono,5,H001042
+SSAS,Tim Kaine,6,K000384
+SSAS,"Angus S. King, Jr.",7,K000383
+SSAS,Elizabeth Warren,8,W000817
+SSAS,Gary C. Peters,9,P000595
+SSAS,"Joe Manchin, III",10,M001183
+SSAS,Tammy Duckworth,11,D000622
+SSAS,Jacky Rosen,12,R000608
+SSAS,Mark Kelly,13,K000377
+SSAS,James M. Inhofe,1,I000024
+SSAS,Roger F. Wicker,2,W000437
+SSAS,Deb Fischer,3,F000463
+SSAS,Tom Cotton,4,C001095
+SSAS,Mike Rounds,5,R000605
+SSAS,Joni Ernst,6,E000295
+SSAS,Thom Tillis,7,T000476
+SSAS,Dan Sullivan,8,S001198
+SSAS,Kevin Cramer,9,C001096
+SSAS,Rick Scott,10,S001217
+SSAS,Marsha Blackburn,11,B001243
+SSAS,Josh Hawley,12,H001089
+SSAS,Tommy Tuberville,13,T000278
+SSBK,Sherrod Brown,1,B000944
+SSBK,Jack Reed,2,R000122
+SSBK,Robert Menendez,3,M000639
+SSBK,Jon Tester,4,T000464
+SSBK,Mark R. Warner,5,W000805
+SSBK,Elizabeth Warren,6,W000817
+SSBK,Chris Van Hollen,7,V000128
+SSBK,Catherine Cortez Masto,8,C001113
+SSBK,Tina Smith,9,S001203
+SSBK,Kyrsten Sinema,10,S001191
+SSBK,Jon Ossoff,11,O000174
+SSBK,Raphael G. Warnock,12,W000790
+SSBK,Patrick J. Toomey,1,T000461
+SSBK,Richard C. Shelby,2,S000320
+SSBK,Mike Crapo,3,C000880
+SSBK,Tim Scott,4,S001184
+SSBK,Mike Rounds,5,R000605
+SSBK,Thom Tillis,6,T000476
+SSBK,John Kennedy,7,K000393
+SSBK,Bill Hagerty,8,H000601
+SSBK,Cynthia M. Lummis,9,L000571
+SSBK,Jerry Moran,10,M000934
+SSBK,Kevin Cramer,11,C001096
+SSBK,Steve Daines,12,D000618
+SSBU,Bernard Sanders,1,S000033
+SSBU,Patty Murray,2,M001111
+SSBU,Ron Wyden,3,W000779
+SSBU,Debbie Stabenow,4,S000770
+SSBU,Sheldon Whitehouse,5,W000802
+SSBU,Mark R. Warner,6,W000805
+SSBU,Jeff Merkley,7,M001176
+SSBU,Tim Kaine,8,K000384
+SSBU,Chris Van Hollen,9,V000128
+SSBU,Ben Ray Luján,10,L000570
+SSBU,Alex Padilla,11,P000145
+SSBU,Lindsey Graham,1,G000359
+SSBU,Chuck Grassley,2,G000386
+SSBU,Mike Crapo,3,C000880
+SSBU,Patrick J. Toomey,4,T000461
+SSBU,Ron Johnson,5,J000293
+SSBU,Mike Braun,6,B001310
+SSBU,Rick Scott,7,S001217
+SSBU,Ben Sasse,8,S001197
+SSBU,Mitt Romney,9,R000615
+SSBU,John Kennedy,10,K000393
+SSBU,Kevin Cramer,11,C001096
+SSCM,Maria Cantwell,1,C000127
+SSCM,Amy Klobuchar,2,K000367
+SSCM,Richard Blumenthal,3,B001277
+SSCM,Brian Schatz,4,S001194
+SSCM,Edward J. Markey,5,M000133
+SSCM,Gary C. Peters,6,P000595
+SSCM,Tammy Baldwin,7,B001230
+SSCM,Tammy Duckworth,8,D000622
+SSCM,Jon Tester,9,T000464
+SSCM,Kyrsten Sinema,10,S001191
+SSCM,Jacky Rosen,11,R000608
+SSCM,Ben Ray Luján,12,L000570
+SSCM,John W. Hickenlooper,13,H000273
+SSCM,Raphael G. Warnock,14,W000790
+SSCM,Roger F. Wicker,1,W000437
+SSCM,John Thune,2,T000250
+SSCM,Roy Blunt,3,B000575
+SSCM,Ted Cruz,4,C001098
+SSCM,Deb Fischer,5,F000463
+SSCM,Jerry Moran,6,M000934
+SSCM,Dan Sullivan,7,S001198
+SSCM,Marsha Blackburn,8,B001243
+SSCM,Todd Young,9,Y000064
+SSCM,Mike Lee,10,L000577
+SSCM,Ron Johnson,11,J000293
+SSCM,Shelley Moore Capito,12,C001047
+SSCM,Rick Scott,13,S001217
+SSCM,Cynthia M. Lummis,14,L000571
+SSEG,"Joe Manchin, III",1,M001183
+SSEG,Ron Wyden,2,W000779
+SSEG,Maria Cantwell,3,C000127
+SSEG,Bernard Sanders,4,S000033
+SSEG,Martin Heinrich,5,H001046
+SSEG,Mazie K. Hirono,6,H001042
+SSEG,"Angus S. King, Jr.",7,K000383
+SSEG,Catherine Cortez Masto,8,C001113
+SSEG,Mark Kelly,9,K000377
+SSEG,John W. Hickenlooper,10,H000273
+SSEG,John Barrasso,1,B001261
+SSEG,James E. Risch,2,R000584
+SSEG,Mike Lee,3,L000577
+SSEG,Steve Daines,4,D000618
+SSEG,Lisa Murkowski,5,M001153
+SSEG,John Hoeven,6,H001061
+SSEG,James Lankford,7,L000575
+SSEG,Bill Cassidy,8,C001075
+SSEG,Cindy Hyde-Smith,9,H001079
+SSEG,Roger Marshall,10,M001198
+SSEV,Thomas R. Carper,1,C000174
+SSEV,Benjamin L. Cardin,2,C000141
+SSEV,Bernard Sanders,3,S000033
+SSEV,Sheldon Whitehouse,4,W000802
+SSEV,Jeff Merkley,5,M001176
+SSEV,Edward J. Markey,6,M000133
+SSEV,Tammy Duckworth,7,D000622
+SSEV,Debbie Stabenow,8,S000770
+SSEV,Mark Kelly,9,K000377
+SSEV,Alex Padilla,10,P000145
+SSEV,Shelley Moore Capito,1,C001047
+SSEV,James M. Inhofe,2,I000024
+SSEV,Kevin Cramer,3,C001096
+SSEV,Cynthia M. Lummis,4,L000571
+SSEV,Richard C. Shelby,5,S000320
+SSEV,John Boozman,6,B001236
+SSEV,Roger F. Wicker,7,W000437
+SSEV,Dan Sullivan,8,S001198
+SSEV,Joni Ernst,9,E000295
+SSEV,Lindsey Graham,10,G000359
+SSFI,Ron Wyden,1,W000779
+SSFI,Debbie Stabenow,2,S000770
+SSFI,Maria Cantwell,3,C000127
+SSFI,Robert Menendez,4,M000639
+SSFI,Thomas R. Carper,5,C000174
+SSFI,Benjamin L. Cardin,6,C000141
+SSFI,Sherrod Brown,7,B000944
+SSFI,Michael F. Bennet,8,B001267
+SSFI,"Robert P. Casey, Jr.",9,C001070
+SSFI,Mark R. Warner,10,W000805
+SSFI,Sheldon Whitehouse,11,W000802
+SSFI,Margaret Wood Hassan,12,H001076
+SSFI,Catherine Cortez Masto,13,C001113
+SSFI,Elizabeth Warren,14,W000817
+SSFI,Mike Crapo,1,C000880
+SSFI,Chuck Grassley,2,G000386
+SSFI,John Cornyn,3,C001056
+SSFI,John Thune,4,T000250
+SSFI,Richard Burr,5,B001135
+SSFI,Rob Portman,6,P000449
+SSFI,Patrick J. Toomey,7,T000461
+SSFI,Tim Scott,8,S001184
+SSFI,Bill Cassidy,9,C001075
+SSFI,James Lankford,10,L000575
+SSFI,Steve Daines,11,D000618
+SSFI,Todd Young,12,Y000064
+SSFI,Ben Sasse,13,S001197
+SSFI,John Barrasso,14,B001261
+SSFR,Robert Menendez,1,M000639
+SSFR,Benjamin L. Cardin,2,C000141
+SSFR,Jeanne Shaheen,3,S001181
+SSFR,Christopher A. Coons,4,C001088
+SSFR,Christopher Murphy,5,M001169
+SSFR,Tim Kaine,6,K000384
+SSFR,Edward J. Markey,7,M000133
+SSFR,Jeff Merkley,8,M001176
+SSFR,Cory A. Booker,9,B001288
+SSFR,Brian Schatz,10,S001194
+SSFR,Chris Van Hollen,11,V000128
+SSFR,James E. Risch,1,R000584
+SSFR,Marco Rubio,2,R000595
+SSFR,Ron Johnson,3,J000293
+SSFR,Mitt Romney,4,R000615
+SSFR,Rob Portman,5,P000449
+SSFR,Rand Paul,6,P000603
+SSFR,Todd Young,7,Y000064
+SSFR,John Barrasso,8,B001261
+SSFR,Ted Cruz,9,C001098
+SSFR,Mike Rounds,10,R000605
+SSFR,Bill Hagerty,11,H000601
+SSGA,Gary C. Peters,1,P000595
+SSGA,Thomas R. Carper,2,C000174
+SSGA,Margaret Wood Hassan,3,H001076
+SSGA,Kyrsten Sinema,4,S001191
+SSGA,Jacky Rosen,5,R000608
+SSGA,Alex Padilla,6,P000145
+SSGA,Jon Ossoff,7,O000174
+SSGA,Rob Portman,1,P000449
+SSGA,Ron Johnson,2,J000293
+SSGA,Rand Paul,3,P000603
+SSGA,James Lankford,4,L000575
+SSGA,Mitt Romney,5,R000615
+SSGA,Rick Scott,6,S001217
+SSGA,Josh Hawley,7,H001089
+SSHR,Patty Murray,1,M001111
+SSHR,Bernard Sanders,2,S000033
+SSHR,"Robert P. Casey, Jr.",3,C001070
+SSHR,Tammy Baldwin,4,B001230
+SSHR,Christopher Murphy,5,M001169
+SSHR,Tim Kaine,6,K000384
+SSHR,Margaret Wood Hassan,7,H001076
+SSHR,Tina Smith,8,S001203
+SSHR,Jacky Rosen,9,R000608
+SSHR,Ben Ray Luján,10,L000570
+SSHR,John W. Hickenlooper,11,H000273
+SSHR,Richard Burr,1,B001135
+SSHR,Rand Paul,2,P000603
+SSHR,Susan M. Collins,3,C001035
+SSHR,Bill Cassidy,4,C001075
+SSHR,Lisa Murkowski,5,M001153
+SSHR,Mike Braun,6,B001310
+SSHR,Roger Marshall,7,M001198
+SSHR,Tim Scott,8,S001184
+SSHR,Mitt Romney,9,R000615
+SSHR,Tommy Tuberville,10,T000278
+SSHR,Jerry Moran,11,M000934
+SSJU,Richard J. Durbin,1,D000563
+SSJU,Patrick J. Leahy,2,L000174
+SSJU,Dianne Feinstein,3,F000062
+SSJU,Sheldon Whitehouse,4,W000802
+SSJU,Amy Klobuchar,5,K000367
+SSJU,Christopher A. Coons,6,C001088
+SSJU,Richard Blumenthal,7,B001277
+SSJU,Mazie K. Hirono,8,H001042
+SSJU,Cory A. Booker,9,B001288
+SSJU,Alex Padilla,10,P000145
+SSJU,Jon Ossoff,11,O000174
+SSJU,Chuck Grassley,1,G000386
+SSJU,Lindsey Graham,2,G000359
+SSJU,John Cornyn,3,C001056
+SSJU,Mike Lee,4,L000577
+SSJU,Ted Cruz,5,C001098
+SSJU,Ben Sasse,6,S001197
+SSJU,Josh Hawley,7,H001089
+SSJU,Tom Cotton,8,C001095
+SSJU,John Kennedy,9,K000393
+SSJU,Thom Tillis,10,T000476
+SSJU,Marsha Blackburn,11,B001243
+SSRA,Amy Klobuchar,1,K000367
+SSRA,Dianne Feinstein,2,F000062
+SSRA,Charles E. Schumer,3,S000148
+SSRA,Mark R. Warner,4,W000805
+SSRA,Patrick J. Leahy,5,L000174
+SSRA,"Angus S. King, Jr.",6,K000383
+SSRA,Jeff Merkley,7,M001176
+SSRA,Alex Padilla,8,P000145
+SSRA,Jon Ossoff,9,O000174
+SSRA,Roy Blunt,1,B000575
+SSRA,Mitch McConnell,2,M000355
+SSRA,Richard C. Shelby,3,S000320
+SSRA,Ted Cruz,4,C001098
+SSRA,Shelley Moore Capito,5,C001047
+SSRA,Roger F. Wicker,6,W000437
+SSRA,Deb Fischer,7,F000463
+SSRA,Cindy Hyde-Smith,8,H001079
+SSRA,Bill Hagerty,9,H000601
+SSSB,Benjamin L. Cardin,1,C000141
+SSSB,Maria Cantwell,2,C000127
+SSSB,Jeanne Shaheen,3,S001181
+SSSB,Edward J. Markey,4,M000133
+SSSB,Cory A. Booker,5,B001288
+SSSB,Christopher A. Coons,6,C001088
+SSSB,Mazie K. Hirono,7,H001042
+SSSB,Tammy Duckworth,8,D000622
+SSSB,Jacky Rosen,9,R000608
+SSSB,John W. Hickenlooper,10,H000273
+SSSB,Rand Paul,1,P000603
+SSSB,Marco Rubio,2,R000595
+SSSB,James E. Risch,3,R000584
+SSSB,Tim Scott,4,S001184
+SSSB,Joni Ernst,5,E000295
+SSSB,James M. Inhofe,6,I000024
+SSSB,Todd Young,7,Y000064
+SSSB,John Kennedy,8,K000393
+SSSB,Josh Hawley,9,H001089
+SSSB,Roger Marshall,10,M001198
+SSVA,Jon Tester,1,T000464
+SSVA,Patty Murray,2,M001111
+SSVA,Bernard Sanders,3,S000033
+SSVA,Sherrod Brown,4,B000944
+SSVA,Richard Blumenthal,5,B001277
+SSVA,Mazie K. Hirono,6,H001042
+SSVA,"Joe Manchin, III",7,M001183
+SSVA,Kyrsten Sinema,8,S001191
+SSVA,Margaret Wood Hassan,9,H001076
+SSVA,Jerry Moran,1,M000934
+SSVA,John Boozman,2,B001236
+SSVA,Bill Cassidy,3,C001075
+SSVA,Mike Rounds,4,R000605
+SSVA,Thom Tillis,5,T000476
+SSVA,Dan Sullivan,6,S001198
+SSVA,Marsha Blackburn,7,B001243
+SSVA,Kevin Cramer,8,C001096
+SSVA,Tommy Tuberville,9,T000278
+HSVC,James E. Clyburn,1,C000537
+HSVC,Steve Scalise,1,S001176
+HSVC,Maxine Waters,2,W000187
+HSVC,Jim Jordan,2,J000289
+HSVC,Carolyn B. Maloney,3,M000087
+HSVC,Mark E. Green,3,G000590
+HSVC,Nydia M. Velázquez,4,V000081
+HSVC,Nicole Malliotakis,4,M000317
+HSVC,Bill Foster,5,F000454
+HSVC,Mariannette Miller-Meeks,5,M001215
+HSVC,Jamie Raskin,6,R000606
+HSVC,Raja Krishnamoorthi,7,K000391
+HSEF,James A. Himes,1,H001047
+HSEF,Bryan Steil,1,S001213
+HSEF,Marcy Kaptur,2,K000009
+HSEF,Warren Davidson,2,D000626
+HSEF,Gwen Moore,3,M001160
+HSEF,Jodey C. Arrington,3,A000375
+HSEF,Vicente Gonzalez,4,G000581
+HSEF,Stephanie I. Bice,4,B000740
+HSEF,Pramila Jayapal,5,J000298
+HSEF,Kat Cammack,5,C001039
+HSEF,Angie Craig,6,C001119
+HSEF,Byron Donalds,6,D000032
+HSEF,Alexandria Ocasio-Cortez,7,O000172
+HSEF,Sara Jacobs,8,J000305
+HSIJ,Bennie G. Thompson,1,T000193
+HSIJ,Liz Cheney,1,C001109
+HSIJ,Zoe Lofgren,2,L000397
+HSIJ,Adam Kinzinger,2,K000378
+HSIJ,Adam B. Schiff,3,S001150
+HSIJ,Pete Aguilar,4,A000371
+HSIJ,Stephanie N. Murphy,5,M001202
+HSIJ,Jamie Raskin,6,R000606
+HSIJ,Elaine G. Luria,7,L000591
