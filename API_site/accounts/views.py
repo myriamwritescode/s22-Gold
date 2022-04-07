@@ -449,3 +449,30 @@ def customer(request, pk_test):  # <----show information of a paticular user
     return render(request, 'accounts/profile.html', context)  # dynamic
 
 # -------------------------------------------------------------------------------GRAPHS
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer', 'admin'])
+def bio(request, pk_test):
+    legislative = TestElectedOfficial.objects.get(first_name="Sherrod")
+
+    return render(request, 'accounts/bio.html', {'representative': legislative})
+
+# ---------------------------------------------------------------------------------
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer', 'admin'])
+def votes(request, pk_test):
+    votes = TestVote.objects.get(voter_id="156992")
+
+    return render(request, 'accounts/votes.html', {'representative': votes})
+
+# ---------------------------------------------------------------------------------
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer', 'admin'])
+def funding(request, pk_test):
+    funding = TestVote.objects.get(voter_id="156992")
+
+    return render(request, 'accounts/funding.html', {'representative': funding})
+
+# ---------------------------------------------------------------------------------

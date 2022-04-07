@@ -25,8 +25,9 @@
 <br>
 
 <div class="row">
+	{% csrf_token %}
 	<div class="col-md">
-		<a href="">
+		<a href="{% url 'bio' legislative.id %}">
 		<div class="container">
 			<img src="/static/images/folder.png"  style="width:80%;">
 			<div class="centered">Bio</div> <!-- this Bio information -->
@@ -35,7 +36,7 @@
 	</div>
 
 	<div class="col-md">
-		<a href="">
+		<a href="{% url 'votes' legislative.id %}">
 			<div class="container">
 				<img src="/static/images/folder.png"  style="width:80%;">
 				<div class="centered">Votes</div><!-- this voting Record information -->
@@ -43,7 +44,7 @@
 	
 	</div>
 	<div class="col-md">
-		<a href="">
+		<a href="{% url 'funding' legislative.id %}">
 		<div class="container">
 			<img src="/static/images/folder.png"  style="width:80%">
 			<div class="centered">Funding</div> <!-- this bill funding information -->
