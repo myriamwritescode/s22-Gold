@@ -162,34 +162,31 @@ def resultsDatalegislative(request, pk_test):
 
 
     # grab the all the choices
-    votedata.append({'military': constituent.military})
-    votedata.append({'government': constituent.government})
-    votedata.append({'education': constituent.education})
-    votedata.append({'healthcare_and_medicare': constituent.healthcare_and_medicare})
-    votedata.append({'veteran_affairs': constituent.veteran_affairs})
-    votedata.append({'housing_and_labor': constituent.housing_and_labor})
+    votedata.append({'agriculture': constituent.agriculture})
+    votedata.append({'military_and_veterans': constituent.military_and_veterans})
+    votedata.append({'education_and_labor': constituent.education_and_labor})
     votedata.append({'international_affairs': constituent.international_affairs})
-    votedata.append({'energy_and_environment': constituent.energy_and_environment})
-    votedata.append({'Science': constituent.Science})
-    votedata.append({'transportation_and_infrastructure': constituent.transportation_and_infrastructure})
-    votedata.append({'food_and_agricultur_value': constituent.food_and_agriculture})
-    votedata.append({'socialsecurity_or_unemployment': constituent.socialsecurity_or_unemployment})
-
+    votedata.append({'defense_and_intelligence': constituent.defense_and_intelligence})
+    votedata.append({'energy': constituent.energy})
+    votedata.append({'healthcare': constituent.healthcare})
+    votedata.append({'environment': constituent.environment})
+    votedata.append({'infrastructure': constituent.infrastructure})
+    votedata.append({'science_and_technology': constituent.science_and_technology})
     
     alldata.append(votedata)
+
     # add legislative
-    votedata_legislative.append({'military': legislative.military})
-    votedata_legislative.append({'government': legislative.government})
-    votedata_legislative.append({'education': legislative.education})
-    votedata_legislative.append({'healthcare_and_medicare': legislative.healthcare_and_medicare})
-    votedata_legislative.append({'veteran_affairs': legislative.veteran_affairs})
-    votedata_legislative.append({'housing_and_labor': legislative.housing_and_labor})
-    votedata_legislative.append({'housing_and_labor': legislative.international_affairs})
-    votedata_legislative.append({'international_affairs': legislative.energy_and_environment})
-    votedata_legislative.append({'Science': legislative.Science})
-    votedata_legislative.append({'transportation_and_infrastructure': legislative.transportation_and_infrastructure})
-    votedata_legislative.append({'food_and_agricultur_value': legislative.food_and_agriculture})
-    votedata_legislative.append({'socialsecurity_or_unemployment': legislative.socialsecurity_or_unemployment})
+    votedata.append({'agriculture': legislative.agriculture})
+    votedata.append({'military_and_veterans': legislative.military_and_veterans})
+    votedata.append({'education_and_labor': legislative.education_and_labor})
+    votedata.append({'international_affairs': legislative.international_affairs})
+    votedata.append({'defense_and_intelligence': legislative.defense_and_intelligence})
+    votedata.append({'energy': legislative.energy})
+    votedata.append({'healthcare': legislative.healthcare})
+    votedata.append({'environment': legislative.environment})
+    votedata.append({'infrastructure': legislative.infrastructure})
+    votedata.append({'science_and_technology': legislative.science_and_technology})
+
     alldata.append(votedata_legislative)
 
     print(alldata)
@@ -211,41 +208,35 @@ def valuePagelearnmore(request, pk_test):
     legislative_score =[]
 
     
-    user_score.append(constituent.military)
-    legislative_score.append(legislative.military)
+    user_score.append(constituent.agriculture)
+    legislative_score.append(legislative.agriculture)
    
-    user_score.append(constituent.government)
-    legislative_score.append(legislative.government)
+    user_score.append(constituent.military_and_veterans)
+    legislative_score.append(legislative.military_and_veterans)
     
-    user_score.append(constituent.education)
-    legislative_score.append(legislative.education)
-    
-    user_score.append(constituent.healthcare_and_medicare)
-    legislative_score.append(legislative.healthcare_and_medicare)
-    
-    user_score.append(constituent.veteran_affairs)
-    legislative_score.append(legislative.veteran_affairs)
-    
-    user_score.append(constituent.housing_and_labor)
-    legislative_score.append(legislative.housing_and_labor)
+    user_score.append(constituent.education_and_labor)
+    legislative_score.append(legislative.education_and_labor)
     
     user_score.append(constituent.international_affairs)
     legislative_score.append(legislative.international_affairs)
     
-    user_score.append(constituent.energy_and_environment)
-    legislative_score.append(legislative.energy_and_environment)
+    user_score.append(constituent.defense_and_intelligence)
+    legislative_score.append(legislative.defense_and_intelligence)
     
-    user_score.append(constituent.Science)
-    legislative_score.append(legislative.Science)
+    user_score.append(constituent.energy)
+    legislative_score.append(legislative.energy)
     
-    user_score.append(constituent.transportation_and_infrastructure)
-    legislative_score.append(legislative.transportation_and_infrastructure)
+    user_score.append(constituent.healthcare)
+    legislative_score.append(legislative.healthcare)
     
-    user_score.append(constituent.food_and_agriculture)
-    legislative_score.append(legislative.food_and_agriculture)
+    user_score.append(constituent.environment)
+    legislative_score.append(legislative.environment)
     
-    user_score.append(constituent.socialsecurity_or_unemployment)
-    legislative_score.append(legislative.socialsecurity_or_unemployment)
+    user_score.append(constituent.infrastructure)
+    legislative_score.append(legislative.infrastructure)
+    
+    user_score.append(constituent.science_and_technology)
+    legislative_score.append(legislative.science_and_technology)
     
     service_vector = NP.subtract(user_score, legislative_score)
     
@@ -253,7 +244,7 @@ def valuePagelearnmore(request, pk_test):
     servicescore = math.sqrt(sum(pow(element, 2) for element in
                                  service_vector))
 
-    print ("service score:", round (servicescore,2)) 
+    print ("service score:", round(servicescore,2))
     
     return render(request, 'accounts/learn_more.html', {'legislative': legislative,'service':round(abs(servicescore-100),2),'incompatible':round(servicescore,2)})
 
@@ -269,35 +260,31 @@ def accountSettings(request):
     if request.method == 'POST':  # healding the submition
         form = CustomerForm(request.POST,
                             instance=customer)  # <---no pillow (request.POST, request.FILES,instance=customer)
-        if (form.is_valid):
-            form.military = request.POST.get('military')
-            form.government = request.POST.get('government')
-            form.education = request.POST.get('education')
-            form.healthcare_and_medicare = request.POST.get('healthcare_and_medicare')
-            form.veteran_affairs = request.POST.get('veteran_affairs')
-            form.housing_and_labor = request.POST.get('housing_and_labor')
+        if form.is_valid:
+            form.agriculture = request.POST.get('agriculture')
+            form.military_and_veterans = request.POST.get('military_and_veterans')
+            form.education_and_labor = request.POST.get('education_and_labor')
             form.international_affairs = request.POST.get('international_affairs')
-            form.energy_and_environment = request.POST.get('energy_and_environment')
-            form.Science = request.POST.get('Science')
-            form.transportation_and_infrastructure = request.POST.get('transportation_and_infrastructure')
-            form.food_and_agriculture = request.POST.get('food_and_agriculture')
-            form.socialsecurity_or_unemployment = request.POST.get('socialsecurity_or_unemployment')
+            form.defense_and_intelligence = request.POST.get('defense_and_intelligence')
+            form.energy = request.POST.get('energy')
+            form.healthcare = request.POST.get('healthcare')
+            form.environment = request.POST.get('environment')
+            form.infrastructure = request.POST.get('infrastructure')
+            form.science_and_technology = request.POST.get('science_and_technology')
 
             sum = 0
-            sum += int(request.POST.get('military'))
-            sum += int(request.POST.get('government'))
-            sum += int(request.POST.get('education'))
-            sum += int(request.POST.get('healthcare_and_medicare'))
-            sum += int(request.POST.get('veteran_affairs'))
-            sum += int(request.POST.get('housing_and_labor'))
+            sum += int(request.POST.get('agriculture'))
+            sum += int(request.POST.get('military_and_veterans'))
+            sum += int(request.POST.get('education_and_labor'))
             sum += int(request.POST.get('international_affairs'))
-            sum += int(request.POST.get('energy_and_environment'))
-            sum += int(request.POST.get('Science'))
-            sum += int(request.POST.get('transportation_and_infrastructure'))
-            sum += int(request.POST.get('food_and_agriculture'))
-            sum += int(request.POST.get('socialsecurity_or_unemployment'))
+            sum += int(request.POST.get('defense_and_intelligence'))
+            sum += int(request.POST.get('energy'))
+            sum += int(request.POST.get('healthcare'))
+            sum += int(request.POST.get('environment'))
+            sum += int(request.POST.get('infrastructure'))
+            sum += int(request.POST.get('science_and_technology'))
 
-            if (sum == 100):
+            if sum == 100:
                 form.save()
                 # messages.success(request, 'Profile succesfully updated!')
                 return redirect('home')  # <--- send user to the home page if they are authenticate
@@ -318,18 +305,18 @@ def resultsData(request):
     else:
         constituent = Representative.objects.get(id=1)
 
-    votedata.append({'military': constituent.military})
-    votedata.append({'government': constituent.government})
-    votedata.append({'education': constituent.education})
-    votedata.append({'healthcare_and_medicare': constituent.healthcare_and_medicare})
-    votedata.append({'veteran_affairs': constituent.veteran_affairs})
-    votedata.append({'housing_and_labor': constituent.housing_and_labor})
+    votedata.append({'agriculture': constituent.agriculture})
+    votedata.append({'military_and_veterans': constituent.military_and_veterans})
+    votedata.append({'education_and_labor': constituent.education_and_labor})
     votedata.append({'international_affairs': constituent.international_affairs})
-    votedata.append({'energy_and_environment': constituent.energy_and_environment})
-    votedata.append({'Science': constituent.Science})
-    votedata.append({'transportation_and_infrastructure': constituent.transportation_and_infrastructure})
-    votedata.append({'food_and_agricultur_value': constituent.food_and_agriculture})
-    votedata.append({'socialsecurity_or_unemployment': constituent.socialsecurity_or_unemployment})
+    votedata.append({'defense_and_intelligence': constituent.defense_and_intelligence})
+    votedata.append({'energy': constituent.energy})
+    votedata.append({'healthcare': constituent.healthcare})
+    votedata.append({'environment': constituent.environment})
+    votedata.append({'infrastructure': constituent.infrastructure})
+    votedata.append({'science_and_technology': constituent.science_and_technology})
+
+
 
     print(votedata)
 
@@ -343,18 +330,17 @@ def resultsDataDemographics(request):
     votedata = []  # built and empty array
     votedata_demographics = []
     alldata = []
-    demographics_military_value = 0
-    demographics_government_value = 0
-    demographics_education_value = 0
-    demographics_healthcare_and_medicare_value = 0
-    demographics_veteran_affairs_value = 0
-    demographics_housing_and_labor_value = 0
+    demographics_agriculture_value = 0
+    demographics_military_and_veterans_value = 0
+    demographics_education_and_labor_value = 0
     demographics_international_affairs_value = 0
-    demographics_energy_and_environment_value = 0
-    demographics_Science_value = 0
-    demographics_transportation_and_infrastructure_value = 0
-    demographics_food_and_agricultur_value = 0
-    demographics_socialsecurity_or_unemployment_value = 0
+    demographics_defense_and_intelligence_value = 0
+    demographics_energy_value = 0
+    demographics_healthcare_value = 0
+    demographics_environment_value = 0
+    demographics_infrastructure_value = 0
+    demographics_science_and_technology_value = 0
+
     if hasattr(request.user, 'customer'):
         constituent = request.user.customer  # grab the by the ID of the model
         total_demographics = Customer.objects.all().filter(Age=constituent.Age).count()
@@ -364,70 +350,61 @@ def resultsDataDemographics(request):
         total_demographics = Customer.objects.all().count()
         myfilter = Customer.objects.all()
 
-    votedata.append({'military': constituent.military})
-    votedata.append({'government': constituent.government})
-    votedata.append({'education': constituent.education})
-    votedata.append({'healthcare_and_medicare': constituent.healthcare_and_medicare})
-    votedata.append({'veteran_affairs': constituent.veteran_affairs})
-    votedata.append({'housing_and_labor': constituent.housing_and_labor})
+    votedata.append({'agriculture': constituent.agriculture})
+    votedata.append({'military_and_veterans': constituent.military_and_veterans})
+    votedata.append({'education_and_labor': constituent.education_and_labor})
     votedata.append({'international_affairs': constituent.international_affairs})
-    votedata.append({'energy_and_environment': constituent.energy_and_environment})
-    votedata.append({'Science': constituent.Science})
-    votedata.append({'transportation_and_infrastructure': constituent.transportation_and_infrastructure})
-    votedata.append({'food_and_agricultur_value': constituent.food_and_agriculture})
-    votedata.append({'socialsecurity_or_unemployment': constituent.socialsecurity_or_unemployment})
+    votedata.append({'defense_and_intelligence': constituent.defense_and_intelligence})
+    votedata.append({'energy': constituent.energy})
+    votedata.append({'healthcare': constituent.healthcare})
+    votedata.append({'environment': constituent.environment})
+    votedata.append({'infrastructure': constituent.infrastructure})
+    votedata.append({'science_and_technology': constituent.science_and_technology})
 
     for i in myfilter:
-        demographics_military_value += i.military
-        demographics_government_value += i.government
-        demographics_education_value += i.education
-        demographics_healthcare_and_medicare_value += i.healthcare_and_medicare
-        demographics_veteran_affairs_value += i.veteran_affairs
-        demographics_housing_and_labor_value += i.housing_and_labor
+        demographics_agriculture_value += i.agriculture
+        demographics_military_and_veterans_value += i.military_and_veterans
+        demographics_education_and_labor_value += i.education_and_labor
         demographics_international_affairs_value += i.international_affairs
-        demographics_energy_and_environment_value += i.energy_and_environment
-        demographics_Science_value += i.Science
-        demographics_transportation_and_infrastructure_value += i.transportation_and_infrastructure
-        demographics_food_and_agricultur_value += i.food_and_agriculture
-        demographics_socialsecurity_or_unemployment_value += i.socialsecurity_or_unemployment
+        demographics_defense_and_intelligence_value += i.defense_and_intelligence
+        demographics_energy_value += i.energy
+        demographics_healthcare_value += i.healthcare
+        demographics_environment_value += i.environment
+        demographics_infrastructure_value += i.infrastructure
+        demographics_science_and_technology_value += i.science_and_technology
+
 
     # obtain average of result of filter demographics
-    demographics_military_value /= total_demographics
-    votedata_demographics.append({'military': demographics_military_value})
+    demographics_agriculture_value /= total_demographics
+    votedata_demographics.append({'agriculture': demographics_agriculture_value})
 
-    demographics_government_value /= total_demographics
-    votedata_demographics.append({'government': demographics_government_value})
+    demographics_military_and_veterans_value /= total_demographics
+    votedata_demographics.append({'military_and_veterans': demographics_military_and_veterans_value})
 
-    demographics_education_value /= total_demographics
-    votedata_demographics.append({'education': demographics_education_value})
-
-    demographics_healthcare_and_medicare_value /= total_demographics
-    votedata_demographics.append({'healthcare_and_medicare': demographics_healthcare_and_medicare_value})
-
-    demographics_veteran_affairs_value /= total_demographics
-    votedata_demographics.append({'veteran_affairs': demographics_veteran_affairs_value})
-
-    demographics_housing_and_labor_value /= total_demographics
-    votedata_demographics.append({'housing_and_labor': demographics_housing_and_labor_value})
+    demographics_education_and_labor_value /= total_demographics
+    votedata_demographics.append({'education_and_labor': demographics_education_and_labor_value})
 
     demographics_international_affairs_value /= total_demographics
     votedata_demographics.append({'international_affairs': demographics_international_affairs_value})
 
-    demographics_energy_and_environment_value /= total_demographics
-    votedata_demographics.append({'energy_and_environment': demographics_energy_and_environment_value})
+    demographics_defense_and_intelligence_value /= total_demographics
+    votedata_demographics.append({'defense_and_intelligence': demographics_defense_and_intelligence_value})
 
-    demographics_Science_value /= total_demographics
-    votedata_demographics.append({'Science': demographics_Science_value})
+    demographics_energy_value /= total_demographics
+    votedata_demographics.append({'energy': demographics_energy_value})
 
-    demographics_transportation_and_infrastructure_value /= total_demographics
-    votedata_demographics.append(
-        {'transportation_and_infrastructure': demographics_transportation_and_infrastructure_value})
+    demographics_healthcare_value /= total_demographics
+    votedata_demographics.append({'healthcare': demographics_healthcare_value})
 
-    demographics_food_and_agricultur_value /= total_demographics
-    votedata_demographics.append({'food_and_agricultur_value': demographics_food_and_agricultur_value})
+    demographics_environment_value /= total_demographics
+    votedata_demographics.append({'environment': demographics_environment_value})
 
-    demographics_socialsecurity_or_unemployment_value /= total_demographics
-    votedata_demographics.append({'socialsecurity_or_unemployment': demographics_socialsecurity_or_unemployment_value})
+    demographics_infrastructure_value /= total_demographics
+    votedata_demographics.append({'infrastructure': demographics_infrastructure_value})
+
+    demographics_science_and_technology_value /= total_demographics
+    votedata_demographics.append({'science_and_technology': demographics_science_and_technology_value})
+
 
     # the construct the list that need to be graph
     alldata.append(votedata)
