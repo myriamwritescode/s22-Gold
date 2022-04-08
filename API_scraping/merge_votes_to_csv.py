@@ -30,25 +30,25 @@ def main():
         # skip header
         next(csv_reader1)
         for row in csv_reader1:
-            bill_id = row[0]
-            bill_set.add(bill_id)
+            bill_number = row[1]
+            bill_set.add(bill_number)
 
     bill_set = sorted(bill_set)
 
-    bill_list = []
-    for bill in bill_set:
-        bill_split = split('(\d+)', bill)
-        bill_split.remove(bill_split[2])
-        bill_list.append(bill_split)
+    # bill_list = []
+    # for bill in bill_set:
+    #     bill_split = split('(\d+)', bill)
+    #     bill_split.remove(bill_split[2])
+    #     bill_list.append(bill_split)
 
-    bill_dict = {}
-    for bill in bill_list:
-        bill_dict.update({bill[1]: bill[0]})
+    # bill_dict = {}
+    # for bill in bill_list:
+    #     bill_dict.update({bill[1]: bill[0]})
 
-    print(bill_dict)
-    print(len(bill_list))
+    # print(bill_dict)
+    # print(len(bill_list))
     print(len(bill_set))
-    print(len(bill_dict))
+    # print(len(bill_dict))
 
     # all_votes.csv header
     header = ['voter_id', 'state', 'bill_type', 'number', 'roll', 'value',
@@ -78,9 +78,12 @@ def main():
             except AttributeError:
                 counter2 += 1
                 continue
-            if number in bill_dict:
+            if number in bill_set:
                 result = root.find('result').text
-                if result == 'Agreed to' or result == 'Passed':
+                string_1 = 'Passed'
+                string_2 = 'Agreed'
+                # if result == 'Agreed to' or result == 'Passed':
+                if string_1 in result or string_2 in result:
                     try:
                         bill_type = root.find('bill').get('type')
                     except AttributeError:

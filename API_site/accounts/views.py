@@ -14,7 +14,7 @@ from django.contrib.auth.decorators import login_required  # <---for every view 
 from django.contrib.auth.models import Group
 from django.urls import reverse
 from django.http import JsonResponse
-#from ..scratch_1 import servicecalculator
+# from ..scratch_1 import servicecalculator
 import numpy as NP
 import math
 # Create your views here for the path response
@@ -27,32 +27,11 @@ from .decorators import unauthenticated_user, allowed_users, admin_only  # permi
 
 # def home(request):
 # return HttpResponse('home page') #static HttpResponse
-#@login_required(login_url='login')
+# @login_required(login_url='login')
 # @allowed_users(allowed_roles=['customer', 'admin'])
 # def valuePage(request):
-#     legislators = TestElectedOfficial.objects.all()
-#     users_reps = []
-#     for legislator in legislators:
-#         if legislator.state == 'VA' and (legislator.type == 'sen' or legislator.district == 2):
-#             # users_reps.append(f'{legislator.first_name} {legislator.last_name} {legislator.bioguide_id}')
-#             users_reps.append(legislator.bioguide_id)
 
-#     # votes = TestVote.objects.all()
-#     #
-#     # bills = TestBill.objects.all()
-#     # bill_ids = []
-#     # for bill in bills:
-#     # 	bill_ids.append(bill.bill_id)
 
-#     x = [1, 2, 3]
-#     y = [4, 5, 6]
-#     z = [7, 8, 9]
-
-#     rep_values = [x, y, z]
-
-#     data = {'users_reps': users_reps, 'rep_values': rep_values}
-#     return render(request, 'accounts/value.html', data)
-#
 # -------------------------------------------------------------------------------User Registration
 @unauthenticated_user
 def registerPage(request):
@@ -138,11 +117,200 @@ def valuePage(request):
         mysenators = Representative.objects.all()
         noelective = True
 
-
     print(mysenators)
     return render(request, 'accounts/value.html', {'senators': mysenators, 'noelective' : noelective})  # this is a dictionary {key: value}
-
-
+    # full_list = []
+    # # Create a list of the user's legislator's ids
+    # legislator_model = TestElectedOfficial.objects.filter(state__exact='VA')
+    # legislator_ids = []
+    # for legislator in legislator_model:
+    #     # This next line will need to be edited when we implement Google API
+    #     if legislator.type == 'sen':
+    #         legislator_ids.append(legislator.lis_id)
+    #         full_list.append({'id': legislator.lis_id,
+    #                           'bioguide_id': legislator.bioguide_id,
+    #                           'f_name': legislator.first_name,
+    #                           'l_name': legislator.last_name,
+    #                           'full_name': legislator.full_name,
+    #                           'agg': 0, 'mil': 0, 'ed': 0, 'intl': 0, 'def': 0,
+    #                           'energy': 0, 'health': 0, 'env': 0, 'infra': 0,
+    #                           'sci': 0})
+    #     # This next line will need to be edited when we implement Google AP
+    #     elif legislator.district == 2:
+    #         legislator_ids.append(legislator.bioguide_id)
+    #         full_list.append({'id': legislator.bioguide_id,
+    #                           'bioguide_id': legislator.bioguide_id,
+    #                           'f_name': legislator.first_name,
+    #                           'l_name': legislator.last_name,
+    #                           'full_name': legislator.full_name,
+    #                           'agg': 0, 'mil': 0, 'ed': 0, 'intl': 0, 'def': 0,
+    #                           'energy': 0, 'health': 0, 'env': 0, 'infra': 0,
+    #                           'sci': 0})
+    #
+    # # Get all votes where a user's legislator voted 'Yea'
+    # vote_model = TestVote.objects.all()
+    # votes = []
+    # bill_numbers = []
+    # for vote in vote_model:
+    #     if vote.voter_id in legislator_ids and vote.value == 'Yea':
+    #         bill_numbers.append(vote.number)
+    #         votes.append(vote)
+    #
+    # # Get all bills/committees where a user's legislator voted 'Yea'
+    # bill_model = TestBill.objects.all()
+    # bills = []
+    # for bill in bill_model:
+    #     if bill.number in bill_numbers:
+    #         bills.append(bill)
+    #
+    # # Link categories go committee names
+    # agg_terms = ['Agriculture']
+    # mil_terms = ['Armed Services', 'Veterans\' Affairs']
+    # ed_terms = ['Education and Labor', 'Small Business',
+    #             'Health, Education, Labor, and Pensions']
+    # intl_terms = ['Foreign Affairs', 'Foreign Relations']
+    # def_terms = ['Homeland Security', 'Intelligence', 'Judiciary',
+    #              'Narcotics Control']
+    # energy_terms = ['Energy and Commerce']
+    # health_terms = ['Education and Labor', 'Energy and Commerce', 'Aging',
+    #                 'Finance']
+    # env_terms = ['Energy and Commerce', 'Natural Resources',
+    #              'Energy and Natural Resources',
+    #              'Environment and Public Works']
+    # infra_terms = ['Energy and Commerce', 'Transportation and Infrastructure',
+    #                'Banking, Housing, and Urban Affairs',
+    #                'Commerce, Science and Transportation']
+    # sci_terms = ['Science, Space, and Technology',
+    #              'Commerce, Science and Transportation']
+    #
+    # # Add points for each category based on votes and sponsorship
+    # for person in full_list:  # Iterate over each user's legislator
+    #     id_num = person.get('id')
+    #     for vote in votes:  # Iterate over shortened votes list
+    #         vote_id = vote.voter_id
+    #         if id_num == vote_id and vote.value == 'Yea':  # Check for an ID match and 'Yea' vote
+    #             vote_num = vote.number
+    #             for bill in bills:  # Iterate over shortened bills list
+    #                 if vote_num == bill.number:  # Check that the 'Yea' vote matches the bill
+    #                     committee = bill.committee
+    #                     sponsor_bonus = 0  # Initialize sponsor bonus to 0
+    #                     # Rearrange sponsor name to match order in full_list
+    #                     last_first = bill.sponsor
+    #                     sponsor_split = last_first.split(', ')
+    #                     sponsor = f'{sponsor_split[1]} {sponsor_split[0]}'
+    #                     # Change sponsor bonus if this legeslator is the sponsor
+    #                     if sponsor == person.get('full_name'):
+    #                         sponsor_bonus = 10
+    #                     # Add value points to legislators category if bill aligns with that category
+    #                     if committee in agg_terms:
+    #                         score = person.get('agg')
+    #                         person['agg'] = score + 1 + sponsor_bonus
+    #                     if committee in mil_terms:
+    #                         score = person.get('mil')
+    #                         person['mil'] = score + 1 + sponsor_bonus
+    #                     if committee in ed_terms:
+    #                         score = person.get('ed')
+    #                         person['ed'] = score + 1 + sponsor_bonus
+    #                     if committee in intl_terms:
+    #                         score = person.get('intl')
+    #                         person['intl'] = score + 1 + sponsor_bonus
+    #                     if committee in def_terms:
+    #                         score = person.get('def')
+    #                         person['def'] = score + 1 + sponsor_bonus
+    #                     if committee in energy_terms:
+    #                         score = person.get('energy')
+    #                         person['energy'] = score + 1 + sponsor_bonus
+    #                     if committee in health_terms:
+    #                         score = person.get('health')
+    #                         person['health'] = score + 1 + sponsor_bonus
+    #                     if committee in env_terms:
+    #                         score = person.get('env')
+    #                         person['env'] = score + 1 + sponsor_bonus
+    #                     if committee in infra_terms:
+    #                         score = person.get('infra')
+    #                         person['infra'] = score + 1 + sponsor_bonus
+    #                     if committee in sci_terms:
+    #                         score = person.get('sci')
+    #                         person['sci'] = score + 1 + sponsor_bonus
+    #
+    # # Add points based on committee roll
+    # membership_model = Membership.objects.all()
+    # for person in full_list:  # Iterate over each user's legislator
+    #     bioguide = person.get('bioguide_id')
+    #     for membership in membership_model:
+    #         if bioguide == membership.bioguide_id:  # Check for an ID match
+    #             committee_id = membership.thomas_id
+    #             rank = membership.rank
+    #             # Add value points to legislators category based on their rank in the aligning committee
+    #             if committee_id == 'HSVC' or committee_id == 'SPAG':
+    #                 score = person.get('health')
+    #                 person['health'] = score + (40 - rank)
+    #             elif committee_id == 'SSVA' or committee_id == 'SSAS' \
+    #                     or committee_id == 'HSVR' or committee_id == 'HSAS':
+    #                 score = person.get('mil')
+    #                 person['mil'] = score + (40 - rank)
+    #             elif committee_id == 'SSSB' or committee_id == 'SSHR' \
+    #                     or committee_id == 'HSSM' or committee_id == 'HSED':
+    #                 score = person.get('ed')
+    #                 person['ed'] = score + (40 - rank)
+    #             elif committee_id == 'SSJU' or committee_id == 'SSGA' \
+    #                     or committee_id == 'SLIN' or committee_id == 'SCNC' \
+    #                     or committee_id == 'HSJU' or committee_id == 'HLIG' \
+    #                     or committee_id == 'HSHM':
+    #                 score = person.get('def')
+    #                 person['def'] = score + (40 - rank)
+    #             elif committee_id == 'SSFR' or committee_id == 'JCSE' \
+    #                     or committee_id == 'HSFA':
+    #                 score = person.get('intl')
+    #                 person['intl'] = score + (40 - rank)
+    #             elif committee_id == 'SSFI' or committee_id == 'SSCM' \
+    #                     or committee_id == 'SSBK' or committee_id == 'JSEC' \
+    #                     or committee_id == 'HSPW':
+    #                 score = person.get('infra')
+    #                 person['infra'] = score + (40 - rank)
+    #             elif committee_id == 'SSEV' or committee_id == 'HSCN' \
+    #                     or committee_id == 'HSII':
+    #                 score = person.get('env')
+    #                 person['env'] = score + (40 - rank)
+    #             elif committee_id == 'SSEG' or committee_id == 'HSIF':
+    #                 score = person.get('energy')
+    #                 person['energy'] = score + (40 - rank)
+    #             elif committee_id == 'SSCM' or committee_id == 'HSSY':
+    #                 score = person.get('sci')
+    #                 person['sci'] = score + (40 - rank)
+    #             elif committee_id == 'SSAF' or committee_id == 'HSAG':
+    #                 score = person.get('agg')
+    #                 person['agg'] = score + (40 - rank)
+    #
+    # # Adjust category scores based on 100 point maximum
+    # for person in full_list:
+    #     agg = person.get('agg')
+    #     mil = person.get('mil')
+    #     ed = person.get('ed')
+    #     intl = person.get('intl')
+    #     defen = person.get('def')
+    #     energy = person.get('energy')
+    #     health = person.get('health')
+    #     env = person.get('env')
+    #     infra = person.get('infra')
+    #     sci = person.get('sci')
+    #
+    #     total = agg + mil + ed + intl + defen + energy + health + env + infra + sci
+    #
+    #     person['agg'] = round(agg / total * 100)
+    #     person['mil'] = round(mil / total * 100)
+    #     person['ed'] = round(ed / total * 100)
+    #     person['intl'] = round(intl / total * 100)
+    #     person['def'] = round(defen / total * 100)
+    #     person['energy'] = round(energy / total * 100)
+    #     person['health'] = round(health / total * 100)
+    #     person['env'] = round(env / total * 100)
+    #     person['infra'] = round(infra / total * 100)
+    #     person['sci'] = round(sci / total * 100)
+    #
+    # data = {'full_list': full_list}
+    #
+    # return render(request, 'accounts/value.html', data)
 
 
 # -------------------------------------------------------Graphing the result Data
@@ -156,10 +324,9 @@ def resultsDatalegislative(request, pk_test):
         constituent = request.user.customer  # grab the by the ID of the model
     else:
         constituent = Representative.objects.get(id=1)
-        
-     # grab the by the ID of the model
-    legislative = Representative.objects.get(id=pk_test)
 
+    # grab the by the ID of the model
+    legislative = Representative.objects.get(id=pk_test)
 
     # grab the all the choices
     votedata.append({'military': constituent.military})
@@ -175,7 +342,6 @@ def resultsDatalegislative(request, pk_test):
     votedata.append({'food_and_agricultur_value': constituent.food_and_agriculture})
     votedata.append({'socialsecurity_or_unemployment': constituent.socialsecurity_or_unemployment})
 
-    
     alldata.append(votedata)
     # add legislative
     votedata_legislative.append({'military': legislative.military})
@@ -195,6 +361,8 @@ def resultsDatalegislative(request, pk_test):
     print(alldata)
 
     return JsonResponse(alldata, safe=False)  # send it to the javascript
+
+
 # --------------------------------------------------------------------------User value learn more page
 
 
@@ -206,56 +374,57 @@ def valuePagelearnmore(request, pk_test):
     else:
         constituent = Representative.objects.get(id=1)
     legislative = Representative.objects.get(id=pk_test)
-   
-    user_score =[]
-    legislative_score =[]
 
-    
+    user_score = []
+    legislative_score = []
+
     user_score.append(constituent.military)
     legislative_score.append(legislative.military)
-   
+
     user_score.append(constituent.government)
     legislative_score.append(legislative.government)
-    
+
     user_score.append(constituent.education)
     legislative_score.append(legislative.education)
-    
+
     user_score.append(constituent.healthcare_and_medicare)
     legislative_score.append(legislative.healthcare_and_medicare)
-    
+
     user_score.append(constituent.veteran_affairs)
     legislative_score.append(legislative.veteran_affairs)
-    
+
     user_score.append(constituent.housing_and_labor)
     legislative_score.append(legislative.housing_and_labor)
-    
+
     user_score.append(constituent.international_affairs)
     legislative_score.append(legislative.international_affairs)
-    
+
     user_score.append(constituent.energy_and_environment)
     legislative_score.append(legislative.energy_and_environment)
-    
+
     user_score.append(constituent.Science)
     legislative_score.append(legislative.Science)
-    
+
     user_score.append(constituent.transportation_and_infrastructure)
     legislative_score.append(legislative.transportation_and_infrastructure)
-    
+
     user_score.append(constituent.food_and_agriculture)
     legislative_score.append(legislative.food_and_agriculture)
-    
+
     user_score.append(constituent.socialsecurity_or_unemployment)
     legislative_score.append(legislative.socialsecurity_or_unemployment)
-    
+
     service_vector = NP.subtract(user_score, legislative_score)
-    
-    #find magnitude of the resulting vector
+
+    # find magnitude of the resulting vector
     servicescore = math.sqrt(sum(pow(element, 2) for element in
                                  service_vector))
 
-    print ("service score:", round (servicescore,2)) 
-    
-    return render(request, 'accounts/learn_more.html', {'legislative': legislative,'service':round(abs(servicescore-100),2),'incompatible':round(servicescore,2)})
+    print("service score:", round(servicescore, 2))
+
+    return render(request, 'accounts/learn_more.html',
+                  {'legislative': legislative, 'service': round(abs(servicescore - 100), 2),
+                   'incompatible': round(servicescore, 2)})
 
 
 # --------------------------------------------------------------------------update profile user only

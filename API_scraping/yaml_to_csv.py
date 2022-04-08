@@ -28,6 +28,7 @@ def main():
         if committee_id is None:
             committee_id = dic.get('senate_committee_id')
         committee_list.append([chamber, name, thomas_id, committee_id])
+        print(chamber, name)
         id_list.append(thomas_id)
 
     # for cur in committee_list:
