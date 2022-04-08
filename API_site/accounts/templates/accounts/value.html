@@ -18,13 +18,13 @@
 
 
 	</div>
-	{% for senator in senators %}
+	{% for person in full_list %}
 	<div class="col-md">
 		<div class="card card-body">
-			<h5>{{ senator.firstname }} {{ senator.lastname }}</h5>
+			<h5>{{ person.f_name }} {{ person.l_name }}</h5>
 			<canvas id="myChartdonut" style="width:70%;max-width:300px"></canvas> <!--Edit with the correct percentage-->
 			<hr>
-			<a class="btn btn-danger btn-sm btn-block" href="{% url 'user-learn-more' senator.id %}">Learn More</a>
+			<a class="btn btn-danger btn-sm btn-block" href="{% url 'user-learn-more' person.bioguide_id %}">Learn More</a>
 			<!-- <a class="btn btn-success  btn-sm btn-block" href="">Compare </a>  -->
 		</div>
 	</div>
@@ -35,32 +35,18 @@
 			<h1>My Elected Officials and I</h1>
 			<!-- Standard loops here, change as necessary -->
 	</div>
-	{% if noelective %}
-	{% for senator in senators %}
+	{% for person in full_list %}
 	<div class="col-md">
 		<div class="card card-body">
-			<h5>{{ senator.firstname }} {{ senator.lastname }}</h5>
+			<h5>{{ person.f_name }} {{ person.l_name }}</h5>
 			<canvas id="myChartdonut" style="width:70%;max-width:300px"></canvas> <!--Edit with the correct percentage-->
 			<hr>
-			<a class="btn btn-danger btn-sm btn-block" href="{% url 'user-learn-more' senator.id %}">Learn More</a>
+			<a class="btn btn-danger btn-sm btn-block" href="{% url 'user-learn-more' person.bioguide_id %}">Learn More</a>
 			<!-- <a class="btn btn-success  btn-sm btn-block" href="">Compare </a>  -->
 		</div>
 	</div>
 	{% endfor %}
-	{% else %}
 
-	{% for senator in senators %}
-	<div class="col-md">
-		<div class="card card-body">
-			<h5>{{ senator.representative }}</h5>
-			<canvas id="myChartdonut" style="width:70%;max-width:300px"></canvas> <!--Edit with the correct percentage-->
-			<hr>
-			<a class="btn btn-danger btn-sm btn-block" href="{% url 'user-learn-more' senator.representative.id  %}">Learn More</a>
-			<!-- <a class="btn btn-success  btn-sm btn-block" href="">Compare </a>  -->
-		</div>
-	</div>
-	{% endfor %}
-	{% endif %}
 	{% endif %}
 
 </div>
