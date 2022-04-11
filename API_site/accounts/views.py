@@ -326,8 +326,8 @@ def resultsData(request):
         # full_list = []
         # Create a list of the user's legislator's ids
         legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
-        legislator_vote_data = create_list_single_legislator(legislator_model)
-        votedata.append(legislator_vote_data)
+        votedata = create_list_single_legislator(legislator_model)
+        #votedata.append(legislator_vote_data)
 
     return JsonResponse(votedata, safe=False)
 
