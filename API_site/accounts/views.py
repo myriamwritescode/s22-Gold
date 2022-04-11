@@ -98,6 +98,7 @@ def userPage(request):
 def comparePage(request):
     return render(request, 'accounts/compareCommunity.html')
 
+
 # --------------------------------------------------------------------------User value page
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer', 'admin'])
@@ -126,7 +127,6 @@ def valuePage(request):
     return render(request, 'accounts/value.html', data)
 
 
-
 # -------------------------------------------------------Graphing the result Data
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer', 'admin'])
@@ -152,47 +152,25 @@ def resultsDatalegislative(request, pk_test):
 
         alldata.append(votedata)
     else:
-        #constituent = TestElectedOfficial.objects.get(bioguide_id='W000805')
+        # constituent = TestElectedOfficial.objects.get(bioguide_id='W000805')
         legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
-        votedata =create_list_single_legislator(legislator_model)
+        votedata = create_list_single_legislator(legislator_model)
         alldata.append(votedata)
         print("legislative")
 
         # Create a list of the user's legislator's ids
-        
-        #data = create_dict_multi_legislators(legislator_model)
 
-        #alldata.append(data)
+        # data = create_dict_multi_legislators(legislator_model)
+
+        # alldata.append(data)
 
     # grab the by the ID of the model
     legislative_model = TestElectedOfficial.objects.filter(bioguide_id=pk_test)
-    #legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
+    # legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
     votedata_legislative = create_list_single_legislator(legislative_model)
 
     alldata.append(votedata_legislative)
     # grab the all the choices
-
-
-
-
-
-
-
-
-    # add legislative
-    # votedata_legislative.append({'military': legislative.military})
-    # votedata_legislative.append({'government': legislative.government})
-    # votedata_legislative.append({'education': legislative.education})
-    # votedata_legislative.append({'healthcare_and_medicare': legislative.healthcare_and_medicare})
-    # votedata_legislative.append({'veteran_affairs': legislative.veteran_affairs})
-    # votedata_legislative.append({'housing_and_labor': legislative.housing_and_labor})
-    # votedata_legislative.append({'housing_and_labor': legislative.international_affairs})
-    # votedata_legislative.append({'international_affairs': legislative.energy_and_environment})
-    # votedata_legislative.append({'Science': legislative.Science})
-    # votedata_legislative.append({'transportation_and_infrastructure': legislative.transportation_and_infrastructure})
-    # votedata_legislative.append({'food_and_agricultur_value': legislative.food_and_agriculture})
-    # votedata_legislative.append({'socialsecurity_or_unemployment': legislative.socialsecurity_or_unemployment})
-    # alldata.append(votedata_legislative)
 
     print(alldata)
 
@@ -224,450 +202,42 @@ def valuePagelearnmore(request, pk_test):
         user_score.append(constituent.socialsecurity_or_unemployment)
     else:
         constituent = TestElectedOfficial.objects.get(bioguide_id='W000805')
-        full_list = []
         # Create a list of the user's legislator's ids
         legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
-        legislator_ids = []
-        for legislator in legislator_model:
-            # This next line will need to be edited when we implement Google API
-            if legislator.type == 'sen':
-                legislator_ids.append(legislator.lis_id)
-                full_list.append({'id': legislator.lis_id,
-                                  'bioguide_id': legislator.bioguide_id,
-                                  'f_name': legislator.first_name,
-                                  'l_name': legislator.last_name,
-                                  'full_name': legislator.full_name,
-                                  'agg': 0, 'mil': 0, 'ed': 0, 'intl': 0, 'def': 0,
-                                  'energy': 0, 'health': 0, 'env': 0, 'infra': 0,
-                                  'sci': 0})
-            # This next line will need to be edited when we implement Google AP
-            elif legislator.district == 2:
-                legislator_ids.append(legislator.bioguide_id)
-                full_list.append({'id': legislator.bioguide_id,
-                                  'bioguide_id': legislator.bioguide_id,
-                                  'f_name': legislator.first_name,
-                                  'l_name': legislator.last_name,
-                                  'full_name': legislator.full_name,
-                                  'agg': 0, 'mil': 0, 'ed': 0, 'intl': 0, 'def': 0,
-                                  'energy': 0, 'health': 0, 'env': 0, 'infra': 0,
-                                  'sci': 0})
+        votedata_legislative = create_list_single_legislator(legislator_model)
+        user_score.append(votedata_legislative[0]['military'])
+        user_score.append(votedata_legislative[1]['government'])
+        user_score.append(votedata_legislative[2]['education'])
+        user_score.append(votedata_legislative[3]['healthcare_and_medicare'])
+        user_score.append(votedata_legislative[4]['veteran_affairs'])
+        user_score.append(votedata_legislative[5]['housing_and_labor'])
+        user_score.append(votedata_legislative[6]['international_affairs'])
+        user_score.append(votedata_legislative[7]['energy_and_environment'])
+        user_score.append(votedata_legislative[8]['Science'])
+        user_score.append(votedata_legislative[9]['transportation_and_infrastructure'])
+        user_score.append(votedata_legislative[10]['food_and_agricultur_value'])
+        user_score.append(votedata_legislative[11]['socialsecurity_or_unemployment'])
 
-        # Get all votes where a user's legislator voted 'Yea'
-        vote_model = TestVote.objects.all()
-        votes = []
-        bill_numbers = []
-        for vote in vote_model:
-            if vote.voter_id in legislator_ids and vote.value == 'Yea':
-                bill_numbers.append(vote.number)
-                votes.append(vote)
-
-        # Get all bills/committees where a user's legislator voted 'Yea'
-        bill_model = TestBill.objects.all()
-        bills = []
-        for bill in bill_model:
-            if bill.number in bill_numbers:
-                bills.append(bill)
-
-        # Link categories go committee names
-        agg_terms = ['Agriculture']
-        mil_terms = ['Armed Services', 'Veterans\' Affairs']
-        ed_terms = ['Education and Labor', 'Small Business',
-                    'Health, Education, Labor, and Pensions']
-        intl_terms = ['Foreign Affairs', 'Foreign Relations']
-        def_terms = ['Homeland Security', 'Intelligence', 'Judiciary',
-                     'Narcotics Control']
-        energy_terms = ['Energy and Commerce']
-        health_terms = ['Education and Labor', 'Energy and Commerce', 'Aging',
-                        'Finance']
-        env_terms = ['Energy and Commerce', 'Natural Resources',
-                     'Energy and Natural Resources',
-                     'Environment and Public Works']
-        infra_terms = ['Energy and Commerce', 'Transportation and Infrastructure',
-                       'Banking, Housing, and Urban Affairs',
-                       'Commerce, Science and Transportation']
-        sci_terms = ['Science, Space, and Technology',
-                     'Commerce, Science and Transportation']
-
-        # Add points for each category based on votes and sponsorship
-        for person in full_list:  # Iterate over each user's legislator
-            id_num = person.get('id')
-            for vote in votes:  # Iterate over shortened votes list
-                vote_id = vote.voter_id
-                if id_num == vote_id and vote.value == 'Yea':  # Check for an ID match and 'Yea' vote
-                    vote_num = vote.number
-                    for bill in bills:  # Iterate over shortened bills list
-                        if vote_num == bill.number:  # Check that the 'Yea' vote matches the bill
-                            committee = bill.committee
-                            sponsor_bonus = 0  # Initialize sponsor bonus to 0
-                            # Rearrange sponsor name to match order in full_list
-                            last_first = bill.sponsor
-                            sponsor_split = last_first.split(', ')
-                            sponsor = f'{sponsor_split[1]} {sponsor_split[0]}'
-                            # Change sponsor bonus if this legeslator is the sponsor
-                            if sponsor == person.get('full_name'):
-                                sponsor_bonus = 10
-                            # Add value points to legislators category if bill aligns with that category
-                            if committee in agg_terms:
-                                score = person.get('agg')
-                                person['agg'] = score + 1 + sponsor_bonus
-                            if committee in mil_terms:
-                                score = person.get('mil')
-                                person['mil'] = score + 1 + sponsor_bonus
-                            if committee in ed_terms:
-                                score = person.get('ed')
-                                person['ed'] = score + 1 + sponsor_bonus
-                            if committee in intl_terms:
-                                score = person.get('intl')
-                                person['intl'] = score + 1 + sponsor_bonus
-                            if committee in def_terms:
-                                score = person.get('def')
-                                person['def'] = score + 1 + sponsor_bonus
-                            if committee in energy_terms:
-                                score = person.get('energy')
-                                person['energy'] = score + 1 + sponsor_bonus
-                            if committee in health_terms:
-                                score = person.get('health')
-                                person['health'] = score + 1 + sponsor_bonus
-                            if committee in env_terms:
-                                score = person.get('env')
-                                person['env'] = score + 1 + sponsor_bonus
-                            if committee in infra_terms:
-                                score = person.get('infra')
-                                person['infra'] = score + 1 + sponsor_bonus
-                            if committee in sci_terms:
-                                score = person.get('sci')
-                                person['sci'] = score + 1 + sponsor_bonus
-
-        # Add points based on committee roll
-        membership_model = Membership.objects.all()
-        for person in full_list:  # Iterate over each user's legislator
-            bioguide = person.get('bioguide_id')
-            for membership in membership_model:
-                if bioguide == membership.bioguide_id:  # Check for an ID match
-                    committee_id = membership.thomas_id
-                    rank = membership.rank
-                    # Add value points to legislators category based on their rank in the aligning committee
-                    if committee_id == 'HSVC' or committee_id == 'SPAG':
-                        score = person.get('health')
-                        person['health'] = score + (40 - rank)
-                    elif committee_id == 'SSVA' or committee_id == 'SSAS' \
-                            or committee_id == 'HSVR' or committee_id == 'HSAS':
-                        score = person.get('mil')
-                        person['mil'] = score + (40 - rank)
-                    elif committee_id == 'SSSB' or committee_id == 'SSHR' \
-                            or committee_id == 'HSSM' or committee_id == 'HSED':
-                        score = person.get('ed')
-                        person['ed'] = score + (40 - rank)
-                    elif committee_id == 'SSJU' or committee_id == 'SSGA' \
-                            or committee_id == 'SLIN' or committee_id == 'SCNC' \
-                            or committee_id == 'HSJU' or committee_id == 'HLIG' \
-                            or committee_id == 'HSHM':
-                        score = person.get('def')
-                        person['def'] = score + (40 - rank)
-                    elif committee_id == 'SSFR' or committee_id == 'JCSE' \
-                            or committee_id == 'HSFA':
-                        score = person.get('intl')
-                        person['intl'] = score + (40 - rank)
-                    elif committee_id == 'SSFI' or committee_id == 'SSCM' \
-                            or committee_id == 'SSBK' or committee_id == 'JSEC' \
-                            or committee_id == 'HSPW':
-                        score = person.get('infra')
-                        person['infra'] = score + (40 - rank)
-                    elif committee_id == 'SSEV' or committee_id == 'HSCN' \
-                            or committee_id == 'HSII':
-                        score = person.get('env')
-                        person['env'] = score + (40 - rank)
-                    elif committee_id == 'SSEG' or committee_id == 'HSIF':
-                        score = person.get('energy')
-                        person['energy'] = score + (40 - rank)
-                    elif committee_id == 'SSCM' or committee_id == 'HSSY':
-                        score = person.get('sci')
-                        person['sci'] = score + (40 - rank)
-                    elif committee_id == 'SSAF' or committee_id == 'HSAG':
-                        score = person.get('agg')
-                        person['agg'] = score + (40 - rank)
-
-        # Adjust category scores based on 100 point maximum
-        for person in full_list:
-            agg = person.get('agg')
-            mil = person.get('mil')
-            ed = person.get('ed')
-            intl = person.get('intl')
-            defen = person.get('def')
-            energy = person.get('energy')
-            health = person.get('health')
-            env = person.get('env')
-            infra = person.get('infra')
-            sci = person.get('sci')
-
-            total = agg + mil + ed + intl + defen + energy + health + env + infra + sci
-
-            test_list = []
-
-            person['agg'] = round(agg / total * 100)
-            person['mil'] = round(mil / total * 100)
-            person['ed'] = round(ed / total * 100)
-            person['intl'] = round(intl / total * 100)
-            person['def'] = round(defen / total * 100)
-            person['energy'] = round(energy / total * 100)
-            person['health'] = round(health / total * 100)
-            person['env'] = round(env / total * 100)
-            person['infra'] = round(infra / total * 100)
-            person['sci'] = round(sci / total * 100)
-            user_score.append(person['agg'])
-            user_score.append(person['mil'])
-            user_score.append(person['ed'])
-            user_score.append(person['intl'])
-            user_score.append(person['def'])
-            user_score.append(person['energy'])
-            user_score.append(person['health'])
-            user_score.append(person['env'])
-            user_score.append(person['infra'])
-            user_score.append(person['sci'])
-            user_score.append(0)
-            user_score.append(0)
-
-            # alldata.append(test_list)
-
-        # data = {'full_list': full_list}
-
-        # grab the by the ID of the model
-    #legislative = TestElectedOfficial.objects.get(bioguide_id=pk_test)
+    # grab the by the ID of the model
+    # legislative = TestElectedOfficial.objects.get(bioguide_id=pk_test)
     legislator_model = TestElectedOfficial.objects.filter(bioguide_id=pk_test)
-    legislator_ids = []
-    full_list = []
-    for legislator in legislator_model:
-        # This next line will need to be edited when we implement Google API
-        if legislator.type == 'sen':
-            legislator_ids.append(legislator.lis_id)
-            full_list.append({'id': legislator.lis_id,
-                              'bioguide_id': legislator.bioguide_id,
-                              'f_name': legislator.first_name,
-                              'l_name': legislator.last_name,
-                              'full_name': legislator.full_name,
-                              'agg': 0, 'mil': 0, 'ed': 0, 'intl': 0, 'def': 0,
-                              'energy': 0, 'health': 0, 'env': 0, 'infra': 0,
-                              'sci': 0})
-        # This next line will need to be edited when we implement Google AP
-        elif legislator.district == 2:
-            legislator_ids.append(legislator.bioguide_id)
-            full_list.append({'id': legislator.bioguide_id,
-                              'bioguide_id': legislator.bioguide_id,
-                              'f_name': legislator.first_name,
-                              'l_name': legislator.last_name,
-                              'full_name': legislator.full_name,
-                              'agg': 0, 'mil': 0, 'ed': 0, 'intl': 0, 'def': 0,
-                              'energy': 0, 'health': 0, 'env': 0, 'infra': 0,
-                              'sci': 0})
-
-    # Get all votes where a user's legislator voted 'Yea'
-    vote_model = TestVote.objects.all()
-    votes = []
-    bill_numbers = []
-    for vote in vote_model:
-        if vote.voter_id in legislator_ids and vote.value == 'Yea':
-            bill_numbers.append(vote.number)
-            votes.append(vote)
-
-    # Get all bills/committees where a user's legislator voted 'Yea'
-    bill_model = TestBill.objects.all()
-    bills = []
-    for bill in bill_model:
-        if bill.number in bill_numbers:
-            bills.append(bill)
-
-    # Link categories go committee names
-    agg_terms = ['Agriculture']
-    mil_terms = ['Armed Services', 'Veterans\' Affairs']
-    ed_terms = ['Education and Labor', 'Small Business',
-                'Health, Education, Labor, and Pensions']
-    intl_terms = ['Foreign Affairs', 'Foreign Relations']
-    def_terms = ['Homeland Security', 'Intelligence', 'Judiciary',
-                 'Narcotics Control']
-    energy_terms = ['Energy and Commerce']
-    health_terms = ['Education and Labor', 'Energy and Commerce', 'Aging',
-                    'Finance']
-    env_terms = ['Energy and Commerce', 'Natural Resources',
-                 'Energy and Natural Resources',
-                 'Environment and Public Works']
-    infra_terms = ['Energy and Commerce', 'Transportation and Infrastructure',
-                   'Banking, Housing, and Urban Affairs',
-                   'Commerce, Science and Transportation']
-    sci_terms = ['Science, Space, and Technology',
-                 'Commerce, Science and Transportation']
-
-    # Add points for each category based on votes and sponsorship
-    for person in full_list:  # Iterate over each user's legislator
-        id_num = person.get('id')
-        for vote in votes:  # Iterate over shortened votes list
-            vote_id = vote.voter_id
-            if id_num == vote_id and vote.value == 'Yea':  # Check for an ID match and 'Yea' vote
-                vote_num = vote.number
-                for bill in bills:  # Iterate over shortened bills list
-                    if vote_num == bill.number:  # Check that the 'Yea' vote matches the bill
-                        committee = bill.committee
-                        sponsor_bonus = 0  # Initialize sponsor bonus to 0
-                        # Rearrange sponsor name to match order in full_list
-                        last_first = bill.sponsor
-                        sponsor_split = last_first.split(', ')
-                        sponsor = f'{sponsor_split[1]} {sponsor_split[0]}'
-                        # Change sponsor bonus if this legeslator is the sponsor
-                        if sponsor == person.get('full_name'):
-                            sponsor_bonus = 10
-                        # Add value points to legislators category if bill aligns with that category
-                        if committee in agg_terms:
-                            score = person.get('agg')
-                            person['agg'] = score + 1 + sponsor_bonus
-                        if committee in mil_terms:
-                            score = person.get('mil')
-                            person['mil'] = score + 1 + sponsor_bonus
-                        if committee in ed_terms:
-                            score = person.get('ed')
-                            person['ed'] = score + 1 + sponsor_bonus
-                        if committee in intl_terms:
-                            score = person.get('intl')
-                            person['intl'] = score + 1 + sponsor_bonus
-                        if committee in def_terms:
-                            score = person.get('def')
-                            person['def'] = score + 1 + sponsor_bonus
-                        if committee in energy_terms:
-                            score = person.get('energy')
-                            person['energy'] = score + 1 + sponsor_bonus
-                        if committee in health_terms:
-                            score = person.get('health')
-                            person['health'] = score + 1 + sponsor_bonus
-                        if committee in env_terms:
-                            score = person.get('env')
-                            person['env'] = score + 1 + sponsor_bonus
-                        if committee in infra_terms:
-                            score = person.get('infra')
-                            person['infra'] = score + 1 + sponsor_bonus
-                        if committee in sci_terms:
-                            score = person.get('sci')
-                            person['sci'] = score + 1 + sponsor_bonus
-
-    # Add points based on committee roll
-    membership_model = Membership.objects.all()
-    for person in full_list:  # Iterate over each user's legislator
-        bioguide = person.get('bioguide_id')
-        for membership in membership_model:
-            if bioguide == membership.bioguide_id:  # Check for an ID match
-                committee_id = membership.thomas_id
-                rank = membership.rank
-                # Add value points to legislators category based on their rank in the aligning committee
-                if committee_id == 'HSVC' or committee_id == 'SPAG':
-                    score = person.get('health')
-                    person['health'] = score + (40 - rank)
-                elif committee_id == 'SSVA' or committee_id == 'SSAS' \
-                        or committee_id == 'HSVR' or committee_id == 'HSAS':
-                    score = person.get('mil')
-                    person['mil'] = score + (40 - rank)
-                elif committee_id == 'SSSB' or committee_id == 'SSHR' \
-                        or committee_id == 'HSSM' or committee_id == 'HSED':
-                    score = person.get('ed')
-                    person['ed'] = score + (40 - rank)
-                elif committee_id == 'SSJU' or committee_id == 'SSGA' \
-                        or committee_id == 'SLIN' or committee_id == 'SCNC' \
-                        or committee_id == 'HSJU' or committee_id == 'HLIG' \
-                        or committee_id == 'HSHM':
-                    score = person.get('def')
-                    person['def'] = score + (40 - rank)
-                elif committee_id == 'SSFR' or committee_id == 'JCSE' \
-                        or committee_id == 'HSFA':
-                    score = person.get('intl')
-                    person['intl'] = score + (40 - rank)
-                elif committee_id == 'SSFI' or committee_id == 'SSCM' \
-                        or committee_id == 'SSBK' or committee_id == 'JSEC' \
-                        or committee_id == 'HSPW':
-                    score = person.get('infra')
-                    person['infra'] = score + (40 - rank)
-                elif committee_id == 'SSEV' or committee_id == 'HSCN' \
-                        or committee_id == 'HSII':
-                    score = person.get('env')
-                    person['env'] = score + (40 - rank)
-                elif committee_id == 'SSEG' or committee_id == 'HSIF':
-                    score = person.get('energy')
-                    person['energy'] = score + (40 - rank)
-                elif committee_id == 'SSCM' or committee_id == 'HSSY':
-                    score = person.get('sci')
-                    person['sci'] = score + (40 - rank)
-                elif committee_id == 'SSAF' or committee_id == 'HSAG':
-                    score = person.get('agg')
-                    person['agg'] = score + (40 - rank)
-
-    # Adjust category scores based on 100 point maximum
-    for person in full_list:
-        agg = person.get('agg')
-        mil = person.get('mil')
-        ed = person.get('ed')
-        intl = person.get('intl')
-        defen = person.get('def')
-        energy = person.get('energy')
-        health = person.get('health')
-        env = person.get('env')
-        infra = person.get('infra')
-        sci = person.get('sci')
-
-        total = agg + mil + ed + intl + defen + energy + health + env + infra + sci
-
-        test_list = []
-
-        person['agg'] = round(agg / total * 100)
-        person['mil'] = round(mil / total * 100)
-        person['ed'] = round(ed / total * 100)
-        person['intl'] = round(intl / total * 100)
-        person['def'] = round(defen / total * 100)
-        person['energy'] = round(energy / total * 100)
-        person['health'] = round(health / total * 100)
-        person['env'] = round(env / total * 100)
-        person['infra'] = round(infra / total * 100)
-        person['sci'] = round(sci / total * 100)
-        legislative_score.append(person['agg'])
-        legislative_score.append(person['mil'])
-        legislative_score.append(person['ed'])
-        legislative_score.append(person['intl'])
-        legislative_score.append(person['def'])
-        legislative_score.append(person['energy'])
-        legislative_score.append(person['health'])
-        legislative_score.append(person['env'])
-        legislative_score.append(person['infra'])
-        legislative_score.append(person['sci'])
-        legislative_score.append(0)
-        legislative_score.append(0)
-
+    legislator_vote_date = create_list_single_legislator(legislator_model)
+    legislative_score.append(legislator_vote_date[0]['military'])
+    legislative_score.append(legislator_vote_date[1]['government'])
+    legislative_score.append(legislator_vote_date[2]['education'])
+    legislative_score.append(legislator_vote_date[3]['healthcare_and_medicare'])
+    legislative_score.append(legislator_vote_date[4]['veteran_affairs'])
+    legislative_score.append(legislator_vote_date[5]['housing_and_labor'])
+    legislative_score.append(legislator_vote_date[6]['international_affairs'])
+    legislative_score.append(legislator_vote_date[7]['energy_and_environment'])
+    legislative_score.append(legislator_vote_date[8]['Science'])
+    legislative_score.append(legislator_vote_date[9]['transportation_and_infrastructure'])
+    legislative_score.append(legislator_vote_date[10]['food_and_agricultur_value'])
+    legislative_score.append(legislator_vote_date[11]['socialsecurity_or_unemployment'])
 
 
     #     constituent = Representative.objects.get(id=1)
     legislative = TestElectedOfficial.objects.get(bioguide_id=pk_test)
-    #
-    # legislative_score.append(legislative.military)
-    #
-    # legislative_score.append(legislative.government)
-    #
-    # legislative_score.append(legislative.education)
-    #
-    # legislative_score.append(legislative.healthcare_and_medicare)
-    #
-    # legislative_score.append(legislative.veteran_affairs)
-    #
-    # legislative_score.append(legislative.housing_and_labor)
-    #
-    # legislative_score.append(legislative.international_affairs)
-    #
-    # legislative_score.append(legislative.energy_and_environment)
-    #
-    #
-    # legislative_score.append(legislative.Science)
-    #
-    #
-    # legislative_score.append(legislative.transportation_and_infrastructure)
-    #
-    #
-    # legislative_score.append(legislative.food_and_agriculture)
-    #
-    #
-    # legislative_score.append(legislative.socialsecurity_or_unemployment)
-
     service_vector = NP.subtract(user_score, legislative_score)
 
     # find magnitude of the resulting vector
@@ -752,218 +322,12 @@ def resultsData(request):
         votedata.append({'food_and_agricultur_value': constituent.food_and_agriculture})
         votedata.append({'socialsecurity_or_unemployment': constituent.socialsecurity_or_unemployment})
     else:
-        #constituent = TestElectedOfficial.objects.get(bioguide_id='W000805')
-        full_list = []
+        # constituent = TestElectedOfficial.objects.get(bioguide_id='W000805')
+        # full_list = []
         # Create a list of the user's legislator's ids
         legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
-        legislator_ids = []
-        for legislator in legislator_model:
-            # This next line will need to be edited when we implement Google API
-            if legislator.type == 'sen':
-                legislator_ids.append(legislator.lis_id)
-                full_list.append({'id': legislator.lis_id,
-                                  'bioguide_id': legislator.bioguide_id,
-                                  'f_name': legislator.first_name,
-                                  'l_name': legislator.last_name,
-                                  'full_name': legislator.full_name,
-                                  'agg': 0, 'mil': 0, 'ed': 0, 'intl': 0, 'def': 0,
-                                  'energy': 0, 'health': 0, 'env': 0, 'infra': 0,
-                                  'sci': 0})
-            # This next line will need to be edited when we implement Google AP
-            elif legislator.district == 2:
-                legislator_ids.append(legislator.bioguide_id)
-                full_list.append({'id': legislator.bioguide_id,
-                                  'bioguide_id': legislator.bioguide_id,
-                                  'f_name': legislator.first_name,
-                                  'l_name': legislator.last_name,
-                                  'full_name': legislator.full_name,
-                                  'agg': 0, 'mil': 0, 'ed': 0, 'intl': 0, 'def': 0,
-                                  'energy': 0, 'health': 0, 'env': 0, 'infra': 0,
-                                  'sci': 0})
-
-        # Get all votes where a user's legislator voted 'Yea'
-        vote_model = TestVote.objects.all()
-        votes = []
-        bill_numbers = []
-        for vote in vote_model:
-            if vote.voter_id in legislator_ids and vote.value == 'Yea':
-                bill_numbers.append(vote.number)
-                votes.append(vote)
-
-        # Get all bills/committees where a user's legislator voted 'Yea'
-        bill_model = TestBill.objects.all()
-        bills = []
-        for bill in bill_model:
-            if bill.number in bill_numbers:
-                bills.append(bill)
-
-        # Link categories go committee names
-        agg_terms = ['Agriculture']
-        mil_terms = ['Armed Services', 'Veterans\' Affairs']
-        ed_terms = ['Education and Labor', 'Small Business',
-                    'Health, Education, Labor, and Pensions']
-        intl_terms = ['Foreign Affairs', 'Foreign Relations']
-        def_terms = ['Homeland Security', 'Intelligence', 'Judiciary',
-                     'Narcotics Control']
-        energy_terms = ['Energy and Commerce']
-        health_terms = ['Education and Labor', 'Energy and Commerce', 'Aging',
-                        'Finance']
-        env_terms = ['Energy and Commerce', 'Natural Resources',
-                     'Energy and Natural Resources',
-                     'Environment and Public Works']
-        infra_terms = ['Energy and Commerce', 'Transportation and Infrastructure',
-                       'Banking, Housing, and Urban Affairs',
-                       'Commerce, Science and Transportation']
-        sci_terms = ['Science, Space, and Technology',
-                     'Commerce, Science and Transportation']
-
-        # Add points for each category based on votes and sponsorship
-        for person in full_list:  # Iterate over each user's legislator
-            id_num = person.get('id')
-            for vote in votes:  # Iterate over shortened votes list
-                vote_id = vote.voter_id
-                if id_num == vote_id and vote.value == 'Yea':  # Check for an ID match and 'Yea' vote
-                    vote_num = vote.number
-                    for bill in bills:  # Iterate over shortened bills list
-                        if vote_num == bill.number:  # Check that the 'Yea' vote matches the bill
-                            committee = bill.committee
-                            sponsor_bonus = 0  # Initialize sponsor bonus to 0
-                            # Rearrange sponsor name to match order in full_list
-                            last_first = bill.sponsor
-                            sponsor_split = last_first.split(', ')
-                            sponsor = f'{sponsor_split[1]} {sponsor_split[0]}'
-                            # Change sponsor bonus if this legeslator is the sponsor
-                            if sponsor == person.get('full_name'):
-                                sponsor_bonus = 10
-                            # Add value points to legislators category if bill aligns with that category
-                            if committee in agg_terms:
-                                score = person.get('agg')
-                                person['agg'] = score + 1 + sponsor_bonus
-                            if committee in mil_terms:
-                                score = person.get('mil')
-                                person['mil'] = score + 1 + sponsor_bonus
-                            if committee in ed_terms:
-                                score = person.get('ed')
-                                person['ed'] = score + 1 + sponsor_bonus
-                            if committee in intl_terms:
-                                score = person.get('intl')
-                                person['intl'] = score + 1 + sponsor_bonus
-                            if committee in def_terms:
-                                score = person.get('def')
-                                person['def'] = score + 1 + sponsor_bonus
-                            if committee in energy_terms:
-                                score = person.get('energy')
-                                person['energy'] = score + 1 + sponsor_bonus
-                            if committee in health_terms:
-                                score = person.get('health')
-                                person['health'] = score + 1 + sponsor_bonus
-                            if committee in env_terms:
-                                score = person.get('env')
-                                person['env'] = score + 1 + sponsor_bonus
-                            if committee in infra_terms:
-                                score = person.get('infra')
-                                person['infra'] = score + 1 + sponsor_bonus
-                            if committee in sci_terms:
-                                score = person.get('sci')
-                                person['sci'] = score + 1 + sponsor_bonus
-
-        # Add points based on committee roll
-        membership_model = Membership.objects.all()
-        for person in full_list:  # Iterate over each user's legislator
-            bioguide = person.get('bioguide_id')
-            for membership in membership_model:
-                if bioguide == membership.bioguide_id:  # Check for an ID match
-                    committee_id = membership.thomas_id
-                    rank = membership.rank
-                    # Add value points to legislators category based on their rank in the aligning committee
-                    if committee_id == 'HSVC' or committee_id == 'SPAG':
-                        score = person.get('health')
-                        person['health'] = score + (40 - rank)
-                    elif committee_id == 'SSVA' or committee_id == 'SSAS' \
-                            or committee_id == 'HSVR' or committee_id == 'HSAS':
-                        score = person.get('mil')
-                        person['mil'] = score + (40 - rank)
-                    elif committee_id == 'SSSB' or committee_id == 'SSHR' \
-                            or committee_id == 'HSSM' or committee_id == 'HSED':
-                        score = person.get('ed')
-                        person['ed'] = score + (40 - rank)
-                    elif committee_id == 'SSJU' or committee_id == 'SSGA' \
-                            or committee_id == 'SLIN' or committee_id == 'SCNC' \
-                            or committee_id == 'HSJU' or committee_id == 'HLIG' \
-                            or committee_id == 'HSHM':
-                        score = person.get('def')
-                        person['def'] = score + (40 - rank)
-                    elif committee_id == 'SSFR' or committee_id == 'JCSE' \
-                            or committee_id == 'HSFA':
-                        score = person.get('intl')
-                        person['intl'] = score + (40 - rank)
-                    elif committee_id == 'SSFI' or committee_id == 'SSCM' \
-                            or committee_id == 'SSBK' or committee_id == 'JSEC' \
-                            or committee_id == 'HSPW':
-                        score = person.get('infra')
-                        person['infra'] = score + (40 - rank)
-                    elif committee_id == 'SSEV' or committee_id == 'HSCN' \
-                            or committee_id == 'HSII':
-                        score = person.get('env')
-                        person['env'] = score + (40 - rank)
-                    elif committee_id == 'SSEG' or committee_id == 'HSIF':
-                        score = person.get('energy')
-                        person['energy'] = score + (40 - rank)
-                    elif committee_id == 'SSCM' or committee_id == 'HSSY':
-                        score = person.get('sci')
-                        person['sci'] = score + (40 - rank)
-                    elif committee_id == 'SSAF' or committee_id == 'HSAG':
-                        score = person.get('agg')
-                        person['agg'] = score + (40 - rank)
-
-        # Adjust category scores based on 100 point maximum
-        for person in full_list:
-            agg = person.get('agg')
-            mil = person.get('mil')
-            ed = person.get('ed')
-            intl = person.get('intl')
-            defen = person.get('def')
-            energy = person.get('energy')
-            health = person.get('health')
-            env = person.get('env')
-            infra = person.get('infra')
-            sci = person.get('sci')
-
-            total = agg + mil + ed + intl + defen + energy + health + env + infra + sci
-
-            test_list = []
-
-            person['agg'] = round(agg / total * 100)
-
-            print('LOOK HERE')
-
-            person['mil'] = round(mil / total * 100)
-            person['ed'] = round(ed / total * 100)
-            person['intl'] = round(intl / total * 100)
-            person['def'] = round(defen / total * 100)
-            person['energy'] = round(energy / total * 100)
-            person['health'] = round(health / total * 100)
-            person['env'] = round(env / total * 100)
-            person['infra'] = round(infra / total * 100)
-            person['sci'] = round(sci / total * 100)
-
-            votedata.append({'military': person['agg']})
-            votedata.append({'government': person['mil']})
-            votedata.append({'education': person['ed']})
-            votedata.append({'healthcare_and_medicare': person['intl']})
-            votedata.append({'veteran_affairs': person['def']})
-            votedata.append({'housing_and_labor': person['energy']})
-            votedata.append({'international_affairs': person['health']})
-            votedata.append({'energy_and_environment': person['env']})
-            votedata.append({'Science': person['infra']})
-            votedata.append({'transportation_and_infrastructure': person['sci']})
-            votedata.append({'food_and_agricultur_value': 0})
-            votedata.append({'socialsecurity_or_unemployment': 0})
-
-
-
-
-    # print(votedata)
+        legislator_vote_data = create_list_single_legislator(legislator_model)
+        votedata.append(legislator_vote_data)
 
     return JsonResponse(votedata, safe=False)
 
@@ -1012,12 +376,12 @@ def resultsDataDemographics(request):
         votedata.append({'socialsecurity_or_unemployment': constituent.socialsecurity_or_unemployment})
         total_demographics = Customer.objects.all().filter(Age=constituent.Age).count()
         myfilter = Customer.objects.all().filter(Age=constituent.Age)
-        #alldata.append(votedata)
+        # alldata.append(votedata)
     else:
-        #constituent = TestElectedOfficial.objects.get(bioguide_id='W000805')
+        # constituent = TestElectedOfficial.objects.get(bioguide_id='W000805')
         legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
-        votedata =create_list_single_legislator(legislator_model)
-        #alldata.append(votedata)
+        votedata = create_list_single_legislator(legislator_model)
+        # alldata.append(votedata)
         myfilter = Customer.objects.all()
         total_demographics = Customer.objects.all().count()
         print("legislative")
@@ -1105,6 +469,7 @@ def customer(request, pk_test):  # <----show information of a paticular user
     context = {'customer': customer}
     return render(request, 'accounts/profile.html', context)  # dynamic
 
+
 # -------------------------------------------------------------------------------GRAPHS
 
 @login_required(login_url='login')
@@ -1113,6 +478,7 @@ def bio(request, pk_test):
     legislative = TestElectedOfficial.objects.get(first_name="Sherrod")
 
     return render(request, 'accounts/bio.html', {'representative': legislative})
+
 
 # ---------------------------------------------------------------------------------
 
@@ -1123,6 +489,7 @@ def votes(request, pk_test):
 
     return render(request, 'accounts/votes.html', {'representative': votes})
 
+
 # ---------------------------------------------------------------------------------
 
 @login_required(login_url='login')
@@ -1132,8 +499,8 @@ def funding(request, pk_test):
 
     return render(request, 'accounts/funding.html', {'representative': funding})
 
-# ---------------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------------
 
 
 def create_dict_multi_legislators(model_id):
