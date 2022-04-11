@@ -29,7 +29,7 @@
 	<div class="col-md">
 		<a href="{% url 'bio' legislative.bioguide_id %}">
 		<div class="container">
-			<img src="/static/images/folder.png"  style="width:80%;">
+			<img src="{% static 'accounts/images/folder2.png' %}" style="width:80%;">
 			<div class="centered">Bio</div> <!-- this Bio information -->
 		</div></a>
 
@@ -38,7 +38,7 @@
 	<div class="col-md">
 		<a href="{% url 'votes' legislative.bioguide_id %}">
 			<div class="container">
-				<img src="/static/images/folder.png"  style="width:80%;">
+				<img src="{% static 'accounts/images/folder2.png' %}" style="width:80%;">
 				<div class="centered">Votes</div><!-- this voting Record information -->
 			</div></a>
 	
@@ -46,7 +46,7 @@
 	<div class="col-md">
 		<a href="{% url 'funding' legislative.bioguide_id %}">
 		<div class="container">
-			<img src="/static/images/folder.png"  style="width:80%">
+			<img src="{% static 'accounts/images/folder2.png' %}" style="width:80%;">
 			<div class="centered">Funding</div> <!-- this bill funding information -->
 		</div></a>
 	</div>
@@ -54,7 +54,7 @@
 	<div class="col-md">
 		<a href="">
 			<div class="container">
-				<img src="/static/images/folder.png"  style="width:80%">
+				<img src="{% static 'accounts/images/folder2.png' %}" style="width:80%;">
 				<div class="centered">Service Score</div> <!-- this service score information -->
 			</div></a>
 	</div>

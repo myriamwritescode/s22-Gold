@@ -17,10 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-#from django.conf.urls.static import static <----upload image
-#from django.conf import settings# <----upload image
+from django.conf.urls.static import static #<----upload image
+from django.conf import settings# <----upload image
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('accounts.urls')) #base path search inside the "accounts.urls"
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) # location 
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # location
 #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # <---upload image uploading normally this will go into AWS
