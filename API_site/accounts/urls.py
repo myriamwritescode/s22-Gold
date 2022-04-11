@@ -25,6 +25,7 @@ urlpatterns = [
     path('profile/resultsdata/', views.resultsData, name="resultsdata"),  # add this for the graph
     path('compare/resultsdata_demographics/', views.resultsDataDemographics, name="resultsdata_demographics"),
     # add this for the graph demographics
+    path('value/resultsdata_legislative_Multi/', views.resultsDatalegislativeMulti, name="resultsdata_Multi"),
     path('value/resultsdata_legislative/<str:pk_test>/', views.resultsDatalegislative, name="resultsdata_legislative"),
     # path('customer/', views.customer), # <----static path name
     path('customer/<str:pk_test>/', views.customer, name="customer"),  # dynamic display a paticualar customer

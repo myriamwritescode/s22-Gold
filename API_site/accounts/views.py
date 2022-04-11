@@ -328,10 +328,64 @@ def resultsData(request):
         legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
         votedata = create_list_single_legislator(legislator_model)
         #votedata.append(legislator_vote_data)
+        print("legislator")
+        print(votedata)
 
     return JsonResponse(votedata, safe=False)
 
+# -------------------------------------------------------Graphing the result Data
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer', 'admin'])
+def resultsDatalegislativeMulti(request):
+    votedata = []  # built and empty array
+    alldata = []
+    if hasattr(request.user, 'customer'):
+        constituent = request.user.customer  # grab the by the ID of the model
+        print("constituent")
+        votedata.append({'military': constituent.military})
+        votedata.append({'government': constituent.government})
+        votedata.append({'education': constituent.education})
+        votedata.append({'healthcare_and_medicare': constituent.healthcare_and_medicare})
+        votedata.append({'veteran_affairs': constituent.veteran_affairs})
+        votedata.append({'housing_and_labor': constituent.housing_and_labor})
+        votedata.append({'international_affairs': constituent.international_affairs})
+        votedata.append({'energy_and_environment': constituent.energy_and_environment})
+        votedata.append({'Science': constituent.Science})
+        votedata.append({'transportation_and_infrastructure': constituent.transportation_and_infrastructure})
+        votedata.append({'food_and_agricultur_value': constituent.food_and_agriculture})
+        votedata.append({'socialsecurity_or_unemployment': constituent.socialsecurity_or_unemployment})
 
+        alldata.append(votedata)
+    else:
+        # constituent = TestElectedOfficial.objects.get(bioguide_id='W000805')
+        legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
+        votedata = create_list_single_legislator(legislator_model)
+        alldata.append(votedata)
+        print("legislative")
+    # add legislative
+    # get all 3 bioguide_ids 
+    # for each bioguide_id return list of value scores using create_single...
+    #num = 
+    legislators_model = TestElectedOfficial.objects.filter(state__exact='VA')
+    data = create_dict_multi_legislators(legislators_model)
+    all_id =[]
+    for i in range(3):
+        try:
+            all_id.append(data['full_list'][i]['bioguide_id'])
+        except IndexError:
+            break
+    
+    print ("\n-----------allID------------")
+    print(all_id)
+
+    for i in all_id:
+        legislator_model = TestElectedOfficial.objects.filter(bioguide_id=i)
+        votedata_legislative= create_list_single_legislator(legislator_model)
+        alldata.append(votedata_legislative)
+        
+    print(alldata)
+
+    return JsonResponse(alldata, safe=False) 
 # -------------------------------------------------------Graphing the result Data
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer', 'admin'])
@@ -692,6 +746,7 @@ def create_dict_multi_legislators(model_id):
         person['sci'] = round(sci / total * 100)
 
     data = {'full_list': full_list}
+    print (data)
 
     return data
 
