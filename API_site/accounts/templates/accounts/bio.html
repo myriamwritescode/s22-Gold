@@ -2,8 +2,56 @@
 {% block content %}
 {% load static %}
 
+<br>
 <div>
-    text
+    <div class="col-md-3">
+		<div class="card card-body">
+			<a class="btn btn-warning" href="{% url 'user-learn-more' representative.bioguide_id %}"> &#8592; Back to Value</a>
+			<hr>
+			<h3 style="text-align: center">Bio for<br>{{representative.full_name}}</h3>
+		</div>
+	</div>
+    <div class="col-md-9">
+		<div class="card card-body">
+            <h3>Personal</h3>
+            <strong>Birthday:</strong>
+            {{representative.birthday}}
+            <strong>Gender:</strong>
+            {{representative.gender}}
+
+            <hr>
+            <h3>Location & Affiliation</h3>
+            <strong>Position:</strong>
+            {% if representative.type == "sen" %}
+                Senator
+            {% elif representative.type == "rep" %}
+                House of Representatives
+            {% endif %}
+            {% if representative.district %}
+                <strong>District:</strong>
+                {{representative.district}}
+            {% endif %}
+            <strong>State:</strong>
+            {{representative.state}}
+            <strong>Party:</strong>
+            {{representative.party}}
+            <strong>Office:</strong>
+            {{representative.address}}
+
+            <hr>
+            <h3>Contact Info</h3>
+            <strong>Official Site:</strong>
+            <a href="{{representative.url}}">{{representative.url}}</a>
+            <strong>RSS:</strong>
+            <a href="{{representative.rss_url}}">{{representative.rss_url}}</a>
+            <strong>Youtube:</strong>
+            <a href="https://www.youtube.com/channel/{{representative.youtube_id}}">https://www.youtube.com/channel/{{representative.youtube_id}}</a>
+
+            <strong>State:</strong>
+            {{representative.lis_id}}
+        </div>
+    </div>
 </div>
+
 
 {% endblock %}
