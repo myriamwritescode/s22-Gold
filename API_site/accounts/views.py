@@ -539,7 +539,7 @@ def bio(request, pk_test):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer', 'admin'])
 def votes(request, pk_test):
-    votes = TestVote.objects.get(voter_id="156992")
+    votes = TestElectedOfficial.objects.get(bioguide_id=pk_test)
 
     return render(request, 'accounts/votes.html', {'representative': votes})
 
@@ -549,7 +549,7 @@ def votes(request, pk_test):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer', 'admin'])
 def funding(request, pk_test):
-    funding = TestVote.objects.get(voter_id="156992")
+    funding = TestElectedOfficial.objects.get(bioguide_id=pk_test)
 
     return render(request, 'accounts/funding.html', {'representative': funding})
 

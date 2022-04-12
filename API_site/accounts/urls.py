@@ -31,8 +31,8 @@ urlpatterns = [
     path('customer/<str:pk_test>/', views.customer, name="customer"),  # dynamic display a paticualar customer
 
     path('value/learnMore/bio/<str:pk_test>/', views.bio, name="bio"),
-    path('value/learnMore/votes/<str:pk_test>/', views.bio, name="votes"),
-    path('value/learnMore/funding/<str:pk_test>/', views.bio, name="funding"),
+    path('value/learnMore/votes/<str:pk_test>/', views.votes, name="votes"),
+    path('value/learnMore/funding/<str:pk_test>/', views.funding, name="funding"),
 
 
     # -----------------------------------entering deleting updating information from database----------------------
