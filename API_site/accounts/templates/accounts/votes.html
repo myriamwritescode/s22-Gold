@@ -2,8 +2,54 @@
 {% block content %}
 {% load static %}
 
-<div>
-    text
+<style>
+    .box{
+        margin:0px;
+        margin-bottom:0px;
+        padding:0px;
+    }
+</style>
+
+<br>
+<div class="row">
+    <div class="col-md-3">
+		<div class="card card-body">
+            <a class="btn btn-warning" href="{% url 'user-learn-more' representative.bioguide_id %}"> &#8592; Back to Value</a>
+			<hr>
+			<h3 style="text-align: center">Votes for<br>{{representative.full_name}}</h3>
+        </div>
+    </div>
+    <div class="col-md-9">
+		<div class="card card-body">
+            {% if votes %}
+                {% for vote in votes %}
+                    <p class="box"><strong>Action Link:</strong>
+                    {% if vote.bill_type == "h" %}
+                        <a href="https://www.congress.gov/bill/{{vote.sess}}th-congress/house-bill/{{vote.number}}">
+                            https://www.congress.gov/bill/{{vote.sess}}th-congress/house-bill/{{vote.number}}</a>
+                    {% elif vote.bill_type == "s" %}
+                        <a href="https://www.congress.gov/bill/{{vote.sess}}th-congress/senate-bill/{{vote.number}}">
+                            https://www.congress.gov/bill/{{vote.sess}}th-congress/senate-bill/{{vote.number}}</a>
+                    {% elif vote.bill_type == "sj" %}
+                        <a href="https://www.congress.gov/bill/{{vote.sess}}th-congress/senate-joint-resolution/{{vote.number}}">
+                            https://www.congress.gov/bill/{{vote.sess}}th-congress/senate-joint-resolution/{{vote.number}}</a>
+                    {% elif vote.bill_type == "sc" %}
+                        <a href="https://www.congress.gov/bill/{{vote.sess}}th-congress/senate-concurrent-resolution/{{vote.number}}">
+                            https://www.congress.gov/bill/{{vote.sess}}th-congress/senate-concurrent-resolution/{{vote.number}}</a>
+                    {% endif %}
+                    </p>
+                    <p class="box"><strong>Chamber:</strong> {{vote.chamber}}</p>
+                    <p class="box"><strong>Year:</strong> {{vote.yr}}</p>
+                    <p class="box"><strong>Type of Vote:</strong> {{vote.type_vote}}</p>
+                    <p class="box"><strong>Vote Value:</strong> {{vote.value}}</p>
+                    <p class="box"><strong>Result:</strong> {{vote.result}}</p>
+                    <hr>
+                {% endfor %}
+            {% else %}
+            <p style="color:red">No vote data found!</p>
+            {% endif %}
+        </div>
+    </div>
 </div>
 
 {% endblock %}

@@ -539,9 +539,10 @@ def bio(request, pk_test):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer', 'admin'])
 def votes(request, pk_test):
-    votes = TestElectedOfficial.objects.get(bioguide_id=pk_test)
+    legislative = TestElectedOfficial.objects.get(bioguide_id=pk_test)
+    votes = TestVote.objects.filter(voter_id=legislative.lis_id)
 
-    return render(request, 'accounts/votes.html', {'representative': votes})
+    return render(request, 'accounts/votes.html', {'votes': votes, 'representative': legislative})
 
 
 # ---------------------------------------------------------------------------------
@@ -549,9 +550,9 @@ def votes(request, pk_test):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer', 'admin'])
 def funding(request, pk_test):
-    funding = TestElectedOfficial.objects.get(bioguide_id=pk_test)
+    legislative = TestElectedOfficial.objects.get(bioguide_id=pk_test)
 
-    return render(request, 'accounts/funding.html', {'representative': funding})
+    return render(request, 'accounts/funding.html', {'representative': legislative})
 
 
 # ---------------------------------------------------------------------------------
