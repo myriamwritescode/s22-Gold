@@ -1094,15 +1094,9 @@ def accountSettings(request):
         if (form.is_valid):
 
             street_addr = request.POST.get('street_line1')
-
-            url_head = "https://civicinfo.googleapis.com/civicinfo/v2" \
-                       "/representatives" \
-                       "?address="
-            url_tail = "&includeOffices=true&levels=country&roles" \
-                       "=legislatorUpperBody" \
-                       "&key=AIzaSyA2yJqqdsAUV33ryKp50gq5Njs4UC6o3bc"
+            url_head = "https://civicinfo.googleapis.com/civicinfo/v2representatives?address="
+            url_tail = "&includeOffices=true&levels=country&roles=legislatorUpperBody&key=AIzaSyA2yJqqdsAUV33ryKp50gq5Njs4UC6o3bc"
             address = street_addr.replace(" ", "%20")
-
             url = url_head + address + url_tail
 
             response = requests.get(url).text
