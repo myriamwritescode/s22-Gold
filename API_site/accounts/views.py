@@ -17,6 +17,11 @@ from django.http import JsonResponse
 # from ..scratch_1 import servicecalculator
 import numpy as NP
 import math
+
+import requests
+import json
+
+from .reps_by_addr import reps_by_address
 # Create your views here for the path response
 
 from .models import *
@@ -1079,13 +1084,30 @@ def valuePagelearnmore(request, pk_test):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def accountSettings(request):
+    file = open("test_reps_by_address.json", "w", encoding="utf-8")
+
     customer = request.user.customer
     form = CustomerForm(instance=customer)
-
     if request.method == 'POST':  # healding the submition
         form = CustomerForm(request.POST,
                             instance=customer)  # <---no pillow (request.POST, request.FILES,instance=customer)
         if (form.is_valid):
+
+            street_addr = request.POST.get('street_line1')
+
+            url_head = "https://civicinfo.googleapis.com/civicinfo/v2" \
+                       "/representatives" \
+                       "?address="
+            url_tail = "&includeOffices=true&levels=country&roles" \
+                       "=legislatorUpperBody" \
+                       "&key=AIzaSyA2yJqqdsAUV33ryKp50gq5Njs4UC6o3bc"
+            address = street_addr.replace(" ", "%20")
+
+            url = url_head + address + url_tail
+
+            response = requests.get(url).text
+            file.write(response)
+
             form.military = request.POST.get('military')
             form.government = request.POST.get('government')
             form.education = request.POST.get('education')
