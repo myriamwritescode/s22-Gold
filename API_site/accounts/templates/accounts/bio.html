@@ -2,8 +2,71 @@
 {% block content %}
 {% load static %}
 
-<div>
-    text
+<br>
+<div class="row">
+    <div class="col-md-3">
+		<div class="card card-body">
+			<a class="btn btn-warning" href="{% url 'user-learn-more' representative.bioguide_id %}"> &#8592; Back to Learn More</a>
+			<hr>
+			<h3 style="text-align: center">Bio for<br>{{representative.full_name}}</h3>
+		</div>
+	</div>
+    <div class="col-md-9">
+		<div class="card card-body">
+            <h3>Personal</h3>
+            {% if representative.birthday %}
+                <strong>Birthday:</strong>
+                {{representative.birthday}}
+            {% endif %}
+            {% if representative.gender %}
+                <strong>Gender:</strong>
+                {{representative.gender}}
+            {% endif %}
+
+            <hr>
+            <h3>Location & Affiliation</h3>
+            <strong>Position:</strong>
+            {% if representative.type %}
+                {% if representative.type == "sen" %}
+                    Senator
+                {% elif representative.type == "rep" %}
+                    House of Representatives
+                {% endif %}
+                {% if representative.district %}
+                    <strong>District:</strong>
+                    {{representative.district}}
+                {% endif %}
+            {% endif %}
+            {% if representative.state %}
+                <strong>State:</strong>
+                {{representative.state}}
+            {% endif %}
+            {% if representative.party %}
+                <strong>Party:</strong>
+                {{representative.party}}
+            {% endif %}
+            {% if representative.address %}
+                <strong>Office:</strong>
+                {{representative.address}}
+            {% endif %}
+
+            <hr>
+            <h3>URLs</h3>
+            {% if representative.url %}
+                <strong>Official Site:</strong>
+                <a href="{{representative.url}}">{{representative.url}}</a>
+            {% endif %}
+            {% if representative.rss_url %}
+                <strong>RSS:</strong>
+                <a href="{{representative.rss_url}}">{{representative.rss_url}}</a>
+            {% endif %}
+            {% if representative.youtube_id %}
+                <strong>Youtube:</strong>
+                <a href="https://www.youtube.com/channel/{{representative.youtube_id}}">https://www.youtube.com/channel/{{representative.youtube_id}}</a>
+            {% endif %}
+        </div>
+    </div>
 </div>
+
 
 {% endblock %}
