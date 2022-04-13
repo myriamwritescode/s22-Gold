@@ -172,7 +172,7 @@ def resultsDatalegislative(request, pk_test):
     alldata.append(votedata_legislative)
     # grab the all the choices
 
-    print(alldata)
+    # print(alldata)
 
     return JsonResponse(alldata, safe=False)  # send it to the javascript
 
@@ -329,7 +329,7 @@ def resultsData(request):
         votedata = create_list_single_legislator(legislator_model)
         #votedata.append(legislator_vote_data)
         print("legislator")
-        print(votedata)
+        # print(votedata)
 
     return JsonResponse(votedata, safe=False)
 
@@ -339,6 +339,7 @@ def resultsData(request):
 def resultsDatalegislativeMulti(request):
     votedata = []  # built and empty array
     alldata = []
+    legislators_name =[]
     if hasattr(request.user, 'customer'):
         constituent = request.user.customer  # grab the by the ID of the model
         print("constituent")
@@ -355,12 +356,12 @@ def resultsDatalegislativeMulti(request):
         votedata.append({'food_and_agricultur_value': constituent.food_and_agriculture})
         votedata.append({'socialsecurity_or_unemployment': constituent.socialsecurity_or_unemployment})
 
-        alldata.append(votedata)
+        #alldata.append(votedata)
     else:
         # constituent = TestElectedOfficial.objects.get(bioguide_id='W000805')
         legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
         votedata = create_list_single_legislator(legislator_model)
-        alldata.append(votedata)
+        #alldata.append(votedata)
         print("legislative")
     # add legislative
     # get all 3 bioguide_ids 
@@ -372,18 +373,24 @@ def resultsDatalegislativeMulti(request):
     for i in range(3):
         try:
             all_id.append(data['full_list'][i]['bioguide_id'])
+            legislators_name.append({data['full_list'][i]['full_name']:0})
         except IndexError:
             break
     
-    print ("\n-----------allID------------")
-    print(all_id)
+    #print ("\n-----------allID------------")
+    #print(all_id)
+    for i in range(10):
+        legislators_name.append({'name':0})
+        
+    alldata.append(votedata)
 
     for i in all_id:
         legislator_model = TestElectedOfficial.objects.filter(bioguide_id=i)
         votedata_legislative= create_list_single_legislator(legislator_model)
         alldata.append(votedata_legislative)
-        
-    print(alldata)
+
+    alldata.append(legislators_name)    
+    # print(alldata)
 
     return JsonResponse(alldata, safe=False) 
 # -------------------------------------------------------Graphing the result Data
@@ -508,7 +515,7 @@ def resultsDataDemographics(request):
     alldata.append(votedata)
     alldata.append(votedata_demographics)
 
-    print(alldata)
+    # print(alldata)
 
     return JsonResponse(alldata, safe=False)  # send it to the javascript
 
@@ -747,7 +754,7 @@ def create_dict_multi_legislators(model_id):
         person['sci'] = round(sci / total * 100)
 
     data = {'full_list': full_list}
-    print (data)
+    # print (data)
 
     return data
 

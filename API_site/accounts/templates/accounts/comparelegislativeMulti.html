@@ -26,6 +26,8 @@
     'name':[],
 	}
 	//var objId = "{{legislative.id}}"
+
+
  
 
 	var dataURL = `/value/resultsdata_legislative_Multi/`   //the question path ID
@@ -38,7 +40,6 @@ $.ajax({
 		success:function(response){
 			console.log('RESPONSE:', response)
 			// create the list of list
-     
 			for (var i in response){
 				emptyList =[]
 				state.values.push(emptyList)
@@ -50,6 +51,11 @@ $.ajax({
 				//document.write(key);
 				state.items.push(key)// grabing the keys 
 			}
+			for (var i in response[0]){
+				var key = Object.keys(response[4][i])[0]
+				//document.write(key);
+				state.name.push(key)// grabing the keys 
+			}
 			//obtain all the values from the responds
 			for (var i in response){
 				for (var j in response[0]){ 
@@ -57,9 +63,9 @@ $.ajax({
 					state.values[i].push(value)
 				}
 			}
-
 			console.log('STATE:', state) // console out the new state
-    //  document.write(state.items);
+     //document.write(state.name);
+
 			buildChart() // the function to graph it 
 
 		}
@@ -92,19 +98,19 @@ $.ajax({
 				},
 				{					
 					"values":state.values[1],
-					"text": "MyLegislative",
+					"text": state.name[0],
           "background-color": "purple",
            
 				},
         {					
 					"values":state.values[2],
-					"text": "MyLegislative2",
+					"text": state.name[1],
           "background-color": "rgb(204, 0, 102)",
            
 				},
         {					
 					"values":state.values[3],
-					"text": "MyLegislative3",
+					"text": state.name[2],
           "background-color": "Magenta",
            
 				},
