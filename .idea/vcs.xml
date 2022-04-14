@@ -2,9 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/API_scraping/congress" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/API_scraping/congress-legislators" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/congress" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/congress-legislators" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/API_scraping/congress" vcs="" />
+    <mapping directory="$PROJECT_DIR$/API_scraping/congress-legislators" vcs="" />
+    <mapping directory="$PROJECT_DIR$/congress" vcs="" />
+    <mapping directory="$PROJECT_DIR$/congress-legislators" vcs="" />
   </component>
 </project>
