@@ -97,26 +97,46 @@ class Customer(models.Model):
     city = models.CharField('City', max_length=100, null=True, blank=True)
     state = models.CharField('State', max_length=100, null=True, blank=True)
     # value score below
-    military = models.IntegerField("Military", default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
-    government = models.IntegerField("Government", default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
-    education = models.IntegerField("Education", default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
-    healthcare_and_medicare = models.IntegerField("Healthcare and Medicare", default=0,
-                                                  validators=[MinValueValidator(0), MaxValueValidator(100)])
-    veteran_affairs = models.IntegerField("Veteran's Affairs", default=0,
-                                          validators=[MinValueValidator(0), MaxValueValidator(100)])
-    housing_and_labor = models.IntegerField("Housing and Labor", default=0,
-                                            validators=[MinValueValidator(0), MaxValueValidator(100)])
-    international_affairs = models.IntegerField("International Affairs", default=0,
-                                                validators=[MinValueValidator(0), MaxValueValidator(100)])
-    energy_and_environment = models.IntegerField("Energy and Environment", default=0,
-                                                 validators=[MinValueValidator(0), MaxValueValidator(100)])
-    Science = models.IntegerField("Science", default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
-    transportation_and_infrastructure = models.IntegerField("Transportation and Infrastructure", default=0,
-                                                            validators=[MinValueValidator(0), MaxValueValidator(100)])
-    food_and_agriculture = models.IntegerField("Food and Agriculture", default=0,
-                                               validators=[MinValueValidator(0), MaxValueValidator(100)])
-    socialsecurity_or_unemployment = models.IntegerField("Social Security or Unemployment", default=0,
-                                                         validators=[MinValueValidator(0), MaxValueValidator(100)])
+    agriculture = models.IntegerField(
+                                      default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    military_and_veterans = models.IntegerField("Military and Veterans",
+                                                default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    education_and_labor = models.IntegerField("Education and Labor",
+                                              default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    international_affairs = models.IntegerField("International Affairs",
+                                                default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    defense_and_intelligence = models.IntegerField("Defense and Intelligence",
+                                                   default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    energy = models.IntegerField("Energy",
+                                 default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    healthcare = models.IntegerField("Healthcare",
+                                     default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    environment = models.IntegerField("Environment",
+                                      default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    infrastructure = models.IntegerField("Infrastructure",
+                                         default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    science = models.IntegerField("Science",
+                                  default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    # military = models.IntegerField("Military", default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    # government = models.IntegerField("Government", default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    # education = models.IntegerField("Education", default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    # healthcare_and_medicare = models.IntegerField("Healthcare and Medicare", default=0,
+    #                                               validators=[MinValueValidator(0), MaxValueValidator(100)])
+    # veteran_affairs = models.IntegerField("Veteran's Affairs", default=0,
+    #                                       validators=[MinValueValidator(0), MaxValueValidator(100)])
+    # housing_and_labor = models.IntegerField("Housing and Labor", default=0,
+    #                                         validators=[MinValueValidator(0), MaxValueValidator(100)])
+    # international_affairs = models.IntegerField("International Affairs", default=0,
+    #                                             validators=[MinValueValidator(0), MaxValueValidator(100)])
+    # energy_and_environment = models.IntegerField("Energy and Environment", default=0,
+    #                                              validators=[MinValueValidator(0), MaxValueValidator(100)])
+    # Science = models.IntegerField("Science", default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    # transportation_and_infrastructure = models.IntegerField("Transportation and Infrastructure", default=0,
+    #                                                         validators=[MinValueValidator(0), MaxValueValidator(100)])
+    # food_and_agriculture = models.IntegerField("Food and Agriculture", default=0,
+    #                                            validators=[MinValueValidator(0), MaxValueValidator(100)])
+    # socialsecurity_or_unemployment = models.IntegerField("Social Security or Unemployment", default=0,
+    #                                                      validators=[MinValueValidator(0), MaxValueValidator(100)])
 
     def __str__(self):
         return self.name  # <----to see the name in not the id
