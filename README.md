@@ -1,5 +1,7 @@
 Team Gold - Spring 2022
 
+Please note, as of 4/13/22 our group has continued development in the 'working' branch.
+
 # Members
 
 - cstkennedy - Thomas Kennedy - tkennedy@cs.odu.edu
