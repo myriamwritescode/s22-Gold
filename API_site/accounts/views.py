@@ -267,11 +267,14 @@ def accountSettings(request):
 
         # access address passed in via POST request
         street_addr = request.POST.get('street_line1')
+        city = request.POST.get('city')
         # url pieces and parsing
         url_head = "https://civicinfo.googleapis.com/civicinfo/v2/representatives?address="
         senator_url = "&includeOffices=true&levels=country&roles=legislatorUpperBody&key=AIzaSyA2yJqqdsAUV33ryKp50gq5Njs4UC6o3bc"
         representative_url = "&includeOffices=true&levels=country&roles=legislatorLowerBody&key=AIzaSyA2yJqqdsAUV33ryKp50gq5Njs4UC6o3bc"
         address = street_addr.replace(" ", "%20")
+
+
 
         # prepare request for senator info and write to a json
         senator = url_head + address + senator_url
