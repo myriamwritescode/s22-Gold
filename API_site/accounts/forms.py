@@ -26,5 +26,3 @@ class CreateUserForm(UserCreationForm):  # here were you can modify the default 
         model = User  # referring to the user model
         fields = ['username', 'first_name', 'last_name', 'email', 'password1',
                   'password2']  # fields = ["username", "email","age", "password1", "password2"]
-
-
