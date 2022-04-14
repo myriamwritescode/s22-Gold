@@ -19,6 +19,10 @@ import numpy as NP
 import math
 # Create your views here for the path response
 
+# make get requests to google civic api and get json reponse
+import requests
+import json
+
 from .models import *
 from .forms import CreateUserForm, CustomerForm  # we need to import to pass it to the template
 # from .filters import OrderFilter
@@ -258,11 +262,34 @@ def valuePagelearnmore(request, pk_test):
 def accountSettings(request):
     customer = request.user.customer
     form = CustomerForm(instance=customer)
+    # check to see if true
+    if request.method == 'POST':
 
-    if request.method == 'POST':  # healding the submition
+        # access address passed in via POST request
+        street_addr = request.POST.get('street_line1')
+        # url pieces and parsing
+        url_head = "https://civicinfo.googleapis.com/civicinfo/v2/representatives?address="
+        senator_url = "&includeOffices=true&levels=country&roles=legislatorUpperBody&key=AIzaSyA2yJqqdsAUV33ryKp50gq5Njs4UC6o3bc"
+        representative_url = "&includeOffices=true&levels=country&roles=legislatorLowerBody&key=AIzaSyA2yJqqdsAUV33ryKp50gq5Njs4UC6o3bc"
+        address = street_addr.replace(" ", "%20")
+
+        # prepare request for senator info and write to a json
+        senator = url_head + address + senator_url
+        sen_response = requests.get(senator).text
+        with open("senators.json", "w", encoding="utf-8") as senator_file:
+            senator_file.write(sen_response)
+
+        # prepare request for representative info and write to a json
+        representative = url_head + address + representative_url
+        rep_response = requests.get(representative).text
+        with open("representatives.json", "w", encoding="utf-8") as rep_file:
+            rep_file.write(rep_response)
+
+
+
         form = CustomerForm(request.POST,
                             instance=customer)  # <---no pillow (request.POST, request.FILES,instance=customer)
-        if (form.is_valid):
+        if form.is_valid:
             form.agriculture = request.POST.get('agriculture')
             form.military_and_veterans = request.POST.get('military_and_veterans')
             form.education_and_labor = request.POST.get('education_and_labor')

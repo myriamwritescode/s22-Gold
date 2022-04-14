@@ -1,0 +1,80 @@
+{
+  "normalizedInput": {
+    "line1": "5102 Ballycastle Circle",
+    "city": "Alexandria",
+    "state": "VA",
+    "zip": "22315"
+  },
+  "kind": "civicinfo#representativeInfoResponse",
+  "divisions": {
+    "ocd-division/country:us/state:va/cd:8": {
+      "name": "Virginia's 8th congressional district",
+      "officeIndices": [
+        0
+      ]
+    }
+  },
+  "offices": [
+    {
+      "name": "U.S. Representative",
+      "divisionId": "ocd-division/country:us/state:va/cd:8",
+      "levels": [
+        "country"
+      ],
+      "roles": [
+        "legislatorLowerBody"
+      ],
+      "officialIndices": [
+        0
+      ]
+    }
+  ],
+  "officials": [
+    {
+      "name": "Don Beyer",
+      "address": [
+        {
+          "line1": "1119 Longworth House Office Building",
+          "city": "Washington",
+          "state": "DC",
+          "zip": "20515"
+        }
+      ],
+      "party": "Democratic Party",
+      "phones": [
+        "(202) 225-4376"
+      ],
+      "urls": [
+        "https://beyer.house.gov/",
+        "https://en.wikipedia.org/wiki/Don_Beyer"
+      ],
+      "photoUrl": "http://bioguide.congress.gov/bioguide/photo/B/B001292.jpg",
+      "channels": [
+        {
+          "type": "Facebook",
+          "id": "RepDonBeyer"
+        },
+        {
+          "type": "Twitter",
+          "id": "RepDonBeyer"
+        },
+        {
+          "type": "YouTube",
+          "id": "UCPJGVbOVcAVGiBwq8qr_T9w"
+        }
+      ],
+      "geocodingSummaries": [
+        {
+          "queryString": "1119 Longworth House Office Building, Washington, DC 20515-4608",
+          "featureId": {
+            "cellId": "9923602795423060423",
+            "fprint": "18411854889169102830"
+          },
+          "featureType": "typeCompoundBuilding",
+          "positionPrecisionMeters": 123.49476568652042,
+          "addressUnderstood": false
+        }
+      ]
+    }
+  ]
+}
