@@ -690,7 +690,10 @@ def bio(request, pk_test):
 @allowed_users(allowed_roles=['customer', 'admin'])
 def votes(request, pk_test):
     legislative = TestElectedOfficial.objects.get(bioguide_id=pk_test)
-    votes = TestVote.objects.filter(voter_id=legislative.lis_id)
+    if(legislative.lis_id) :
+        votes = TestVote.objects.filter(voter_id=legislative.lis_id)
+    else :
+        votes = TestVote.objects.filter(voter_id=legislative.bioguide_id)
 
     return render(request, 'accounts/votes.html', {'votes': votes, 'representative': legislative})
 
