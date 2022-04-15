@@ -293,7 +293,14 @@ def accountSettings(request):
         with open("representatives.json", "w", encoding="utf-8") as rep_file:
             rep_file.write(rep_response)
 
-
+        # with open("representatives.json") as rep:
+        #     data = json.load(rep)
+        #     google_district = data['offices'][0]['divisionId'][-1]
+        #     # checking output, delete later
+        #     print("Google District: " + google_district)
+        #     form = CustomerForm(request.POST, instance=customer)
+        #     Customer.objects.filter(name = form.name).update(
+        #         district=google_district)
 
         form = CustomerForm(request.POST,
                             instance=customer)  # <---no pillow (request.POST, request.FILES,instance=customer)
