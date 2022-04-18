@@ -287,13 +287,13 @@ class Feedback(models.Model):
             ('Navigation ', 'Navigation'),
             ('Other', 'Other'),
             )
-    anonymous = models.ForeignKey(Customer, null=True, on_delete=models.SET_NULL)  # one to many relationship
+    anonymous = models.CharField(max_length=200, null=True)
     rate = models.FloatField('Rate', default=None, null=True)
     issue = models.CharField(max_length=200, null=True, choices=ISSUE)
     comment = models.CharField("Comment", blank=True, max_length=1024, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
     def str(self):
-        return self.anonymous.name
+        return self.anonymous
 
 #  TEST AREA
