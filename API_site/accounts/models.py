@@ -96,6 +96,7 @@ class Customer(models.Model):
     zipcode = models.CharField('ZIP code', max_length=5, null=True, blank=True)
     city = models.CharField('City', max_length=100, null=True, blank=True)
     state = models.CharField('State', max_length=100, null=True, blank=True)
+    district = models.IntegerField(null=True, blank=True)
     # value score below
     agriculture = models.IntegerField(
                                       default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
@@ -277,5 +278,22 @@ class Votes(models.Model):
     def __str__(self):
         # to see the name in not the id
         return self.vote.number + ' ' + self.representative.firstname + ' ' + self.representative.lastname
+
+
+class Feedback(models.Model):
+    ISSUE = (
+            ('None', 'None'),
+            ('User Interface', 'User Interface'),
+            ('Navigation ', 'Navigation'),
+            ('Other', 'Other'),
+            )
+    anonymous = models.ForeignKey(Customer, null=True, on_delete=models.SET_NULL)  # one to many relationship
+    rate = models.FloatField('Rate', default=None, null=True)
+    issue = models.CharField(max_length=200, null=True, choices=ISSUE)
+    comment = models.CharField("Comment", blank=True, max_length=1024, null=True)
+    date_created = models.DateTimeField(auto_now_add=True, null=True)
+
+    def str(self):
+        return self.anonymous.name
 
 #  TEST AREA

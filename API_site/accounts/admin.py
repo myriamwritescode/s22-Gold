@@ -12,6 +12,7 @@ admin.site.register(Bill)
 admin.site.register(Sponsor)
 admin.site.register(Sponsors)
 admin.site.register(Votes)
+admin.site.register(Feedback)
 
 
 # Test model for TestElectedOfficial --Brett
