@@ -19,6 +19,8 @@ urlpatterns = [
     path('profile/', views.userPage, name="user-page"),
     path('compare/', views.comparePage, name="user-compare"),
     path('value/', views.valuePage, name="user-value"),
+    path('feedback/', views.feedbackpage, name="feedback-report"),
+    path('feedbackThanks/', views.feedbackpageThanks, name="feedback-thanks"),
    
     path('value/learnMore/<str:pk_test>/', views.valuePagelearnmore, name="user-learn-more"),
     path('account/', views.accountSettings, name="account"),

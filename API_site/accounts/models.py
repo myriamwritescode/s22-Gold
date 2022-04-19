@@ -287,13 +287,19 @@ class Feedback(models.Model):
             ('Navigation ', 'Navigation'),
             ('Other', 'Other'),
             )
-    anonymous = models.CharField(max_length=200, null=True)
-    rate = models.FloatField('Rate', default=None, null=True)
+    RATE_CHOICES = (
+	
+	(1, '1 - Very Dissatisfied'),
+	(2, '2 - Dissatisfied'),
+	(3, '3 - OK'),
+	(4, '4 - Satisfied'),
+	(5, '5 - Very Satisfied'), )
+    rate = models.PositiveSmallIntegerField('Rate', null=True, choices=RATE_CHOICES)
     issue = models.CharField(max_length=200, null=True, choices=ISSUE)
     comment = models.CharField("Comment", blank=True, max_length=1024, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
-    def str(self):
-        return self.anonymous
+    def __str__(self):
+        return self.issue 
 
 #  TEST AREA

@@ -17,6 +17,10 @@ class CustomerForm(ModelForm):
         fields = '__all__'
         exclude = ['user']
 
+class FeedbackForm(ModelForm):
+	class Meta:
+		model = Feedback
+		fields = '__all__'
 
 class CreateUserForm(UserCreationForm):  # here were you can modify the default User table
     email = forms.EmailField(required=True)  # add a new field email

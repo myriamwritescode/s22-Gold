@@ -1,14 +1,14 @@
 {
   "normalizedInput": {
-    "line1": "5102 Ballycastle Circle",
-    "city": "Alexandria",
+    "line1": "1037 West 39th Street",
+    "city": "Norfolk",
     "state": "VA",
-    "zip": "22315"
+    "zip": "23508"
   },
   "kind": "civicinfo#representativeInfoResponse",
   "divisions": {
-    "ocd-division/country:us/state:va/cd:8": {
-      "name": "Virginia's 8th congressional district",
+    "ocd-division/country:us/state:va/cd:3": {
+      "name": "Virginia's 3rd congressional district",
       "officeIndices": [
         0
       ]
@@ -17,7 +17,7 @@
   "offices": [
     {
       "name": "U.S. Representative",
-      "divisionId": "ocd-division/country:us/state:va/cd:8",
+      "divisionId": "ocd-division/country:us/state:va/cd:3",
       "levels": [
         "country"
       ],
@@ -31,10 +31,10 @@
   ],
   "officials": [
     {
-      "name": "Don Beyer",
+      "name": "Robert C. Scott",
       "address": [
         {
-          "line1": "1119 Longworth House Office Building",
+          "line1": "2328 Rayburn House Office Building",
           "city": "Washington",
           "state": "DC",
           "zip": "20515"
@@ -42,36 +42,36 @@
       ],
       "party": "Democratic Party",
       "phones": [
-        "(202) 225-4376"
+        "(202) 225-8351"
       ],
       "urls": [
-        "https://beyer.house.gov/",
-        "https://en.wikipedia.org/wiki/Don_Beyer"
+        "https://bobbyscott.house.gov/",
+        "https://en.wikipedia.org/wiki/Bobby_Scott_%28politician%29"
       ],
-      "photoUrl": "http://bioguide.congress.gov/bioguide/photo/B/B001292.jpg",
+      "photoUrl": "http://bioguide.congress.gov/bioguide/photo/S/S000185.jpg",
       "channels": [
         {
           "type": "Facebook",
-          "id": "RepDonBeyer"
+          "id": "RepBobbyScott"
         },
         {
           "type": "Twitter",
-          "id": "RepDonBeyer"
+          "id": "BobbyScott"
         },
         {
           "type": "YouTube",
-          "id": "UCPJGVbOVcAVGiBwq8qr_T9w"
+          "id": "RepBobbyScott"
         }
       ],
       "geocodingSummaries": [
         {
-          "queryString": "1119 Longworth House Office Building, Washington, DC 20515-4608",
+          "queryString": "2328 Rayburn House Office Building, Washington, DC 20515-4603",
           "featureId": {
-            "cellId": "9923602795423060423",
-            "fprint": "18411854889169102830"
+            "cellId": "9923602067032561107",
+            "fprint": "3004281461341646448"
           },
           "featureType": "typeCompoundBuilding",
-          "positionPrecisionMeters": 123.49476568652042,
+          "positionPrecisionMeters": 162.19669259570352,
           "addressUnderstood": false
         }
       ]

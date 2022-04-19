@@ -1,9 +1,9 @@
 {
   "normalizedInput": {
-    "line1": "5102 Ballycastle Circle",
-    "city": "Alexandria",
+    "line1": "1037 West 39th Street",
+    "city": "Norfolk",
     "state": "VA",
-    "zip": "22315"
+    "zip": "23508"
   },
   "kind": "civicinfo#representativeInfoResponse",
   "divisions": {

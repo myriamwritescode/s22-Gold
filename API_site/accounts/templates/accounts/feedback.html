@@ -1,0 +1,100 @@
+{%  extends 'accounts/main.html' %}
+{% block content %}
+	<!-- Include Twitter Bootstrap and jQuery: -->
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<style>
+.container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	font-family: Arial;
+	
+}
+
+.rating-wrap{
+	max-width: 480px;
+	margin: auto;
+	padding: 40px;
+	box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
+	text-align: center;
+	background: #A4C2F4;
+}
+
+.center{
+	width: 262px; 
+	margin: auto;
+}
+
+</style>
+
+
+
+	<div class="container">
+	
+		<div class="rating-wrap">
+			<form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+			
+				
+				
+			<strong><h1>Feedback</h1></strong>
+			<br><br>
+			<h3>Tell Us About Your Experience <br>
+				Using A Politician’s Impact</h3>
+			<div class="center">
+
+				{{form.rate}}
+			</div>
+			<br>
+
+			<h3>Report Issue Found</h3>
+			
+			<div class="center">	
+						{{form.issue}}
+					</div>	
+
+					<br>
+					<div class="center">
+						{{form.comment}} <!-- rendering the username field -->
+			</div>
+				
+						<br><br>
+						<div class="center">
+					<input class="btn btn-success" type="submit" name="Update Information">
+				</div>
+				<br>
+			</form>
+			
+				<!-- <a href="{% url 'feedback-thanks' %}"><button type="button" class="btn btn-success">submit</button></a>
+				<a href="{% url 'home' %}"><button type="button" class="btn btn-danger" >Cancel</button> </a>
+					 -->
+		</div>
+	</div>
+	{{form.errors}} <!--send a notification of why account was not created -->
+
+
+		<script>
+			/* 
+//set placeholder values in forms.py start indexing at one because CSRF_token is considered and input field 
+*/
+
+
+//Query All input fields
+var form_fields = document.getElementsByTagName('input')
+form_fields[1].placeholder='comment...';
+
+
+for (var field in form_fields){	
+form_fields[field].className += ' form-control'
+}
+</script>
+<!-- Include the plugin's CSS and JS: -->
+<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+<link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
+{% endblock content %}

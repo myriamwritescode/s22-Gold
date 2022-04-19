@@ -1,0 +1,75 @@
+{%  extends 'accounts/main.html' %}
+{% block content %}
+	<!-- Include Twitter Bootstrap and jQuery: -->
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<style>
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);
+
+
+	
+.container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box; 
+	/* width: 50%;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; */
+  font-family: Arial;
+	
+}
+
+.rating-wrap{
+	max-width: 480px;
+	margin: auto;
+	padding: 10px;
+	box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
+	text-align: center;
+	background: #A4C2F4;
+}
+
+.center{
+	width: 162px; 
+	margin: auto;
+}
+
+
+#rating-value{	
+	width: 210px;
+	margin: 40px auto 0;
+	padding: 10px 5px;
+	text-align: center;
+	box-shadow: inset 0 0 2px 1px #D1B000;
+	background: #ffff;
+}
+
+</style>
+
+
+
+	<div class="container">
+	
+		<div class="rating-wrap">
+	
+			<strong><h1>Feedback</h1></strong>
+			<br><br>
+			<h3>Thank you for taking the time to give us your valuable feedback.<br>
+			
+				<br>
+				<a class="btn btn-warning" href="{% url 'home' %}">  Back to Profile</a>
+					
+		</div>
+	</div>
+
+	
+	
+<!-- Include the plugin's CSS and JS: -->
+<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+<link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
+{% endblock content %}

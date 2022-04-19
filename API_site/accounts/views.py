@@ -24,7 +24,7 @@ import requests
 import json
 
 from .models import *
-from .forms import CreateUserForm, CustomerForm  # we need to import to pass it to the template
+from .forms import CreateUserForm, CustomerForm,FeedbackForm  # we need to import to pass it to the template
 # from .filters import OrderFilter
 from .decorators import unauthenticated_user, allowed_users, admin_only  # permision
 
@@ -94,8 +94,25 @@ def home(request):
 @allowed_users(allowed_roles=['customer', 'admin'])
 def userPage(request):
     return render(request, 'accounts/profile.html')
-
-
+# --------------------------------------------------------------------------Feedback page
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['admin','customer'])
+def feedbackpage(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('feedback-thanks')
+    else:
+        form = FeedbackForm()
+    context = {'form':form}
+    return render(request, 'accounts/feedback.html', context)
+# --------------------------------------------------------------------------Feedback page
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer', 'admin'])
+def feedbackpageThanks(request):
+	
+	return render(request, 'accounts/feedbackThanks.html')
 # --------------------------------------------------------------------------User comaper home page
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer', 'admin'])
