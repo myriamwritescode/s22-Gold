@@ -40,14 +40,14 @@
 				<strong><br>Address</strong><br><br>
 			
 			<label for="street_line1">Street: </label>
-				<input id="street_line1" type="text" name="street_line1" value="{{ form.street_line1.value }}">
+				<input id="street_line1" type="text" name="street_line1" value="{{ form.street_line1.value }}" required>
 			
 				<label for="city">City: </label> 
-				<input id="city" type="text" name="city" value="{{ form.city.value }}">
+				<input id="city" type="text" name="city" value="{{ form.city.value }}" required>
 
 				<label for="state">State: </label>
 				<select name="state" size="1">
-					<option id="state" type="text" name="state" value="{{ form.state.value }}">{{ form.state.value }}</option>
+					<option id="state" type="text" name="state" value="{{ form.state.value }}" required>{{ form.state.value }}</option>
 					<option value="AL">AL</option>
 					<option value="AK">AK</option>
 					<option value="AZ">AZ</option>
@@ -101,7 +101,7 @@
 					</select>
 
 				<label for="zipcode">zipcode: </label>
-				<input id="zipcode" type="text" name="zipcode" value="{{ form.zipcode.value }}">
+				<input id="zipcode" type="text" name="zipcode" value="{{ form.zipcode.value }}" required>
 			
 				<br><br>
 
