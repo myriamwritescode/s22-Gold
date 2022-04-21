@@ -1,14 +1,14 @@
 {
   "normalizedInput": {
-    "line1": "980 Grape Street",
-    "city": "Denver",
-    "state": "CO",
-    "zip": "80220"
+    "line1": "1037 West 39th Street",
+    "city": "Norfolk",
+    "state": "VA",
+    "zip": "23508"
   },
   "kind": "civicinfo#representativeInfoResponse",
   "divisions": {
-    "ocd-division/country:us/state:co/cd:1": {
-      "name": "Colorado's 1st congressional district",
+    "ocd-division/country:us/state:va/cd:3": {
+      "name": "Virginia's 3rd congressional district",
       "officeIndices": [
         0
       ]
@@ -17,7 +17,7 @@
   "offices": [
     {
       "name": "U.S. Representative",
-      "divisionId": "ocd-division/country:us/state:co/cd:1",
+      "divisionId": "ocd-division/country:us/state:va/cd:3",
       "levels": [
         "country"
       ],
@@ -31,10 +31,10 @@
   ],
   "officials": [
     {
-      "name": "Diana DeGette",
+      "name": "Robert C. Scott",
       "address": [
         {
-          "line1": "2111 Rayburn House Office Building",
+          "line1": "2328 Rayburn House Office Building",
           "city": "Washington",
           "state": "DC",
           "zip": "20515"
@@ -42,30 +42,30 @@
       ],
       "party": "Democratic Party",
       "phones": [
-        "(202) 225-4431"
+        "(202) 225-8351"
       ],
       "urls": [
-        "https://degette.house.gov/",
-        "https://en.wikipedia.org/wiki/Diana_DeGette"
+        "https://bobbyscott.house.gov/",
+        "https://en.wikipedia.org/wiki/Bobby_Scott_%28politician%29"
       ],
-      "photoUrl": "http://degette.house.gov/sites/degette.house.gov/files/styles/congress_image_medium/public/wysiwyg_uploaded/DLD%20High%20Res%205x7_1.JPG?itok=CuIkDIeB",
+      "photoUrl": "http://bioguide.congress.gov/bioguide/photo/S/S000185.jpg",
       "channels": [
         {
           "type": "Facebook",
-          "id": "DianaDeGette"
+          "id": "RepBobbyScott"
         },
         {
           "type": "Twitter",
-          "id": "RepDianaDeGette"
+          "id": "BobbyScott"
         },
         {
           "type": "YouTube",
-          "id": "RepDianaDeGette"
+          "id": "RepBobbyScott"
         }
       ],
       "geocodingSummaries": [
         {
-          "queryString": "2111 Rayburn House Office Building, Washington, DC 20515-0601",
+          "queryString": "2328 Rayburn House Office Building, Washington, DC 20515-4603",
           "featureId": {
             "cellId": "9923602067032561107",
             "fprint": "3004281461341646448"

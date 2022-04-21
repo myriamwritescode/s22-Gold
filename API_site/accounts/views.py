@@ -29,6 +29,9 @@ from .forms import CreateUserForm, CustomerForm, FeedbackForm  # we need to impo
 from .decorators import unauthenticated_user, allowed_users, admin_only  # permission
 
 
+BIOGUIDE_ID ='W000805'
+DISTRICT = 2
+
 # -------------------------------------------------------------------------------User Registration
 @unauthenticated_user
 def registerPage(request):
@@ -136,8 +139,11 @@ def valuePage(request):
         user_state = current_user.state
         user_district = current_user.district
     else:
-        user_state = 'VA'
-        user_district = 2
+        
+        constituent = TestElectedOfficial.objects.get(bioguide_id=BIOGUIDE_ID)
+        legislator_model = TestElectedOfficial.objects.filter(bioguide_id=BIOGUIDE_ID)
+        user_district = DISTRICT
+        user_state = constituent.state
 
     print('FIND USER STATE HERE: ')
     print(user_state)
@@ -175,8 +181,10 @@ def resultsDatalegislative(request, pk_test):
 
         alldata.append(votedata)
     else:
-        user_district = 2
-        legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
+        #user_district = 2
+        #constituent = TestElectedOfficial.objects.get(bioguide_id=BIOGUIDE_ID)
+        legislator_model = TestElectedOfficial.objects.filter(bioguide_id=BIOGUIDE_ID)
+        user_district = DISTRICT
         votedata = create_list_single_legislator(legislator_model, user_district)
         alldata.append(votedata)
         print("legislative")
@@ -215,10 +223,9 @@ def valuePagelearnmore(request, pk_test):
         user_score.append(constituent.infrastructure)
         user_score.append(constituent.science)
     else:
-        # constituent = TestElectedOfficial.objects.get(bioguide_id='W000805')
-        user_district = 2
-        # Create a list of the user's legislator's ids
-        legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
+        constituent = TestElectedOfficial.objects.get(bioguide_id=BIOGUIDE_ID)
+        legislator_model = TestElectedOfficial.objects.filter(bioguide_id=BIOGUIDE_ID)
+        user_district = DISTRICT
         votedata_legislative = create_list_single_legislator(legislator_model, user_district)
         user_score.append(votedata_legislative[0]['agriculture'])
         user_score.append(votedata_legislative[1]['military_and_veterans'])
@@ -354,8 +361,11 @@ def resultsData(request):
         votedata.append({'science': constituent.science})
     else:
         # Create a list of the user's legislator's ids
-        user_district = 2
-        legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
+        #constituent = TestElectedOfficial.objects.get(bioguide_id=BIOGUIDE_ID)
+        legislator_model = TestElectedOfficial.objects.filter(bioguide_id=BIOGUIDE_ID)
+        user_district = DISTRICT
+        #user_district =constituent.district
+        #user_state = constituent.state
         votedata = create_list_single_legislator(legislator_model, user_district)
 
     return JsonResponse(votedata, safe=False)
@@ -385,11 +395,15 @@ def resultsDatalegislativeMulti(request):
         votedata.append({'science': constituent.science})
     else:
         # constituent = TestElectedOfficial.objects.get(bioguide_id='W000805')
-        user_district = 2
+        constituent = TestElectedOfficial.objects.get(bioguide_id=BIOGUIDE_ID)
+        #user_district =constituent.district
+        user_state = constituent.state
+        user_district = DISTRICT
         legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
         votedata = create_list_single_legislator(legislator_model, user_district)
         # alldata.append(votedata)
         print("legislative")
+        print(user_district)
     # add legislative
     # get all 3 bioguide_ids 
     # for each bioguide_id return list of value scores using create_single...
@@ -403,9 +417,7 @@ def resultsDatalegislativeMulti(request):
                 current_user.save()
         user_state = current_user.state
         user_district = current_user.district
-    else:
-        user_state = 'VA'
-        user_district = 2
+    
 
     legislators_model = TestElectedOfficial.objects.filter(state__exact=user_state)
     data = create_dict_multi_legislators(legislators_model, user_district)
@@ -471,8 +483,11 @@ def resultsDataDemographics(request):
         total_demographics = Customer.objects.all().filter(Age=constituent.Age).count()
         myfilter = Customer.objects.all().filter(Age=constituent.Age)
     else:
-        legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
-        votedata = create_list_single_legislator(legislator_model, 2)
+        constituent = TestElectedOfficial.objects.get(bioguide_id=BIOGUIDE_ID)
+        legislator_model = TestElectedOfficial.objects.filter(bioguide_id=BIOGUIDE_ID)
+        user_district = DISTRICT
+        user_state = constituent.state
+        votedata = create_list_single_legislator(legislator_model, user_district)
         myfilter = Customer.objects.all()
         total_demographics = Customer.objects.all().count()
         print("legislative")
