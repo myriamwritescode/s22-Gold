@@ -1,14 +1,14 @@
 {
   "normalizedInput": {
-    "line1": "1037 West 39th Street",
-    "city": "Norfolk",
-    "state": "VA",
-    "zip": "23508"
+    "line1": "5501 Reno Highway",
+    "city": "Fallon",
+    "state": "NV",
+    "zip": "89406"
   },
   "kind": "civicinfo#representativeInfoResponse",
   "divisions": {
-    "ocd-division/country:us/state:va": {
-      "name": "Virginia",
+    "ocd-division/country:us/state:nv": {
+      "name": "Nevada",
       "officeIndices": [
         0
       ]
@@ -17,7 +17,7 @@
   "offices": [
     {
       "name": "U.S. Senator",
-      "divisionId": "ocd-division/country:us/state:va",
+      "divisionId": "ocd-division/country:us/state:nv",
       "levels": [
         "country"
       ],
@@ -32,10 +32,10 @@
   ],
   "officials": [
     {
-      "name": "Mark R. Warner",
+      "name": "Catherine Cortez Masto",
       "address": [
         {
-          "line1": "703 Hart Senate Office Building",
+          "line1": "516 Hart Senate Office Building",
           "city": "Washington",
           "state": "DC",
           "zip": "20510"
@@ -43,30 +43,30 @@
       ],
       "party": "Democratic Party",
       "phones": [
-        "(202) 224-2023"
+        "(202) 224-3542"
       ],
       "urls": [
-        "https://warner.senate.gov/",
-        "https://en.wikipedia.org/wiki/Mark_Warner"
+        "https://www.cortezmasto.senate.gov/",
+        "https://en.wikipedia.org/wiki/Catherine_Cortez_Masto"
       ],
-      "photoUrl": "http://bioguide.congress.gov/bioguide/photo/W/W000805.jpg",
+      "photoUrl": "http://bioguide.congress.gov/bioguide/photo/C/C001113.jpg",
       "channels": [
         {
           "type": "Facebook",
-          "id": "MarkRWarner"
+          "id": "SenatorCortezMasto"
         },
         {
           "type": "Twitter",
-          "id": "MarkWarner"
+          "id": "SenCortezMasto"
         },
         {
           "type": "YouTube",
-          "id": "SenatorMarkWarner"
+          "id": "UCip_83SiKUqwnUT57VOXrCg"
         }
       ],
       "geocodingSummaries": [
         {
-          "queryString": "703 Hart Senate Office Building, Washington DC 20510",
+          "queryString": "516 Hart Senate Office Building, Washington DC 20510",
           "featureId": {
             "cellId": "9923602661160726555",
             "fprint": "13491012159388313795"
@@ -78,10 +78,10 @@
       ]
     },
     {
-      "name": "Tim Kaine",
+      "name": "Jacky Rosen",
       "address": [
         {
-          "line1": "231 Russell Senate Office Building",
+          "line1": "144 Russell Senate Office Building",
           "city": "Washington",
           "state": "DC",
           "zip": "20510"
@@ -89,30 +89,25 @@
       ],
       "party": "Democratic Party",
       "phones": [
-        "(202) 224-4024"
+        "(202) 224-6244"
       ],
       "urls": [
-        "https://www.kaine.senate.gov/",
-        "https://en.wikipedia.org/wiki/Tim_Kaine"
+        "https://www.rosen.senate.gov/",
+        "https://en.wikipedia.org/wiki/Jacky_Rosen"
       ],
-      "photoUrl": "http://bioguide.congress.gov/bioguide/photo/K/K000384.jpg",
       "channels": [
         {
           "type": "Facebook",
-          "id": "timkaine"
+          "id": "SenJackyRosen"
         },
         {
           "type": "Twitter",
-          "id": "timkaine"
-        },
-        {
-          "type": "YouTube",
-          "id": "SenatorTimKaine"
+          "id": "senjackyrosen"
         }
       ],
       "geocodingSummaries": [
         {
-          "queryString": "231 Russell Senate Office Building, Washington DC 20510",
+          "queryString": "144 Russell Senate Office Building, Washington DC 20510",
           "featureId": {
             "cellId": "9923602777983093035",
             "fprint": "16754435804240149550"

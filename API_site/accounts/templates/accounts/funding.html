@@ -2,8 +2,19 @@
 {% block content %}
 {% load static %}
 
-<div>
-    text
-</div>
+<div class="row">
+    <div class="col-md-3">
+		<div class="card card-body">
+			<a class="btn btn-warning" href="{% url 'user-learn-more' representative.bioguide_id %}"> &#8592; Back to Learn More</a>
+			<hr>
+			<h3 style="text-align: center">Funding for<br>{{representative.full_name}}</h3>
+		</div>
+	</div>
+    <div class="col-md-9">
+		<div class="card card-body">
+            <h3 style="color:red; font-size:20px;">Under Construction</h3>
 
+        </div>
+    </div>
+</div>
 {% endblock %}
