@@ -1,6 +1,6 @@
 '''
 
-this handels the responds and render for all request for this application
+this handles the response and render for all request for this application
 
 '''
 
@@ -10,7 +10,7 @@ from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm  # <---django forms for authentication
 from django.contrib.auth import authenticate, login, logout  # <---authentication
 from django.contrib import messages  # <---this for flash messages: one-time message send to the template
-from django.contrib.auth.decorators import login_required  # <---for every view that need to be restiction
+from django.contrib.auth.decorators import login_required  # <---for every view that need to be restriction
 from django.contrib.auth.models import Group
 from django.urls import reverse
 from django.http import JsonResponse
@@ -24,16 +24,9 @@ import requests
 import json
 
 from .models import *
-from .forms import CreateUserForm, CustomerForm,FeedbackForm  # we need to import to pass it to the template
+from .forms import CreateUserForm, CustomerForm, FeedbackForm  # we need to import to pass it to the template
 # from .filters import OrderFilter
-from .decorators import unauthenticated_user, allowed_users, admin_only  # permision
-
-
-# def home(request):
-# return HttpResponse('home page') #static HttpResponse
-# @login_required(login_url='login')
-# @allowed_users(allowed_roles=['customer', 'admin'])
-# def valuePage(request):
+from .decorators import unauthenticated_user, allowed_users, admin_only  # permission
 
 
 # -------------------------------------------------------------------------------User Registration
@@ -94,9 +87,11 @@ def home(request):
 @allowed_users(allowed_roles=['customer', 'admin'])
 def userPage(request):
     return render(request, 'accounts/profile.html')
+
+
 # --------------------------------------------------------------------------Feedback page
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['admin','customer'])
+@allowed_users(allowed_roles=['admin', 'customer'])
 def feedbackpage(request):
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
@@ -105,14 +100,17 @@ def feedbackpage(request):
             return redirect('feedback-thanks')
     else:
         form = FeedbackForm()
-    context = {'form':form}
+    context = {'form': form}
     return render(request, 'accounts/feedback.html', context)
+
+
 # --------------------------------------------------------------------------Feedback page
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer', 'admin'])
 def feedbackpageThanks(request):
-
     return render(request, 'accounts/feedbackThanks.html')
+
+
 # --------------------------------------------------------------------------User comaper home page
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer', 'admin'])
@@ -124,28 +122,11 @@ def comparePage(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer', 'admin'])
 def valuePage(request):
-    # if hasattr(request.user, 'customer'):
-    #     constituent = request.user.customer
-    #
-    #     if Represent.objects.filter(anonymous__name=constituent.name).count() > 0:
-    #         mysenators = Represent.objects.filter(anonymous__name=constituent.name)
-    #         noelective = False
-    #
-    #     else:
-    #         mysenators = Representative.objects.all()
-    #         noelective = True
-    # else:
-    #     mysenators = Representative.objects.all()
-    #     noelective = True
-    #
-    # print(mysenators)
-    # return render(request, 'accounts/value.html', {'senators': mysenators, 'noelective' : noelective})  # this is a dictionary {key: value}
-
     # Create a list of the user's legislator's ids
     if hasattr(request.user, 'customer'):
         current_user = request.user.customer
 
-        if current_user.district == None:
+        if current_user.district is None:
             print('ACCESSING IF STATEMENT')
             with open("representatives.json") as rep:
                 data = json.load(rep)
@@ -191,36 +172,21 @@ def resultsDatalegislative(request, pk_test):
         votedata.append({'environment': constituent.environment})
         votedata.append({'infrastructure': constituent.infrastructure})
         votedata.append({'science': constituent.science})
-        # votedata.append({'food_and_agricultur_value': constituent.food_and_agriculture})
-        # votedata.append({'socialsecurity_or_unemployment': constituent.socialsecurity_or_unemployment})
 
         alldata.append(votedata)
     else:
-        # constituent = TestElectedOfficial.objects.get(bioguide_id='W000805')
         user_district = 2
         legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
         votedata = create_list_single_legislator(legislator_model, user_district)
         alldata.append(votedata)
         print("legislative")
 
-        # Create a list of the user's legislator's ids
-
-        # data = create_dict_multi_legislators(legislator_model)
-
-        # alldata.append(data)
-
     # grab the by the ID of the model
     legislative_model = TestElectedOfficial.objects.filter(bioguide_id=pk_test)
-    # legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
-
-
 
     votedata_legislative = create_list_single_legislator(legislative_model, user_district)
 
     alldata.append(votedata_legislative)
-    # grab the all the choices
-
-    # print(alldata)
 
     return JsonResponse(alldata, safe=False)  # send it to the javascript
 
@@ -248,10 +214,8 @@ def valuePagelearnmore(request, pk_test):
         user_score.append(constituent.environment)
         user_score.append(constituent.infrastructure)
         user_score.append(constituent.science)
-        # user_score.append(constituent.food_and_agriculture)
-        # user_score.append(constituent.socialsecurity_or_unemployment)
     else:
-        constituent = TestElectedOfficial.objects.get(bioguide_id='W000805')
+        # constituent = TestElectedOfficial.objects.get(bioguide_id='W000805')
         user_district = 2
         # Create a list of the user's legislator's ids
         legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
@@ -266,8 +230,6 @@ def valuePagelearnmore(request, pk_test):
         user_score.append(votedata_legislative[7]['environment'])
         user_score.append(votedata_legislative[8]['infrastructure'])
         user_score.append(votedata_legislative[9]['science'])
-        # user_score.append(votedata_legislative[10]['food_and_agricultur_value'])
-        # user_score.append(votedata_legislative[11]['socialsecurity_or_unemployment'])
 
     # grab the by the ID of the model
     # legislative = TestElectedOfficial.objects.get(bioguide_id=pk_test)
@@ -284,18 +246,14 @@ def valuePagelearnmore(request, pk_test):
     legislative_score.append(legislator_vote_date[7]['environment'])
     legislative_score.append(legislator_vote_date[8]['infrastructure'])
     legislative_score.append(legislator_vote_date[9]['science'])
-    # legislative_score.append(legislator_vote_date[10]['food_and_agricultur_value'])
-    # legislative_score.append(legislator_vote_date[11]['socialsecurity_or_unemployment'])
 
-
-    #     constituent = Representative.objects.get(id=1)
     legislative = TestElectedOfficial.objects.get(bioguide_id=pk_test)
     service_vector = NP.subtract(user_score, legislative_score)
 
     # find magnitude of the resulting vector
     servicescore = math.sqrt(sum(pow(element, 2) for element in
                                  service_vector))
-    #
+
     # print("service score:", round(servicescore, 2))
 
     return render(request, 'accounts/learn_more.html',
@@ -320,14 +278,12 @@ def accountSettings(request):
 
         # url pieces and parsing
         url_head = "https://civicinfo.googleapis.com/civicinfo/v2/representatives?address="
-        senator_url = "&includeOffices=true&levels=country&roles=legislatorUpperBody&key=AIzaSyA2yJqqdsAUV33ryKp50gq5Njs4UC6o3bc"
+        # senator_url = "&includeOffices=true&levels=country&roles=legislatorUpperBody&key=AIzaSyA2yJqqdsAUV33ryKp50gq5Njs4UC6o3bc"
         representative_url = "&includeOffices=true&levels=country&roles=legislatorLowerBody&key=AIzaSyA2yJqqdsAUV33ryKp50gq5Njs4UC6o3bc"
-
 
         # formatting address info into url arguments
         cat_address_compnents = street_addr + " " + city + " " + state
         address = cat_address_compnents.replace(" ", "%20")
-
 
         # prepare request for senator info and write to a json
         # senator = url_head + address + senator_url
@@ -340,15 +296,6 @@ def accountSettings(request):
         rep_response = requests.get(representative).text
         with open("representatives.json", "w", encoding="utf-8") as rep_file:
             rep_file.write(rep_response)
-
-        # with open("representatives.json") as rep:
-        #     data = json.load(rep)
-        #     google_district = data['offices'][0]['divisionId'][-1]
-        #     # checking output, delete later
-        #     print("Google District: " + google_district)
-        #     form = CustomerForm(request.POST, instance=customer)
-        #     Customer.objects.filter(name = form.name).update(
-        #         district=google_district)
 
         form = CustomerForm(request.POST,
                             instance=customer)  # <---no pillow (request.POST, request.FILES,instance=customer)
@@ -375,33 +322,6 @@ def accountSettings(request):
             sum += int(request.POST.get('environment'))
             sum += int(request.POST.get('infrastructure'))
             sum += int(request.POST.get('science'))
-
-            # form.military = request.POST.get('military')
-            # form.government = request.POST.get('government')
-            # form.education = request.POST.get('education')
-            # form.healthcare_and_medicare = request.POST.get('healthcare_and_medicare')
-            # form.veteran_affairs = request.POST.get('veteran_affairs')
-            # form.housing_and_labor = request.POST.get('housing_and_labor')
-            # form.international_affairs = request.POST.get('international_affairs')
-            # form.energy_and_environment = request.POST.get('energy_and_environment')
-            # form.Science = request.POST.get('Science')
-            # form.transportation_and_infrastructure = request.POST.get('transportation_and_infrastructure')
-            # form.food_and_agriculture = request.POST.get('food_and_agriculture')
-            # form.socialsecurity_or_unemployment = request.POST.get('socialsecurity_or_unemployment')
-            #
-            # sum = 0
-            # sum += int(request.POST.get('military'))
-            # sum += int(request.POST.get('government'))
-            # sum += int(request.POST.get('education'))
-            # sum += int(request.POST.get('healthcare_and_medicare'))
-            # sum += int(request.POST.get('veteran_affairs'))
-            # sum += int(request.POST.get('housing_and_labor'))
-            # sum += int(request.POST.get('international_affairs'))
-            # sum += int(request.POST.get('energy_and_environment'))
-            # sum += int(request.POST.get('Science'))
-            # sum += int(request.POST.get('transportation_and_infrastructure'))
-            # sum += int(request.POST.get('food_and_agriculture'))
-            # sum += int(request.POST.get('socialsecurity_or_unemployment'))
 
             if (sum == 100):
                 form.save()
@@ -432,31 +352,14 @@ def resultsData(request):
         votedata.append({'environment': constituent.environment})
         votedata.append({'infrastructure': constituent.infrastructure})
         votedata.append({'science': constituent.science})
-
-        # votedata.append({'military': constituent.military})
-        # votedata.append({'government': constituent.government})
-        # votedata.append({'education': constituent.education})
-        # votedata.append({'healthcare_and_medicare': constituent.healthcare_and_medicare})
-        # votedata.append({'veteran_affairs': constituent.veteran_affairs})
-        # votedata.append({'housing_and_labor': constituent.housing_and_labor})
-        # votedata.append({'international_affairs': constituent.international_affairs})
-        # votedata.append({'energy_and_environment': constituent.energy_and_environment})
-        # votedata.append({'Science': constituent.Science})
-        # votedata.append({'transportation_and_infrastructure': constituent.transportation_and_infrastructure})
-        # votedata.append({'food_and_agricultur_value': constituent.food_and_agriculture})
-        # votedata.append({'socialsecurity_or_unemployment': constituent.socialsecurity_or_unemployment})
     else:
-        # constituent = TestElectedOfficial.objects.get(bioguide_id='W000805')
-        # full_list = []
         # Create a list of the user's legislator's ids
         user_district = 2
         legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
         votedata = create_list_single_legislator(legislator_model, user_district)
-        #votedata.append(legislator_vote_data)
-        print("legislator")
-        # print(votedata)
 
     return JsonResponse(votedata, safe=False)
+
 
 # -------------------------------------------------------Graphing the result Data
 @login_required(login_url='login')
@@ -464,7 +367,7 @@ def resultsData(request):
 def resultsDatalegislativeMulti(request):
     votedata = []  # built and empty array
     alldata = []
-    legislators_name =[]
+    legislators_name = []
     if hasattr(request.user, 'customer'):
         current_user = request.user.customer
         user_district = current_user.district
@@ -480,48 +383,24 @@ def resultsDatalegislativeMulti(request):
         votedata.append({'environment': constituent.environment})
         votedata.append({'infrastructure': constituent.infrastructure})
         votedata.append({'science': constituent.science})
-
-        # votedata.append({'military': constituent.military})
-        # votedata.append({'government': constituent.government})
-        # votedata.append({'education': constituent.education})
-        # votedata.append({'healthcare_and_medicare': constituent.healthcare_and_medicare})
-        # votedata.append({'veteran_affairs': constituent.veteran_affairs})
-        # votedata.append({'housing_and_labor': constituent.housing_and_labor})
-        # votedata.append({'international_affairs': constituent.international_affairs})
-        # votedata.append({'energy_and_environment': constituent.energy_and_environment})
-        # votedata.append({'Science': constituent.Science})
-        # votedata.append({'transportation_and_infrastructure': constituent.transportation_and_infrastructure})
-        # votedata.append({'food_and_agricultur_value': constituent.food_and_agriculture})
-        # votedata.append({'socialsecurity_or_unemployment': constituent.socialsecurity_or_unemployment})
-
-        #alldata.append(votedata)
     else:
         # constituent = TestElectedOfficial.objects.get(bioguide_id='W000805')
         user_district = 2
         legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
         votedata = create_list_single_legislator(legislator_model, user_district)
-        #alldata.append(votedata)
+        # alldata.append(votedata)
         print("legislative")
     # add legislative
     # get all 3 bioguide_ids 
     # for each bioguide_id return list of value scores using create_single...
-    #num =
 
     if hasattr(request.user, 'customer'):
         current_user = request.user.customer
-        print('FIND USER STATE HERE: ')
-        print(current_user.state)
-
         if current_user.district is None:
-            print('ACCESSING IF STATEMENT')
             with open("representatives.json") as rep:
                 data = json.load(rep)
                 current_user.district = data['offices'][0]['divisionId'][-1]
                 current_user.save()
-
-        # current_user.update(district=)
-        print('FIND USER DISTRICT HERE: ')
-        print(current_user.district)
         user_state = current_user.state
         user_district = current_user.district
     else:
@@ -530,34 +409,33 @@ def resultsDatalegislativeMulti(request):
 
     legislators_model = TestElectedOfficial.objects.filter(state__exact=user_state)
     data = create_dict_multi_legislators(legislators_model, user_district)
-    all_id =[]
+    all_id = []
     for i in range(3):
         try:
             all_id.append(data['full_list'][i]['bioguide_id'])
             print(data['full_list'][i]['bioguide_id'])
-            legislators_name.append({data['full_list'][i]['full_name']:0})
-            print({data['full_list'][i]['full_name']:0})
+            legislators_name.append({data['full_list'][i]['full_name']: 0})
+            print({data['full_list'][i]['full_name']: 0})
             print('FOR i TRY EXECUTED')
         except IndexError:
             break
-    
-    #print ("\n-----------allID------------")
-    #print(all_id)
+
     for i in range(7):
-        legislators_name.append({'name':0})
-        print({'name':0})
-        
+        legislators_name.append({'name': 0})
+        print({'name': 0})
+
     alldata.append(votedata)
 
     for i in all_id:
         legislator_model = TestElectedOfficial.objects.filter(bioguide_id=i)
-        votedata_legislative= create_list_single_legislator(legislator_model, user_district)
+        votedata_legislative = create_list_single_legislator(legislator_model, user_district)
         alldata.append(votedata_legislative)
 
-    alldata.append(legislators_name)    
-    # print(alldata)
+    alldata.append(legislators_name)
 
-    return JsonResponse(alldata, safe=False) 
+    return JsonResponse(alldata, safe=False)
+
+
 # -------------------------------------------------------Graphing the result Data
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer', 'admin'])
@@ -576,26 +454,6 @@ def resultsDataDemographics(request):
     demographics_infrastructure_value = 0
     demographics_science_and_technology_value = 0
 
-    # demographics_military_value = 0
-    # demographics_government_value = 0
-    # demographics_education_value = 0
-    # demographics_healthcare_and_medicare_value = 0
-    # demographics_veteran_affairs_value = 0
-    # demographics_housing_and_labor_value = 0
-    # demographics_international_affairs_value = 0
-    # demographics_energy_and_environment_value = 0
-    # demographics_Science_value = 0
-    # demographics_transportation_and_infrastructure_value = 0
-    # demographics_food_and_agricultur_value = 0
-    # demographics_socialsecurity_or_unemployment_value = 0
-    # if hasattr(request.user, 'customer'):
-    #     constituent = request.user.customer  # grab the by the ID of the model
-    #     total_demographics = Customer.objects.all().filter(Age=constituent.Age).count()
-    #     myfilter = Customer.objects.all().filter(Age=constituent.Age)
-    # else:
-    #     constituent = Representative.objects.get(id=1)
-    #     total_demographics = Customer.objects.all().count()
-    #     myfilter = Customer.objects.all()
     if hasattr(request.user, 'customer'):
         constituent = request.user.customer  # grab the by the ID of the model
         print("constituent")
@@ -610,41 +468,14 @@ def resultsDataDemographics(request):
         votedata.append({'infrastructure': constituent.infrastructure})
         votedata.append({'science': constituent.science})
 
-        # votedata.append({'military': constituent.military})
-        # votedata.append({'government': constituent.government})
-        # votedata.append({'education': constituent.education})
-        # votedata.append({'healthcare_and_medicare': constituent.healthcare_and_medicare})
-        # votedata.append({'veteran_affairs': constituent.veteran_affairs})
-        # votedata.append({'housing_and_labor': constituent.housing_and_labor})
-        # votedata.append({'international_affairs': constituent.international_affairs})
-        # votedata.append({'energy_and_environment': constituent.energy_and_environment})
-        # votedata.append({'Science': constituent.Science})
-        # votedata.append({'transportation_and_infrastructure': constituent.transportation_and_infrastructure})
-        # votedata.append({'food_and_agricultur_value': constituent.food_and_agriculture})
-        # votedata.append({'socialsecurity_or_unemployment': constituent.socialsecurity_or_unemployment})
         total_demographics = Customer.objects.all().filter(Age=constituent.Age).count()
         myfilter = Customer.objects.all().filter(Age=constituent.Age)
-        # alldata.append(votedata)
     else:
-        # constituent = TestElectedOfficial.objects.get(bioguide_id='W000805')
         legislator_model = TestElectedOfficial.objects.filter(bioguide_id='W000805')
         votedata = create_list_single_legislator(legislator_model, 2)
-        # alldata.append(votedata)
         myfilter = Customer.objects.all()
         total_demographics = Customer.objects.all().count()
         print("legislative")
-    # votedata.append({'military': constituent.military})
-    # votedata.append({'government': constituent.government})
-    # votedata.append({'education': constituent.education})
-    # votedata.append({'healthcare_and_medicare': constituent.healthcare_and_medicare})
-    # votedata.append({'veteran_affairs': constituent.veteran_affairs})
-    # votedata.append({'housing_and_labor': constituent.housing_and_labor})
-    # votedata.append({'international_affairs': constituent.international_affairs})
-    # votedata.append({'energy_and_environment': constituent.energy_and_environment})
-    # votedata.append({'Science': constituent.Science})
-    # votedata.append({'transportation_and_infrastructure': constituent.transportation_and_infrastructure})
-    # votedata.append({'food_and_agricultur_value': constituent.food_and_agriculture})
-    # votedata.append({'socialsecurity_or_unemployment': constituent.socialsecurity_or_unemployment})
 
     for i in myfilter:
         demographics_agriculture_value += i.agriculture
@@ -657,19 +488,6 @@ def resultsDataDemographics(request):
         demographics_environment_value += i.environment
         demographics_infrastructure_value += i.infrastructure
         demographics_science_and_technology_value += i.science
-
-        # demographics_military_value += i.military
-        # demographics_government_value += i.government
-        # demographics_education_value += i.education
-        # demographics_healthcare_and_medicare_value += i.healthcare_and_medicare
-        # demographics_veteran_affairs_value += i.veteran_affairs
-        # demographics_housing_and_labor_value += i.housing_and_labor
-        # demographics_international_affairs_value += i.international_affairs
-        # demographics_energy_and_environment_value += i.energy_and_environment
-        # demographics_Science_value += i.Science
-        # demographics_transportation_and_infrastructure_value += i.transportation_and_infrastructure
-        # demographics_food_and_agricultur_value += i.food_and_agriculture
-        # demographics_socialsecurity_or_unemployment_value += i.socialsecurity_or_unemployment
 
     # obtain average of result of filter demographics
     demographics_agriculture_value /= total_demographics
@@ -702,48 +520,9 @@ def resultsDataDemographics(request):
     demographics_science_and_technology_value /= total_demographics
     votedata_demographics.append({'science': demographics_science_and_technology_value})
 
-    # demographics_military_value /= total_demographics
-    # votedata_demographics.append({'military': demographics_military_value})
-    #
-    # demographics_government_value /= total_demographics
-    # votedata_demographics.append({'government': demographics_government_value})
-    #
-    # demographics_education_value /= total_demographics
-    # votedata_demographics.append({'education': demographics_education_value})
-    #
-    # demographics_healthcare_and_medicare_value /= total_demographics
-    # votedata_demographics.append({'healthcare_and_medicare': demographics_healthcare_and_medicare_value})
-    #
-    # demographics_veteran_affairs_value /= total_demographics
-    # votedata_demographics.append({'veteran_affairs': demographics_veteran_affairs_value})
-    #
-    # demographics_housing_and_labor_value /= total_demographics
-    # votedata_demographics.append({'housing_and_labor': demographics_housing_and_labor_value})
-    #
-    # demographics_international_affairs_value /= total_demographics
-    # votedata_demographics.append({'international_affairs': demographics_international_affairs_value})
-    #
-    # demographics_energy_and_environment_value /= total_demographics
-    # votedata_demographics.append({'energy_and_environment': demographics_energy_and_environment_value})
-    #
-    # demographics_Science_value /= total_demographics
-    # votedata_demographics.append({'Science': demographics_Science_value})
-    #
-    # demographics_transportation_and_infrastructure_value /= total_demographics
-    # votedata_demographics.append(
-    #     {'transportation_and_infrastructure': demographics_transportation_and_infrastructure_value})
-    #
-    # demographics_food_and_agricultur_value /= total_demographics
-    # votedata_demographics.append({'food_and_agricultur_value': demographics_food_and_agricultur_value})
-    #
-    # demographics_socialsecurity_or_unemployment_value /= total_demographics
-    # votedata_demographics.append({'socialsecurity_or_unemployment': demographics_socialsecurity_or_unemployment_value})
-
     # the construct the list that need to be graph
     alldata.append(votedata)
     alldata.append(votedata_demographics)
-
-    # print(alldata)
 
     return JsonResponse(alldata, safe=False)  # send it to the javascript
 
@@ -775,9 +554,9 @@ def bio(request, pk_test):
 @allowed_users(allowed_roles=['customer', 'admin'])
 def votes(request, pk_test):
     legislative = TestElectedOfficial.objects.get(bioguide_id=pk_test)
-    if(legislative.lis_id) :
+    if (legislative.lis_id):
         votes = TestVote.objects.filter(voter_id=legislative.lis_id)
-    else :
+    else:
         votes = TestVote.objects.filter(voter_id=legislative.bioguide_id)
 
     return render(request, 'accounts/votes.html', {'votes': votes, 'representative': legislative})
@@ -800,9 +579,7 @@ def create_dict_multi_legislators(model_id, user_district):
     full_list = []
     legislator_ids = []
 
-
     for legislator in model_id:
-        # This next line will need to be edited when we implement Google API
         if legislator.type == 'sen':
             legislator_ids.append(legislator.lis_id)
             full_list.append({'id': legislator.lis_id,
@@ -813,7 +590,6 @@ def create_dict_multi_legislators(model_id, user_district):
                               'agg': 0, 'mil': 0, 'ed': 0, 'intl': 0, 'def': 0,
                               'energy': 0, 'health': 0, 'env': 0, 'infra': 0,
                               'sci': 0})
-        # This next line will need to be edited when we implement Google AP
         elif legislator.district == user_district:
             legislator_ids.append(legislator.bioguide_id)
             full_list.append({'id': legislator.bioguide_id,
@@ -987,7 +763,6 @@ def create_dict_multi_legislators(model_id, user_district):
         person['sci'] = round(sci / total * 100)
 
     data = {'full_list': full_list}
-    # print (data)
 
     return data
 
@@ -996,7 +771,6 @@ def create_list_single_legislator(model_id, user_district):
     full_list = []
     legislator_ids = []
     for legislator in model_id:
-        # This next line will need to be edited when we implement Google API
         if legislator.type == 'sen':
             legislator_ids.append(legislator.lis_id)
             full_list.append({'id': legislator.lis_id,
@@ -1007,7 +781,6 @@ def create_list_single_legislator(model_id, user_district):
                               'agg': 0, 'mil': 0, 'ed': 0, 'intl': 0, 'def': 0,
                               'energy': 0, 'health': 0, 'env': 0, 'infra': 0,
                               'sci': 0})
-        # This next line will need to be edited when we implement Google AP
         elif legislator.district == user_district:
             legislator_ids.append(legislator.bioguide_id)
             full_list.append({'id': legislator.bioguide_id,
@@ -1192,9 +965,5 @@ def create_list_single_legislator(model_id, user_district):
         test_list.append({'environment': person['env']})
         test_list.append({'infrastructure': person['infra']})
         test_list.append({'science': person['sci']})
-        # test_list.append({'food_and_agricultur_value': 0})
-        # test_list.append({'socialsecurity_or_unemployment': 0})
 
     return test_list
-
-# dummy change that means nothing
